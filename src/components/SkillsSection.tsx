@@ -37,29 +37,38 @@ const SkillsSection = () => {
   return (
     <section id="habilidades" className="py-24 md:py-32 bg-sand-light/50">
       <div ref={ref} className="container mx-auto px-6">
-        <div className={`text-center mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <h2 className="font-display text-5xl md:text-6xl font-black text-foreground mb-4">
             Habilidades
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl">
             Competências que utilizo para transformar ideias em produtos digitais excepcionais.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className={`group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+              className={`group flex gap-6 p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <skill.icon className="w-6 h-6 text-primary" />
+              <div className="flex-shrink-0">
+                <span className="font-display text-4xl font-black text-primary/20 group-hover:text-primary/40 transition-colors">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
-              <h3 className="font-display font-semibold text-foreground mb-2">{skill.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{skill.description}</p>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <skill.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-display font-bold text-foreground text-lg">{skill.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{skill.description}</p>
+              </div>
             </div>
           ))}
         </div>
