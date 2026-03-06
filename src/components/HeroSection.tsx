@@ -1,5 +1,6 @@
 import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const stats = [
   { number: "5+", label: "Projetos" },
@@ -27,9 +28,7 @@ const HeroSection = () => {
         {/* Mobile: photo beside name */}
         <div className="flex items-center gap-5 mb-6 lg:hidden">
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-primary/10 overflow-hidden border border-border/50 shadow-lg flex-shrink-0">
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="font-display text-2xl sm:text-3xl font-extrabold text-primary">LF</span>
-            </div>
+            <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover" />
           </div>
           <div>
             <h1 className="font-display text-5xl sm:text-6xl font-extrabold text-foreground leading-[0.95] tracking-tight">
@@ -84,14 +83,7 @@ const HeroSection = () => {
           <div className="hidden lg:flex justify-center lg:justify-end" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
               <div className="w-72 h-72 md:w-[400px] md:h-[400px] rounded-3xl bg-primary/10 overflow-hidden border border-border/50 shadow-2xl">
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                  <div className="text-center space-y-3">
-                    <div className="w-28 h-28 rounded-full bg-primary/15 mx-auto flex items-center justify-center">
-                      <span className="font-display text-4xl font-extrabold text-primary">LF</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground/70">Sua foto aqui</p>
-                  </div>
-                </div>
+                <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-accent/30 blur-xl" />
               <div className="absolute -top-3 -left-3 w-14 h-14 rounded-full bg-primary/10 blur-lg" />

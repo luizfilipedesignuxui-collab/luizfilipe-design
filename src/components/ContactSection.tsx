@@ -29,15 +29,15 @@ const ContactSection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <a
-              href="mailto:contato@luizfilipe.com"
+              href="mailto:luizfilipe.designuxui@gmail.com"
               className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
             >
               <Mail className="w-5 h-5 text-primary" />
-              <span className="text-foreground font-medium">contato@luizfilipe.com</span>
+              <span className="text-foreground font-medium">luizfilipe.designuxui@gmail.com</span>
               <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
             <a
-              href="https://linkedin.com/in/luizfilipe"
+              href="https://www.linkedin.com/in/luiz-filipe-cardoso"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
@@ -49,7 +49,7 @@ const ContactSection = () => {
           </div>
 
           <Button size="lg" className="rounded-full px-10" asChild>
-            <a href="mailto:contato@luizfilipe.com">
+            <a href="mailto:luizfilipe.designuxui@gmail.com">
               Entrar em contato
             </a>
           </Button>
