@@ -33,7 +33,7 @@ export const projects: Project[] = [
     imagem_capa: pontuoMockup,
     categoria: "UX Design",
     ferramentas: ["Figma", "Figma Make", "Miro"],
-    galeria_de_imagens: [pontuoMockup2],
+    galeria_de_imagens: [pontuoMockup2, pontuoMockup3],
     contexto: "Usuários urbanos enfrentam dificuldades ao combinar diferentes meios de transporte diariamente. A fragmentação entre apps torna o planejamento de rotas ineficiente e frustrante.",
     objetivo: "Criar um app de mobilidade que unifique a experiência de transporte urbano, sugerindo as melhores combinações de modais considerando tempo, custo e sustentabilidade.",
     processo: {
