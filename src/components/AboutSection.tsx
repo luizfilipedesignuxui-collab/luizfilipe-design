@@ -30,13 +30,13 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-5 gap-16 items-start">
           {/* Left — Numbers highlight */}
           <div className="lg:col-span-2 space-y-8">
-            <h2 className="font-display text-5xl md:text-6xl font-black text-foreground leading-tight">
+            <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight">
               Sobre<br />mim
             </h2>
             <div className="grid grid-cols-3 gap-4">
               {highlights.map((h) => (
-                <div key={h.label} className="text-center p-4 rounded-2xl border border-border bg-background">
-                  <div className="font-display text-3xl md:text-4xl font-black text-primary">{h.number}</div>
+                <div key={h.label} className="text-center p-4 rounded-2xl border border-border bg-card/30">
+                  <div className="font-display text-3xl md:text-4xl font-extrabold text-accent">{h.number}</div>
                   <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{h.label}</p>
                 </div>
               ))}
@@ -63,7 +63,7 @@ const AboutSection = () => {
             <div className="h-px bg-border" />
             <div className="flex flex-wrap gap-3">
               {["Figma", "Sketch", "Adobe XD", "Framer", "Miro", "Notion"].map((tool) => (
-                <span key={tool} className="text-xs px-4 py-2 rounded-full border border-border text-muted-foreground font-medium hover:border-primary/40 hover:text-primary transition-colors">
+                <span key={tool} className="text-xs px-4 py-2 rounded-full border border-border text-muted-foreground font-medium hover:border-accent/40 hover:text-accent transition-colors">
                   {tool}
                 </span>
               ))}

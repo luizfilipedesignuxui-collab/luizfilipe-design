@@ -35,10 +35,10 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="habilidades" className="py-24 md:py-32 bg-sand-light/50">
+    <section id="habilidades" className="py-24 md:py-32">
       <div ref={ref} className="container mx-auto px-6">
         <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="font-display text-5xl md:text-6xl font-black text-foreground mb-4">
+          <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             Habilidades
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
@@ -50,13 +50,13 @@ const SkillsSection = () => {
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className={`group flex gap-6 p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+              className={`group flex gap-6 p-6 rounded-2xl bg-card/30 border border-border hover:border-accent/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="flex-shrink-0">
-                <span className="font-display text-4xl font-black text-primary/20 group-hover:text-primary/40 transition-colors">
+                <span className="font-display text-4xl font-extrabold text-accent/30 group-hover:text-accent/60 transition-colors">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
