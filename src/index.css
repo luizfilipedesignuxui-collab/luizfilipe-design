@@ -1,83 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 32 25% 90%;
-    --foreground: 200 15% 12%;
+    --background: 220 20% 96%;
+    --foreground: 215 25% 12%;
 
-    --card: 160 35% 58%;
-    --card-foreground: 200 15% 12%;
+    --card: 215 20% 92%;
+    --card-foreground: 215 25% 12%;
 
-    --popover: 32 25% 90%;
-    --popover-foreground: 200 15% 12%;
+    --popover: 220 20% 96%;
+    --popover-foreground: 215 25% 12%;
 
-    --primary: 184 65% 32%;
+    --primary: 210 70% 22%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 190 65% 55%;
+    --secondary: 215 55% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 32 15% 80%;
-    --muted-foreground: 200 8% 38%;
+    --muted: 215 15% 85%;
+    --muted-foreground: 215 10% 40%;
 
-    --accent: 160 35% 58%;
-    --accent-foreground: 200 15% 12%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 215 25% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 32 12% 75%;
-    --input: 32 12% 75%;
-    --ring: 184 65% 32%;
+    --border: 215 12% 82%;
+    --input: 215 12% 82%;
+    --ring: 210 70% 22%;
 
     --radius: 0.75rem;
 
-    --sand: 32 25% 90%;
-    --sand-light: 32 20% 94%;
-    --sea: 190 65% 55%;
-    --teal: 184 65% 32%;
-    --sea-salt: 160 35% 58%;
+    --gold: 45 85% 55%;
+    --gold-foreground: 215 25% 12%;
 
-    --sidebar-background: 32 25% 92%;
-    --sidebar-foreground: 200 15% 12%;
-    --sidebar-primary: 184 65% 32%;
+    --sidebar-background: 220 20% 94%;
+    --sidebar-foreground: 215 25% 12%;
+    --sidebar-primary: 210 70% 22%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 160 35% 58%;
-    --sidebar-accent-foreground: 200 15% 12%;
-    --sidebar-border: 32 12% 75%;
-    --sidebar-ring: 184 65% 32%;
+    --sidebar-accent: 45 85% 55%;
+    --sidebar-accent-foreground: 215 25% 12%;
+    --sidebar-border: 215 12% 82%;
+    --sidebar-ring: 210 70% 22%;
   }
 
   .dark {
-    --background: 200 20% 8%;
-    --foreground: 32 25% 92%;
+    --background: 215 25% 8%;
+    --foreground: 220 15% 92%;
 
-    --card: 200 20% 14%;
-    --card-foreground: 32 25% 92%;
+    --card: 215 20% 14%;
+    --card-foreground: 220 15% 92%;
 
-    --popover: 200 20% 8%;
-    --popover-foreground: 32 25% 92%;
+    --popover: 215 25% 8%;
+    --popover-foreground: 220 15% 92%;
 
-    --primary: 184 65% 45%;
+    --primary: 210 60% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 190 65% 45%;
+    --secondary: 215 45% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 15% 18%;
-    --muted-foreground: 200 8% 60%;
+    --muted: 215 15% 18%;
+    --muted-foreground: 215 8% 60%;
 
-    --accent: 160 35% 28%;
-    --accent-foreground: 32 25% 92%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 215 25% 8%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 15% 18%;
-    --input: 200 15% 18%;
-    --ring: 184 65% 45%;
+    --border: 215 15% 18%;
+    --input: 215 15% 18%;
+    --ring: 210 60% 40%;
+
+    --gold: 45 80% 50%;
+    --gold-foreground: 215 25% 8%;
   }
 }
 
@@ -87,22 +89,22 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sora', sans-serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sora', sans-serif;
   }
 
   .font-body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 }
 

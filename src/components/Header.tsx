@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Habilidades", href: "#habilidades" },
   { label: "Processo", href: "#processo" },
   { label: "Projetos", href: "#projetos" },
-  { label: "Design System", href: "#design-system" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -27,9 +27,9 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <a href="#" className="font-display text-xl font-bold text-foreground">
-          Luiz<span className="text-primary">.</span>Filipe
-        </a>
+        <Link to="/" className="font-display text-xl font-bold text-foreground">
+          Luiz<span className="text-accent">.</span>Filipe
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
