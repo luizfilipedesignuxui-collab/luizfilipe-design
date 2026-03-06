@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { projects } from "@/data/projects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const CaseStudy = () => {
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
 
@@ -116,13 +119,31 @@ const CaseStudy = () => {
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Telas do Projeto</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {project.galeria_de_imagens.map((img, i) => (
-                  <div key={i} className="rounded-2xl overflow-hidden border border-border bg-primary/5">
+                  <div
+                    key={i}
+                    className="rounded-2xl overflow-hidden border border-border bg-primary/5 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                    onClick={() => setLightboxImg(img)}
+                  >
                     <img src={img} alt={`${project.titulo} - Tela ${i + 1}`} className="w-full h-auto object-contain" />
                   </div>
                 ))}
               </div>
             </section>
           )}
+
+          <Dialog open={!!lightboxImg} onOpenChange={() => setLightboxImg(null)}>
+            <DialogContent className="max-w-[90vw] max-h-[90vh] p-2 bg-background/95 backdrop-blur-sm border-border">
+              <button
+                onClick={() => setLightboxImg(null)}
+                className="absolute top-3 right-3 z-10 p-1.5 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+              >
+                <X className="w-5 h-5 text-foreground" />
+              </button>
+              {lightboxImg && (
+                <img src={lightboxImg} alt="Visualização ampliada" className="w-full h-auto max-h-[85vh] object-contain rounded-xl" />
+              )}
+            </DialogContent>
+          </Dialog>
 
           {/* Resultado */}
           <section className="space-y-4 p-8 rounded-3xl border border-accent/30 bg-accent/5">
