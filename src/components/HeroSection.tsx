@@ -24,10 +24,27 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Mobile: photo beside name */}
+        <div className="flex items-center gap-5 mb-6 lg:hidden">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-primary/10 overflow-hidden border border-border/50 shadow-lg flex-shrink-0">
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="font-display text-2xl sm:text-3xl font-extrabold text-primary">LF</span>
+            </div>
+          </div>
+          <div>
+            <h1 className="font-display text-5xl sm:text-6xl font-extrabold text-foreground leading-[0.95] tracking-tight">
+              Luiz <span className="text-primary">Filipe</span>
+            </h1>
+            <p className="text-sm sm:text-base text-muted-foreground mt-2 leading-relaxed">
+              Criando experiências digitais intuitivas e centradas no usuário.
+            </p>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text */}
+          {/* Text — desktop only shows name */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
+            <div className="space-y-6 hidden lg:block">
               <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[0.95] tracking-tight">
                 Luiz<br />
                 <span className="text-primary">Filipe</span>
@@ -53,18 +70,18 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-10 pt-4">
+            <div className="flex gap-8 sm:gap-10 pt-4">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="font-display text-4xl md:text-5xl font-extrabold text-accent">{stat.number}</div>
-                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                  <div className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-accent">{stat.number}</div>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Photo placeholder */}
-          <div className="flex justify-center lg:justify-end" style={{ animationDelay: "0.2s" }}>
+          {/* Photo placeholder — desktop only */}
+          <div className="hidden lg:flex justify-center lg:justify-end" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
               <div className="w-72 h-72 md:w-[400px] md:h-[400px] rounded-3xl bg-primary/10 overflow-hidden border border-border/50 shadow-2xl">
                 <div className="w-full h-full flex items-center justify-center text-muted-foreground">
@@ -83,15 +100,15 @@ const HeroSection = () => {
         </div>
 
         {/* Mini services row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 pt-10 border-t border-border/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-border/50">
           {services.map((service) => (
-            <div key={service.title} className="flex items-start gap-3 p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
-              <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/25 transition-colors">
-                <service.icon className="w-5 h-5 text-accent" />
+            <div key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/25 transition-colors">
+                <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-sm text-foreground">{service.title}</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">{service.desc}</p>
+                <h3 className="font-display font-semibold text-xs sm:text-sm text-foreground">{service.title}</h3>
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{service.desc}</p>
               </div>
             </div>
           ))}
