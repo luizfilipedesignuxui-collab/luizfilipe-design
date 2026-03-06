@@ -20,25 +20,27 @@ export interface Project {
 
 // Para adicionar um novo projeto, basta adicionar um objeto ao array abaixo.
 // Ele aparecerá automaticamente na página /projetos e na home.
+import pontuoMockup from "@/assets/pontuo-mockup.png";
+
 export const projects: Project[] = [
   {
     id: "1",
-    slug: "app-financeiro-fintrack",
-    titulo: "FinTrack — App Financeiro",
-    descricao: "Aplicativo de controle financeiro pessoal com foco em simplicidade e clareza visual para ajudar usuários a gerenciar suas finanças do dia a dia.",
-    imagem_capa: "",
+    slug: "app-mobilidade-pontuo",
+    titulo: "Pontuô — App de Mobilidade Urbana",
+    descricao: "Aplicativo de mobilidade urbana que conecta usuários a diferentes modais de transporte com uma experiência fluida, intuitiva e sustentável.",
+    imagem_capa: pontuoMockup,
     categoria: "UX Design",
     ferramentas: ["Figma", "FigJam", "Miro"],
     galeria_de_imagens: [],
-    contexto: "Muitos aplicativos financeiros no mercado são complexos e intimidadores para usuários comuns. A maioria dos jovens adultos desiste de controlar suas finanças por falta de ferramentas intuitivas e acessíveis.",
-    objetivo: "Criar um app financeiro minimalista que permita ao usuário registrar gastos, visualizar relatórios e definir metas de economia de forma rápida e sem fricção.",
+    contexto: "Usuários urbanos enfrentam dificuldades ao combinar diferentes meios de transporte diariamente. A fragmentação entre apps torna o planejamento de rotas ineficiente e frustrante.",
+    objetivo: "Criar um app de mobilidade que unifique a experiência de transporte urbano, sugerindo as melhores combinações de modais considerando tempo, custo e sustentabilidade.",
     processo: {
-      research: "Realizei entrevistas com 12 usuários entre 20-35 anos para entender suas dores com apps financeiros existentes. Mapeei as principais frustrações: excesso de funcionalidades, interface confusa e falta de motivação visual.",
-      wireframe: "Criei wireframes de baixa fidelidade no FigJam para validar o fluxo principal: onboarding → registro de gasto → dashboard. Iteramos 3 vezes com base em feedbacks dos usuários.",
-      ui_design: "Desenvolvi a interface final no Figma com uma paleta de cores calmante (azul e verde), tipografia clara e micro-interações que recompensam o usuário ao atingir metas.",
+      research: "Realizei pesquisas com 15 usuários de transporte público e privado para mapear padrões de mobilidade e identificar as principais dores no planejamento de trajetos diários.",
+      wireframe: "Criei wireframes de baixa fidelidade no FigJam para validar o fluxo principal: busca de rota → comparação de modais → navegação. Iteramos 4 vezes com base em testes de usabilidade.",
+      ui_design: "Desenvolvi a interface final no Figma com mapa interativo como elemento central, cards de rota com ícones dos modais e estimativas em tempo real.",
     },
-    resultado: "O protótipo final foi validado com 8 usuários e obteve uma taxa de sucesso de 95% nas tarefas principais. O tempo médio para registrar um gasto caiu de 45s para 12s comparado aos concorrentes analisados.",
-    tags: ["Mobile", "Fintech", "User Research"],
+    resultado: "Testes com 20 usuários mostraram que 90% preferiam a rota multimodal sugerida pelo app. O tempo médio de planejamento de trajeto caiu de 8 minutos para 25 segundos.",
+    tags: ["Mobile", "Mobilidade", "UX Design"],
   },
   {
     id: "2",
