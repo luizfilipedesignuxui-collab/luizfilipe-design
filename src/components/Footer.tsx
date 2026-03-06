@@ -43,8 +43,6 @@ const Footer = () => (
             {[
               { label: "Email", href: "mailto:contato@luizfilipe.com" },
               { label: "LinkedIn", href: "https://linkedin.com/in/luizfilipe" },
-              { label: "Behance", href: "#" },
-              { label: "Dribbble", href: "#" },
             ].map((link) => (
               <a
                 key={link.label}
