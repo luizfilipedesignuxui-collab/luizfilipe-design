@@ -116,8 +116,8 @@ const CaseStudy = () => {
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Telas do Projeto</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {project.galeria_de_imagens.map((img, i) => (
-                  <div key={i} className="rounded-2xl overflow-hidden border border-border bg-primary/5 aspect-video">
-                    <img src={img} alt={`${project.titulo} - Tela ${i + 1}`} className="w-full h-full object-cover" />
+                  <div key={i} className="rounded-2xl overflow-hidden border border-border bg-primary/5">
+                    <img src={img} alt={`${project.titulo} - Tela ${i + 1}`} className="w-full h-auto object-contain" />
                   </div>
                 ))}
               </div>
