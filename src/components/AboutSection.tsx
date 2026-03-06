@@ -9,8 +9,10 @@ const highlights = [
 const tools = [
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
   { name: "FigJam", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Miro", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/miro.svg" },
   { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
+  { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
 ];
 
 const AboutSection = () => {
@@ -73,7 +75,7 @@ const AboutSection = () => {
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">
                 Ferramentas que utilizo
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 {tools.map((tool) => (
                   <div
                     key={tool.name}

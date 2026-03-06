@@ -41,8 +41,8 @@ const Footer = () => (
           <h4 className="font-display font-bold text-foreground uppercase text-sm tracking-widest">Conecte-se</h4>
           <div className="flex flex-col gap-3">
             {[
-              { label: "Email", href: "mailto:contato@luizfilipe.com" },
-              { label: "LinkedIn", href: "https://linkedin.com/in/luizfilipe" },
+              { label: "Email", href: "mailto:luizfilipe.designuxui@gmail.com" },
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/luiz-filipe-cardoso" },
             ].map((link) => (
               <a
                 key={link.label}
