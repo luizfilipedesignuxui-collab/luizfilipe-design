@@ -41,7 +41,7 @@ const ProjectsSection = () => {
           </div>
         ) : (
           <div className="space-y-8">
-            {projects.map((project, index) => {
+            {projects.slice(0, 2).map((project, index) => {
               const isEven = index % 2 === 0;
               return (
                 <Link
