@@ -54,9 +54,9 @@ const CaseStudy = () => {
 
         {/* Cover */}
         <section className="container mx-auto px-6 mb-16">
-          <div className="w-full aspect-video rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
+          <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (
-              <img src={project.imagem_capa} alt={project.titulo} className="w-full h-full object-cover" />
+              <img src={project.imagem_capa} alt={project.titulo} className="w-full h-auto object-contain" />
             ) : (
               <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center">
                 <span className="font-display font-bold text-primary text-3xl">
