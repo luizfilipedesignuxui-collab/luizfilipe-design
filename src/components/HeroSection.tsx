@@ -25,25 +25,53 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Mobile: photo beside name */}
-        <div className="flex items-center gap-5 mb-6 lg:hidden">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-primary/10 overflow-hidden border border-border/50 shadow-lg flex-shrink-0">
-            <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover" />
+        {/* Mobile layout */}
+        <div className="lg:hidden mb-8">
+          <div className="flex items-center gap-5 mb-6">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-primary/10 overflow-hidden border border-border/50 shadow-lg flex-shrink-0">
+              <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground leading-[0.95] tracking-tight">
+                Luiz <span className="text-primary">Filipe</span>
+              </h1>
+              <p className="text-sm sm:text-base text-muted-foreground mt-2 leading-relaxed">
+                Criando experiências digitais intuitivas e centradas no usuário.
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-display text-5xl sm:text-6xl font-extrabold text-foreground leading-[0.95] tracking-tight">
-              Luiz <span className="text-primary">Filipe</span>
-            </h1>
-            <p className="text-sm sm:text-base text-muted-foreground mt-2 leading-relaxed">
-              Criando experiências digitais intuitivas e centradas no usuário.
-            </p>
+
+          <div className="flex flex-wrap gap-4">
+            <Button asChild size="lg" className="rounded-full px-8 bg-primary hover:bg-primary/90">
+              <a href="#projetos">
+                <ArrowDown className="mr-2 h-4 w-4" />
+                Ver Projetos
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/5">
+              <a href="#contato">
+                <Mail className="mr-2 h-4 w-4" />
+                Contato
+              </a>
+            </Button>
+          </div>
+
+          {/* Stats mobile */}
+          <div className="flex gap-8 sm:gap-10 pt-6">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="font-display text-3xl sm:text-4xl font-extrabold text-accent">{stat.number}</div>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text — desktop only shows name */}
+        {/* Desktop layout */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-center">
+          {/* Text left */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6 hidden lg:block">
+            <div className="space-y-6">
               <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[0.95] tracking-tight">
                 Luiz<br />
                 <span className="text-primary">Filipe</span>
@@ -79,14 +107,14 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Photo placeholder — desktop only */}
-          <div className="hidden lg:flex justify-center lg:justify-end" style={{ animationDelay: "0.2s" }}>
+          {/* Photo right — larger */}
+          <div className="flex justify-end" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
-              <div className="w-72 h-72 md:w-[400px] md:h-[400px] rounded-3xl bg-primary/10 overflow-hidden border border-border/50 shadow-2xl">
-                <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover" />
+              <div className="w-[420px] h-[520px] rounded-3xl bg-primary/10 overflow-hidden border border-border/50 shadow-2xl">
+                <img src={profilePhoto} alt="Luiz Filipe" className="w-full h-full object-cover object-top" />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-accent/30 blur-xl" />
-              <div className="absolute -top-3 -left-3 w-14 h-14 rounded-full bg-primary/10 blur-lg" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-accent/30 blur-xl" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-primary/10 blur-lg" />
             </div>
           </div>
         </div>
