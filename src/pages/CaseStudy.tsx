@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, X } from "lucide-react";
+import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { projects } from "@/data/projects";
@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const CaseStudy = () => {
-  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
 
@@ -121,8 +121,8 @@ const CaseStudy = () => {
                 {project.galeria_de_imagens.map((img, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden border border-border bg-primary/5 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-300"
-                    onClick={() => setLightboxImg(img)}
+                    className="rounded-2xl overflow-hidden border border-border bg-primary/5 p-4 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                    onClick={() => setLightboxIndex(i)}
                   >
                     <img src={img} alt={`${project.titulo} - Tela ${i + 1}`} className="w-full h-auto object-contain" />
                   </div>
@@ -131,16 +131,34 @@ const CaseStudy = () => {
             </section>
           )}
 
-          <Dialog open={!!lightboxImg} onOpenChange={() => setLightboxImg(null)}>
+          <Dialog open={lightboxIndex !== null} onOpenChange={() => setLightboxIndex(null)}>
             <DialogContent className="max-w-[90vw] max-h-[90vh] p-2 bg-background/95 backdrop-blur-sm border-border">
               <button
-                onClick={() => setLightboxImg(null)}
+                onClick={() => setLightboxIndex(null)}
                 className="absolute top-3 right-3 z-10 p-1.5 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
               >
                 <X className="w-5 h-5 text-foreground" />
               </button>
-              {lightboxImg && (
-                <img src={lightboxImg} alt="Visualização ampliada" className="w-full h-auto max-h-[85vh] object-contain rounded-xl" />
+              {lightboxIndex !== null && (
+                <>
+                  {lightboxIndex > 0 && (
+                    <button
+                      onClick={() => setLightboxIndex(lightboxIndex - 1)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+                    >
+                      <ChevronLeft className="w-6 h-6 text-foreground" />
+                    </button>
+                  )}
+                  <img src={project.galeria_de_imagens[lightboxIndex]} alt="Visualização ampliada" className="w-full h-auto max-h-[85vh] object-contain rounded-xl" />
+                  {lightboxIndex < project.galeria_de_imagens.length - 1 && (
+                    <button
+                      onClick={() => setLightboxIndex(lightboxIndex + 1)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+                    >
+                      <ChevronRight className="w-6 h-6 text-foreground" />
+                    </button>
+                  )}
+                </>
               )}
             </DialogContent>
           </Dialog>
