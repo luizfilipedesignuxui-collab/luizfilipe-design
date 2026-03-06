@@ -5,20 +5,9 @@ import { projects } from "@/data/projects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const caseStudySections = [
-  { key: "overview", label: "Visão Geral" },
-  { key: "problem", label: "Problema" },
-  { key: "research", label: "Pesquisa" },
-  { key: "process", label: "Processo de Design" },
-  { key: "wireframes", label: "Wireframes" },
-  { key: "finalDesign", label: "Interface Final" },
-  { key: "prototype", label: "Protótipo" },
-  { key: "results", label: "Resultados" },
-] as const;
-
 const CaseStudy = () => {
-  const { id } = useParams<{ id: string }>();
-  const project = projects.find((p) => p.id === id);
+  const { slug } = useParams<{ slug: string }>();
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -26,7 +15,7 @@ const CaseStudy = () => {
         <div className="text-center space-y-4">
           <h1 className="font-display text-3xl font-bold text-foreground">Projeto não encontrado</h1>
           <Button asChild variant="outline" className="rounded-full">
-            <Link to="/"><ArrowLeft className="mr-2 w-4 h-4" /> Voltar ao portfólio</Link>
+            <Link to="/projetos"><ArrowLeft className="mr-2 w-4 h-4" /> Ver todos os projetos</Link>
           </Button>
         </div>
       </div>
@@ -40,55 +29,106 @@ const CaseStudy = () => {
         {/* Hero */}
         <section className="container mx-auto px-6 py-12">
           <Button asChild variant="ghost" className="rounded-full mb-8">
-            <Link to="/#projetos"><ArrowLeft className="mr-2 w-4 h-4" /> Voltar</Link>
+            <Link to="/projetos"><ArrowLeft className="mr-2 w-4 h-4" /> Voltar aos projetos</Link>
           </Button>
 
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
+              <span className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent font-semibold uppercase tracking-wider">
+                {project.categoria}
+              </span>
               {project.tags.map((tag) => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
                   {tag}
                 </span>
               ))}
             </div>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-4">
-              {project.title}
+            <h1 className="font-display text-4xl md:text-6xl font-extrabold text-foreground mb-4">
+              {project.titulo}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              {project.description}
+              {project.descricao}
             </p>
           </div>
         </section>
 
         {/* Cover */}
         <section className="container mx-auto px-6 mb-16">
-          <div className="w-full aspect-video rounded-3xl bg-accent/20 border border-border flex items-center justify-center">
-            <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center">
-              <span className="font-display font-bold text-primary text-3xl">
-                {project.title.charAt(0)}
-              </span>
-            </div>
+          <div className="w-full aspect-video rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
+            {project.imagem_capa ? (
+              <img src={project.imagem_capa} alt={project.titulo} className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center">
+                <span className="font-display font-bold text-primary text-3xl">
+                  {project.titulo.charAt(0)}
+                </span>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* Sections */}
+        {/* Content */}
         <div className="container mx-auto px-6 max-w-4xl space-y-16 pb-24">
-          {caseStudySections.map(({ key, label }) => {
-            const content = project[key];
-            if (!content) return null;
-            return (
-              <section key={key} className="space-y-4">
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                  {label}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {content}
-                </p>
-                {/* Placeholder for images */}
-                <div className="w-full h-48 rounded-2xl bg-accent/10 border border-border mt-6" />
-              </section>
-            );
-          })}
+          {/* Contexto */}
+          <section className="space-y-4">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Contexto do Problema</h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">{project.contexto}</p>
+          </section>
+
+          {/* Objetivo */}
+          <section className="space-y-4">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Objetivo do Projeto</h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">{project.objetivo}</p>
+          </section>
+
+          {/* Processo */}
+          <section className="space-y-8">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Processo de Design</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { label: "UX Research", content: project.processo.research },
+                { label: "Wireframe", content: project.processo.wireframe },
+                { label: "UI Design", content: project.processo.ui_design },
+              ].map((step) => (
+                <div key={step.label} className="p-6 rounded-2xl border border-border bg-card/30 space-y-3">
+                  <h3 className="font-display font-bold text-foreground text-lg">{step.label}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{step.content}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Ferramentas */}
+          <section className="space-y-4">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Ferramentas Utilizadas</h2>
+            <div className="flex flex-wrap gap-3">
+              {project.ferramentas.map((tool) => (
+                <span key={tool} className="px-4 py-2 rounded-xl border border-border bg-card/40 font-display font-semibold text-sm text-foreground">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* Galeria */}
+          {project.galeria_de_imagens.length > 0 && (
+            <section className="space-y-6">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Telas do Projeto</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {project.galeria_de_imagens.map((img, i) => (
+                  <div key={i} className="rounded-2xl overflow-hidden border border-border bg-primary/5 aspect-video">
+                    <img src={img} alt={`${project.titulo} - Tela ${i + 1}`} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Resultado */}
+          <section className="space-y-4 p-8 rounded-3xl border border-accent/30 bg-accent/5">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Resultado Final</h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">{project.resultado}</p>
+          </section>
         </div>
       </main>
       <Footer />
