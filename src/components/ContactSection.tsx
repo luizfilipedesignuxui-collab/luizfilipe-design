@@ -1,0 +1,62 @@
+import { useEffect, useRef, useState } from "react";
+import { Mail, Linkedin, Globe, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const ContactSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setVisible(true),
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="contato" className="py-24 md:py-32 bg-sand-light/50">
+      <div ref={ref} className="container mx-auto px-6">
+        <div className={`max-w-2xl mx-auto text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Vamos criar algo<br />incrível juntos
+          </h2>
+          <p className="text-lg text-muted-foreground mb-12">
+            Estou sempre aberto a novas oportunidades e projetos interessantes.
+            Vamos conversar sobre como posso ajudar a criar a melhor experiência para seus usuários.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+            <a
+              href="mailto:contato@luizfilipe.com"
+              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
+            >
+              <Mail className="w-5 h-5 text-primary" />
+              <span className="text-foreground font-medium">contato@luizfilipe.com</span>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </a>
+            <a
+              href="https://linkedin.com/in/luizfilipe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
+            >
+              <Linkedin className="w-5 h-5 text-primary" />
+              <span className="text-foreground font-medium">LinkedIn</span>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </a>
+          </div>
+
+          <Button size="lg" className="rounded-full px-10" asChild>
+            <a href="mailto:contato@luizfilipe.com">
+              Entrar em contato
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
