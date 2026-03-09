@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateSiteContent } from "@/hooks/useSiteContent";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -84,6 +85,7 @@ const SiteContent = () => {
         .upsert({ key: field.key, value: val, draft_value: val, is_published: true }, { onConflict: "key" });
     }
     toast({ title: "🚀 Conteúdo publicado no site!" });
+    invalidateSiteContent();
     setPublishing(false);
   };
 

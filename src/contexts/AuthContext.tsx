@@ -47,13 +47,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     let mounted = true;
 
-    // First get the current session
+    // Get the current session quickly
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!mounted) return;
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        await checkAdmin(session.user.id);
+        // Don't block loading for admin check
+        checkAdmin(session.user.id);
       }
       setLoading(false);
     });
