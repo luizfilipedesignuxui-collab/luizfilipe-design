@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, Mail, AlertCircle } from "lucide-react";
+import { Lock, AlertCircle } from "lucide-react";
+
+const ADMIN_CODE = "8472";
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const { signIn, isAdmin, user, loading } = useAuth();
@@ -35,15 +36,21 @@ const AdminLogin = () => {
     setErrorMsg("");
     setIsLoading(true);
 
-    const { error } = await signIn(email, password);
-
-    if (error) {
-      setErrorMsg("Email ou senha incorretos. Verifique suas credenciais.");
+    if (code !== ADMIN_CODE) {
+      setErrorMsg("Código incorreto. Tente novamente.");
       setIsLoading(false);
       return;
     }
 
-    // Wait a bit for auth state to propagate
+    // Code is correct, sign in with the admin account
+    const { error } = await signIn("filbess@gmail.com", "Abacaxi20@");
+
+    if (error) {
+      setErrorMsg("Erro ao autenticar. Tente novamente.");
+      setIsLoading(false);
+      return;
+    }
+
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -51,14 +58,14 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
-      <div className="w-full max-w-sm space-y-8">
+      <div className="w-full max-w-xs space-y-8">
         <div className="text-center space-y-2">
           <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-primary" />
           </div>
           <h1 className="font-display text-3xl font-extrabold text-foreground">Admin</h1>
           <p className="text-muted-foreground text-sm">
-            Faça login para acessar o painel administrativo
+            Digite o código de acesso
           </p>
         </div>
 
@@ -71,49 +78,23 @@ const AdminLogin = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@email.com"
-                className="pl-10"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="pl-10"
-                required
-              />
-            </div>
+            <Label htmlFor="code">Código de Acesso</Label>
+            <Input
+              id="code"
+              type="password"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="••••"
+              className="text-center text-2xl tracking-[0.5em] font-mono"
+              maxLength={4}
+              required
+              autoFocus
+            />
           </div>
 
           <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? "Entrando..." : "Entrar"}
+            {isLoading ? "Entrando..." : "Acessar Painel"}
           </Button>
-
-          <div className="text-center">
-            <Link
-              to="/admin/forgot-password"
-              className="text-sm text-primary hover:underline"
-            >
-              Esqueci minha senha
-            </Link>
-          </div>
         </form>
       </div>
     </div>
