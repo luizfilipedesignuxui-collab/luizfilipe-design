@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -11,12 +11,25 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn, isAdmin, user } = useAuth();
+  const { signIn, isAdmin, user, loading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  useEffect(() => {
+    if (!loading && user && isAdmin) {
+      navigate("/admin/dashboard", { replace: true });
+    }
+  }, [user, isAdmin, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
+      </div>
+    );
+  }
+
   if (user && isAdmin) {
-    navigate("/admin/dashboard", { replace: true });
     return null;
   }
 
@@ -36,10 +49,11 @@ const AdminLogin = () => {
       return;
     }
 
+    // Navigation will happen via useEffect when isAdmin updates
+    // Add a timeout fallback in case checkAdmin takes too long
     setTimeout(() => {
-      navigate("/admin/dashboard");
       setIsLoading(false);
-    }, 500);
+    }, 3000);
   };
 
   return (
