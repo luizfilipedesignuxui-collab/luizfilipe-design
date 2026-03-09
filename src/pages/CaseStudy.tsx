@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { projects } from "@/data/projects";
+import { projects as staticProjects } from "@/data/projects";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const CaseStudy = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const { slug } = useParams<{ slug: string }>();
-  const project = projects.find((p) => p.slug === slug);
+  const { projects: dbProjects } = usePublishedProjects();
+  const allProjects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const project = allProjects.find((p) => p.slug === slug);
 
   if (!project) {
     return (

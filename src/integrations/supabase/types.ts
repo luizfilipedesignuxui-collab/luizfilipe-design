@@ -14,16 +14,135 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      projects: {
+        Row: {
+          categoria: string
+          contexto: string | null
+          created_at: string
+          descricao: string
+          ferramentas: string[] | null
+          galeria_de_imagens: string[] | null
+          id: string
+          imagem_capa: string | null
+          is_published: boolean | null
+          link_projeto: string | null
+          objetivo: string | null
+          processo_research: string | null
+          processo_ui_design: string | null
+          processo_wireframe: string | null
+          resultado: string | null
+          slug: string
+          sort_order: number | null
+          tags: string[] | null
+          titulo: string
+          updated_at: string
+        }
+        Insert: {
+          categoria?: string
+          contexto?: string | null
+          created_at?: string
+          descricao?: string
+          ferramentas?: string[] | null
+          galeria_de_imagens?: string[] | null
+          id?: string
+          imagem_capa?: string | null
+          is_published?: boolean | null
+          link_projeto?: string | null
+          objetivo?: string | null
+          processo_research?: string | null
+          processo_ui_design?: string | null
+          processo_wireframe?: string | null
+          resultado?: string | null
+          slug: string
+          sort_order?: number | null
+          tags?: string[] | null
+          titulo: string
+          updated_at?: string
+        }
+        Update: {
+          categoria?: string
+          contexto?: string | null
+          created_at?: string
+          descricao?: string
+          ferramentas?: string[] | null
+          galeria_de_imagens?: string[] | null
+          id?: string
+          imagem_capa?: string | null
+          is_published?: boolean | null
+          link_projeto?: string | null
+          objetivo?: string | null
+          processo_research?: string | null
+          processo_ui_design?: string | null
+          processo_wireframe?: string | null
+          resultado?: string | null
+          slug?: string
+          sort_order?: number | null
+          tags?: string[] | null
+          titulo?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      site_content: {
+        Row: {
+          draft_value: string | null
+          id: string
+          is_published: boolean | null
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          draft_value?: string | null
+          id?: string
+          is_published?: boolean | null
+          key: string
+          updated_at?: string
+          value?: string
+        }
+        Update: {
+          draft_value?: string | null
+          id?: string
+          is_published?: boolean | null
+          key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +269,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const

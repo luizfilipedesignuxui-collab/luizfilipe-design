@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/projects";
+import { projects as staticProjects } from "@/data/projects";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Projects = () => {
+  const { projects: dbProjects } = usePublishedProjects();
+  const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
