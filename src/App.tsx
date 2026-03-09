@@ -17,6 +17,8 @@ import ProjectForm from "./pages/admin/ProjectForm";
 import SiteContent from "./pages/admin/SiteContent";
 import MediaManager from "./pages/admin/MediaManager";
 import AdminSettings from "./pages/admin/AdminSettings";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/projetos" element={<Projects />} />
             <Route path="/projetos/:slug" element={<CaseStudy />} />
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route
               path="/admin"
               element={
