@@ -33,6 +33,7 @@ const App = () => (
             <Route path="/projetos/:slug" element={<CaseStudy />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route
+              path="/admin"
               element={
                 <ProtectedRoute>
                   <AdminLayout />
