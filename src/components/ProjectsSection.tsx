@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/projects";
+import { projects as staticProjects } from "@/data/projects";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
