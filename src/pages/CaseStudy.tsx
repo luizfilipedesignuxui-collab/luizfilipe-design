@@ -11,7 +11,9 @@ import Footer from "@/components/Footer";
 const CaseStudy = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const { slug } = useParams<{ slug: string }>();
-  const project = projects.find((p) => p.slug === slug);
+  const { projects: dbProjects } = usePublishedProjects();
+  const allProjects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const project = allProjects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
