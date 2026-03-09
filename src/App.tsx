@@ -19,6 +19,7 @@ import MediaManager from "./pages/admin/MediaManager";
 import AdminSettings from "./pages/admin/AdminSettings";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import AdminSetup from "./pages/AdminSetup";
 
 const queryClient = new QueryClient();
 
