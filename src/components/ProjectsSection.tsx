@@ -8,6 +8,8 @@ import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { projects: dbProjects, loading } = usePublishedProjects();
+  const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
