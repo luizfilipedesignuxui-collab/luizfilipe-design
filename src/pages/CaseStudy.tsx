@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { projects } from "@/data/projects";
+import { projects as staticProjects } from "@/data/projects";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
