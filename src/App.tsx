@@ -31,7 +31,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/projetos" element={<Projects />} />
             <Route path="/projetos/:slug" element={<CaseStudy />} />
-            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"
               element={
@@ -40,6 +40,7 @@ const App = () => (
                 </ProtectedRoute>
               }
             >
+              <Route index element={<Dashboard />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="projetos" element={<AdminProjects />} />
               <Route path="projetos/:id" element={<ProjectForm />} />
