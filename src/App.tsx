@@ -19,7 +19,6 @@ import MediaManager from "./pages/admin/MediaManager";
 import AdminSettings from "./pages/admin/AdminSettings";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import AdminSetup from "./pages/AdminSetup";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +36,6 @@ const App = () => (
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/admin/setup" element={<AdminSetup />} />
             <Route
               path="/admin"
               element={
