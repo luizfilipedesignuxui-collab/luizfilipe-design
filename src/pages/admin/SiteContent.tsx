@@ -85,6 +85,7 @@ const SiteContent = () => {
         .upsert({ key: field.key, value: val, draft_value: val, is_published: true }, { onConflict: "key" });
     }
     toast({ title: "🚀 Conteúdo publicado no site!" });
+    invalidateSiteContent();
     setPublishing(false);
   };
 
