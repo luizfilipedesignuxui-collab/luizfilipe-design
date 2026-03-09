@@ -15,7 +15,7 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // If already logged in as admin, redirect
+  // If already logged in as admin, redirect to dashboard
   if (user && isAdmin) {
     navigate("/admin/dashboard", { replace: true });
     return null;
