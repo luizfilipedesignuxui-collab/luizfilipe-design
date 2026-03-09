@@ -4,16 +4,15 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Lock, Mail, AlertCircle } from "lucide-react";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const { signIn, isAdmin, user, loading } = useAuth();
   const navigate = useNavigate();
-  const { toast } = useToast();
 
   useEffect(() => {
     if (!loading && user && isAdmin) {
@@ -29,28 +28,22 @@ const AdminLogin = () => {
     );
   }
 
-  if (user && isAdmin) {
-    return null;
-  }
+  if (user && isAdmin) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
     setIsLoading(true);
 
     const { error } = await signIn(email, password);
 
     if (error) {
-      toast({
-        title: "Erro ao fazer login",
-        description: "Email ou senha incorretos.",
-        variant: "destructive",
-      });
+      setErrorMsg("Email ou senha incorretos. Verifique suas credenciais.");
       setIsLoading(false);
       return;
     }
 
-    // Navigation will happen via useEffect when isAdmin updates
-    // Add a timeout fallback in case checkAdmin takes too long
+    // Wait a bit for auth state to propagate
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -68,6 +61,13 @@ const AdminLogin = () => {
             Faça login para acessar o painel administrativo
           </p>
         </div>
+
+        {errorMsg && (
+          <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <span>{errorMsg}</span>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
