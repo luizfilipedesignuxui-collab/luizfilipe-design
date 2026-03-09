@@ -66,9 +66,10 @@ const SiteContent = () => {
     setSaving(true);
     for (const field of fields) {
       const val = values[field.key] ?? "";
+      // Only save draft — don't touch value or is_published
       await supabase
         .from("site_content")
-        .upsert({ key: field.key, draft_value: val, value: val, is_published: false }, { onConflict: "key" });
+        .upsert({ key: field.key, draft_value: val }, { onConflict: "key" });
     }
     setSavedSuccess(true);
     toast({ title: "✅ Rascunho salvo com sucesso!" });
