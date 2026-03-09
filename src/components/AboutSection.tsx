@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const highlights = [
   { number: "28", label: "Anos" },
@@ -18,6 +19,15 @@ const tools = [
 const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { content } = useSiteContent();
+
+  const title = content.about_title || "Sobre\nmim";
+  const paragraphs = [
+    content.about_text_1 || 'Meu nome é Luiz Filipe. Sou UX/UI Designer apaixonado por criar experiências digitais que conectam pessoas e tecnologia.',
+    content.about_text_2 || 'Tenho 28 anos e sou formado em Design Digital e User Experience pela Universidade Uniasselvi.',
+    content.about_text_3 || 'Meu trabalho envolve pesquisa de usuários, criação de wireframes, prototipação e desenvolvimento de interfaces modernas que resolvem problemas reais.',
+    content.about_text_4 || 'Neste portfólio você encontrará meus projetos, meu processo de design e minha abordagem para criar experiências digitais relevantes.',
+  ].filter(Boolean);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +47,9 @@ const AboutSection = () => {
         }`}
       >
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
-          {/* Left — Numbers highlight */}
           <div className="lg:col-span-2 space-y-8">
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight">
-              Sobre<br />mim
+            <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight whitespace-pre-line">
+              {title}
             </h2>
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {highlights.map((h) => (
@@ -52,25 +61,13 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right — Text */}
           <div className="lg:col-span-3 space-y-6 pt-2">
             <div className="space-y-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
-              <p>
-                Meu nome é <strong className="text-foreground font-semibold">Luiz Filipe</strong>.
-                Sou UX/UI Designer apaixonado por criar experiências digitais que conectam pessoas e tecnologia.
-              </p>
-              <p>
-                Tenho 28 anos e sou formado em <strong className="text-foreground font-semibold">Design Digital e User Experience</strong> pela Universidade Uniasselvi.
-              </p>
-              <p>
-                Meu trabalho envolve pesquisa de usuários, criação de wireframes, prototipação e desenvolvimento de interfaces modernas que resolvem problemas reais.
-              </p>
-              <p>
-                Neste portfólio você encontrará meus projetos, meu processo de design e minha abordagem para criar experiências digitais relevantes.
-              </p>
+              {paragraphs.map((p, i) => (
+                <p key={i} dangerouslySetInnerHTML={{ __html: p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>') }} />
+              ))}
             </div>
 
-            {/* Tools section - prominent */}
             <div className="pt-4">
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">
                 Ferramentas que utilizo
