@@ -16,6 +16,7 @@ export interface Project {
   };
   resultado: string;
   tags: string[];
+  link_projeto?: string;
 }
 
 // Para adicionar um novo projeto, basta adicionar um objeto ao array abaixo.
