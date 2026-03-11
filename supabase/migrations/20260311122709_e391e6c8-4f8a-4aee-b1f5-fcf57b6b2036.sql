@@ -1,0 +1,1 @@
+UPDATE public.projects SET link_projeto = 'https://www.figma.com', updated_at = now() WHERE slug = 'app-mobilidade-pontuo';
