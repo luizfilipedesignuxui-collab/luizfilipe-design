@@ -55,6 +55,16 @@ const CaseStudy = () => {
             <p className="text-xl text-muted-foreground max-w-2xl">
               {project.descricao}
             </p>
+            {project.link_projeto && (
+              <a
+                href={project.link_projeto}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                🔗 Ver protótipo no Figma
+              </a>
+            )}
           </div>
         </section>
 
