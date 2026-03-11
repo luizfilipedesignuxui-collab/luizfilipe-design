@@ -1,0 +1,1 @@
+UPDATE public.projects SET link_projeto = 'https://www.figma.com/proto/JIvWeZiVjJgLMRkw3DbqWX/APP-Pontou?node-id=2342-2536&p=f&t=RLEkjiTafoFWFIbS-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2342%3A2536', updated_at = now() WHERE slug = 'app-mobilidade-pontuo';
