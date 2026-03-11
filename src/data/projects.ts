@@ -25,6 +25,7 @@ import pontuoMockup from "@/assets/pontuo-mockup.png";
 import pontuoMockup2 from "@/assets/pontuo-mockup-2.png";
 import pontuoMockup3 from "@/assets/pontuo-mockup-3.png";
 import pontuoMockup4 from "@/assets/pontuo-mockup-4.png";
+import pontuoRewardsScreen from "@/assets/pontuo-rewards-screen.png";
 
 export const projects: Project[] = [
   {
@@ -35,7 +36,7 @@ export const projects: Project[] = [
     imagem_capa: pontuoMockup,
     categoria: "UX Design",
     ferramentas: ["Figma", "Figma Make", "Miro"],
-    galeria_de_imagens: [pontuoMockup2, pontuoMockup3, pontuoMockup4],
+    galeria_de_imagens: [pontuoMockup2, pontuoMockup3, pontuoMockup4, pontuoRewardsScreen],
     contexto: "Usuários urbanos enfrentam dificuldades ao combinar diferentes meios de transporte diariamente. A fragmentação entre apps torna o planejamento de rotas ineficiente e frustrante.",
     objetivo: "Criar um app de mobilidade que unifique a experiência de transporte urbano, sugerindo as melhores combinações de modais considerando tempo, custo e sustentabilidade.",
     processo: {
