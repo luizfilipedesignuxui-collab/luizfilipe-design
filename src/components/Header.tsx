@@ -27,7 +27,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <Link to="/" className="font-display text-xl font-bold text-foreground">
+        <Link to="/" className="font-display text-xl font-bold text-foreground hover:opacity-80 transition-opacity cursor-pointer select-none">
           Luiz<span className="text-accent">.</span>Filipe
         </Link>
 
