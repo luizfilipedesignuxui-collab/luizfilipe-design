@@ -25,6 +25,7 @@ import pontuoMockup from "@/assets/pontuo-mockup.png";
 import pontuoMockup2 from "@/assets/pontuo-mockup-2.png";
 import pontuoMockup3 from "@/assets/pontuo-mockup-3.png";
 import pontuoMockup4 from "@/assets/pontuo-mockup-4.png";
+import pontuoRewardsScreen from "@/assets/pontuo-rewards-screen.png";
 
 export const projects: Project[] = [
   {
