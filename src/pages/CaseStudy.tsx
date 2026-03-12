@@ -62,11 +62,23 @@ const CaseStudy = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
               >
-                🔗 Ver protótipo no Figma
+                🔗 Ver site no ar
               </a>
             )}
           </div>
         </section>
+
+        {/* Significado do Nome */}
+        {project.slug === 'aura-scent-boutique' && (
+          <section className="container mx-auto px-6 mb-12 max-w-4xl">
+            <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-accent/5 to-primary/5">
+              <h3 className="font-display font-bold text-foreground text-lg mb-2">Significado do Nome</h3>
+              <p className="text-muted-foreground">
+                <strong>Aura</strong> refere-se à atmosfera e energia que um ambiente transmite, enquanto <strong>Scent</strong> significa fragrância em inglês. Juntas, as palavras representam a essência do projeto: criar uma aura única através de scents (fragrâncias) cuidadosamente selecionadas, transformando cada espaço em uma experiência sensorial memorável. A palavra <strong>Boutique</strong> reforça o caráter exclusivo e artesanal dos produtos, diferenciando-se de e-commerces convencionais.
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* Cover */}
         <section className="container mx-auto px-6 mb-16">
