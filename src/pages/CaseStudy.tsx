@@ -76,13 +76,23 @@ const CaseStudy = () => {
           </div>
         </section>
 
-        {/* Significado do Nome */}
+        {/* Significado do Nome / Info do Projeto */}
         {project.slug === 'aura-scent-boutique' && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
             <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-accent/5 to-primary/5">
               <h3 className="font-display font-bold text-foreground text-lg mb-2">Significado do Nome</h3>
               <p className="text-muted-foreground">
                 <strong>Aura</strong> refere-se à atmosfera e energia que um ambiente transmite, enquanto <strong>Scent</strong> significa fragrância em inglês. Juntas, as palavras representam a essência do projeto: criar uma aura única através de scents (fragrâncias) cuidadosamente selecionadas, transformando cada espaço em uma experiência sensorial memorável. A palavra <strong>Boutique</strong> reforça o caráter exclusivo e artesanal dos produtos, diferenciando-se de e-commerces convencionais.
+              </p>
+            </div>
+          </section>
+        )}
+
+        {project.slug === 'desafio-saudavel' && (
+          <section className="container mx-auto px-6 mb-12 max-w-4xl">
+            <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+              <p className="text-muted-foreground">
+                <strong>App criado por mim</strong> — Este aplicativo foi desenvolvido como uma solução pessoal baseada em uma experiência real com amigos, transformando uma dinâmica informal de grupo em uma experiência digital completa.
               </p>
             </div>
           </section>
