@@ -79,7 +79,7 @@ const HeroSection = () => {
               src={profilePhoto}
               alt={title}
               className="relative h-[110%] object-contain object-bottom"
-              style={{ zIndex: 10, mixBlendMode: "darken" }}
+              style={{ zIndex: 10 }}
             />
           </div>
         </div>
