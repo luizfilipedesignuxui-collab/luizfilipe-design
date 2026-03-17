@@ -2,14 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { content } = useSiteContent();
+  const { t } = useLanguage();
 
-  const title = content.contact_title || "Vamos criar algo\nincrível juntos";
-  const subtitle = content.contact_subtitle || "Estou sempre aberto a novas oportunidades e projetos interessantes. Vamos conversar sobre como posso ajudar a criar a melhor experiência para seus usuários.";
+  const title = content.contact_title || t("contact.title_default");
+  const subtitle = content.contact_subtitle || t("contact.subtitle_default");
   const email = content.contact_email || "luizfilipe.designuxui@gmail.com";
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 
@@ -35,7 +37,7 @@ const ContactSection = () => {
 
           <Button size="lg" className="rounded-full px-10 mb-10" asChild>
             <a href={`mailto:${email}`}>
-              Entrar em contato
+              {t("contact.cta")}
             </a>
           </Button>
 

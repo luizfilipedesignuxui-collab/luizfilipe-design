@@ -1,11 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSiteContent } from "@/hooks/useSiteContent";
-
-const highlights = [
-  { number: "28", label: "Anos" },
-  { number: "UX/UI", label: "Especialidade" },
-  { number: "∞", label: "Curiosidade" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const tools = [
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
@@ -20,13 +15,20 @@ const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { content } = useSiteContent();
+  const { t } = useLanguage();
 
-  const title = content.about_title || "Sobre\nmim";
+  const highlights = [
+    { number: "28", label: t("about.highlight_years") },
+    { number: "UX/UI", label: t("about.highlight_specialty") },
+    { number: "∞", label: t("about.highlight_curiosity") },
+  ];
+
+  const title = content.about_title || t("about.title_default");
   const paragraphs = [
-    content.about_text_1 || 'Meu nome é Luiz Filipe. Sou UX/UI Designer apaixonado por criar experiências digitais que conectam pessoas e tecnologia.',
-    content.about_text_2 || 'Tenho 28 anos e sou formado em Design Digital e User Experience pela Universidade Uniasselvi.',
-    content.about_text_3 || 'Meu trabalho envolve pesquisa de usuários, criação de wireframes, prototipação e desenvolvimento de interfaces modernas que resolvem problemas reais.',
-    content.about_text_4 || 'Neste portfólio você encontrará meus projetos, meu processo de design e minha abordagem para criar experiências digitais relevantes.',
+    content.about_text_1 || t("about.text_1_default"),
+    content.about_text_2 || t("about.text_2_default"),
+    content.about_text_3 || t("about.text_3_default"),
+    content.about_text_4 || t("about.text_4_default"),
   ].filter(Boolean);
 
   useEffect(() => {
@@ -70,7 +72,7 @@ const AboutSection = () => {
 
             <div className="pt-4">
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">
-                Ferramentas que utilizo
+                {t("about.tools_title")}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 {tools.map((tool) => (

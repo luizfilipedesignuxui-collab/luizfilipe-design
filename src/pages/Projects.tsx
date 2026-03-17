@@ -3,12 +3,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Projects = () => {
   const { projects: dbProjects } = usePublishedProjects();
   const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
@@ -17,16 +19,16 @@ const Projects = () => {
         <div className="container mx-auto px-6">
           <Button asChild variant="ghost" className="rounded-full mb-8">
             <Link to="/">
-              <ArrowLeft className="mr-2 w-4 h-4" /> Voltar
+              <ArrowLeft className="mr-2 w-4 h-4" /> {t("projects_page.back")}
             </Link>
           </Button>
 
           <div className="mb-16">
             <h1 className="font-display text-5xl md:text-7xl font-extrabold text-foreground mb-4">
-              Todos os <span className="text-primary">Projetos</span>
+              {t("projects_page.title_1")}<span className="text-primary">{t("projects_page.title_2")}</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Explore todos os meus trabalhos em UX/UI Design.
+              {t("projects_page.subtitle")}
             </p>
           </div>
 
@@ -36,10 +38,10 @@ const Projects = () => {
                 <ArrowRight className="w-8 h-8 text-accent" />
               </div>
               <h2 className="font-display text-2xl font-semibold text-foreground mb-3">
-                Em breve
+                {t("projects_page.coming_soon")}
               </h2>
               <p className="text-muted-foreground max-w-md mx-auto text-lg">
-                Estou preparando meus projetos para compartilhar aqui. Fique atento!
+                {t("projects_page.coming_soon_desc")}
               </p>
             </div>
           ) : (
@@ -64,7 +66,7 @@ const Projects = () => {
                     )}
                     <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
                       <span className="text-background font-display font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
-                        Ver Case Completo <ArrowRight className="w-5 h-5" />
+                        {t("projects.view_case")} <ArrowRight className="w-5 h-5" />
                       </span>
                     </div>
                   </div>

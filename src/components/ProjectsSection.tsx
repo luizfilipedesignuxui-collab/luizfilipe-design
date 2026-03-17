@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { projects: dbProjects, loading } = usePublishedProjects();
   const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,10 +27,10 @@ const ProjectsSection = () => {
       <div ref={ref} className="container mx-auto px-6">
         <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
-            Projetos
+            {t("projects.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Uma seleção dos meus trabalhos mais recentes em UX/UI Design.
+            {t("projects.subtitle")}
           </p>
         </div>
 
@@ -37,9 +39,9 @@ const ProjectsSection = () => {
             <div className="w-16 h-16 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-4">
               <ArrowRight className="w-6 h-6 text-accent" />
             </div>
-            <h3 className="font-display text-xl font-semibold text-foreground mb-2">Em breve</h3>
+            <h3 className="font-display text-xl font-semibold text-foreground mb-2">{t("projects.coming_soon")}</h3>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Estou preparando meus projetos para compartilhar aqui. Volte em breve!
+              {t("projects.coming_soon_desc")}
             </p>
           </div>
         ) : (
@@ -70,7 +72,7 @@ const ProjectsSection = () => {
                       )}
                       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
                         <span className="text-background font-display font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
-                          Ver Case Completo <ArrowRight className="w-5 h-5" />
+                          {t("projects.view_case")} <ArrowRight className="w-5 h-5" />
                         </span>
                       </div>
                     </div>
@@ -103,7 +105,7 @@ const ProjectsSection = () => {
         <div className="text-center mt-12">
           <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/5">
             <Link to="/projetos">
-              Ver todos os projetos
+              {t("projects.view_all")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

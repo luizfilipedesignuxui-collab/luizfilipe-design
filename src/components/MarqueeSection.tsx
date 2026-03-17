@@ -1,15 +1,19 @@
-const items = [
-  "UX DESIGN",
-  "UI DESIGN",
-  "PRODUCT THINKING",
-  "DESIGN SYSTEM",
-  "USER RESEARCH",
-  "PROTOTIPAÇÃO",
-  "WIREFRAMING",
-  "INTERACTION DESIGN",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MarqueeSection = () => {
+  const { t } = useLanguage();
+
+  const items = [
+    "UX DESIGN",
+    "UI DESIGN",
+    "PRODUCT THINKING",
+    "DESIGN SYSTEM",
+    "USER RESEARCH",
+    t("marquee.prototyping"),
+    "WIREFRAMING",
+    "INTERACTION DESIGN",
+  ];
+
   const content = items.map((item) => `${item} •`).join("  ");
 
   return (
