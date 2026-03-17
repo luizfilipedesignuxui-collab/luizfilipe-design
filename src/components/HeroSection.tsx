@@ -74,12 +74,12 @@ const HeroSection = () => {
               {firstName} {lastName}
             </h1>
 
-            {/* Person photo — IN FRONT, colorful, centered, no bg via multiply */}
+            {/* Person photo — IN FRONT, colorful, centered */}
             <img
               src={profilePhoto}
               alt={title}
-              className="relative h-full object-contain object-bottom"
-              style={{ zIndex: 10, mixBlendMode: "multiply" }}
+              className="relative h-[110%] object-contain object-bottom"
+              style={{ zIndex: 10, mixBlendMode: "darken" }}
             />
           </div>
         </div>
