@@ -82,7 +82,7 @@ const HeroSection = () => {
               src={profilePhoto}
               alt={title}
               className="relative h-full object-contain object-bottom grayscale"
-              style={{ zIndex: 10 }}
+              style={{ zIndex: 10, mixBlendMode: "multiply" }}
             />
           </div>
         </div>
