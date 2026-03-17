@@ -72,7 +72,6 @@ const HeroSection = () => {
                 bottom: "5%",
                 color: "hsl(45, 90%, 50%)",
               }}
-              }}
             >
               {firstName} {lastName}
             </h1>
