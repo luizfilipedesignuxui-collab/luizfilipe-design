@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useProjectLocale } from "@/hooks/useProjectLocale";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -11,6 +12,7 @@ const Projects = () => {
   const { projects: dbProjects } = usePublishedProjects();
   const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
   const { t } = useLanguage();
+  const { loc } = useProjectLocale();
 
   return (
     <div className="min-h-screen bg-background">
@@ -46,50 +48,53 @@ const Projects = () => {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project) => (
-                <Link
-                  to={`/projetos/${project.slug}`}
-                  key={project.id}
-                  className="group block rounded-3xl overflow-hidden border border-border bg-card/30 hover:shadow-2xl transition-all duration-500"
-                >
-                  <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
-                    {project.imagem_capa ? (
-                      <img src={project.imagem_capa} alt={project.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                          <span className="font-display font-extrabold text-primary text-2xl">
-                            {project.titulo.charAt(0)}
-                          </span>
+              {projects.map((project) => {
+                const l = loc(project);
+                return (
+                  <Link
+                    to={`/projetos/${project.slug}`}
+                    key={project.id}
+                    className="group block rounded-3xl overflow-hidden border border-border bg-card/30 hover:shadow-2xl transition-all duration-500"
+                  >
+                    <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
+                      {project.imagem_capa ? (
+                        <img src={project.imagem_capa} alt={l.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <span className="font-display font-extrabold text-primary text-2xl">
+                              {l.titulo.charAt(0)}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
-                      <span className="text-background font-display font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
-                        {t("projects.view_case")} <ArrowRight className="w-5 h-5" />
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6 space-y-3">
-                    <span className="font-display text-xs text-accent font-semibold uppercase tracking-widest">
-                      {project.categoria}
-                    </span>
-                    <h3 className="font-display font-extrabold text-xl text-foreground group-hover:text-primary transition-colors">
-                      {project.titulo}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {project.descricao}
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {project.ferramentas.map((tool) => (
-                        <span key={tool} className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
-                          {tool}
+                      )}
+                      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
+                        <span className="text-background font-display font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
+                          {t("projects.view_case")} <ArrowRight className="w-5 h-5" />
                         </span>
-                      ))}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="p-6 space-y-3">
+                      <span className="font-display text-xs text-accent font-semibold uppercase tracking-widest">
+                        {l.categoria}
+                      </span>
+                      <h3 className="font-display font-extrabold text-xl text-foreground group-hover:text-primary transition-colors">
+                        {l.titulo}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {l.descricao}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {project.ferramentas.map((tool) => (
+                          <span key={tool} className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
