@@ -64,7 +64,7 @@ const HeroSection = () => {
           >
             {/* Full-width name — BEHIND photo */}
             <h1
-              className="absolute font-display font-extrabold text-accent select-none leading-none tracking-tighter whitespace-nowrap text-center"
+              className="absolute font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap text-center"
               style={{
                 fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
