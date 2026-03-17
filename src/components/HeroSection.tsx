@@ -59,7 +59,7 @@ const HeroSection = () => {
           </span>
 
           {/* Name + Photo layered composition */}
-          <div className="relative w-screen flex items-center justify-center overflow-hidden"
+          <div className="relative w-screen flex items-end justify-center overflow-hidden"
             style={{ height: "clamp(250px, 35vw, 450px)" }}
           >
             {/* Full-width name — BEHIND photo */}
@@ -69,17 +69,23 @@ const HeroSection = () => {
                 fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
                 zIndex: 5,
+                bottom: "5%",
               }}
             >
               {firstName} {lastName}
             </h1>
 
-            {/* Person photo — IN FRONT, colorful, centered */}
+            {/* Person photo — positioned left, leaning on "Luiz" */}
             <img
               src={profilePhoto}
               alt={title}
-              className="relative h-[110%] object-contain object-bottom"
-              style={{ zIndex: 10 }}
+              className="absolute h-[105%] object-contain object-bottom"
+              style={{
+                zIndex: 10,
+                left: "50%",
+                transform: "translateX(-85%)",
+                mixBlendMode: "multiply",
+              }}
             />
           </div>
         </div>
