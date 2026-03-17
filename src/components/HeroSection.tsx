@@ -33,8 +33,8 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Subtle background texture */}
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+      {/* Subtle background */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-muted blur-3xl" />
         <div className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-muted blur-3xl" />
@@ -42,51 +42,68 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* === EDITORIAL HERO BANNER === */}
-        <div className="relative flex items-center justify-center mb-12 sm:mb-16">
-          {/* Large name text behind photo */}
-          <div className="relative w-full flex items-center justify-center min-h-[340px] sm:min-h-[420px] lg:min-h-[520px]">
-            {/* Script text "Creative" / "UX/UI" */}
+        <div className="relative flex items-center justify-center mb-8 sm:mb-12">
+          <div className="relative w-full flex flex-col items-center justify-center">
+            
+            {/* Script text */}
             <span
-              className="absolute top-0 sm:top-2 lg:top-4 left-1/2 -translate-x-1/2 lg:left-[18%] lg:translate-x-0 z-20 text-foreground select-none pointer-events-none"
+              className="relative z-20 text-foreground select-none mb-2 sm:mb-0"
               style={{
                 fontFamily: "'Dancing Script', cursive",
-                fontSize: "clamp(2rem, 5vw, 4.5rem)",
+                fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                 fontWeight: 700,
               }}
             >
               UX/UI Designer
             </span>
 
-            {/* Giant name text */}
-            <h1
-              className="absolute inset-0 flex items-center justify-center font-display font-extrabold text-primary select-none pointer-events-none leading-none tracking-tighter text-center"
-              style={{
-                fontSize: "clamp(4rem, 14vw, 14rem)",
-                letterSpacing: "-0.04em",
-                zIndex: 10,
-              }}
-            >
-              {firstName}
-              <br className="hidden sm:block" />
-              <span className="sm:hidden">&nbsp;</span>
-              {lastName}
-            </h1>
+            {/* Name + Photo composite */}
+            <div className="relative flex items-center justify-center w-full">
+              {/* First name - left side */}
+              <h1
+                className="font-display font-extrabold text-primary select-none leading-none tracking-tighter text-right"
+                style={{
+                  fontSize: "clamp(3.5rem, 12vw, 11rem)",
+                  letterSpacing: "-0.04em",
+                  zIndex: 10,
+                }}
+              >
+                {firstName}
+              </h1>
 
-            {/* Asterisk decoration */}
-            <span
-              className="absolute top-2 right-4 sm:top-4 sm:right-[10%] lg:right-[18%] z-20 text-foreground select-none pointer-events-none"
-              style={{ fontSize: "clamp(2rem, 4vw, 4rem)", fontWeight: 900 }}
-            >
-              ✳
-            </span>
+              {/* Profile photo - center, overlapping */}
+              <div
+                className="relative flex-shrink-0 overflow-hidden mx-[-20px] sm:mx-[-30px] lg:mx-[-40px]"
+                style={{ zIndex: 15 }}
+              >
+                <div className="w-[160px] h-[220px] sm:w-[220px] sm:h-[300px] lg:w-[300px] lg:h-[400px] overflow-hidden rounded-b-[40%]">
+                  <img
+                    src={profilePhoto}
+                    alt={title}
+                    className="w-full h-full object-cover object-top grayscale"
+                  />
+                </div>
+              </div>
 
-            {/* Profile photo overlapping the text */}
-            <div className="relative z-[15] w-[200px] h-[280px] sm:w-[260px] sm:h-[360px] lg:w-[340px] lg:h-[460px] overflow-hidden rounded-b-[40%] flex-shrink-0">
-              <img
-                src={profilePhoto}
-                alt={title}
-                className="w-full h-full object-cover object-top grayscale"
-              />
+              {/* Last name - right side */}
+              <h1
+                className="font-display font-extrabold text-primary select-none leading-none tracking-tighter text-left"
+                style={{
+                  fontSize: "clamp(3.5rem, 12vw, 11rem)",
+                  letterSpacing: "-0.04em",
+                  zIndex: 10,
+                }}
+              >
+                {lastName}
+              </h1>
+
+              {/* Asterisk decoration */}
+              <span
+                className="absolute -top-2 right-0 sm:right-[5%] lg:right-[10%] z-20 text-foreground select-none"
+                style={{ fontSize: "clamp(1.5rem, 3vw, 3.5rem)", fontWeight: 900 }}
+              >
+                ✳
+              </span>
             </div>
           </div>
         </div>
@@ -124,7 +141,7 @@ const HeroSection = () => {
         </div>
 
         {/* Services */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 sm:mt-18 pt-8 sm:pt-10 border-t border-border/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-8 sm:pt-10 border-t border-border/50">
           {services.map((service) => (
             <div key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/25 transition-colors">
