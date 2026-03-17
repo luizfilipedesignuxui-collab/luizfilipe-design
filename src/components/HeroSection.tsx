@@ -2,7 +2,7 @@ import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
-import profilePhoto from "@/assets/profile-hero-cutout.png";
+
 
 const HeroSection = () => {
   const { content } = useSiteContent();
