@@ -1,30 +1,31 @@
 import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 import profilePhoto from "@/assets/profile-photo.png";
-
-const stats = [
-  { number: "5+", label: "Projetos" },
-  { number: "2", label: "Anos de experiência" },
-  { number: "100%", label: "Dedicação" },
-];
-
-const services = [
-  { icon: Sparkles, title: "User-Centered Design", desc: "Experiências focadas no usuário" },
-  { icon: Figma, title: "Brand Identity", desc: "Identidade visual e de marca" },
-  { icon: Monitor, title: "Responsive UI", desc: "Interfaces adaptáveis" },
-  { icon: Smartphone, title: "Seamless Prototyping", desc: "Protótipos interativos" },
-];
 
 const HeroSection = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
 
   const title = content.hero_title || "Luiz Filipe";
   const subtitle = content.hero_subtitle || "Criando experiências digitais intuitivas, estratégicas e centradas no usuário.";
-  const ctaPrimary = content.hero_cta_primary || "Ver Projetos";
-  const ctaSecondary = content.hero_cta_secondary || "Contato";
+  const ctaPrimary = t("hero.cta_primary");
+  const ctaSecondary = t("hero.cta_secondary");
 
-  // Split title into first and last name for styling
+  const stats = [
+    { number: "5+", label: t("hero.stat_projects") },
+    { number: "2", label: t("hero.stat_experience") },
+    { number: "100%", label: t("hero.stat_dedication") },
+  ];
+
+  const services = [
+    { icon: Sparkles, title: "User-Centered Design", desc: t("hero.service_ux") },
+    { icon: Figma, title: "Brand Identity", desc: t("hero.service_brand") },
+    { icon: Monitor, title: "Responsive UI", desc: t("hero.service_responsive") },
+    { icon: Smartphone, title: "Seamless Prototyping", desc: t("hero.service_prototyping") },
+  ];
+
   const nameParts = title.split(" ");
   const firstName = nameParts[0] || "Luiz";
   const lastName = nameParts.slice(1).join(" ") || "Filipe";

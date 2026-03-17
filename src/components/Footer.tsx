@@ -1,12 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
 
-  const tagline = content.footer_tagline || "UX/UI Designer criando experiências digitais intuitivas e centradas no usuário.";
+  const tagline = content.footer_tagline || t("footer.tagline_default");
   const email = content.contact_email || "luizfilipe.designuxui@gmail.com";
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#sobre" },
+    { label: t("nav.skills"), href: "#habilidades" },
+    { label: t("nav.process"), href: "#processo" },
+    { label: t("nav.projects"), href: "#projetos" },
+    { label: t("nav.contact"), href: "#contato" },
+  ];
 
   return (
     <footer className="py-16 md:py-24 border-t border-border">
@@ -20,15 +30,9 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-foreground uppercase text-sm tracking-widest">Navegação</h4>
+            <h4 className="font-display font-bold text-foreground uppercase text-sm tracking-widest">{t("footer.navigation")}</h4>
             <nav className="flex flex-col gap-3">
-              {[
-                { label: "Sobre", href: "#sobre" },
-                { label: "Habilidades", href: "#habilidades" },
-                { label: "Processo", href: "#processo" },
-                { label: "Projetos", href: "#projetos" },
-                { label: "Contato", href: "#contato" },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <a key={link.label} href={link.href} className="text-muted-foreground hover:text-primary transition-colors w-fit">
                   {link.label}
                 </a>
@@ -37,7 +41,7 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-display font-bold text-foreground uppercase text-sm tracking-widest">Conecte-se</h4>
+            <h4 className="font-display font-bold text-foreground uppercase text-sm tracking-widest">{t("footer.connect")}</h4>
             <div className="flex flex-col gap-3">
               {[
                 { label: "Email", href: `mailto:${email}` },
@@ -60,8 +64,8 @@ const Footer = () => {
 
         <div className="h-px bg-border mb-8" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2024 Luiz Filipe. Todos os direitos reservados.</p>
-          <p className="text-sm text-muted-foreground">Feito com ♥ e muito café</p>
+          <p className="text-sm text-muted-foreground">{t("footer.rights")}</p>
+          <p className="text-sm text-muted-foreground">{t("footer.made_with")}</p>
         </div>
       </div>
     </footer>

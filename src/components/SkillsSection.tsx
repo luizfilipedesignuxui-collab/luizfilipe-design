@@ -1,29 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  Compass,
-  Users,
-  PenTool,
-  Layers,
-  Palette,
-  Component,
-  MousePointerClick,
-  Lightbulb,
+  Compass, Users, PenTool, Layers, Palette, Component, MousePointerClick, Lightbulb,
 } from "lucide-react";
-
-const skills = [
-  { icon: Compass, title: "UX Design", description: "Experiências centradas no usuário com foco em usabilidade e acessibilidade." },
-  { icon: Users, title: "User Research", description: "Pesquisas qualitativas e quantitativas para entender necessidades reais." },
-  { icon: PenTool, title: "Wireframing", description: "Estruturação visual de fluxos e interfaces antes da prototipação." },
-  { icon: Layers, title: "Prototipação", description: "Protótipos interativos de alta fidelidade para validação com usuários." },
-  { icon: Palette, title: "UI Design", description: "Interfaces visuais modernas, consistentes e alinhadas à marca." },
-  { icon: Component, title: "Design System", description: "Sistemas de design escaláveis com componentes reutilizáveis." },
-  { icon: MousePointerClick, title: "Interaction Design", description: "Microinterações e animações que enriquecem a experiência." },
-  { icon: Lightbulb, title: "Product Thinking", description: "Pensamento estratégico de produto aliado ao design." },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SkillsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
+
+  const skills = [
+    { icon: Compass, title: "UX Design", description: t("skills.ux_desc") },
+    { icon: Users, title: "User Research", description: t("skills.research_desc") },
+    { icon: PenTool, title: "Wireframing", description: t("skills.wireframe_desc") },
+    { icon: Layers, title: t("skills.prototype_title"), description: t("skills.prototype_desc") },
+    { icon: Palette, title: "UI Design", description: t("skills.ui_desc") },
+    { icon: Component, title: "Design System", description: t("skills.design_system_desc") },
+    { icon: MousePointerClick, title: "Interaction Design", description: t("skills.interaction_desc") },
+    { icon: Lightbulb, title: "Product Thinking", description: t("skills.product_desc") },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,10 +34,10 @@ const SkillsSection = () => {
       <div ref={ref} className="container mx-auto px-6">
         <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
-            Habilidades
+            {t("skills.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Competências que utilizo para transformar ideias em produtos digitais excepcionais.
+            {t("skills.subtitle")}
           </p>
         </div>
 

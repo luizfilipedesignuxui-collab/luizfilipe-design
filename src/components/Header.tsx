@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Habilidades", href: "#habilidades" },
-  { label: "Processo", href: "#processo" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#sobre" },
+    { label: t("nav.skills"), href: "#habilidades" },
+    { label: t("nav.process"), href: "#processo" },
+    { label: t("nav.projects"), href: "#projetos" },
+    { label: t("nav.contact"), href: "#contato" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -42,16 +44,42 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border hover:border-primary/40 hover:bg-primary/5 transition-all text-sm font-medium text-muted-foreground hover:text-primary"
+            title={language === "pt" ? "Switch to English" : "Mudar para Português"}
+          >
+            {language === "pt" ? (
+              <>
+                <span className="text-base leading-none">🇺🇸</span>
+                <span>EN</span>
+              </>
+            ) : (
+              <>
+                <span className="text-base leading-none">🇧🇷</span>
+                <span>PT</span>
+              </>
+            )}
+          </button>
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-border text-sm font-medium text-muted-foreground"
+            title={language === "pt" ? "Switch to English" : "Mudar para Português"}
+          >
+            {language === "pt" ? "🇺🇸" : "🇧🇷"}
+          </button>
+          <button
+            className="text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile nav */}

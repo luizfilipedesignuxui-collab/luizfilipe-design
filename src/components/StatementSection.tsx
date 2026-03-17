@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatementSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,8 +29,8 @@ const StatementSection = () => {
       >
         <blockquote className="max-w-4xl mx-auto text-center">
           <p className="font-display text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
-            "Design não é apenas como parece.{" "}
-            <span className="text-primary">Design é como funciona.</span>"
+            "{t("statement.quote")}{" "}
+            <span className="text-primary">{t("statement.quote_highlight")}</span>"
           </p>
           <cite className="block mt-8 text-lg text-muted-foreground not-italic font-display">
             — Steve Jobs
