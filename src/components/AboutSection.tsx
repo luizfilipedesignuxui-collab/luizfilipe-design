@@ -15,7 +15,7 @@ const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { content } = useSiteContent();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const highlights = [
     { number: "28", label: t("about.highlight_years") },
@@ -23,13 +23,21 @@ const AboutSection = () => {
     { number: "∞", label: t("about.highlight_curiosity") },
   ];
 
-  const title = content.about_title || t("about.title_default");
-  const paragraphs = [
-    content.about_text_1 || t("about.text_1_default"),
-    content.about_text_2 || t("about.text_2_default"),
-    content.about_text_3 || t("about.text_3_default"),
-    content.about_text_4 || t("about.text_4_default"),
-  ].filter(Boolean);
+  // Use DB content only in PT, use translations in EN
+  const title = language === "pt" ? (content.about_title || t("about.title_default")) : t("about.title_default");
+  const paragraphs = language === "pt"
+    ? [
+        content.about_text_1 || t("about.text_1_default"),
+        content.about_text_2 || t("about.text_2_default"),
+        content.about_text_3 || t("about.text_3_default"),
+        content.about_text_4 || t("about.text_4_default"),
+      ].filter(Boolean)
+    : [
+        t("about.text_1_default"),
+        t("about.text_2_default"),
+        t("about.text_3_default"),
+        t("about.text_4_default"),
+      ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
