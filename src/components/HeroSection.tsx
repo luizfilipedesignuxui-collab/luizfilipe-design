@@ -60,14 +60,14 @@ const HeroSection = () => {
           </span>
 
           {/* Name + Photo layered composition */}
-          <div className="relative w-screen flex items-center justify-center"
-            style={{ height: "clamp(200px, 30vw, 400px)" }}
+          <div className="relative w-screen flex flex-col sm:flex-row items-center justify-center"
+            style={{ minHeight: "clamp(200px, 30vw, 400px)" }}
           >
-            {/* Profile photo positioned after the "e" in Filipe */}
+            {/* Desktop: photo absolute after "e" */}
             <img
               src={profilePhoto}
               alt={title}
-              className="absolute h-[130%] object-contain object-bottom z-10"
+              className="hidden sm:block absolute h-[130%] object-contain object-bottom z-10"
               style={{
                 right: "5%",
                 bottom: 0,
@@ -77,7 +77,7 @@ const HeroSection = () => {
             <h1
               className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap"
               style={{
-                fontSize: "clamp(5rem, 16vw, 18rem)",
+                fontSize: "clamp(3.5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
                 color: "hsl(48, 100%, 50%)",
                 marginRight: "auto",
@@ -86,6 +86,13 @@ const HeroSection = () => {
             >
               {firstName} {lastName}
             </h1>
+            {/* Mobile: photo below name */}
+            <img
+              src={profilePhoto}
+              alt={title}
+              className="block sm:hidden w-[70%] max-w-[280px] object-contain mt-4"
+              style={{ mixBlendMode: "multiply" }}
+            />
           </div>
         </div>
 
