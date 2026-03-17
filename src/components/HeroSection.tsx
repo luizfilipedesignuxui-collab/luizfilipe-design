@@ -75,7 +75,7 @@ const HeroSection = () => {
               }}
             />
             <h1
-              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap"
+              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap text-center sm:text-left"
               style={{
                 fontSize: "clamp(3.5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
