@@ -34,7 +34,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20" style={{ backgroundColor: "hsl(220, 20%, 78%)" }}>
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 bg-white">
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-muted blur-3xl" />
         <div className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-muted blur-3xl" />
