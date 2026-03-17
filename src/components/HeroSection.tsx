@@ -86,7 +86,6 @@ const HeroSection = () => {
                 zIndex: 10,
                 left: "50%",
                 transform: "translateX(-85%)",
-                mixBlendMode: "multiply",
               }}
             />
           </div>
