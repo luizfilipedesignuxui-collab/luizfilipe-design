@@ -2,7 +2,7 @@ import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
-import profilePhoto from "@/assets/profile-photo.png";
+import profilePhoto from "@/assets/profile-photo-cutout.png";
 
 const HeroSection = () => {
   const { content } = useSiteContent();
@@ -45,7 +45,7 @@ const HeroSection = () => {
 
           {/* Script text */}
           <span
-            className="relative z-20 text-foreground select-none mb-1"
+            className="relative z-30 text-foreground select-none mb-1"
             style={{
               fontFamily: "'Dancing Script', cursive",
               fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
@@ -57,41 +57,33 @@ const HeroSection = () => {
 
           {/* Asterisk */}
           <span
-            className="absolute top-0 right-4 sm:right-[5%] lg:right-[10%] z-20 text-foreground select-none"
+            className="absolute top-0 right-4 sm:right-[5%] lg:right-[10%] z-30 text-foreground select-none"
             style={{ fontSize: "clamp(1.5rem, 3vw, 3.5rem)", fontWeight: 900 }}
           >
             ✳
           </span>
 
-          {/* Name + Photo stack */}
-          <div className="relative w-full flex items-center justify-center" style={{ minHeight: "clamp(200px, 30vw, 400px)" }}>
-            {/* Full-width name text BEHIND the photo */}
+          {/* Name + Photo layered composition */}
+          <div className="relative w-screen flex items-center justify-center overflow-hidden" style={{ height: "clamp(250px, 35vw, 450px)" }}>
+            {/* Full-width name — BEHIND photo */}
             <h1
-              className="absolute inset-0 flex items-center justify-center font-display font-extrabold text-primary select-none leading-none tracking-tighter whitespace-nowrap"
+              className="absolute font-display font-extrabold text-primary select-none leading-none tracking-tighter whitespace-nowrap text-center"
               style={{
-                fontSize: "clamp(4.5rem, 15vw, 16rem)",
+                fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
                 zIndex: 5,
-                width: "100vw",
-                left: "50%",
-                transform: "translateX(-50%)",
-                textAlign: "center",
               }}
             >
-              {firstName}&nbsp;{lastName}
+              {firstName} {lastName}
             </h1>
 
-            {/* Profile photo ON TOP of the text */}
-            <div
-              className="relative w-[180px] h-[240px] sm:w-[240px] sm:h-[320px] lg:w-[320px] lg:h-[420px] overflow-hidden rounded-b-[40%] flex-shrink-0"
+            {/* Person cutout — IN FRONT of text */}
+            <img
+              src={profilePhoto}
+              alt={title}
+              className="relative h-full object-contain object-bottom grayscale"
               style={{ zIndex: 10 }}
-            >
-              <img
-                src={profilePhoto}
-                alt={title}
-                className="w-full h-full object-cover object-top grayscale"
-              />
-            </div>
+            />
           </div>
         </div>
 
