@@ -33,8 +33,8 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
-      <div className="absolute inset-0 pointer-events-none opacity-30">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20" style={{ backgroundColor: "hsl(220, 20%, 78%)" }}>
+      <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-muted blur-3xl" />
         <div className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-muted blur-3xl" />
       </div>
@@ -64,12 +64,13 @@ const HeroSection = () => {
           >
             {/* Full-width name — BEHIND photo */}
             <h1
-              className="absolute font-display font-extrabold text-accent select-none leading-none tracking-tighter whitespace-nowrap text-center"
+              className="absolute font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap text-center"
               style={{
                 fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
                 zIndex: 5,
                 bottom: "5%",
+                color: "hsl(45, 90%, 50%)",
               }}
             >
               {firstName} {lastName}
@@ -84,7 +85,6 @@ const HeroSection = () => {
                 zIndex: 10,
                 left: "50%",
                 transform: "translateX(-85%)",
-                mixBlendMode: "multiply",
               }}
             />
           </div>
