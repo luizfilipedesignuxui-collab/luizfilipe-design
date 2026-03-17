@@ -63,24 +63,25 @@ const HeroSection = () => {
           <div className="relative w-screen flex items-center justify-center"
             style={{ height: "clamp(200px, 30vw, 400px)" }}
           >
-            {/* Profile photo on the left */}
+            {/* Profile photo positioned after the "e" in Filipe */}
             <img
               src={profilePhoto}
               alt={title}
               className="absolute h-[130%] object-contain object-bottom z-10"
               style={{
-                left: "50%",
-                transform: "translateX(-115%)",
+                right: "5%",
                 bottom: 0,
                 mixBlendMode: "multiply",
               }}
             />
             <h1
-              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap text-center"
+              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap"
               style={{
                 fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
-                color: "hsl(45, 100%, 45%)",
+                color: "hsl(48, 100%, 50%)",
+                marginRight: "auto",
+                paddingLeft: "2vw",
               }}
             >
               {firstName} {lastName}
