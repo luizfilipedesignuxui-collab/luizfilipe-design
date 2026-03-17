@@ -2,7 +2,7 @@ import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
-import profilePhoto from "@/assets/profile-photo-cutout.png";
+import profilePhoto from "@/assets/profile-hero-cutout.png";
 
 const HeroSection = () => {
   const { content } = useSiteContent();
@@ -43,14 +43,9 @@ const HeroSection = () => {
         {/* === EDITORIAL HERO BANNER === */}
         <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
 
-          {/* Script text */}
-          <span
-            className="relative z-30 text-foreground select-none mb-1"
-            style={{
-              fontFamily: "'Dancing Script', cursive",
-              fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-              fontWeight: 700,
-            }}
+          {/* UX/UI Designer — same Sora font as name */}
+          <span className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2"
+            style={{ fontSize: "clamp(1rem, 2.5vw, 1.8rem)", letterSpacing: "0.15em" }}
           >
             UX/UI Designer
           </span>
@@ -64,7 +59,9 @@ const HeroSection = () => {
           </span>
 
           {/* Name + Photo layered composition */}
-          <div className="relative w-screen flex items-center justify-center overflow-hidden" style={{ height: "clamp(250px, 35vw, 450px)" }}>
+          <div className="relative w-screen flex items-center justify-center overflow-hidden"
+            style={{ height: "clamp(250px, 35vw, 450px)" }}
+          >
             {/* Full-width name — BEHIND photo */}
             <h1
               className="absolute font-display font-extrabold text-primary select-none leading-none tracking-tighter whitespace-nowrap text-center"
@@ -77,11 +74,11 @@ const HeroSection = () => {
               {firstName} {lastName}
             </h1>
 
-            {/* Person cutout — IN FRONT of text */}
+            {/* Person photo — IN FRONT, colorful, centered, no bg via multiply */}
             <img
               src={profilePhoto}
               alt={title}
-              className="relative h-full object-contain object-bottom grayscale"
+              className="relative h-full object-contain object-bottom"
               style={{ zIndex: 10, mixBlendMode: "multiply" }}
             />
           </div>
