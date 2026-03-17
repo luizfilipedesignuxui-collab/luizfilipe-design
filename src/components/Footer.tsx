@@ -4,9 +4,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { content } = useSiteContent();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
-  const tagline = content.footer_tagline || t("footer.tagline_default");
+  const tagline = language === "pt" ? (content.footer_tagline || t("footer.tagline_default")) : t("footer.tagline_default");
   const email = content.contact_email || "luizfilipe.designuxui@gmail.com";
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 

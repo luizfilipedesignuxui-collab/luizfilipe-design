@@ -6,10 +6,12 @@ import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
   const { content } = useSiteContent();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const title = content.hero_title || "Luiz Filipe";
-  const subtitle = content.hero_subtitle || "Criando experiências digitais intuitivas, estratégicas e centradas no usuário.";
+  const subtitle = language === "pt"
+    ? (content.hero_subtitle || "Criando experiências digitais intuitivas, estratégicas e centradas no usuário.")
+    : "Creating intuitive, strategic, and user-centered digital experiences.";
   const ctaPrimary = t("hero.cta_primary");
   const ctaSecondary = t("hero.cta_secondary");
 
