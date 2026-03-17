@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useProjectLocale } from "@/hooks/useProjectLocale";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const CaseStudy = () => {
   const allProjects = dbProjects.length > 0 ? dbProjects : staticProjects;
   const project = allProjects.find((p) => p.slug === slug);
   const { t } = useLanguage();
+  const { loc } = useProjectLocale();
 
   if (loading) {
     return (
@@ -38,6 +40,8 @@ const CaseStudy = () => {
     );
   }
 
+  const l = loc(project);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -50,7 +54,7 @@ const CaseStudy = () => {
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent font-semibold uppercase tracking-wider">
-                {project.categoria}
+                {l.categoria}
               </span>
               {project.tags.map((tag) => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
@@ -59,10 +63,10 @@ const CaseStudy = () => {
               ))}
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-extrabold text-foreground mb-4">
-              {project.titulo}
+              {l.titulo}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              {project.descricao}
+              {l.descricao}
             </p>
             {project.link_projeto && (
               <a
@@ -101,11 +105,11 @@ const CaseStudy = () => {
         <section className="container mx-auto px-6 mb-16">
           <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (
-              <img src={project.imagem_capa} alt={project.titulo} className="w-full h-auto object-contain" />
+              <img src={project.imagem_capa} alt={l.titulo} className="w-full h-auto object-contain" />
             ) : (
               <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center">
                 <span className="font-display font-bold text-primary text-3xl">
-                  {project.titulo.charAt(0)}
+                  {l.titulo.charAt(0)}
                 </span>
               </div>
             )}
@@ -115,21 +119,21 @@ const CaseStudy = () => {
         <div className="container mx-auto px-6 max-w-4xl space-y-16 pb-24">
           <section className="space-y-4">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{t("case.context")}</h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">{project.contexto}</p>
+            <p className="text-muted-foreground leading-relaxed text-lg">{l.contexto}</p>
           </section>
 
           <section className="space-y-4">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{t("case.objective")}</h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">{project.objetivo}</p>
+            <p className="text-muted-foreground leading-relaxed text-lg">{l.objetivo}</p>
           </section>
 
           <section className="space-y-8">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{t("case.process")}</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { label: "UX Research", content: project.processo.research },
-                { label: "Wireframe", content: project.processo.wireframe },
-                { label: "UI Design", content: project.processo.ui_design },
+                { label: "UX Research", content: l.processo.research },
+                { label: "Wireframe", content: l.processo.wireframe },
+                { label: "UI Design", content: l.processo.ui_design },
               ].map((step) => (
                 <div key={step.label} className="p-6 rounded-2xl border border-border bg-card/30 space-y-3">
                   <h3 className="font-display font-bold text-foreground text-lg">{step.label}</h3>
@@ -160,7 +164,7 @@ const CaseStudy = () => {
                     className="rounded-2xl overflow-hidden border border-border bg-primary/5 p-4 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                     onClick={() => setLightboxIndex(i)}
                   >
-                    <img src={img} alt={`${project.titulo} - ${i + 1}`} className="w-full h-auto object-contain" />
+                    <img src={img} alt={`${l.titulo} - ${i + 1}`} className="w-full h-auto object-contain" />
                   </div>
                 ))}
               </div>
@@ -201,7 +205,7 @@ const CaseStudy = () => {
 
           <section className="space-y-4 p-8 rounded-3xl border border-accent/30 bg-accent/5">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{t("case.result")}</h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">{project.resultado}</p>
+            <p className="text-muted-foreground leading-relaxed text-lg">{l.resultado}</p>
           </section>
         </div>
       </main>

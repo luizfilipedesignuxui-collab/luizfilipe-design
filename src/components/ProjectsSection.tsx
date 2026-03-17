@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useProjectLocale } from "@/hooks/useProjectLocale";
 
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,6 +13,7 @@ const ProjectsSection = () => {
   const { projects: dbProjects, loading } = usePublishedProjects();
   const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
   const { t } = useLanguage();
+  const { loc } = useProjectLocale();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,6 +50,7 @@ const ProjectsSection = () => {
           <div className="space-y-8">
             {projects.slice(0, 2).map((project, index) => {
               const isEven = index % 2 === 0;
+              const l = loc(project);
               return (
                 <Link
                   to={`/projetos/${project.slug}`}
@@ -60,12 +63,12 @@ const ProjectsSection = () => {
                   <div className="grid md:grid-cols-2">
                     <div className={`aspect-[4/3] bg-primary/5 relative overflow-hidden ${!isEven ? "md:order-2" : ""}`}>
                       {project.imagem_capa ? (
-                        <img src={project.imagem_capa} alt={project.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                        <img src={project.imagem_capa} alt={l.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                             <span className="font-display font-extrabold text-primary text-3xl">
-                              {project.titulo.charAt(0)}
+                              {l.titulo.charAt(0)}
                             </span>
                           </div>
                         </div>
@@ -79,13 +82,13 @@ const ProjectsSection = () => {
 
                     <div className={`p-8 md:p-12 flex flex-col justify-center space-y-4 ${!isEven ? "md:order-1" : ""}`}>
                       <span className="font-display text-sm text-accent font-semibold uppercase tracking-widest">
-                        {project.categoria}
+                        {l.categoria}
                       </span>
                       <h3 className="font-display font-extrabold text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">
-                        {project.titulo}
+                        {l.titulo}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        {project.descricao}
+                        {l.descricao}
                       </p>
                       <div className="flex flex-wrap gap-2 pt-2">
                         {project.tags.map((tag) => (

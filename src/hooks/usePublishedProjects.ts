@@ -20,6 +20,18 @@ export interface PublishedProject {
   resultado: string;
   tags: string[];
   link_projeto: string;
+  // English fields
+  titulo_en?: string;
+  descricao_en?: string;
+  categoria_en?: string;
+  contexto_en?: string;
+  objetivo_en?: string;
+  resultado_en?: string;
+  processo_en?: {
+    research: string;
+    wireframe: string;
+    ui_design: string;
+  };
 }
 
 export function usePublishedProjects() {
@@ -35,7 +47,7 @@ export function usePublishedProjects() {
       .then(({ data }) => {
         if (data && data.length > 0) {
           setProjects(
-            data.map((p) => ({
+            data.map((p: any) => ({
               id: p.id,
               slug: p.slug,
               titulo: p.titulo,
@@ -54,6 +66,17 @@ export function usePublishedProjects() {
               resultado: p.resultado ?? "",
               tags: p.tags ?? [],
               link_projeto: p.link_projeto ?? "",
+              titulo_en: p.titulo_en ?? "",
+              descricao_en: p.descricao_en ?? "",
+              categoria_en: p.categoria_en ?? "",
+              contexto_en: p.contexto_en ?? "",
+              objetivo_en: p.objetivo_en ?? "",
+              resultado_en: p.resultado_en ?? "",
+              processo_en: {
+                research: p.processo_research_en ?? "",
+                wireframe: p.processo_wireframe_en ?? "",
+                ui_design: p.processo_ui_design_en ?? "",
+              },
             }))
           );
         }
