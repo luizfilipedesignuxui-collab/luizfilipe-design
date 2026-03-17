@@ -70,6 +70,8 @@ const HeroSection = () => {
                 letterSpacing: "-0.03em",
                 zIndex: 5,
                 bottom: "5%",
+                color: "hsl(45, 90%, 50%)",
+              }}
               }}
             >
               {firstName} {lastName}
