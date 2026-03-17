@@ -17,10 +17,20 @@ export interface Project {
   resultado: string;
   tags: string[];
   link_projeto?: string;
+  // English fields
+  titulo_en?: string;
+  descricao_en?: string;
+  categoria_en?: string;
+  contexto_en?: string;
+  objetivo_en?: string;
+  resultado_en?: string;
+  processo_en?: {
+    research: string;
+    wireframe: string;
+    ui_design: string;
+  };
 }
 
-// Para adicionar um novo projeto, basta adicionar um objeto ao array abaixo.
-// Ele aparecerá automaticamente na página /projetos e na home.
 import pontuoMockup from "@/assets/pontuo-mockup.png";
 import pontuoMockup2 from "@/assets/pontuo-mockup-2.png";
 import pontuoMockup3 from "@/assets/pontuo-mockup-3.png";
@@ -46,6 +56,17 @@ export const projects: Project[] = [
     },
     resultado: "Testes com 20 usuários mostraram que 90% preferiam a rota multimodal sugerida pelo app. O tempo médio de planejamento de trajeto caiu de 8 minutos para 25 segundos.",
     tags: ["Mobile", "Mobilidade", "UX Design"],
+    titulo_en: "Pontuô — Urban Mobility App",
+    descricao_en: "An urban mobility app that connects users to different transportation modes with a fluid, intuitive, and sustainable experience.",
+    categoria_en: "UX Design",
+    contexto_en: "Urban users face difficulties combining different means of transportation daily. The fragmentation between apps makes route planning inefficient and frustrating.",
+    objetivo_en: "Create a mobility app that unifies the urban transportation experience, suggesting the best modal combinations considering time, cost, and sustainability.",
+    resultado_en: "Tests with 20 users showed that 90% preferred the multimodal route suggested by the app. The average route planning time dropped from 8 minutes to 25 seconds.",
+    processo_en: {
+      research: "I conducted research with 15 public and private transport users to map mobility patterns and identify the main pain points in daily commute planning.",
+      wireframe: "I created low-fidelity wireframes in Figma Make to validate the main flow: route search → modal comparison → navigation. We iterated 4 times based on usability tests.",
+      ui_design: "I developed the final interface in Figma with an interactive map as the central element, route cards with modal icons, and real-time estimates.",
+    },
   },
   {
     id: "2",
@@ -65,6 +86,17 @@ export const projects: Project[] = [
     },
     resultado: "Após a implementação do redesign, a taxa de conclusão dos cursos subiu de 40% para 72% e o NPS da plataforma aumentou 35 pontos em 3 meses.",
     tags: ["Web", "EdTech", "Design System"],
+    titulo_en: "LearnHub — Educational Platform",
+    descricao_en: "Redesign of an online course platform focused on improving student retention and learning experience.",
+    categoria_en: "UI Design",
+    contexto_en: "The existing educational platform had a 60% course dropout rate. The outdated interface and confusing navigation were the main identified causes.",
+    objetivo_en: "Redesign the learning experience to increase student retention and make course progress more engaging and motivating.",
+    resultado_en: "After implementing the redesign, course completion rates rose from 40% to 72% and the platform's NPS increased by 35 points in 3 months.",
+    processo_en: {
+      research: "I analyzed platform usage data, conducted usability tests with 15 students, and mapped dropout points in the learning funnel using heatmaps and session recordings.",
+      wireframe: "I prototyped a new navigation flow with subtle gamification: progress bar, achievement badges, and visual checkpoints between modules.",
+      ui_design: "I created a complete design system with reusable components, dark mode, and responsive layout that prioritizes course content with minimal distractions.",
+    },
   },
   {
     id: "3",
@@ -84,6 +116,17 @@ export const projects: Project[] = [
     },
     resultado: "O dashboard reduziu em 40% o tempo que médicos gastavam revisando dados de pacientes. A equipe de enfermagem reportou uma melhora significativa na identificação precoce de alertas críticos.",
     tags: ["Web", "HealthTech", "Data Viz"],
+    titulo_en: "VitalCare — Health Dashboard",
+    descricao_en: "Dashboard for healthcare professionals to remotely monitor patients with clear and actionable data visualization.",
+    categoria_en: "Product Design",
+    contexto_en: "Clinics and offices needed a tool to remotely monitor chronic patients, but existing solutions were complex and required extensive training for the medical team.",
+    objetivo_en: "Develop an intuitive dashboard that presents patient vital data clearly, with smart alerts and quick actions for healthcare professionals.",
+    resultado_en: "The dashboard reduced by 40% the time doctors spent reviewing patient data. The nursing team reported a significant improvement in early identification of critical alerts.",
+    processo_en: {
+      research: "Shadowing with 5 healthcare professionals for 2 weeks to understand their routines and needs. We created detailed personas and journeys for the doctor and nurse users.",
+      wireframe: "We iterated over 4 dashboard versions using information design principles. We prioritized visual hierarchy: critical alerts > real-time data > history.",
+      ui_design: "Clean interface with traffic-light color system for patient status. Expandable cards, interactive charts, and contextual shortcuts for frequent medical actions.",
+    },
   },
   {
     id: "4",
@@ -103,6 +146,17 @@ export const projects: Project[] = [
     },
     resultado: "O MVP do e-commerce gerou um aumento de 200% nas vendas online no primeiro mês. A taxa de recompra mensal atingiu 45%, superando a média do mercado pet online.",
     tags: ["E-commerce", "Mobile", "Personalização"],
+    titulo_en: "PawStore — Pet Shop E-commerce",
+    descricao_en: "Online pet shop with a personalized shopping experience based on the pet's profile.",
+    categoria_en: "UI Design",
+    contexto_en: "The physical pet shop wanted to expand digitally but needed an experience that stood out from large marketplaces, creating an emotional connection with pet owners.",
+    objetivo_en: "Create an e-commerce that personalizes the shopping experience based on the registered pet's profile, facilitating repurchase and relevant product discovery.",
+    resultado_en: "The e-commerce MVP generated a 200% increase in online sales in the first month. The monthly repurchase rate reached 45%, surpassing the online pet market average.",
+    processo_en: {
+      research: "Research with 20 pet owners to understand online shopping habits. We found that 78% buy the same products monthly and would like personalized recommendations.",
+      wireframe: "Onboarding flow with pet registration (breed, age, size) feeding a recommendation algorithm. Wireframes focused on quick repurchase and new product discovery.",
+      ui_design: "Vibrant and welcoming design with custom pet illustrations. Product cards with compatibility info for the registered pet and a 1-click repurchase button.",
+    },
   },
   {
     id: "5",
@@ -122,5 +176,16 @@ export const projects: Project[] = [
     },
     resultado: "Testes com 25 usuários mostraram que 88% preferiam a rota multimodal sugerida pelo app. O tempo médio de planejamento de trajeto caiu de 8 minutos para 30 segundos.",
     tags: ["Mobile", "Mobilidade", "Sustentabilidade"],
+    titulo_en: "GoRide — Urban Mobility App",
+    descricao_en: "A mobility app that integrates different transportation modes into a single fluid and sustainable experience.",
+    categoria_en: "Product Design",
+    contexto_en: "Urban users need to combine different means of transportation daily (bus, subway, bike, scooter) but each has its own app, making route planning fragmented and inefficient.",
+    objetivo_en: "Unify the urban mobility experience in a single app that suggests the best modal combination considering time, cost, and environmental impact.",
+    resultado_en: "Tests with 25 users showed that 88% preferred the multimodal route suggested by the app. The average route planning time dropped from 8 minutes to 30 seconds.",
+    processo_en: {
+      research: "Usage diary with 10 participants for 1 week to map mobility patterns. Benchmarking with mobility apps from 5 reference cities worldwide.",
+      wireframe: "Multimodal route planner prototype with visual comparison of options (fastest, cheapest, greenest). A/B tests with 3 interface variations.",
+      ui_design: "Interface with interactive map as the central element, route cards with modal icons, real-time estimates, and carbon footprint savings gamification.",
+    },
   },
 ];
