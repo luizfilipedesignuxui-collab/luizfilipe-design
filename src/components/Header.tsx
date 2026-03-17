@@ -51,13 +51,13 @@ const Header = () => {
           >
             {language === "pt" ? (
               <>
-                <span className="text-base leading-none">🇺🇸</span>
-                <span>EN</span>
+                <span className="text-base leading-none">🇧🇷</span>
+                <span>PT</span>
               </>
             ) : (
               <>
-                <span className="text-base leading-none">🇧🇷</span>
-                <span>PT</span>
+                <span className="text-base leading-none">🇺🇸</span>
+                <span>EN</span>
               </>
             )}
           </button>
