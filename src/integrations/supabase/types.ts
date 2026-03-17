@@ -17,9 +17,12 @@ export type Database = {
       projects: {
         Row: {
           categoria: string
+          categoria_en: string | null
           contexto: string | null
+          contexto_en: string | null
           created_at: string
           descricao: string
+          descricao_en: string | null
           ferramentas: string[] | null
           galeria_de_imagens: string[] | null
           id: string
@@ -27,21 +30,30 @@ export type Database = {
           is_published: boolean | null
           link_projeto: string | null
           objetivo: string | null
+          objetivo_en: string | null
           processo_research: string | null
+          processo_research_en: string | null
           processo_ui_design: string | null
+          processo_ui_design_en: string | null
           processo_wireframe: string | null
+          processo_wireframe_en: string | null
           resultado: string | null
+          resultado_en: string | null
           slug: string
           sort_order: number | null
           tags: string[] | null
           titulo: string
+          titulo_en: string | null
           updated_at: string
         }
         Insert: {
           categoria?: string
+          categoria_en?: string | null
           contexto?: string | null
+          contexto_en?: string | null
           created_at?: string
           descricao?: string
+          descricao_en?: string | null
           ferramentas?: string[] | null
           galeria_de_imagens?: string[] | null
           id?: string
@@ -49,21 +61,30 @@ export type Database = {
           is_published?: boolean | null
           link_projeto?: string | null
           objetivo?: string | null
+          objetivo_en?: string | null
           processo_research?: string | null
+          processo_research_en?: string | null
           processo_ui_design?: string | null
+          processo_ui_design_en?: string | null
           processo_wireframe?: string | null
+          processo_wireframe_en?: string | null
           resultado?: string | null
+          resultado_en?: string | null
           slug: string
           sort_order?: number | null
           tags?: string[] | null
           titulo: string
+          titulo_en?: string | null
           updated_at?: string
         }
         Update: {
           categoria?: string
+          categoria_en?: string | null
           contexto?: string | null
+          contexto_en?: string | null
           created_at?: string
           descricao?: string
+          descricao_en?: string | null
           ferramentas?: string[] | null
           galeria_de_imagens?: string[] | null
           id?: string
@@ -71,14 +92,20 @@ export type Database = {
           is_published?: boolean | null
           link_projeto?: string | null
           objetivo?: string | null
+          objetivo_en?: string | null
           processo_research?: string | null
+          processo_research_en?: string | null
           processo_ui_design?: string | null
+          processo_ui_design_en?: string | null
           processo_wireframe?: string | null
+          processo_wireframe_en?: string | null
           resultado?: string | null
+          resultado_en?: string | null
           slug?: string
           sort_order?: number | null
           tags?: string[] | null
           titulo?: string
+          titulo_en?: string | null
           updated_at?: string
         }
         Relationships: []
