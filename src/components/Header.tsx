@@ -51,13 +51,13 @@ const Header = () => {
           >
             {language === "pt" ? (
               <>
-                <span className="text-base leading-none">🇺🇸</span>
-                <span>EN</span>
+                <span className="text-base leading-none">🇧🇷</span>
+                <span>PT</span>
               </>
             ) : (
               <>
-                <span className="text-base leading-none">🇧🇷</span>
-                <span>PT</span>
+                <span className="text-base leading-none">🇺🇸</span>
+                <span>EN</span>
               </>
             )}
           </button>
@@ -70,7 +70,7 @@ const Header = () => {
             className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-border text-sm font-medium text-muted-foreground"
             title={language === "pt" ? "Switch to English" : "Mudar para Português"}
           >
-            {language === "pt" ? "🇺🇸" : "🇧🇷"}
+            {language === "pt" ? "🇧🇷" : "🇺🇸"}
           </button>
           <button
             className="text-foreground"

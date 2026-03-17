@@ -75,13 +75,11 @@ const HeroSection = () => {
               }}
             />
             <h1
-              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap"
+              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap w-full text-center sm:text-left sm:w-auto"
               style={{
                 fontSize: "clamp(3.5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
                 color: "hsl(48, 100%, 50%)",
-                marginRight: "auto",
-                paddingLeft: "2vw",
               }}
             >
               {firstName} {lastName}
