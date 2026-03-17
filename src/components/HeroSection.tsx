@@ -2,6 +2,7 @@ import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import profilePhoto from "@/assets/profile-hero-cutout.png";
 
 
 const HeroSection = () => {
@@ -62,12 +63,24 @@ const HeroSection = () => {
           <div className="relative w-screen flex items-center justify-center"
             style={{ height: "clamp(200px, 30vw, 400px)" }}
           >
+            {/* Profile photo on the left */}
+            <img
+              src={profilePhoto}
+              alt={title}
+              className="absolute h-[130%] object-contain object-bottom z-10"
+              style={{
+                left: "50%",
+                transform: "translateX(-115%)",
+                bottom: 0,
+                mixBlendMode: "multiply",
+              }}
+            />
             <h1
               className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap text-center"
               style={{
                 fontSize: "clamp(5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
-                color: "hsl(45, 90%, 50%)",
+                color: "hsl(45, 100%, 45%)",
               }}
             >
               {firstName} {lastName}
