@@ -103,10 +103,19 @@ const CaseStudy = () => {
         )}
 
         {project.slug === 'be-careful-app' && (
-          <section className="container mx-auto px-6 mb-12 max-w-4xl">
+          <section className="container mx-auto px-6 mb-12 max-w-4xl space-y-4">
+            <div className="p-6 rounded-2xl border-2 border-yellow-400/40 bg-gradient-to-r from-yellow-400/10 via-amber-400/10 to-orange-400/10 flex items-center gap-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-yellow-400/20 flex items-center justify-center">
+                <span className="font-display font-extrabold text-yellow-500 text-2xl">10</span>
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-foreground text-lg">{t("case.grade_highlight")}</h3>
+                <p className="text-muted-foreground text-sm">{t("case.grade_highlight_desc")}</p>
+              </div>
+            </div>
             <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-purple-500/10 to-blue-500/10">
               <p className="text-muted-foreground">
-                <strong>{t("case.created_by_me")}</strong> — Este aplicativo foi pensado e desenhado para apoiar estudantes durante a fase mais estressante da vida acadêmica, oferecendo ferramentas práticas de autocuidado ao alcance de um toque.
+                <strong>{t("case.created_by_me")}</strong> — {t("case.be_careful_intro")}
               </p>
             </div>
           </section>
