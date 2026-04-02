@@ -102,6 +102,16 @@ const CaseStudy = () => {
           </section>
         )}
 
+        {project.slug === 'be-careful-app' && (
+          <section className="container mx-auto px-6 mb-12 max-w-4xl">
+            <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-purple-500/10 to-blue-500/10">
+              <p className="text-muted-foreground">
+                <strong>{t("case.created_by_me")}</strong> — Este aplicativo foi pensado e desenhado para apoiar estudantes durante a fase mais estressante da vida acadêmica, oferecendo ferramentas práticas de autocuidado ao alcance de um toque.
+              </p>
+            </div>
+          </section>
+        )}
+
         <section className="container mx-auto px-6 mb-16">
           <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (
