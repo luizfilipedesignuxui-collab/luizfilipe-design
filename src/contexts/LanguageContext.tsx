@@ -109,6 +109,9 @@ const translations: Record<Language, Record<string, string>> = {
     "case.lightbox_alt": "Visualização ampliada",
     "case.name_meaning": "Significado do Nome",
     "case.created_by_me": "App criado por mim",
+    "case.grade_highlight": "Nota máxima na faculdade!",
+    "case.grade_highlight_desc": "Este projeto recebeu nota 10 na apresentação acadêmica, sendo reconhecido pela qualidade do design e pela solução centrada no usuário.",
+    "case.be_careful_intro": "Este aplicativo foi pensado e desenhado para apoiar estudantes durante a fase mais estressante da vida acadêmica, oferecendo ferramentas práticas de autocuidado ao alcance de um toque.",
 
     // Contact
     "contact.title_default": "Vamos criar algo\nincrível juntos",
@@ -243,6 +246,9 @@ const translations: Record<Language, Record<string, string>> = {
     "case.lightbox_alt": "Enlarged view",
     "case.name_meaning": "Name Meaning",
     "case.created_by_me": "App created by me",
+    "case.grade_highlight": "Top grade in college!",
+    "case.grade_highlight_desc": "This project received a perfect score of 10 in the academic presentation, recognized for its design quality and user-centered solution.",
+    "case.be_careful_intro": "This app was designed to support students during the most stressful phase of academic life, offering practical self-care tools at their fingertips.",
 
     // Contact
     "contact.title_default": "Let's create something\namazing together",
