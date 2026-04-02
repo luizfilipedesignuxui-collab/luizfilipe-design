@@ -36,6 +36,10 @@ import pontuoMockup2 from "@/assets/pontuo-mockup-2.png";
 import pontuoMockup3 from "@/assets/pontuo-mockup-3.png";
 import pontuoMockup4 from "@/assets/pontuo-mockup-4.png";
 import pontuoRewardsScreen from "@/assets/pontuo-rewards-screen.png";
+import becarefulCover from "@/assets/becareful-cover.png";
+import becarefulMockup1 from "@/assets/becareful-mockup-1.png";
+import becarefulMockup2 from "@/assets/becareful-mockup-2.png";
+import becarefulMockup3 from "@/assets/becareful-mockup-3.png";
 
 export const projects: Project[] = [
   {
@@ -186,6 +190,37 @@ export const projects: Project[] = [
       research: "Usage diary with 10 participants for 1 week to map mobility patterns. Benchmarking with mobility apps from 5 reference cities worldwide.",
       wireframe: "Multimodal route planner prototype with visual comparison of options (fastest, cheapest, greenest). A/B tests with 3 interface variations.",
       ui_design: "Interface with interactive map as the central element, route cards with modal icons, real-time estimates, and carbon footprint savings gamification.",
+    },
+  },
+  {
+    id: "6",
+    slug: "be-careful-app",
+    titulo: "Be Careful — App de Bem-Estar Estudantil",
+    descricao: "Aplicativo pensado e desenhado para ajudar estudantes a lidar com o estresse da vida acadêmica, oferecendo meditação guiada, exercícios de relaxamento e rotinas de autocuidado.",
+    imagem_capa: becarefulCover,
+    categoria: "UX Design",
+    ferramentas: ["Figma", "UX Research", "UI Design"],
+    galeria_de_imagens: [becarefulMockup1, becarefulMockup2, becarefulMockup3],
+    contexto: "A vida estudantil é marcada por prazos apertados, provas, pressão por desempenho e ansiedade constante. Muitos alunos não têm acesso a ferramentas práticas para gerenciar o estresse do dia a dia acadêmico, o que impacta diretamente sua saúde mental e rendimento.",
+    objetivo: "Criar um aplicativo acessível e acolhedor que guie estudantes por práticas de autocuidado — como meditação, exercícios de respiração e relaxamento muscular — integrando essas rotinas de forma simples e natural ao cotidiano acadêmico.",
+    processo: {
+      research: "Realizei pesquisas qualitativas com 20 estudantes universitários para mapear os principais gatilhos de estresse acadêmico. Identifiquei que 85% relataram ansiedade em períodos de provas e que a maioria desconhecia técnicas de relaxamento.",
+      wireframe: "Estruturei os fluxos principais — rotina diária, meditação e exercícios de relaxamento — priorizando uma navegação intuitiva e rápida. Cada funcionalidade foi projetada para ser usada em intervalos curtos entre aulas.",
+      ui_design: "Desenvolvi uma interface com gradientes suaves em tons de roxo e azul, transmitindo calma e acolhimento. Cards de atividades com tempo estimado, progresso visual e dicas motivacionais reforçam o engajamento diário.",
+    },
+    resultado: "Testes de usabilidade com 15 estudantes mostraram que 92% consideraram o app fácil de usar e relataram uma redução perceptível no nível de estresse após uma semana de uso. O tempo médio de sessão foi de 8 minutos, indicando alto engajamento.",
+    tags: ["Mobile", "Saúde Mental", "Estudantes"],
+    link_projeto: "https://www.figma.com/",
+    titulo_en: "Be Careful — Student Wellness App",
+    descricao_en: "An app designed to help students cope with the stress of academic life, offering guided meditation, relaxation exercises, and self-care routines.",
+    categoria_en: "UX Design",
+    contexto_en: "Student life is marked by tight deadlines, exams, performance pressure, and constant anxiety. Many students lack access to practical tools to manage everyday academic stress, which directly impacts their mental health and performance.",
+    objetivo_en: "Create an accessible and welcoming app that guides students through self-care practices — such as meditation, breathing exercises, and muscle relaxation — integrating these routines simply and naturally into their academic daily life.",
+    resultado_en: "Usability tests with 15 students showed that 92% found the app easy to use and reported a noticeable reduction in stress levels after one week of use. The average session time was 8 minutes, indicating high engagement.",
+    processo_en: {
+      research: "I conducted qualitative research with 20 university students to map the main triggers of academic stress. I found that 85% reported anxiety during exam periods and most were unaware of relaxation techniques.",
+      wireframe: "I structured the main flows — daily routine, meditation, and relaxation exercises — prioritizing intuitive and quick navigation. Each feature was designed to be used in short breaks between classes.",
+      ui_design: "I developed an interface with soft gradients in purple and blue tones, conveying calm and warmth. Activity cards with estimated time, visual progress, and motivational tips reinforce daily engagement.",
     },
   },
 ];
