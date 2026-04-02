@@ -36,6 +36,10 @@ import pontuoMockup2 from "@/assets/pontuo-mockup-2.png";
 import pontuoMockup3 from "@/assets/pontuo-mockup-3.png";
 import pontuoMockup4 from "@/assets/pontuo-mockup-4.png";
 import pontuoRewardsScreen from "@/assets/pontuo-rewards-screen.png";
+import becarefulCover from "@/assets/becareful-cover.png";
+import becarefulMockup1 from "@/assets/becareful-mockup-1.png";
+import becarefulMockup2 from "@/assets/becareful-mockup-2.png";
+import becarefulMockup3 from "@/assets/becareful-mockup-3.png";
 
 export const projects: Project[] = [
   {
