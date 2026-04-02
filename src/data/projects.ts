@@ -210,7 +210,7 @@ export const projects: Project[] = [
     },
     resultado: "Testes de usabilidade com 15 estudantes mostraram que 92% consideraram o app fácil de usar e relataram uma redução perceptível no nível de estresse após uma semana de uso. O tempo médio de sessão foi de 8 minutos, indicando alto engajamento.",
     tags: ["Mobile", "Saúde Mental", "Estudantes"],
-    link_projeto: "https://www.figma.com/",
+    link_projeto: "https://www.figma.com/proto/aRGGZkkFgK6ihylePoL2qe/Sa%C3%BAde-mental-fluxo-1?node-id=245-178&viewport=-58%2C157%2C0.25&t=t3DWo85LH5QiZmJq-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     titulo_en: "Be Careful — Student Wellness App",
     descricao_en: "An app designed to help students cope with the stress of academic life, offering guided meditation, relaxation exercises, and self-care routines.",
     categoria_en: "UX Design",
