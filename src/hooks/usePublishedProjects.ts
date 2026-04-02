@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { projects as staticProjects } from "@/data/projects";
 
 export interface PublishedProject {
   id: string;
