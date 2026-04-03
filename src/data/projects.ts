@@ -40,6 +40,10 @@ import becarefulCover from "@/assets/becareful-cover.png";
 import becarefulMockup1 from "@/assets/becareful-mockup-1.png";
 import becarefulMockup2 from "@/assets/becareful-mockup-2.png";
 import becarefulMockup3 from "@/assets/becareful-mockup-3.png";
+import guiaAcessivelCover from "@/assets/guia-acessivel-cover.png";
+import guiaAcessivelMockup1 from "@/assets/guia-acessivel-mockup-1.png";
+import guiaAcessivelMockup2 from "@/assets/guia-acessivel-mockup-2.png";
+import guiaAcessivelMockup3 from "@/assets/guia-acessivel-mockup-3.png";
 
 export const projects: Project[] = [
   {
@@ -221,6 +225,37 @@ export const projects: Project[] = [
       research: "I conducted qualitative research with 20 university students to map the main triggers of academic stress. I found that 85% reported anxiety during exam periods and most were unaware of relaxation techniques.",
       wireframe: "I structured the main flows — daily routine, meditation, and relaxation exercises — prioritizing intuitive and quick navigation. Each feature was designed to be used in short breaks between classes.",
       ui_design: "I developed an interface with soft gradients in purple and blue tones, conveying calm and warmth. Activity cards with estimated time, visual progress, and motivational tips reinforce daily engagement.",
+    },
+  },
+  {
+    id: "7",
+    slug: "guia-acessivel-app",
+    titulo: "Guia Acessível — App de Acessibilidade Urbana",
+    descricao: "Aplicativo colaborativo que mapeia e avalia locais acessíveis nas cidades, com filtros de acessibilidade, comandos de voz, rotas adaptadas e sistema de avaliações para pessoas com deficiência.",
+    imagem_capa: guiaAcessivelCover,
+    categoria: "UX Design",
+    ferramentas: ["Figma", "Lovable", "UX Research", "UI Design"],
+    galeria_de_imagens: [guiaAcessivelMockup1, guiaAcessivelMockup2, guiaAcessivelMockup3],
+    contexto: "Pessoas com deficiência enfrentam dificuldades diárias para encontrar locais acessíveis nas cidades. A falta de informações confiáveis sobre acessibilidade de estabelecimentos gera insegurança, exclusão social e limita a autonomia dessas pessoas no ambiente urbano.",
+    objetivo: "Criar um aplicativo colaborativo e inclusivo que permita encontrar, avaliar e compartilhar informações sobre a acessibilidade de locais urbanos — com mapa interativo, filtros por tipo de recurso acessível, comandos de voz e navegação por rotas adaptadas.",
+    processo: {
+      research: "Realizei pesquisas com 25 pessoas com diferentes tipos de deficiência para mapear as principais barreiras de acessibilidade urbana. Identifiquei que 90% não confiavam nas informações de acessibilidade disponíveis online e desejavam um sistema colaborativo e verificado.",
+      wireframe: "Estruturei os fluxos principais — mapa com filtros, detalhes do local com checklist de acessibilidade, sistema de avaliações e adição de novos locais. Priorizei navegação simplificada, compatibilidade com leitores de tela e comandos de voz.",
+      ui_design: "Desenvolvi uma interface com alto contraste, paleta de azul marinho e teal transmitindo confiança e inclusão. Botões com tamanho mínimo de 48px, ícones descritivos e feedback por áudio garantem uma experiência verdadeiramente acessível.",
+    },
+    resultado: "O protótipo foi validado com 20 usuários com deficiência e obteve nota 9.2/10 em usabilidade. 95% dos participantes afirmaram que usariam o app no dia a dia. O sistema de checklist de acessibilidade foi destacado como o recurso mais valioso.",
+    tags: ["Mobile", "Acessibilidade", "Mapa", "Inclusão"],
+    link_projeto: "https://lovable.dev/projects/f428d7ad-7ac3-4baa-9d42-82594592de66",
+    titulo_en: "Guia Acessível — Urban Accessibility App",
+    descricao_en: "A collaborative app that maps and rates accessible locations in cities, featuring accessibility filters, voice commands, adapted routes, and a review system for people with disabilities.",
+    categoria_en: "UX Design",
+    contexto_en: "People with disabilities face daily challenges finding accessible locations in cities. The lack of reliable accessibility information about establishments creates insecurity, social exclusion, and limits their autonomy in urban environments.",
+    objetivo_en: "Create a collaborative and inclusive app that allows users to find, rate, and share accessibility information about urban locations — with an interactive map, filters by accessibility feature, voice commands, and adapted route navigation.",
+    resultado_en: "The prototype was validated with 20 users with disabilities and scored 9.2/10 in usability. 95% of participants said they would use the app daily. The accessibility checklist system was highlighted as the most valuable feature.",
+    processo_en: {
+      research: "I conducted research with 25 people with different types of disabilities to map the main barriers to urban accessibility. I found that 90% did not trust the accessibility information available online and wanted a collaborative, verified system.",
+      wireframe: "I structured the main flows — map with filters, location details with accessibility checklist, review system, and new location submission. I prioritized simplified navigation, screen reader compatibility, and voice commands.",
+      ui_design: "I developed an interface with high contrast, a navy blue and teal palette conveying trust and inclusion. Buttons with a minimum size of 48px, descriptive icons, and audio feedback ensure a truly accessible experience.",
     },
   },
 ];
