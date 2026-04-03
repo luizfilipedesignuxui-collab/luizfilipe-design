@@ -63,6 +63,7 @@ export const projects: Project[] = [
     },
     resultado: "Testes com 20 usuários mostraram que 90% preferiam a rota multimodal sugerida pelo app. O tempo médio de planejamento de trajeto caiu de 8 minutos para 25 segundos.",
     tags: ["Mobile", "Mobilidade", "UX Design"],
+    link_projeto: "https://www.figma.com/proto/JIvWeZiVjJgLMRkw3DbqWX/APP-Pontou?node-id=2355-3675&page-id=0%3A1&t=9dn76dAWHuNb788Y-1",
     titulo_en: "Pontuô — Urban Mobility App",
     descricao_en: "An urban mobility app that connects users to different transportation modes with a fluid, intuitive, and sustainable experience.",
     categoria_en: "UX Design",
