@@ -93,11 +93,6 @@ export function usePublishedProjects() {
 
         setProjects(data.map(mapPublishedProject));
         setLoading(false);
-      })
-      .catch(() => {
-        if (!isMounted) return;
-        setProjects([]);
-        setLoading(false);
       });
 
     return () => {
