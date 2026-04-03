@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
@@ -13,19 +12,10 @@ import Footer from "@/components/Footer";
 const CaseStudy = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const { slug } = useParams<{ slug: string }>();
-  const { projects: dbProjects, loading } = usePublishedProjects();
-  const allProjects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const { projects: allProjects } = usePublishedProjects();
   const project = allProjects.find((p) => p.slug === slug);
   const { t } = useLanguage();
   const { loc } = useProjectLocale();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-      </div>
-    );
-  }
 
   if (!project) {
     return (
