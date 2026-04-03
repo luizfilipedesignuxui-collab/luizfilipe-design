@@ -9,8 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Projects = () => {
-  const { projects: dbProjects } = usePublishedProjects();
-  const projects = dbProjects.length > 0 ? dbProjects : staticProjects;
+  const { projects: dbProjects, loading } = usePublishedProjects();
+  const projects = dbProjects.length > 0 ? dbProjects : loading ? [] : staticProjects;
   const { t } = useLanguage();
   const { loc } = useProjectLocale();
 
@@ -27,14 +27,19 @@ const Projects = () => {
 
           <div className="mb-16">
             <h1 className="font-display text-5xl md:text-7xl font-extrabold text-foreground mb-4">
-              {t("projects_page.title_1")}<span className="text-primary">{t("projects_page.title_2")}</span>
+              {t("projects_page.title_1")}
+              <span className="text-primary">{t("projects_page.title_2")}</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
               {t("projects_page.subtitle")}
             </p>
           </div>
 
-          {projects.length === 0 ? (
+          {loading ? (
+            <div className="flex justify-center py-32">
+              <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+            </div>
+          ) : projects.length === 0 ? (
             <div className="text-center py-32 rounded-3xl border border-dashed border-border">
               <div className="w-20 h-20 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-6">
                 <ArrowRight className="w-8 h-8 text-accent" />
@@ -58,7 +63,11 @@ const Projects = () => {
                   >
                     <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
                       {project.imagem_capa ? (
-                        <img src={project.imagem_capa} alt={l.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                        <img
+                          src={project.imagem_capa}
+                          alt={l.titulo}
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
