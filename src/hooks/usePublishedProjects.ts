@@ -56,10 +56,10 @@ export function usePublishedProjects() {
                 slug: p.slug,
                 titulo: p.titulo,
                 descricao: p.descricao,
-                imagem_capa: p.imagem_capa ?? "",
+                imagem_capa: p.imagem_capa || staticMatch?.imagem_capa || "",
                 categoria: p.categoria,
-                ferramentas: p.ferramentas ?? [],
-                galeria_de_imagens: p.galeria_de_imagens ?? [],
+                ferramentas: (p.ferramentas && p.ferramentas.length > 0) ? p.ferramentas : (staticMatch?.ferramentas ?? []),
+                galeria_de_imagens: (p.galeria_de_imagens && p.galeria_de_imagens.length > 0) ? p.galeria_de_imagens : (staticMatch?.galeria_de_imagens ?? []),
                 contexto: p.contexto ?? "",
                 objetivo: p.objetivo ?? "",
                 processo: {
