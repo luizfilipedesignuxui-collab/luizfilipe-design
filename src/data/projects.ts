@@ -251,7 +251,7 @@ export const projects: Project[] = [
     categoria_en: "UX Design",
     contexto_en: "People with disabilities face daily challenges finding accessible locations in cities. The lack of reliable accessibility information about establishments creates insecurity, social exclusion, and limits their autonomy in urban environments.",
     objetivo_en: "Create a collaborative and inclusive app that allows users to find, rate, and share accessibility information about urban locations — with an interactive map, filters by accessibility feature, voice commands, and adapted route navigation.",
-    resultado_en: "The prototype was validated with 20 users with disabilities and scored 9.2/10 in usability. 95% of participants said they would use the app daily. The accessibility checklist system was highlighted as the most valuable feature.",
+    resultado_en: "The app was developed with a total focus on accessibility and inclusion. The checklist system allows users to quickly identify available resources at each location. Integration with voice commands and screen readers ensures the app is usable by people with different types of disabilities.",
     processo_en: {
       research: "I conducted research with 25 people with different types of disabilities to map the main barriers to urban accessibility. I found that 90% did not trust the accessibility information available online and wanted a collaborative, verified system.",
       wireframe: "I structured the main flows — map with filters, location details with accessibility checklist, review system, and new location submission. I prioritized simplified navigation, screen reader compatibility, and voice commands.",
