@@ -40,6 +40,10 @@ import becarefulCover from "@/assets/becareful-cover.png";
 import becarefulMockup1 from "@/assets/becareful-mockup-1.png";
 import becarefulMockup2 from "@/assets/becareful-mockup-2.png";
 import becarefulMockup3 from "@/assets/becareful-mockup-3.png";
+import guiaAcessivelCover from "@/assets/guia-acessivel-cover.png";
+import guiaAcessivelMockup1 from "@/assets/guia-acessivel-mockup-1.png";
+import guiaAcessivelMockup2 from "@/assets/guia-acessivel-mockup-2.png";
+import guiaAcessivelMockup3 from "@/assets/guia-acessivel-mockup-3.png";
 
 export const projects: Project[] = [
   {
