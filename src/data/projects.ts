@@ -243,7 +243,7 @@ export const projects: Project[] = [
       wireframe: "Estruturei os fluxos principais — mapa com filtros, detalhes do local com checklist de acessibilidade, sistema de avaliações e adição de novos locais. Priorizei navegação simplificada, compatibilidade com leitores de tela e comandos de voz.",
       ui_design: "Desenvolvi uma interface com alto contraste, paleta de azul marinho e teal transmitindo confiança e inclusão. Botões com tamanho mínimo de 48px, ícones descritivos e feedback por áudio garantem uma experiência verdadeiramente acessível.",
     },
-    resultado: "O protótipo foi validado com 20 usuários com deficiência e obteve nota 9.2/10 em usabilidade. 95% dos participantes afirmaram que usariam o app no dia a dia. O sistema de checklist de acessibilidade foi destacado como o recurso mais valioso.",
+    resultado: "O aplicativo foi desenvolvido com foco total em acessibilidade e inclusão. O sistema de checklist permite que usuários identifiquem rapidamente os recursos disponíveis em cada local. A integração com comandos de voz e leitores de tela garante que o app seja utilizável por pessoas com diferentes tipos de deficiência.",
     tags: ["Mobile", "Acessibilidade", "Mapa", "Inclusão"],
     link_projeto: "https://lovable.dev/projects/f428d7ad-7ac3-4baa-9d42-82594592de66",
     titulo_en: "Guia Acessível — Urban Accessibility App",
@@ -251,7 +251,7 @@ export const projects: Project[] = [
     categoria_en: "UX Design",
     contexto_en: "People with disabilities face daily challenges finding accessible locations in cities. The lack of reliable accessibility information about establishments creates insecurity, social exclusion, and limits their autonomy in urban environments.",
     objetivo_en: "Create a collaborative and inclusive app that allows users to find, rate, and share accessibility information about urban locations — with an interactive map, filters by accessibility feature, voice commands, and adapted route navigation.",
-    resultado_en: "The prototype was validated with 20 users with disabilities and scored 9.2/10 in usability. 95% of participants said they would use the app daily. The accessibility checklist system was highlighted as the most valuable feature.",
+    resultado_en: "The app was developed with a total focus on accessibility and inclusion. The checklist system allows users to quickly identify available resources at each location. Integration with voice commands and screen readers ensures the app is usable by people with different types of disabilities.",
     processo_en: {
       research: "I conducted research with 25 people with different types of disabilities to map the main barriers to urban accessibility. I found that 90% did not trust the accessibility information available online and wanted a collaborative, verified system.",
       wireframe: "I structured the main flows — map with filters, location details with accessibility checklist, review system, and new location submission. I prioritized simplified navigation, screen reader compatibility, and voice commands.",
