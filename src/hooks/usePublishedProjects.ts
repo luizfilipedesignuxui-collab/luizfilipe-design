@@ -56,7 +56,7 @@ export function usePublishedProjects() {
                 slug: p.slug,
                 titulo: p.titulo,
                 descricao: p.descricao,
-                imagem_capa: p.imagem_capa ?? "",
+                imagem_capa: p.imagem_capa || staticMatch?.imagem_capa || "",
                 categoria: p.categoria,
                 ferramentas: p.ferramentas ?? [],
                 galeria_de_imagens: p.galeria_de_imagens ?? [],
