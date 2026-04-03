@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
@@ -9,8 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Projects = () => {
-  const { projects: dbProjects, loading } = usePublishedProjects();
-  const projects = dbProjects.length > 0 ? dbProjects : loading ? [] : staticProjects;
+  const { projects } = usePublishedProjects();
   const { t } = useLanguage();
   const { loc } = useProjectLocale();
 
@@ -35,11 +33,7 @@ const Projects = () => {
             </p>
           </div>
 
-          {loading ? (
-            <div className="flex justify-center py-32">
-              <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-            </div>
-          ) : projects.length === 0 ? (
+          {projects.length === 0 ? (
             <div className="text-center py-32 rounded-3xl border border-dashed border-border">
               <div className="w-20 h-20 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-6">
                 <ArrowRight className="w-8 h-8 text-accent" />

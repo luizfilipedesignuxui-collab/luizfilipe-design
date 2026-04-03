@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { projects as staticProjects } from "@/data/projects";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
@@ -10,8 +9,7 @@ import { useProjectLocale } from "@/hooks/useProjectLocale";
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const { projects: dbProjects, loading } = usePublishedProjects();
-  const projects = dbProjects.length > 0 ? dbProjects : loading ? [] : staticProjects;
+  const { projects } = usePublishedProjects();
   const { t } = useLanguage();
   const { loc } = useProjectLocale();
 
@@ -36,11 +34,7 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        {loading ? (
-          <div className={`flex justify-center py-20 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-          </div>
-        ) : projects.length === 0 ? (
+        {projects.length === 0 ? (
           <div className={`text-center py-20 rounded-3xl border border-dashed border-border transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <div className="w-16 h-16 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-4">
               <ArrowRight className="w-6 h-6 text-accent" />

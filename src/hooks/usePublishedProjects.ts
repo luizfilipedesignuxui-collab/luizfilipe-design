@@ -70,9 +70,35 @@ const mapPublishedProject = (p: any): PublishedProject => {
   };
 };
 
+// Pre-map static projects so they render instantly
+const initialProjects: PublishedProject[] = staticProjects.map((p) => ({
+  id: p.id,
+  slug: p.slug,
+  titulo: p.titulo,
+  descricao: p.descricao,
+  imagem_capa: p.imagem_capa,
+  categoria: p.categoria,
+  ferramentas: p.ferramentas,
+  galeria_de_imagens: p.galeria_de_imagens,
+  contexto: p.contexto,
+  objetivo: p.objetivo,
+  processo: p.processo,
+  resultado: p.resultado,
+  tags: p.tags,
+  link_projeto: p.link_projeto ?? "",
+  titulo_en: p.titulo_en,
+  descricao_en: p.descricao_en,
+  categoria_en: p.categoria_en,
+  contexto_en: p.contexto_en,
+  objetivo_en: p.objetivo_en,
+  resultado_en: p.resultado_en,
+  processo_en: p.processo_en,
+}));
+
 export function usePublishedProjects() {
-  const [projects, setProjects] = useState<PublishedProject[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Start with static data so projects render immediately
+  const [projects, setProjects] = useState<PublishedProject[]>(initialProjects);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -85,14 +111,9 @@ export function usePublishedProjects() {
       .then(({ data, error }) => {
         if (!isMounted) return;
 
-        if (error || !data) {
-          setProjects([]);
-          setLoading(false);
-          return;
+        if (!error && data && data.length > 0) {
+          setProjects(data.map(mapPublishedProject));
         }
-
-        setProjects(data.map(mapPublishedProject));
-        setLoading(false);
       });
 
     return () => {
