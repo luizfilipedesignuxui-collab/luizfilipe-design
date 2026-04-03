@@ -51,13 +51,6 @@ const HeroSection = () => {
             UX/UI Designer
           </span>
 
-          {/* Asterisk */}
-          <span
-            className="absolute top-0 right-4 sm:right-[5%] lg:right-[10%] z-30 text-foreground select-none"
-            style={{ fontSize: "clamp(1.5rem, 3vw, 3.5rem)", fontWeight: 900 }}
-          >
-            ✳
-          </span>
 
           {/* Name + Photo layered composition */}
           <div className="relative w-screen flex flex-col sm:flex-row items-center justify-center"
