@@ -135,6 +135,7 @@ export const projects: Project[] = [
       ui_design: "O design da interface foi desenvolvido com foco em motivação e clareza visual. Utilizei uma paleta de cores em tons de verde para transmitir saúde, progresso e bem-estar. Componentes como cards, indicadores de progresso, ranking e botões de ação centralizados foram usados para tornar a experiência mais intuitiva e incentivar o uso diário do aplicativo.",
     },
     resultado: "O resultado é um aplicativo mobile com interface limpa e motivadora que centraliza toda a dinâmica do desafio fitness. Com funcionalidades de check-in diário, ranking entre participantes, sistema de streaks e cofrinho coletivo, o app transforma uma experiência informal de WhatsApp em uma plataforma digital organizada e gamificada.",
+    link_projeto: "https://diet-buddy-challenge.lovable.app",
     tags: ["Mobile App", "UX Design", "UI Design", "Gamificação", "Saúde & Fitness"],
     titulo_en: "Healthy Challenge",
     descricao_en: "An app that helps groups of friends organize collective fitness challenges with daily check-ins, rankings, gamification, and a shared penalty pot.",
