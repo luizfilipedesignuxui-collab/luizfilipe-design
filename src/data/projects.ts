@@ -4,7 +4,7 @@ export interface Project {
   titulo: string;
   descricao: string;
   imagem_capa: string;
-  categoria: "UX Design" | "UI Design" | "Product Design";
+  categoria: "UX Design" | "UI Design" | "Product Design" | "UX/UI Design";
   ferramentas: string[];
   galeria_de_imagens: string[];
   contexto: string;
@@ -17,7 +17,6 @@ export interface Project {
   resultado: string;
   tags: string[];
   link_projeto?: string;
-  // English fields
   titulo_en?: string;
   descricao_en?: string;
   categoria_en?: string;
@@ -78,62 +77,74 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    slug: "plataforma-educacional-learnhub",
-    titulo: "LearnHub — Plataforma Educacional",
-    descricao: "Redesign de uma plataforma de cursos online focada em melhorar a retenção de alunos e a experiência de aprendizado.",
-    imagem_capa: "",
-    categoria: "UI Design",
-    ferramentas: ["Figma", "Trello", "Slack"],
-    galeria_de_imagens: [],
-    contexto: "A plataforma educacional existente tinha uma taxa de abandono de 60% nos cursos. A interface desatualizada e a navegação confusa eram as principais causas identificadas.",
-    objetivo: "Redesenhar a experiência de aprendizado para aumentar a retenção dos alunos e tornar o progresso nos cursos mais envolvente e motivador.",
+    slug: "aura-scent-boutique",
+    titulo: "Aura Scent Boutique",
+    descricao: "E-commerce de velas artesanais com experiência imersiva, quiz personalizado, chatbot inteligente e design minimalista sofisticado.",
+    imagem_capa: "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-cover.png",
+    categoria: "UX/UI Design",
+    ferramentas: ["Figma", "Lovable", "Miro"],
+    galeria_de_imagens: [
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-mockup-1.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-mockup-2.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-macbook-1.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-macbook-2.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects/aura-scent-macbook-3.png",
+    ],
+    contexto: "Usuários que buscam produtos voltados para bem-estar e aromaterapia muitas vezes encontram dificuldade em escolher a vela ideal para cada momento. Em muitos e-commerces, os produtos são apresentados apenas como itens decorativos, sem considerar o contexto emocional ou a experiência sensorial que o usuário procura.\n\nA Aura Scent surge para resolver esse desafio ao oferecer uma experiência de compra mais guiada e intuitiva, ajudando os usuários a descobrir velas aromáticas ideais para diferentes momentos do dia, como relaxamento, foco ou ocasiões especiais.",
+    objetivo: "Criar um e-commerce de velas aromáticas que ofereça uma experiência de navegação simples, elegante e sensorial. O projeto busca facilitar a descoberta de produtos através de uma interface intuitiva, recomendações personalizadas e uma jornada de compra fluida.\n\nAlém disso, a proposta é transformar o processo de escolha da vela em uma experiência mais envolvente, conectando o usuário com emoções, ambientes e momentos do cotidiano.",
     processo: {
-      research: "Analisei dados de uso da plataforma, realizei testes de usabilidade com 15 alunos e mapeei os pontos de abandono no funil de aprendizado usando heatmaps e gravações de sessão.",
-      wireframe: "Prototipei um novo fluxo de navegação com gamificação sutil: barra de progresso, badges de conquista e checkpoints visuais entre módulos.",
-      ui_design: "Criei um design system completo com componentes reutilizáveis, modo escuro e layout responsivo que prioriza o conteúdo do curso com distrações mínimas.",
+      research: "Analisei experiências de e-commerces de produtos sensoriais e identifiquei padrões de navegação utilizados na descoberta de produtos. A partir disso, foram definidos os principais fluxos do usuário, incluindo exploração da coleção, descoberta guiada de produtos e processo de compra.",
+      wireframe: "Estruturei wireframes para organizar a hierarquia das informações e o fluxo principal do usuário: navegação pela coleção → visualização de produtos → adição ao carrinho → finalização da compra. Também foi planejada a experiência de recomendação através da funcionalidade \"Encontre sua vela\".",
+      ui_design: "Desenvolvi a interface visual com foco em transmitir sensações de calma, aconchego e sofisticação. Utilizei cores suaves, tipografia elegante e imagens minimalistas para criar uma experiência sensorial alinhada com a proposta da marca.",
     },
-    resultado: "Após a implementação do redesign, a taxa de conclusão dos cursos subiu de 40% para 72% e o NPS da plataforma aumentou 35 pontos em 3 meses.",
-    tags: ["Web", "EdTech", "Design System"],
-    titulo_en: "LearnHub — Educational Platform",
-    descricao_en: "Redesign of an online course platform focused on improving student retention and learning experience.",
-    categoria_en: "UI Design",
-    contexto_en: "The existing educational platform had a 60% course dropout rate. The outdated interface and confusing navigation were the main identified causes.",
-    objetivo_en: "Redesign the learning experience to increase student retention and make course progress more engaging and motivating.",
-    resultado_en: "After implementing the redesign, course completion rates rose from 40% to 72% and the platform's NPS increased by 35 points in 3 months.",
+    resultado: "Uma plataforma e-commerce completa com experiência personalizada que aumenta o engajamento do cliente e facilita a descoberta de novos aromas.",
+    tags: ["E-commerce", "UX Design", "UI Design", "Branding"],
+    link_projeto: "https://soulful-scents.lovable.app",
+    titulo_en: "Aura Scent Boutique",
+    descricao_en: "Handcrafted candle e-commerce with an immersive experience, personalized quiz, smart chatbot, and sophisticated minimalist design.",
+    categoria_en: "UX/UI Design",
+    contexto_en: "Users looking for products related to well-being and aromatherapy often struggle to choose the ideal candle for each moment. In many e-commerces, products are presented only as decorative items, without considering the emotional context or sensory experience the user is looking for.\n\nAura Scent was created to solve this challenge by offering a more guided and intuitive shopping experience, helping users discover aromatic candles for different moments of the day, such as relaxation, focus, or special occasions.",
+    objetivo_en: "Create an aromatic candle e-commerce that offers a simple, elegant, and sensory browsing experience. The project aims to make product discovery easier through an intuitive interface, personalized recommendations, and a smooth shopping journey.\n\nIn addition, the proposal is to transform the candle selection process into a more engaging experience, connecting the user with emotions, spaces, and everyday moments.",
+    resultado_en: "A complete e-commerce platform with a personalized experience that increases customer engagement and makes discovering new aromas easier.",
     processo_en: {
-      research: "I analyzed platform usage data, conducted usability tests with 15 students, and mapped dropout points in the learning funnel using heatmaps and session recordings.",
-      wireframe: "I prototyped a new navigation flow with subtle gamification: progress bar, achievement badges, and visual checkpoints between modules.",
-      ui_design: "I created a complete design system with reusable components, dark mode, and responsive layout that prioritizes course content with minimal distractions.",
+      research: "I analyzed sensory-product e-commerce experiences and identified navigation patterns used in product discovery. From this, the main user flows were defined, including collection exploration, guided discovery, and the purchase journey.",
+      wireframe: "I structured wireframes to organize the information hierarchy and the main user flow: browse collection → view products → add to cart → complete purchase. I also planned the recommendation experience through the \"Find your candle\" feature.",
+      ui_design: "I developed the visual interface focused on conveying calm, coziness, and sophistication. I used soft colors, elegant typography, and minimalist imagery to create a sensory experience aligned with the brand proposition.",
     },
   },
   {
-    id: "5",
-    slug: "app-mobilidade-goride",
-    titulo: "GoRide — App de Mobilidade Urbana",
-    descricao: "Aplicativo de mobilidade que integra diferentes modais de transporte em uma única experiência fluida e sustentável.",
-    imagem_capa: "",
-    categoria: "Product Design",
-    ferramentas: ["Figma", "Figma Make", "Miro", "Slack"],
-    galeria_de_imagens: [],
-    contexto: "Usuários urbanos precisam combinar diferentes meios de transporte diariamente (ônibus, metrô, bike, patinete) mas cada um tem seu próprio app, tornando o planejamento de rotas fragmentado e ineficiente.",
-    objetivo: "Unificar a experiência de mobilidade urbana em um único app que sugira a melhor combinação de modais considerando tempo, custo e impacto ambiental.",
+    id: "3",
+    slug: "desafio-saudavel",
+    titulo: "Desafio Saudável",
+    descricao: "Aplicativo que ajuda grupos de amigos a organizarem desafios fitness coletivos com check-ins diários, ranking, gamificação e cofrinho de penalidades.",
+    imagem_capa: "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects%2Fdesafio-saudavel-cover.png",
+    categoria: "UX/UI Design",
+    ferramentas: ["Figma", "UX Research", "UI Design"],
+    galeria_de_imagens: [
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/desafio-saudavel-mockup-1.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/desafio-saudavel-mockup-2.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/desafio-saudavel-mockup-3.png",
+      "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/desafio-saudavel-mockup-4.png",
+    ],
+    contexto: "A ideia deste projeto surgiu a partir de uma experiência pessoal. Eu e meus amigos participamos de um desafio fitness organizado em um grupo de WhatsApp, onde todos se comprometem a treinar e seguir uma dieta durante um período determinado. Sempre que alguém descumpre alguma dessas regras, precisa depositar um valor simbólico em um cofrinho coletivo. Ao final do desafio, o dinheiro acumulado é usado para realizar alguma atividade em grupo.\n\nApesar de ser uma dinâmica motivadora, percebemos que o controle das regras, check-ins diários e acompanhamento do progresso aconteciam de forma desorganizada dentro do chat. Isso tornava difícil acompanhar quem estava cumprindo o desafio, registrar os resultados e visualizar a evolução do grupo.\n\nA partir dessa experiência surgiu a ideia de criar um aplicativo que centralizasse essas informações e tornasse o desafio mais organizado, visual e motivador para todos os participantes.",
+    objetivo: "Criar um aplicativo que ajude grupos de amigos a organizarem desafios fitness coletivos de forma simples e motivadora. A proposta é permitir que os participantes registrem suas atividades diárias, acompanhem seu progresso e visualizem o desempenho do grupo.\n\nO aplicativo também incorpora elementos de gamificação, como ranking, contagem de streaks e acompanhamento de check-ins, além de um sistema simbólico de penalidade financeira (cofrinho coletivo) para incentivar a disciplina e o compromisso com o desafio.\n\nO objetivo é transformar uma dinâmica informal que acontece em grupos de mensagens em uma experiência digital mais organizada, motivadora e divertida.",
     processo: {
-      research: "Diário de uso com 10 participantes durante 1 semana para mapear padrões de mobilidade. Benchmark com apps de mobilidade de 5 cidades referência no mundo.",
-      wireframe: "Protótipo de planejador de rota multimodal com comparação visual de opções (mais rápido, mais barato, mais verde). Testes A/B com 3 variações de interface.",
-      ui_design: "Interface com mapa interativo como elemento central, cards de rota com ícones dos modais, estimativas em tempo real e gamificação de pegada de carbono economizada.",
+      research: "A pesquisa foi baseada na observação da dinâmica real do desafio realizado entre amigos. Analisei como o grupo organizava os treinos, registrava resultados e lidava com as penalidades dentro do WhatsApp, identificando dificuldades no acompanhamento do progresso e na visualização das informações.",
+      wireframe: "A estrutura do aplicativo foi organizada para atender os principais fluxos do usuário: criação de grupos, registro diário de atividades (check-in), acompanhamento do ranking e visualização do progresso individual. Os wireframes ajudaram a definir a hierarquia das informações e simplificar as interações principais.",
+      ui_design: "O design da interface foi desenvolvido com foco em motivação e clareza visual. Utilizei uma paleta de cores em tons de verde para transmitir saúde, progresso e bem-estar. Componentes como cards, indicadores de progresso, ranking e botões de ação centralizados foram usados para tornar a experiência mais intuitiva e incentivar o uso diário do aplicativo.",
     },
-    resultado: "Testes com 25 usuários mostraram que 88% preferiam a rota multimodal sugerida pelo app. O tempo médio de planejamento de trajeto caiu de 8 minutos para 30 segundos.",
-    tags: ["Mobile", "Mobilidade", "Sustentabilidade"],
-    titulo_en: "GoRide — Urban Mobility App",
-    descricao_en: "A mobility app that integrates different transportation modes into a single fluid and sustainable experience.",
-    categoria_en: "Product Design",
-    contexto_en: "Urban users need to combine different means of transportation daily (bus, subway, bike, scooter) but each has its own app, making route planning fragmented and inefficient.",
-    objetivo_en: "Unify the urban mobility experience in a single app that suggests the best modal combination considering time, cost, and environmental impact.",
-    resultado_en: "Tests with 25 users showed that 88% preferred the multimodal route suggested by the app. The average route planning time dropped from 8 minutes to 30 seconds.",
+    resultado: "O resultado é um aplicativo mobile com interface limpa e motivadora que centraliza toda a dinâmica do desafio fitness. Com funcionalidades de check-in diário, ranking entre participantes, sistema de streaks e cofrinho coletivo, o app transforma uma experiência informal de WhatsApp em uma plataforma digital organizada e gamificada.",
+    tags: ["Mobile App", "UX Design", "UI Design", "Gamificação", "Saúde & Fitness"],
+    titulo_en: "Healthy Challenge",
+    descricao_en: "An app that helps groups of friends organize collective fitness challenges with daily check-ins, rankings, gamification, and a shared penalty pot.",
+    categoria_en: "UX/UI Design",
+    contexto_en: "This project idea came from a personal experience. My friends and I took part in a fitness challenge organized in a WhatsApp group, where everyone committed to training and following a diet for a set period. Whenever someone failed to follow the rules, they had to contribute a symbolic amount to a shared pot. At the end of the challenge, the accumulated money was used for a group activity.\n\nAlthough the dynamic was motivating, we realized that tracking the rules, daily check-ins, and progress happened in a disorganized way inside the chat. This made it difficult to see who was keeping up with the challenge, record results, and visualize the group’s evolution.\n\nFrom this experience came the idea of creating an app that centralizes this information and makes the challenge more organized, visual, and motivating for everyone involved.",
+    objetivo_en: "Create an app that helps groups of friends organize collective fitness challenges in a simple and motivating way. The idea is to let participants register their daily activities, track their progress, and visualize the group’s performance.\n\nThe app also includes gamification elements such as rankings, streak counting, and check-in tracking, along with a symbolic financial penalty system (shared pot) to encourage discipline and commitment.\n\nThe goal is to transform an informal challenge that usually happens in message groups into a more organized, motivating, and fun digital experience.",
+    resultado_en: "The result is a mobile app with a clean and motivating interface that centralizes the entire fitness challenge dynamic. With daily check-ins, participant rankings, streaks, and a shared pot, the app turns an informal WhatsApp experience into an organized and gamified digital platform.",
     processo_en: {
-      research: "Usage diary with 10 participants for 1 week to map mobility patterns. Benchmarking with mobility apps from 5 reference cities worldwide.",
-      wireframe: "Multimodal route planner prototype with visual comparison of options (fastest, cheapest, greenest). A/B tests with 3 interface variations.",
-      ui_design: "Interface with interactive map as the central element, route cards with modal icons, real-time estimates, and carbon footprint savings gamification.",
+      research: "The research was based on observing the real dynamics of the challenge carried out among friends. I analyzed how the group organized workouts, recorded results, and handled penalties inside WhatsApp, identifying difficulties in tracking progress and visualizing information.",
+      wireframe: "The app structure was organized to support the main user flows: group creation, daily activity registration (check-in), ranking follow-up, and individual progress visualization. The wireframes helped define the information hierarchy and simplify the main interactions.",
+      ui_design: "The interface design was developed with a focus on motivation and visual clarity. I used a green color palette to communicate health, progress, and well-being. Components such as cards, progress indicators, rankings, and centralized action buttons made the experience more intuitive and encouraged daily use.",
     },
   },
   {
