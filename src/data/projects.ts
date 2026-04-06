@@ -198,7 +198,7 @@ export const projects: Project[] = [
     },
     resultado: "O aplicativo foi desenvolvido com foco total em acessibilidade e inclusão. O sistema de checklist permite que usuários identifiquem rapidamente os recursos disponíveis em cada local. A integração com comandos de voz e leitores de tela garante que o app seja utilizável por pessoas com diferentes tipos de deficiência.",
     tags: ["Mobile", "Acessibilidade", "Mapa", "Inclusão"],
-    link_projeto: "https://lovable.dev/projects/f428d7ad-7ac3-4baa-9d42-82594592de66",
+    link_projeto: "https://accessible-paths-guide.lovable.app/",
     titulo_en: "Guia Acessível — Urban Accessibility App",
     descricao_en: "A collaborative app that maps and rates accessible locations in cities, featuring accessibility filters, voice commands, adapted routes, and a review system for people with disabilities.",
     categoria_en: "UX Design",
