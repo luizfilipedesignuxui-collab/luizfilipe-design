@@ -64,7 +64,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {highlights.map((h) => (
                 <div key={h.label} className="text-center p-3 sm:p-4 rounded-2xl border border-border bg-card/30">
-                  <div className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent">{h.number}</div>
+                  <div className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary">{h.number}</div>
                   <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 uppercase tracking-wider">{h.label}</p>
                 </div>
               ))}

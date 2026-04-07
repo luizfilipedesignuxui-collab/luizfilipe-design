@@ -19,12 +19,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-16 md:py-24 border-t border-border">
+    <footer className="py-16 md:py-24 border-t border-border" role="contentinfo">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="space-y-4">
             <h3 className="font-display text-4xl md:text-5xl font-black text-foreground">
-              Luiz<br />Filipe
+              Luiz<span className="text-accent">.</span>Filipe
             </h3>
             <p className="text-muted-foreground leading-relaxed">{tagline}</p>
           </div>

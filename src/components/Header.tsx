@@ -23,10 +23,15 @@ const Header = () => {
   }, []);
 
   return (
+    <>
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md font-medium">
+      Pular para o conteúdo
+    </a>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
+      role="banner"
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <Link to="/" className="font-display text-xl font-bold text-foreground hover:opacity-80 transition-opacity cursor-pointer select-none">
@@ -34,7 +39,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -98,6 +103,7 @@ const Header = () => {
         </nav>
       )}
     </header>
+    </>
   );
 };
 

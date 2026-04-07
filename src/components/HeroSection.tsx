@@ -112,7 +112,7 @@ const HeroSection = () => {
         <div className="flex justify-center gap-10 sm:gap-14 pt-10">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent">{stat.number}</div>
+              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary">{stat.number}</div>
               <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
             </div>
           ))}
@@ -122,8 +122,8 @@ const HeroSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-8 sm:pt-10 border-t border-border/50">
           {services.map((service) => (
             <div key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/25 transition-colors">
-                <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
+                <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-xs sm:text-sm text-foreground">{service.title}</h3>

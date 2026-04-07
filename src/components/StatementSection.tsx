@@ -30,7 +30,7 @@ const StatementSection = () => {
         <blockquote className="max-w-4xl mx-auto text-center">
           <p className="font-display text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
             "{t("statement.quote")}{" "}
-            <span className="text-primary">{t("statement.quote_highlight")}</span>"
+            <span className="text-background">{t("statement.quote_highlight")}</span>"
           </p>
           <cite className="block mt-8 text-lg text-muted-foreground not-italic font-display">
             — Steve Jobs
