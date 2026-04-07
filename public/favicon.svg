@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { 
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      fill: #000000;
+    }
+    .dot {
+      fill: #FFC700;
+    }
+  </style>
+  <text x="8" y="42" class="text">L</text>
+  <text x="28" y="42" class="text">F</text>
+  <circle cx="26" cy="45" r="3" class="dot"/>
+</svg>
