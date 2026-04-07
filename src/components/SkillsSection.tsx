@@ -51,7 +51,7 @@ const SkillsSection = () => {
               style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="flex-shrink-0">
-                <span className="font-display text-4xl font-extrabold text-accent/30 group-hover:text-accent/60 transition-colors">
+                <span className="font-display text-4xl font-extrabold text-primary/30 group-hover:text-primary/60 transition-colors">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>

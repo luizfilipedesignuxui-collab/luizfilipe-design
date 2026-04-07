@@ -36,8 +36,8 @@ const ProjectsSection = () => {
 
         {projects.length === 0 ? (
           <div className={`text-center py-20 rounded-3xl border border-dashed border-border transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="w-16 h-16 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-4">
-              <ArrowRight className="w-6 h-6 text-accent" />
+            <div className="w-16 h-16 rounded-2xl bg-primary/15 mx-auto flex items-center justify-center mb-4">
+              <ArrowRight className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-display text-xl font-semibold text-foreground mb-2">{t("projects.coming_soon")}</h3>
             <p className="text-muted-foreground max-w-md mx-auto">
@@ -79,7 +79,7 @@ const ProjectsSection = () => {
                     </div>
 
                     <div className={`p-8 md:p-12 flex flex-col justify-center space-y-4 ${!isEven ? "md:order-1" : ""}`}>
-                      <span className="font-display text-sm text-accent font-semibold uppercase tracking-widest">
+                      <span className="font-display text-sm text-primary font-semibold uppercase tracking-widest">
                         {l.categoria}
                       </span>
                       <h3 className="font-display font-extrabold text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">
