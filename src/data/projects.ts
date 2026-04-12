@@ -218,7 +218,7 @@ export const projects: Project[] = [
     descricao: "Landing page para academia premium com integração ao Supabase, já configurada para receber dados de clientes. Projeto desenvolvido com visão de Design Engineer — unindo design de alta fidelidade e implementação funcional com React, Tailwind CSS e Cursor AI.",
     imagem_capa: "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects%2Fforjado-macbook-cover.png",
     categoria: "UI Design",
-    ferramentas: ["Figma", "Cursor AI", "React", "Tailwind CSS"],
+    ferramentas: ["Figma", "Cursor AI", "React", "Tailwind CSS", "Supabase"],
     galeria_de_imagens: [
       "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects%2Fforjado-mockup-1.png",
       "https://cyyrgcdtbbugvfljjouo.supabase.co/storage/v1/object/public/media/projects%2Fforjado-mockup-2.png",
