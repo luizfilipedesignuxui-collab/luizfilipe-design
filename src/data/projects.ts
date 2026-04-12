@@ -236,7 +236,7 @@ export const projects: Project[] = [
     tags: ["Landing Page", "UI Design", "Web Design", "Fitness", "Workshop"],
     link_projeto: "https://forjado-fitness.vercel.app/",
     titulo_en: "Forjado — Premium Gym Landing Page",
-    descricao_en: "A modern and immersive landing page for a high-performance gym, developed during the \"From Figma to Cursor AI\" Workshop. Dark design with vibrant gradients, infrastructure sections, plans, and coaches.",
+    descricao_en: "Premium gym landing page with Supabase integration, already configured to receive client data. Built with a Design Engineer mindset — combining high-fidelity design and functional implementation with React, Tailwind CSS, and Cursor AI.",
     categoria_en: "UI Design",
     contexto_en: "This project was developed during the \"From Figma to Cursor AI\" Workshop, where the challenge was to create a complete landing page for a premium gym. The goal was to apply the full design flow — from visual concept in Figma to functional implementation with artificial intelligence — resulting in a modern, responsive, and visually impactful page.",
     objetivo_en: "Create a high-conversion landing page for Forjado, a premium gym focused on performance and results. The goal was to convey exclusivity, cutting-edge technology, and an elite training environment, guiding visitors to schedule a visit or contact a specialist.",
