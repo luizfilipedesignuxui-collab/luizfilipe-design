@@ -59,7 +59,17 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.title": "Certificados",
     "certificates.subtitle": "Cursos e formações que reforçam minha trajetória em UX/UI Design.",
     "certificates.view": "Ver certificado",
+    "certificates.view_details": "Ver detalhes",
     "certificates.alt": "Certificado de",
+    "certificates.topics": "O que aprendi",
+    "certificates.meta.date": "Data",
+    "certificates.meta.hours": "Carga horária",
+    "certificates.meta.format": "Formato",
+    "certificates.meta.instructor": "Facilitador",
+    "certificates.figma_cursor.desc": "Workshop prático intensivo focado na criação de sites e sistemas completos, do Design Scope ao deploy. Aprendi a integrar Figma MCP com Cursor AI usando uma abordagem AI-first, combinando UI, UX, Design Tokens, Front-end e Back-end em um fluxo de trabalho moderno e eficiente.",
+    "certificates.figma_cursor.topics": "Integração entre Figma MCP e Cursor AI|Criação de Design Tokens estruturados|Desenvolvimento Front-end com IA|Implementação Back-end AI-first|Deploy de aplicações completas|Workflow de Design Scope a produção",
+    "certificates.ga.desc": "Workshop online focado em Google Analytics aplicado a UX. Aprendi a configurar, interpretar dados e usar métricas para tomar decisões de design baseadas em comportamento real do usuário.",
+    "certificates.ga.topics": "Configuração do Google Analytics|Métricas essenciais para UX|Interpretação de dados de comportamento|Tomada de decisão orientada por dados|Análise de jornada do usuário",
 
 
     // Process
