@@ -100,7 +100,7 @@ const CertificatesSection = () => {
               {certificates.map((cert, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 sm:basis-1/2 lg:basis-1/2"
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/2"
                 >
                   <Card className="h-full overflow-hidden border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
                     <button
