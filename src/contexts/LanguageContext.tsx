@@ -205,7 +205,7 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.subtitle": "Courses and training that strengthen my journey in UX/UI Design.",
     "certificates.view": "View certificate",
     "certificates.alt": "Certificate of",
-    "nav.certificates": "Certificates",
+
 
     // Process
     "process.title": "Design Process",
