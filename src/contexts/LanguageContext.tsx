@@ -15,6 +15,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Nav
     "nav.about": "Sobre",
     "nav.skills": "Habilidades",
+    "nav.certificates": "Certificados",
     "nav.process": "Processo",
     "nav.projects": "Projetos",
     "nav.contact": "Contato",
@@ -59,7 +60,7 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.subtitle": "Cursos e formações que reforçam minha trajetória em UX/UI Design.",
     "certificates.view": "Ver certificado",
     "certificates.alt": "Certificado de",
-    "nav.certificates": "Certificados",
+
 
     // Process
     "process.title": "Processo de Design",
@@ -159,6 +160,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Nav
     "nav.about": "About",
     "nav.skills": "Skills",
+    "nav.certificates": "Certificates",
     "nav.process": "Process",
     "nav.projects": "Projects",
     "nav.contact": "Contact",
@@ -203,7 +205,7 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.subtitle": "Courses and training that strengthen my journey in UX/UI Design.",
     "certificates.view": "View certificate",
     "certificates.alt": "Certificate of",
-    "nav.certificates": "Certificates",
+
 
     // Process
     "process.title": "Design Process",
