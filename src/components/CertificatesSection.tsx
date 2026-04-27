@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, ZoomIn } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -8,12 +8,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
+import certVagaUX from "@/assets/certificates/cert-vagaux.jpg";
+import certFigmaCursor from "@/assets/certificates/cert-figma-cursor.jpg";
 
 interface Certificate {
   title: string;
   institution: string;
   year: string;
+  hours?: string;
   image?: string;
   link?: string;
 }
@@ -21,14 +25,24 @@ interface Certificate {
 const CertificatesSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [zoomed, setZoomed] = useState<Certificate | null>(null);
   const { t } = useLanguage();
 
-  // Placeholders — substitua pelos seus certificados reais
   const certificates: Certificate[] = [
-    { title: "UX/UI Design", institution: "Instituição", year: "2024" },
-    { title: "Design System", institution: "Instituição", year: "2024" },
-    { title: "User Research", institution: "Instituição", year: "2023" },
-    { title: "Figma Avançado", institution: "Instituição", year: "2023" },
+    {
+      title: "Do Figma MCP ao Cursor AI",
+      institution: "AI Creative Builders",
+      year: "2026",
+      hours: "16h",
+      image: certFigmaCursor,
+    },
+    {
+      title: "Workshop Google Analytics",
+      institution: "VagaUX",
+      year: "2026",
+      hours: "1h30",
+      image: certVagaUX,
+    },
   ];
 
   useEffect(() => {
