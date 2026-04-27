@@ -54,6 +54,13 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.product_desc": "Pensamento estratégico de produto aliado ao design.",
     "skills.prototype_title": "Prototipação",
 
+    // Certificates
+    "certificates.title": "Certificados",
+    "certificates.subtitle": "Cursos e formações que reforçam minha trajetória em UX/UI Design.",
+    "certificates.view": "Ver certificado",
+    "certificates.alt": "Certificado de",
+    "nav.certificates": "Certificados",
+
     // Process
     "process.title": "Processo de Design",
     "process.subtitle": "Minha abordagem estruturada para criar produtos digitais que resolvem problemas reais.",
@@ -190,6 +197,13 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.interaction_desc": "Micro-interactions and animations that enrich the experience.",
     "skills.product_desc": "Strategic product thinking combined with design.",
     "skills.prototype_title": "Prototyping",
+
+    // Certificates
+    "certificates.title": "Certificates",
+    "certificates.subtitle": "Courses and training that strengthen my journey in UX/UI Design.",
+    "certificates.view": "View certificate",
+    "certificates.alt": "Certificate of",
+    "nav.certificates": "Certificates",
 
     // Process
     "process.title": "Design Process",
