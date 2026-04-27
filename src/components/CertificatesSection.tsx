@@ -83,41 +83,52 @@ const CertificatesSection = () => {
               {certificates.map((cert, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                  className="pl-4 sm:basis-1/2 lg:basis-1/2"
                 >
                   <Card className="h-full overflow-hidden border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
-                    <div className="aspect-[4/3] bg-muted relative overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => cert.image && setZoomed(cert)}
+                      className="block w-full aspect-[4/3] bg-muted relative overflow-hidden cursor-zoom-in"
+                      aria-label={`${t("certificates.view")} — ${cert.title}`}
+                    >
                       {cert.image ? (
-                        <img
-                          src={cert.image}
-                          alt={`${t("certificates.alt")} ${cert.title}`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
+                        <>
+                          <img
+                            src={cert.image}
+                            alt={`${t("certificates.alt")} ${cert.title}`}
+                            className="w-full h-full object-contain p-3 group-hover:scale-[1.02] transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-background/90 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <ZoomIn className="w-4 h-4 text-foreground" />
+                          </div>
+                        </>
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/10">
                           <Award className="w-16 h-16 text-primary/40" strokeWidth={1.5} />
                         </div>
                       )}
-                    </div>
-                    <CardContent className="p-6">
+                    </button>
+                    <CardContent className="p-5 sm:p-6">
                       <div className="flex items-start justify-between gap-3 mb-2">
-                        <h3 className="font-display text-lg font-semibold text-foreground leading-tight">
+                        <h3 className="font-display text-base sm:text-lg font-semibold text-foreground leading-tight">
                           {cert.title}
                         </h3>
                         <span className="text-xs font-medium text-muted-foreground whitespace-nowrap mt-1">
                           {cert.year}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">
+                      <p className="text-sm text-muted-foreground">
                         {cert.institution}
+                        {cert.hours && <span className="text-muted-foreground/70"> · {cert.hours}</span>}
                       </p>
                       {cert.link && (
                         <a
                           href={cert.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                          className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                         >
                           {t("certificates.view")}
                           <ExternalLink className="w-3.5 h-3.5" />
@@ -133,6 +144,19 @@ const CertificatesSection = () => {
           </Carousel>
         </div>
       </div>
+
+      <Dialog open={!!zoomed} onOpenChange={(open) => !open && setZoomed(null)}>
+        <DialogContent className="max-w-5xl p-0 bg-background overflow-hidden">
+          <DialogTitle className="sr-only">{zoomed?.title}</DialogTitle>
+          {zoomed?.image && (
+            <img
+              src={zoomed.image}
+              alt={`${t("certificates.alt")} ${zoomed.title}`}
+              className="w-full h-auto max-h-[85vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
