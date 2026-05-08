@@ -43,6 +43,11 @@ import guiaAcessivelCover from "@/assets/guia-acessivel-capa.jpg";
 import guiaAcessivelMockup1 from "@/assets/guia-acessivel-mockup-1.png";
 import guiaAcessivelMockup2 from "@/assets/guia-acessivel-mockup-2.png";
 import guiaAcessivelMockup3 from "@/assets/guia-acessivel-mockup-3.png";
+import gabrielCover from "@/assets/gabriel-augusto/cover.png";
+import gabrielMockup1 from "@/assets/gabriel-augusto/mockup-1.png";
+import gabrielMockup2 from "@/assets/gabriel-augusto/mockup-2.png";
+import gabrielMockup3 from "@/assets/gabriel-augusto/mockup-3.png";
+import gabrielMockup4 from "@/assets/gabriel-augusto/mockup-4.png";
 
 export const projects: Project[] = [
   {
