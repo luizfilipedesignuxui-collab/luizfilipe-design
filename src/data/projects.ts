@@ -43,6 +43,11 @@ import guiaAcessivelCover from "@/assets/guia-acessivel-capa.jpg";
 import guiaAcessivelMockup1 from "@/assets/guia-acessivel-mockup-1.png";
 import guiaAcessivelMockup2 from "@/assets/guia-acessivel-mockup-2.png";
 import guiaAcessivelMockup3 from "@/assets/guia-acessivel-mockup-3.png";
+import gabrielCover from "@/assets/gabriel-augusto/cover.png";
+import gabrielMockup1 from "@/assets/gabriel-augusto/mockup-1.png";
+import gabrielMockup2 from "@/assets/gabriel-augusto/mockup-2.png";
+import gabrielMockup3 from "@/assets/gabriel-augusto/mockup-3.png";
+import gabrielMockup4 from "@/assets/gabriel-augusto/mockup-4.png";
 
 export const projects: Project[] = [
   {
@@ -245,6 +250,37 @@ export const projects: Project[] = [
       research: "I analyzed visual references from premium gyms and international fitness lifestyle brands. I identified visual patterns such as dark themes, bold typography, blue and cyan gradients, and high-quality photography as key elements to convey exclusivity and high performance.",
       wireframe: "I structured the landing page into strategic sections: hero with main CTA, modality carousel, impact statistics, brand concept section, premium infrastructure with equipment cards, subscription plans, and location.",
       ui_design: "I developed the interface with a premium dark theme, using cyan blue and magenta gradients to create contrast and energy. Bold and extra-bold typography reinforces the brand's strength identity. Cards with subtle borders, custom icons, and hover animations complete the sophisticated visual experience.",
+    },
+  },
+  {
+    id: "9",
+    slug: "gabriel-augusto-psicanalista",
+    titulo: "Gabriel Augusto — Site para Psicanalista",
+    descricao: "Projeto Design Engineer feito por mim do início ao fim — desde o descobrimento e pesquisa até o design, desenvolvimento e deploy. Site institucional acolhedor para um psicanalista clínico que atende online em todo o Brasil.",
+    imagem_capa: gabrielCover,
+    categoria: "UX/UI Design",
+    ferramentas: ["Figma", "Lovable", "React", "Tailwind CSS", "Supabase"],
+    galeria_de_imagens: [gabrielMockup1, gabrielMockup2, gabrielMockup3, gabrielMockup4],
+    contexto: "Projeto Design Engineer conduzido por mim do início ao fim — descobrimento, pesquisa, arquitetura de informação, UI design, desenvolvimento e deploy do site no ar.\n\nGabriel Augusto é psicanalista clínico e atende crianças, jovens e adultos 100% online em todo o Brasil. Ele precisava de uma presença digital séria, acolhedora e profissional, capaz de transmitir confiança logo nos primeiros segundos e converter visitantes em sessões agendadas via WhatsApp.",
+    objetivo: "Construir um site institucional que comunicasse autoridade clínica e, ao mesmo tempo, acolhimento humano. O site precisava facilitar o agendamento da primeira sessão, explicar como funciona a psicanálise online e responder às principais dúvidas de quem nunca fez terapia antes.",
+    processo: {
+      research: "Conduzi entrevistas e análise de referências de outros psicanalistas e psicólogos para entender o que gera confiança em um público que muitas vezes está fragilizado emocionalmente. Mapeei objeções comuns (preço, sigilo, formato online) e estruturei a jornada para responder cada uma delas no momento certo da rolagem.",
+      wireframe: "Desenhei wireframes priorizando uma hierarquia editorial clara: hero emocional com CTA direto para o WhatsApp, faixa de credenciais, sobre, como funcionam as sessões, depoimentos de pacientes, FAQ e CTA final. O fluxo foi pensado para reduzir atrito e levar o visitante naturalmente até o agendamento.",
+      ui_design: "Desenvolvi a identidade visual com paleta em azul-marinho profundo, bege quente e amarelo manuscrito como acento emocional. Tipografia bold em caixa alta para os títulos e fonte cursiva para o detalhe humano. Implementei tudo em React + Tailwind no Lovable, com responsividade total e botão flutuante de WhatsApp.",
+    },
+    resultado: "Site no ar, totalmente responsivo, com integração direta ao WhatsApp do psicanalista, blog para conteúdo de autoridade e estrutura preparada para SEO local. Entreguei o projeto completo — do descobrimento ao deploy — atuando como Design Engineer.",
+    tags: ["Design Engineer", "Landing Page", "UI Design", "Web Design", "Saúde Mental"],
+    link_projeto: "https://gabriel-augusto-design.lovable.app/",
+    titulo_en: "Gabriel Augusto — Psychoanalyst Website",
+    descricao_en: "Design Engineer project I led end-to-end — from discovery and research to design, development and deploy. A warm institutional website for a clinical psychoanalyst offering online sessions across Brazil.",
+    categoria_en: "UX/UI Design",
+    contexto_en: "Design Engineer project I led end-to-end — discovery, research, information architecture, UI design, development and deploy of the live website.\n\nGabriel Augusto is a clinical psychoanalyst working 100% online with children, young people and adults across Brazil. He needed a serious, warm and professional digital presence — one that builds trust in the first seconds and converts visitors into scheduled sessions via WhatsApp.",
+    objetivo_en: "Build an institutional website that communicates clinical authority and, at the same time, human warmth. The site needed to make booking the first session easy, explain how online psychoanalysis works and answer the main doubts of people who have never been to therapy before.",
+    resultado_en: "Live, fully responsive website with direct WhatsApp integration, a blog for authority content and a structure ready for local SEO. I delivered the full project — from discovery to deploy — acting as a Design Engineer.",
+    processo_en: {
+      research: "I ran interviews and reference analysis of other psychoanalysts and psychologists to understand what builds trust with an audience that is often emotionally vulnerable. I mapped common objections (price, confidentiality, online format) and structured the journey to address each one at the right moment of the scroll.",
+      wireframe: "I designed wireframes with a clear editorial hierarchy: emotional hero with a direct WhatsApp CTA, credential bar, about, how sessions work, patient testimonials, FAQ and a final CTA. The flow was crafted to reduce friction and naturally guide the visitor to booking.",
+      ui_design: "I developed the visual identity with a deep navy, warm beige and handwritten yellow accent palette. Bold uppercase typography for headlines and a cursive font for the human detail. I shipped everything in React + Tailwind on Lovable, fully responsive and with a floating WhatsApp button.",
     },
   },
 ];
