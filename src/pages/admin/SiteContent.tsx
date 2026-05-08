@@ -66,7 +66,7 @@ const SiteContent = () => {
     setSaving(true);
     for (const field of fields) {
       const val = values[field.key] ?? "";
-      // Only save draft — don't touch value or is_published
+      // Only save draft, don't touch value or is_published
       await supabase
         .from("site_content")
         .upsert({ key: field.key, draft_value: val }, { onConflict: "key" });
@@ -97,7 +97,7 @@ const SiteContent = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-3xl font-extrabold text-foreground">Conteúdo do Site</h1>
-          <p className="text-muted-foreground mt-1">Edite textos, títulos e links — tudo em um só lugar</p>
+          <p className="text-muted-foreground mt-1">Edite textos, títulos e links, tudo em um só lugar</p>
         </div>
         {savedSuccess && (
           <div className="flex items-center gap-2 text-green-600 text-sm font-medium animate-fade-in">

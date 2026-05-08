@@ -44,7 +44,7 @@ const HeroSection = () => {
         {/* === EDITORIAL HERO BANNER === */}
         <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
 
-          {/* UX/UI Designer — same Sora font as name */}
+          {/* UX/UI Designer - same Sora font as name */}
           <span className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2"
             style={{ fontSize: "clamp(1rem, 2.5vw, 1.8rem)", letterSpacing: "0.15em" }}
           >
