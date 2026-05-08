@@ -33,7 +33,7 @@ const StatementSection = () => {
             <span className="text-background">{t("statement.quote_highlight")}</span>"
           </p>
           <cite className="block mt-8 text-lg text-muted-foreground not-italic font-display">
-            — Steve Jobs
+            Steve Jobs
           </cite>
         </blockquote>
       </div>

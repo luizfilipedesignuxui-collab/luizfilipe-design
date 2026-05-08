@@ -86,7 +86,7 @@ const CaseStudy = () => {
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
             <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-green-500/10 to-emerald-500/10">
               <p className="text-muted-foreground">
-                <strong>{t("case.created_by_me")}</strong> — Este aplicativo foi desenvolvido como uma solução pessoal baseada em uma experiência real com amigos, transformando uma dinâmica informal de grupo em uma experiência digital completa.
+                <strong>{t("case.created_by_me")}</strong>, Este aplicativo foi desenvolvido como uma solução pessoal baseada em uma experiência real com amigos, transformando uma dinâmica informal de grupo em uma experiência digital completa.
               </p>
             </div>
           </section>
@@ -105,7 +105,7 @@ const CaseStudy = () => {
             </div>
             <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-purple-500/10 to-blue-500/10">
               <p className="text-muted-foreground">
-                <strong>{t("case.created_by_me")}</strong> — {t("case.be_careful_intro")}
+                <strong>{t("case.created_by_me")}</strong>, {t("case.be_careful_intro")}
               </p>
             </div>
           </section>

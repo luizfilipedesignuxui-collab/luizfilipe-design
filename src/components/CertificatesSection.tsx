@@ -107,7 +107,7 @@ const CertificatesSection = () => {
                       type="button"
                       onClick={() => setSelected(cert)}
                       className="block w-full text-left cursor-pointer"
-                      aria-label={`${t("certificates.view_details")} — ${cert.title}`}
+                      aria-label={`${t("certificates.view_details")}: ${cert.title}`}
                     >
                       <div className="aspect-[4/3] bg-muted relative overflow-hidden">
                         {cert.image ? (
