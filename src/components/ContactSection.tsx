@@ -35,13 +35,40 @@ const ContactSection = () => {
             {subtitle}
           </p>
 
-          <Button size="lg" className="rounded-full px-10 mb-10" asChild>
-            <a href={`mailto:${email}`}>
-              {t("contact.cta")}
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <Button size="lg" className="rounded-full px-10" asChild>
+              <a href={`mailto:${email}`}>
+                {t("contact.cta")}
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-10 bg-[#25D366] hover:bg-[#25D366]/90 text-white border-[#25D366] hover:text-white"
+              asChild
+            >
+              <a
+                href="https://wa.me/5562992776534"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </a>
+            </Button>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
+            <a
+              href="https://wa.me/5562992776534"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
+            >
+              <MessageCircle className="w-5 h-5 text-[#25D366]" />
+              <span className="text-foreground font-medium">(62) 99277-6534</span>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </a>
             <a
               href={`mailto:${email}`}
               className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
