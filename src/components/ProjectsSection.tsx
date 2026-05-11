@@ -61,7 +61,7 @@ const ProjectsSection = () => {
                   <div className="grid md:grid-cols-2">
                     <div className={`aspect-[4/3] bg-primary/5 relative overflow-hidden ${!isEven ? "md:order-2" : ""}`}>
                       {project.imagem_capa ? (
-                        <img src={project.imagem_capa} alt={l.titulo} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                        <img src={project.imagem_capa} alt={`Case study de ${l.categoria}: ${l.titulo}`} loading="lazy" decoding="async" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">

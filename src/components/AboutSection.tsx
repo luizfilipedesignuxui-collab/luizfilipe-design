@@ -89,7 +89,7 @@ const AboutSection = () => {
                     key={tool.name}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card/40 hover:border-primary/40 hover:shadow-md transition-all"
                   >
-                    <img src={tool.logo} alt={`Logo ${tool.name}`} className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                    <img src={tool.logo} alt={`${tool.name}, ferramenta de design`} loading="lazy" decoding="async" className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
                     <span className="font-display font-semibold text-sm text-foreground truncate">{tool.name}</span>
                   </div>
                 ))}

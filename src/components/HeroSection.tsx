@@ -59,7 +59,9 @@ const HeroSection = () => {
             {/* Desktop: photo absolute after "e" */}
             <img
               src={profilePhoto}
-              alt={title}
+              alt={`${title}, UX/UI Designer e Product Designer`}
+              fetchPriority="high"
+              decoding="async"
               className="hidden sm:block absolute h-[130%] object-contain object-bottom z-10"
               style={{
                 right: "5%",
@@ -80,7 +82,9 @@ const HeroSection = () => {
             {/* Mobile: photo below name */}
             <img
               src={profilePhoto}
-              alt={title}
+              alt={`${title}, UX/UI Designer e Product Designer`}
+              fetchPriority="high"
+              decoding="async"
               className="block sm:hidden w-[70%] max-w-[280px] object-contain mt-4"
               style={{ mixBlendMode: "multiply" }}
             />
