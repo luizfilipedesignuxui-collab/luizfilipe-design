@@ -114,7 +114,7 @@ const CaseStudy = () => {
         <section className="container mx-auto px-6 mb-16">
           <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (
-              <img src={project.imagem_capa} alt={l.titulo} className="w-full h-auto object-contain" />
+              <img src={project.imagem_capa} alt={`Capa do case study ${l.titulo} — ${l.categoria}`} fetchPriority="high" decoding="async" className="w-full h-auto object-contain" />
             ) : (
               <div className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center">
                 <span className="font-display font-bold text-primary text-3xl">
@@ -173,7 +173,7 @@ const CaseStudy = () => {
                     className="rounded-2xl overflow-hidden border border-border bg-primary/5 p-4 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                     onClick={() => setLightboxIndex(i)}
                   >
-                    <img src={img} alt={`${l.titulo} - ${i + 1}`} className="w-full h-auto object-contain" />
+                    <img src={img} alt={`${l.titulo} — tela ${i + 1} do projeto de UX/UI Design`} loading="lazy" decoding="async" className="w-full h-auto object-contain" />
                   </div>
                 ))}
               </div>
