@@ -270,7 +270,7 @@ export const projects: Project[] = [
     },
     resultado: "Site no ar, totalmente responsivo, com integração direta ao WhatsApp do psicanalista, blog para conteúdo de autoridade e estrutura preparada para SEO local. Entreguei o projeto completo, do descobrimento ao deploy, atuando como Design Engineer.",
     tags: ["Design Engineer", "Landing Page", "UI Design", "Web Design", "Saúde Mental"],
-    link_projeto: "https://gabriel-augusto-design.lovable.app/",
+    link_projeto: "https://gabriel-augusto-design.vercel.app/",
     titulo_en: "Gabriel Augusto: Psychoanalyst Website",
     descricao_en: "Design Engineer project I led end-to-end, from discovery and research to design, development and deploy. A warm institutional website for a clinical psychoanalyst offering online sessions across Brazil.",
     categoria_en: "UX/UI Design",
