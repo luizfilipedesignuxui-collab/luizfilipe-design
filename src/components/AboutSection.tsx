@@ -8,6 +8,7 @@ const tools = [
   { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
   { name: "Miro", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/miro.svg" },
   { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
+  { name: "ClickUp", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/clickup.svg" },
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
 ];
@@ -18,10 +19,9 @@ const AboutSection = () => {
   const { content } = useSiteContent();
   const { language, t } = useLanguage();
 
-  const highlights = [
-    { number: "28", label: t("about.highlight_years") },
-    { number: "UX/UI + DE", label: t("about.highlight_specialty") },
-    { number: "∞", label: t("about.highlight_curiosity") },
+  const specialties = [
+    { title: "UX/UI Design", desc: t("about.spec_uxui_desc") },
+    { title: "Design Engineer", desc: t("about.spec_de_desc") },
   ];
 
   // Use DB content only in PT, use translations in EN
@@ -62,11 +62,11 @@ const AboutSection = () => {
             <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight whitespace-pre-line">
               {title}
             </h2>
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              {highlights.map((h) => (
-                <div key={h.label} className="text-center p-3 sm:p-4 rounded-2xl border border-border bg-card/30">
-                  <div className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary">{h.number}</div>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 uppercase tracking-wider">{h.label}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {specialties.map((s) => (
+                <div key={s.title} className="p-5 rounded-2xl border border-border bg-card/30 hover:border-primary/40 transition-colors">
+                  <div className="font-display text-lg sm:text-xl font-extrabold text-primary leading-tight">{s.title}</div>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
