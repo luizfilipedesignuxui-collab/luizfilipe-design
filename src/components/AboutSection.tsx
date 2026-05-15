@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import clickupLogo from "@/assets/clickup-logo.svg";
 
 const tools = [
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
@@ -8,7 +9,7 @@ const tools = [
   { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
   { name: "Miro", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/miro.svg" },
   { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
-  { name: "ClickUp", logo: "https://images.ctfassets.net/w8fc6tgspyjz/5VqEQrpKXKSxJpc4WqGWnd/9e9c4b6c14fd55d3c6e88cd1e3e6e9e8/clickup-symbol.svg" },
+  { name: "ClickUp", logo: clickupLogo },
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
 ];
