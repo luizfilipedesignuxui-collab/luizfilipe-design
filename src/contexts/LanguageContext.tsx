@@ -33,7 +33,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     "about.title_default": "Sobre\nmim",
-    "about.text_1_default": "Meu nome é Luiz Filipe. Sou UX/UI Designer apaixonado por criar experiências digitais que conectam pessoas e tecnologia.",
+    "about.text_1_default": "Meu nome é Luiz Filipe. Sou UX/UI Designer e também atuo como Design Engineer, criando experiências digitais que conectam pessoas e tecnologia, do conceito ao código.",
     "about.text_2_default": "Tenho 28 anos e sou formado em Design Digital e User Experience pela Universidade Uniasselvi.",
     "about.text_3_default": "Meu trabalho envolve pesquisa de usuários, criação de wireframes, prototipação e desenvolvimento de interfaces modernas que resolvem problemas reais.",
     "about.text_4_default": "Neste portfólio você encontrará meus projetos, meu processo de design e minha abordagem para criar experiências digitais relevantes.",
@@ -188,7 +188,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     "about.title_default": "About\nme",
-    "about.text_1_default": "My name is Luiz Filipe. I'm a UX/UI Designer passionate about creating digital experiences that connect people and technology.",
+    "about.text_1_default": "My name is Luiz Filipe. I'm a UX/UI Designer and also work as a Design Engineer, creating digital experiences that connect people and technology, from concept to code.",
     "about.text_2_default": "I'm 28 years old and hold a degree in Digital Design and User Experience from Uniasselvi University.",
     "about.text_3_default": "My work involves user research, wireframing, prototyping, and developing modern interfaces that solve real problems.",
     "about.text_4_default": "In this portfolio you'll find my projects, my design process, and my approach to creating meaningful digital experiences.",
