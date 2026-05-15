@@ -8,7 +8,7 @@ const tools = [
   { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
   { name: "Miro", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/miro.svg" },
   { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
-  { name: "ClickUp", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/clickup.svg" },
+  { name: "ClickUp", logo: "https://app.clickup.com/favicon.ico" },
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
 ];
