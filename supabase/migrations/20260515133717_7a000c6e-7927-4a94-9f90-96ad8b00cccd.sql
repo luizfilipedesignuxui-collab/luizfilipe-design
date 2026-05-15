@@ -1,0 +1,1 @@
+UPDATE public.projects SET link_projeto = 'https://gabriel-augusto-design.vercel.app/' WHERE slug = 'gabriel-augusto-psicanalista';
