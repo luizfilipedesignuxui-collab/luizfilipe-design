@@ -39,6 +39,8 @@ const translations: Record<Language, Record<string, string>> = {
     "about.text_4_default": "Neste portfólio você encontrará meus projetos, meu processo de design e minha abordagem para criar experiências digitais relevantes.",
     "about.highlight_years": "Anos",
     "about.highlight_specialty": "Especialidade",
+    "about.spec_uxui_desc": "Pesquisa, wireframes, prototipação e interfaces modernas centradas no usuário.",
+    "about.spec_de_desc": "Do design ao código: implemento experiências reais com React, Tailwind e Supabase.",
     "about.highlight_curiosity": "Curiosidade",
     "about.tools_title": "Ferramentas que utilizo",
 
@@ -194,6 +196,8 @@ const translations: Record<Language, Record<string, string>> = {
     "about.text_4_default": "In this portfolio you'll find my projects, my design process, and my approach to creating meaningful digital experiences.",
     "about.highlight_years": "Years",
     "about.highlight_specialty": "Specialty",
+    "about.spec_uxui_desc": "Research, wireframes, prototyping and modern user-centered interfaces.",
+    "about.spec_de_desc": "From design to code: I ship real experiences with React, Tailwind and Supabase.",
     "about.highlight_curiosity": "Curiosity",
     "about.tools_title": "Tools I use",
 
