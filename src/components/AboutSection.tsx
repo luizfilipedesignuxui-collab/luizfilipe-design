@@ -20,7 +20,7 @@ const AboutSection = () => {
 
   const highlights = [
     { number: "28", label: t("about.highlight_years") },
-    { number: "UX/UI", label: t("about.highlight_specialty") },
+    { number: "UX/UI + DE", label: t("about.highlight_specialty") },
     { number: "∞", label: t("about.highlight_curiosity") },
   ];
 
