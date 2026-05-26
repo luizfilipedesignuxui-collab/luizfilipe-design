@@ -111,7 +111,22 @@ const CaseStudy = () => {
           </section>
         )}
 
+        {project.slug === 'marmitagest' && (
+          <section className="container mx-auto px-6 mb-12 max-w-4xl">
+            <div className="p-6 rounded-2xl border-2 border-orange-400/40 bg-gradient-to-r from-orange-400/10 via-amber-400/10 to-orange-500/10 flex items-center gap-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                <span className="text-2xl" aria-hidden>📱</span>
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-foreground text-lg">{t("case.coming_soon_stores")}</h3>
+                <p className="text-muted-foreground text-sm">{t("case.coming_soon_stores_desc")}</p>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="container mx-auto px-6 mb-16">
+
           <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (
               <img src={project.imagem_capa} alt={`Capa do case study ${l.titulo} — ${l.categoria}`} fetchPriority="high" decoding="async" className="w-full h-auto object-contain" />
