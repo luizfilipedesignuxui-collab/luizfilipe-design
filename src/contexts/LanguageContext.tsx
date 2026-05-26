@@ -292,6 +292,9 @@ const translations: Record<Language, Record<string, string>> = {
     "case.grade_highlight": "Top grade in college!",
     "case.grade_highlight_desc": "This project received a perfect score of 10 in the academic presentation, recognized for its design quality and user-centered solution.",
     "case.be_careful_intro": "This app was designed to support students during the most stressful phase of academic life, offering practical self-care tools at their fingertips.",
+    "case.coming_soon_stores": "Coming soon to the app stores",
+    "case.coming_soon_stores_desc": "MarmitaGest will soon be available on the App Store and Google Play Store.",
+
 
     // Contact
     "contact.title_default": "Let's create something\namazing together",
