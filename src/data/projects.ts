@@ -48,6 +48,11 @@ import gabrielMockup1 from "@/assets/gabriel-augusto/mockup-1.png";
 import gabrielMockup2 from "@/assets/gabriel-augusto/mockup-2.png";
 import gabrielMockup3 from "@/assets/gabriel-augusto/mockup-3.png";
 import gabrielMockup4 from "@/assets/gabriel-augusto/mockup-4.png";
+import marmitagestCover from "@/assets/marmitagest/cover.png";
+import marmitagestMockup1 from "@/assets/marmitagest/mockup-1.png";
+import marmitagestMockup2 from "@/assets/marmitagest/mockup-2.png";
+import marmitagestMockup3 from "@/assets/marmitagest/mockup-3.png";
+import marmitagestMockup4 from "@/assets/marmitagest/mockup-4.png";
 
 export const projects: Project[] = [
   {
@@ -281,6 +286,37 @@ export const projects: Project[] = [
       research: "I ran interviews and reference analysis of other psychoanalysts and psychologists to understand what builds trust with an audience that is often emotionally vulnerable. I mapped common objections (price, confidentiality, online format) and structured the journey to address each one at the right moment of the scroll.",
       wireframe: "I designed wireframes with a clear editorial hierarchy: emotional hero with a direct WhatsApp CTA, credential bar, about, how sessions work, patient testimonials, FAQ and a final CTA. The flow was crafted to reduce friction and naturally guide the visitor to booking.",
       ui_design: "I developed the visual identity with a deep navy, warm beige and handwritten yellow accent palette. Bold uppercase typography for headlines and a cursive font for the human detail. I shipped everything in React + Tailwind on Lovable, fully responsive and with a floating WhatsApp button.",
+    },
+  },
+  {
+    id: "10",
+    slug: "marmitagest",
+    titulo: "MarmitaGest: SaaS para Gestão de Marmitarias",
+    descricao: "Plataforma completa para marmitarias gerenciarem pedidos, cardápio, clientes e financeiro. Projeto Design Engineer pensado, desenhado e construído por mim do início ao fim.",
+    imagem_capa: marmitagestCover,
+    categoria: "UX/UI Design",
+    ferramentas: ["Figma", "Lovable", "React", "Tailwind CSS", "Supabase"],
+    galeria_de_imagens: [marmitagestMockup1, marmitagestMockup2, marmitagestMockup3, marmitagestMockup4],
+    contexto: "Pequenos empreendedores do ramo de marmitarias e refeições prontas ainda gerenciam pedidos, clientes e finanças no caderno ou em planilhas dispersas. Esse processo manual gera erros, esquecimento de entregas, perda de receita e dificulta o crescimento do negócio.\n\nO MarmitaGest nasceu para resolver essa dor: dar ao dono da marmitaria uma ferramenta simples, rápida e visual para organizar todo o operacional do dia a dia em um só lugar.",
+    objetivo: "Construir um SaaS web e mobile que centralize a operação de uma marmitaria: cadastro de cardápio, gestão de pedidos com status em tempo real, base de clientes com histórico e painel financeiro com indicadores semanais. A proposta é entregar uma ferramenta acessível, intuitiva e visualmente acolhedora, mesmo para usuários com pouca familiaridade com tecnologia.",
+    processo: {
+      research: "Conversei com donos de marmitarias de bairro para entender o fluxo real: como recebem pedidos (WhatsApp, ligação), como controlam entregas, como cobram e como calculam o faturamento da semana. Identifiquei que o maior gargalo é a falta de visibilidade do que entra e sai por dia.",
+      wireframe: "Estruturei os fluxos principais: login → dashboard com KPIs → cadastro de marmitas → criação de pedido → acompanhamento de status → relatório financeiro. Priorizei poucas telas e ações de no máximo dois cliques para o dono operar com pressa no horário de pico.",
+      ui_design: "Desenvolvi a identidade visual com laranja vibrante como cor principal, transmitindo apetite, energia e calor humano. Tipografia bold para os números, cards com hierarquia clara e badges coloridos para status de pedido. Layout responsivo, do MacBook ao iPhone, com a mesma experiência fluida.",
+    },
+    resultado: "App pensado e construído inteiramente por mim, do descobrimento ao deploy. Plataforma no ar com dashboard de métricas, gestão de pedidos, cardápio com fotos, base de clientes e painel financeiro semanal. Projeto Design Engineer ponta a ponta: research, UI design, frontend, backend e publicação.",
+    tags: ["Design Engineer", "SaaS", "Web App", "Mobile", "UI Design"],
+    link_projeto: "https://marmitagest.vercel.app/",
+    titulo_en: "MarmitaGest: SaaS for Meal Prep Businesses",
+    descricao_en: "Complete platform for meal prep businesses to manage orders, menu, customers and finances. A Design Engineer project I thought through, designed and built end-to-end.",
+    categoria_en: "UX/UI Design",
+    contexto_en: "Small meal-prep entrepreneurs still manage orders, customers and finances on paper or scattered spreadsheets. This manual process causes errors, missed deliveries, lost revenue and blocks business growth.\n\nMarmitaGest was created to solve this pain: give the owner a simple, fast and visual tool to organize the entire daily operation in one place.",
+    objetivo_en: "Build a web and mobile SaaS that centralizes the operation of a meal-prep business: menu management, real-time order tracking, customer base with history and a financial dashboard with weekly KPIs. The goal is an accessible, intuitive and visually warm tool, even for users with low tech familiarity.",
+    resultado_en: "App thought through and built entirely by me, from discovery to deploy. Live platform with metrics dashboard, order management, menu with photos, customer base and weekly financial panel. End-to-end Design Engineer project: research, UI design, frontend, backend and publishing.",
+    processo_en: {
+      research: "I talked to local meal-prep owners to understand the real flow: how they receive orders (WhatsApp, calls), how they track deliveries, how they charge and how they calculate weekly revenue. I found that the biggest bottleneck is the lack of visibility of daily inflows and outflows.",
+      wireframe: "I structured the main flows: login → KPI dashboard → menu management → order creation → status tracking → financial report. I prioritized few screens and max-two-click actions so the owner can operate quickly during rush hour.",
+      ui_design: "I developed the visual identity with vibrant orange as the main color, conveying appetite, energy and human warmth. Bold typography for numbers, cards with clear hierarchy and colorful status badges. Responsive layout from MacBook to iPhone with the same fluid experience.",
     },
   },
 ];
