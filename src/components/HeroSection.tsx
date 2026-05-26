@@ -21,7 +21,7 @@ const HeroSection = () => {
   const lastName = nameParts.slice(1).join(" ") || "Filipe";
 
   const stats = [
-    { number: "6+", label: t("hero.stat_projects") },
+    { number: "7+", label: t("hero.stat_projects") },
     { number: "2", label: t("hero.stat_experience") },
     { number: "100%", label: t("hero.stat_dedication") },
   ];
