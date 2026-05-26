@@ -295,7 +295,7 @@ export const projects: Project[] = [
     descricao: "Plataforma focada na gestão financeira de restaurantes: faturamento, custos, lucro e indicadores semanais em um só lugar. Projeto Design Engineer pensado, desenhado e construído por mim do início ao fim.",
     imagem_capa: marmitagestCover,
     categoria: "UX/UI Design",
-    ferramentas: ["Figma", "Lovable", "Cursor", "React", "Tailwind CSS", "Supabase"],
+    ferramentas: ["Figma", "Cursor", "React", "Tailwind CSS", "Supabase"],
     galeria_de_imagens: [marmitagestMockup1, marmitagestMockup2, marmitagestMockup3, marmitagestMockup4],
     contexto: "Pequenos restaurantes ainda controlam o financeiro no caderno ou em planilhas dispersas. Esse processo manual gera erros de cálculo, perda de receita e dificulta enxergar com clareza o quanto realmente sobra no fim da semana.\n\nO MarmitaGest nasceu para resolver essa dor: dar ao dono do restaurante uma ferramenta simples, rápida e visual para acompanhar toda a saúde financeira do negócio em um só lugar.",
     objetivo: "Construir um SaaS web e mobile dedicado à gestão financeira de restaurantes: registro de faturamento, custos e despesas, cálculo automático de lucro e painel com indicadores semanais. A proposta é entregar uma ferramenta acessível, intuitiva e visualmente acolhedora, mesmo para usuários com pouca familiaridade com tecnologia.",
