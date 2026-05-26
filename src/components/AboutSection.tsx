@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import DOMPurify from "dompurify";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import clickupLogo from "@/assets/clickup-logo.svg";
