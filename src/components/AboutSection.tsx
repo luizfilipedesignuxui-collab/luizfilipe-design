@@ -77,7 +77,7 @@ const AboutSection = () => {
           <div className="lg:col-span-3 space-y-6 pt-2">
             <div className="space-y-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
               {paragraphs.map((p, i) => (
-                <p key={i} dangerouslySetInnerHTML={{ __html: p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>') }} />
+                <p key={i} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>'), { ALLOWED_TAGS: ['strong'], ALLOWED_ATTR: ['class'] }) }} />
               ))}
             </div>
 
