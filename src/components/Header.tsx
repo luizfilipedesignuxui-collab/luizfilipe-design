@@ -10,6 +10,7 @@ const Header = () => {
 
   const navLinks = [
     { label: t("nav.about"), href: "#sobre" },
+    { label: language === "pt" ? "Livros" : "Books", href: "#livros" },
     { label: t("nav.skills"), href: "#habilidades" },
     { label: t("nav.certificates"), href: "#certificados" },
     { label: t("nav.process"), href: "#processo" },
