@@ -18,13 +18,13 @@ const Index = () => {
       <main id="main-content">
         <HeroSection />
         <AboutSection />
+        <BooksSection />
         <MarqueeSection />
         <SkillsSection />
         <CertificatesSection />
         <ProcessSection />
         <StatementSection />
         <ProjectsSection />
-        <BooksSection />
         <ContactSection />
       </main>
       <Footer />
