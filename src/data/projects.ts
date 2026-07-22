@@ -53,6 +53,10 @@ import marmitagestMockup1 from "@/assets/marmitagest/mockup-1.png";
 import marmitagestMockup2 from "@/assets/marmitagest/mockup-2.png";
 import marmitagestMockup3 from "@/assets/marmitagest/mockup-3.png";
 import marmitagestMockup4 from "@/assets/marmitagest/mockup-4.png";
+import multifitCover from "@/assets/multifit/cover.png";
+import multifitMockup1 from "@/assets/multifit/mockup-1.png";
+import multifitMockup2 from "@/assets/multifit/mockup-2.png";
+import multifitMockup4 from "@/assets/multifit/mockup-4.png";
 
 export const projects: Project[] = [
   {
@@ -320,5 +324,36 @@ export const projects: Project[] = [
     },
 
 
+  },
+  {
+    id: "11",
+    slug: "multifit-store",
+    titulo: "MultiFit Store: E-commerce de Moda Fitness Feminina",
+    descricao: "Loja online de moda fitness feminina com catálogo elegante, favoritos e integração direta ao WhatsApp para fechar a venda. Projeto Design Engineer pensado, desenhado e desenvolvido por mim do início ao fim.",
+    imagem_capa: multifitCover,
+    categoria: "UX/UI Design",
+    ferramentas: ["Figma", "Cursor", "React", "Tailwind CSS", "Vercel"],
+    galeria_de_imagens: [multifitMockup1, multifitMockup2, multifitMockup4],
+    contexto: "A MultiFit Store é uma marca de roupas fitness femininas que precisava de uma vitrine digital à altura do seu produto: elegante, feminina e capaz de transmitir qualidade em cada detalhe. A venda acontece via WhatsApp, então o site funciona como catálogo digital e principal ponto de conversão da marca.\n\nO desafio era construir uma loja com estética premium, navegação simples e um fluxo direto do interesse ao contato, sem carrinho tradicional, sem etapas desnecessárias.",
+    objetivo: "Criar um e-commerce de catálogo com identidade visual em rosé, cream e detalhes rose gold, focado em destacar os produtos e conduzir a cliente até o WhatsApp da loja. O site precisava ser rápido, totalmente responsivo e transmitir a sensação de uma marca de moda fitness sofisticada.",
+    processo: {
+      research: "Analisei referências de e-commerces de moda fitness nacionais e internacionais para entender o que gera desejo e confiança no público feminino. Mapeei padrões visuais recorrentes (tons rosados, tipografia serifada elegante, fotografia limpa) e defini uma linguagem visual acolhedora, feminina e premium.",
+      wireframe: "Estruturei a navegação em Produtos, Conjuntos, Tamanhos e Como Comprar. Cada card de produto foi pensado para exibir múltiplas fotos em carrossel, favoritar com um clique e ir direto ao WhatsApp pelo botão \"Tenho interesse\", eliminando etapas de carrinho e checkout tradicionais.",
+      ui_design: "Desenvolvi a interface com paleta em rosé, cream e rose gold, tipografia serifada para os títulos e sans-serif para o corpo. Cards com bordas suaves, hover delicado e botão flutuante de WhatsApp em verde para reforçar o canal principal de venda. Layout totalmente responsivo, com foco no consumo mobile.",
+    },
+    resultado: "Loja no ar, totalmente responsiva, com catálogo de conjuntos, tops e leggings, sistema de favoritos e integração direta ao WhatsApp da marca. Projeto Design Engineer ponta a ponta: research, UI design, frontend e deploy na Vercel.",
+    tags: ["Design Engineer", "E-commerce", "Moda Fitness", "Web Design", "UI Design"],
+    link_projeto: "https://multifit-store.vercel.app/",
+    titulo_en: "MultiFit Store: Women's Fitness Fashion E-commerce",
+    descricao_en: "Online store for women's fitness fashion with an elegant catalog, favorites and direct WhatsApp integration to close the sale. A Design Engineer project I thought through, designed and built end-to-end.",
+    categoria_en: "UX/UI Design",
+    contexto_en: "MultiFit Store is a women's fitness apparel brand that needed a digital storefront matching the quality of its product: elegant, feminine and able to convey quality in every detail. Sales happen via WhatsApp, so the site works as a digital catalog and the brand's main conversion point.\n\nThe challenge was to build a store with a premium aesthetic, simple navigation and a direct flow from interest to contact, no traditional cart, no unnecessary steps.",
+    objetivo_en: "Build a catalog e-commerce with a rosé, cream and rose gold visual identity, focused on highlighting the products and guiding the customer straight to the store's WhatsApp. The site had to be fast, fully responsive and feel like a sophisticated fitness fashion brand.",
+    resultado_en: "Live and fully responsive store with a catalog of sets, tops and leggings, a favorites system and direct WhatsApp integration. End-to-end Design Engineer project: research, UI design, frontend and Vercel deploy.",
+    processo_en: {
+      research: "I analyzed references from Brazilian and international fitness fashion e-commerces to understand what generates desire and trust in the female audience. I mapped recurring visual patterns (rosy tones, elegant serif typography, clean photography) and defined a warm, feminine and premium visual language.",
+      wireframe: "I structured the navigation into Products, Sets, Sizes and How to Buy. Each product card was designed to display multiple photos in a carousel, favorite in one click and go straight to WhatsApp via the \"I'm interested\" button, removing traditional cart and checkout steps.",
+      ui_design: "I built the interface with a rosé, cream and rose gold palette, serif typography for titles and sans-serif for body text. Cards with soft borders, gentle hover, and a green floating WhatsApp button to reinforce the main sales channel. Fully responsive layout with a mobile-first focus.",
+    },
   },
 ];
