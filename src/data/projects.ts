@@ -53,6 +53,10 @@ import marmitagestMockup1 from "@/assets/marmitagest/mockup-1.png";
 import marmitagestMockup2 from "@/assets/marmitagest/mockup-2.png";
 import marmitagestMockup3 from "@/assets/marmitagest/mockup-3.png";
 import marmitagestMockup4 from "@/assets/marmitagest/mockup-4.png";
+import multifitCover from "@/assets/multifit/cover.png";
+import multifitMockup1 from "@/assets/multifit/mockup-1.png";
+import multifitMockup2 from "@/assets/multifit/mockup-2.png";
+import multifitMockup4 from "@/assets/multifit/mockup-4.png";
 
 export const projects: Project[] = [
   {
