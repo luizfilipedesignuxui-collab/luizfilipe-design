@@ -7,7 +7,6 @@ import CertificatesSection from "@/components/CertificatesSection";
 import ProcessSection from "@/components/ProcessSection";
 import StatementSection from "@/components/StatementSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import BooksSection from "@/components/BooksSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -18,7 +17,6 @@ const Index = () => {
       <main id="main-content">
         <HeroSection />
         <AboutSection />
-        <BooksSection />
         <MarqueeSection />
         <SkillsSection />
         <CertificatesSection />
