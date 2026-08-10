@@ -7,12 +7,10 @@ import profilePhoto from "@/assets/profile-hero-cutout.png";
 
 const HeroSection = () => {
   const { content } = useSiteContent();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const title = content.hero_title || "Luiz Filipe";
-  const subtitle = language === "pt"
-    ? (content.hero_subtitle || "Criando experiências digitais intuitivas, estratégicas e centradas no usuário.")
-    : "Creating intuitive, strategic, and user-centered digital experiences.";
+  const subtitle = t("hero.subtitle");
   const ctaPrimary = t("hero.cta_primary");
   const ctaSecondary = t("hero.cta_secondary");
 
@@ -27,10 +25,10 @@ const HeroSection = () => {
   ];
 
   const services = [
-    { icon: Sparkles, title: "User-Centered Design", desc: t("hero.service_ux") },
-    { icon: Figma, title: "Brand Identity", desc: t("hero.service_brand") },
-    { icon: Monitor, title: "Responsive UI", desc: t("hero.service_responsive") },
-    { icon: Smartphone, title: "Seamless Prototyping", desc: t("hero.service_prototyping") },
+    { icon: Sparkles, title: t("hero.service_ux_title"), desc: t("hero.service_ux") },
+    { icon: Figma, title: t("hero.service_brand_title"), desc: t("hero.service_brand") },
+    { icon: Monitor, title: t("hero.service_responsive_title"), desc: t("hero.service_responsive") },
+    { icon: Smartphone, title: t("hero.service_prototyping_title"), desc: t("hero.service_prototyping") },
   ];
 
   return (

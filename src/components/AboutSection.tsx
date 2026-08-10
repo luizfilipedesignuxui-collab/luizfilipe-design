@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import DOMPurify from "dompurify";
-import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import clickupLogo from "@/assets/clickup-logo.svg";
 
@@ -18,29 +17,21 @@ const tools = [
 const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const { content } = useSiteContent();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const specialties = [
     { title: "UX/UI Design", desc: t("about.spec_uxui_desc") },
     { title: "Design Engineer", desc: t("about.spec_de_desc") },
   ];
 
-  // Use DB content only in PT, use translations in EN
-  const title = language === "pt" ? (content.about_title || t("about.title_default")) : t("about.title_default");
-  const paragraphs = language === "pt"
-    ? [
-        content.about_text_1 || t("about.text_1_default"),
-        content.about_text_2 || t("about.text_2_default"),
-        content.about_text_3 || t("about.text_3_default"),
-        content.about_text_4 || t("about.text_4_default"),
-      ].filter(Boolean)
-    : [
-        t("about.text_1_default"),
-        t("about.text_2_default"),
-        t("about.text_3_default"),
-        t("about.text_4_default"),
-      ];
+  // Translations are the source of truth for PT and EN (clear for recruiters + clients)
+  const title = t("about.title_default");
+  const paragraphs = [
+    t("about.text_1_default"),
+    t("about.text_2_default"),
+    t("about.text_3_default"),
+    t("about.text_4_default"),
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(

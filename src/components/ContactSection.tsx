@@ -15,10 +15,10 @@ const ContactSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { content } = useSiteContent();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
-  const title = language === "pt" ? (content.contact_title || t("contact.title_default")) : t("contact.title_default");
-  const subtitle = language === "pt" ? (content.contact_subtitle || t("contact.subtitle_default")) : t("contact.subtitle_default");
+  const title = t("contact.title_default");
+  const subtitle = t("contact.subtitle_default");
   const email = content.contact_email || "luizfilipe.designuxui@gmail.com";
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 
