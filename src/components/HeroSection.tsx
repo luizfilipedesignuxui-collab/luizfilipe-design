@@ -20,7 +20,6 @@ const HeroSection = () => {
 
   const stats = [
     { number: "8+", label: t("hero.stat_projects") },
-    { number: "2", label: t("hero.stat_experience") },
     { number: "100%", label: t("hero.stat_dedication") },
   ];
 
@@ -51,24 +50,29 @@ const HeroSection = () => {
 
 
           {/* Name + Photo layered composition */}
-          <div className="relative w-screen flex flex-col sm:flex-row items-center justify-center"
-            style={{ minHeight: "clamp(200px, 30vw, 400px)" }}
+          <div
+            className="relative w-screen flex flex-col sm:flex-row items-end sm:items-center justify-center"
+            style={{ minHeight: "clamp(240px, 34vw, 440px)" }}
           >
-            {/* Desktop: photo absolute after "e" */}
+            {/* Desktop: standing portrait overlapping the name */}
             <img
               src={profilePhoto}
               alt={`${title}, UX/UI Designer e Product Designer`}
               fetchPriority="high"
               decoding="async"
-              className="hidden sm:block absolute h-[130%] object-contain object-bottom z-10"
+              className="hidden sm:block absolute z-10 object-cover object-top pointer-events-none select-none"
               style={{
-                right: "5%",
+                height: "clamp(300px, 52vw, 580px)",
+                width: "auto",
+                aspectRatio: "3 / 4",
+                right: "max(4%, calc(50% - 38vw))",
                 bottom: 0,
-                mixBlendMode: "multiply",
+                maskImage: "linear-gradient(to bottom, black 72%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 72%, transparent 100%)",
               }}
             />
             <h1
-              className="font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap w-full text-center sm:text-left sm:w-auto"
+              className="relative z-20 font-display font-extrabold select-none leading-none tracking-tighter whitespace-nowrap w-full text-center sm:text-left sm:w-auto"
               style={{
                 fontSize: "clamp(3.5rem, 16vw, 18rem)",
                 letterSpacing: "-0.03em",
@@ -77,14 +81,18 @@ const HeroSection = () => {
             >
               {firstName} {lastName}
             </h1>
-            {/* Mobile: photo below name */}
+            {/* Mobile: photo below name with soft fade */}
             <img
               src={profilePhoto}
               alt={`${title}, UX/UI Designer e Product Designer`}
               fetchPriority="high"
               decoding="async"
-              className="block sm:hidden w-[70%] max-w-[280px] object-contain mt-4"
-              style={{ mixBlendMode: "multiply" }}
+              className="block sm:hidden w-[72%] max-w-[300px] object-cover object-top mt-3"
+              style={{
+                aspectRatio: "3 / 4",
+                maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+              }}
             />
           </div>
         </div>

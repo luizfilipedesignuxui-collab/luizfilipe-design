@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { useLanguage } from "@/contexts/LanguageContext";
 import certVagaUX from "@/assets/certificates/cert-vagaux.jpg";
 import certFigmaCursor from "@/assets/certificates/cert-figma-cursor.jpg";
+import SectionBridge from "@/components/SectionBridge";
 
 interface Certificate {
   title: string;
@@ -72,13 +73,14 @@ const CertificatesSection = () => {
   const topics = selected ? t(selected.topicsKey).split("|") : [];
 
   return (
-    <section id="certificados" className="py-24 bg-background" ref={ref}>
+    <section id="certificados" className="scroll-mt-24 py-24 md:py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
         <div
           className={`max-w-2xl mb-16 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
+          <SectionBridge bridgeKey="certificates.bridge" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             {t("certificates.title")}
           </h2>

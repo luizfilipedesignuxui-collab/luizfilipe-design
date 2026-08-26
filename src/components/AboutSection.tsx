@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import DOMPurify from "dompurify";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SectionBridge from "@/components/SectionBridge";
 import clickupLogo from "@/assets/clickup-logo.svg";
 
 const tools = [
@@ -43,7 +44,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="sobre" className="py-24 md:py-32">
+    <section id="sobre" className="scroll-mt-24 py-24 md:py-32">
       <div
         ref={ref}
         className={`container mx-auto px-6 transition-all duration-700 ${
@@ -52,9 +53,12 @@ const AboutSection = () => {
       >
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-2 space-y-8">
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight whitespace-pre-line">
-              {title}
-            </h2>
+            <div>
+              <SectionBridge bridgeKey="about.bridge" />
+              <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight whitespace-pre-line">
+                {title}
+              </h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {specialties.map((s) => (
                 <div key={s.title} className="p-5 rounded-2xl border border-border bg-card/30 hover:border-primary/40 transition-colors">

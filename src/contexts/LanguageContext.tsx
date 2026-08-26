@@ -25,7 +25,6 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.cta_secondary": "Falar comigo",
     "hero.subtitle": "Desenho e construo apps, sites e produtos digitais — do Figma ao código. Para times que contratam UX/UI e para negócios que precisam de um produto claro, bonito e pronto para crescer.",
     "hero.stat_projects": "Projetos entregues",
-    "hero.stat_experience": "Anos de prática",
     "hero.stat_dedication": "Foco no resultado",
     "hero.service_ux_title": "Design centrado no usuário",
     "hero.service_ux": "Interfaces pensadas para quem usa e para o negócio",
@@ -37,6 +36,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.service_prototyping": "Protótipos clicáveis para validar antes de desenvolver",
 
     // About
+    "about.bridge": "Primeiro, quem está por trás do design",
     "about.title_default": "Sobre\nmim",
     "about.text_1_default": "Sou Luiz Filipe, UX/UI Designer e Design Engineer. Ajudo empresas, startups e profissionais a transformar ideias em produtos digitais fáceis de usar — do conceito no Figma até a interface publicada.",
     "about.text_2_default": "Tenho 28 anos e formação em Design Digital e User Experience pela Uniasselvi. Atuo com pesquisa, wireframes, prototipação, UI e também implementação com React, Tailwind e Supabase.",
@@ -50,6 +50,7 @@ const translations: Record<Language, Record<string, string>> = {
     "about.tools_title": "Ferramentas que uso",
 
     // Skills
+    "skills.bridge": "Do perfil às competências",
     "skills.title": "Habilidades",
     "skills.subtitle": "O que aplico no dia a dia para entregar produtos digitais claros, usáveis e alinhados ao negócio.",
     "skills.ux_desc": "Experiências fáceis de usar, com foco em usabilidade e acessibilidade.",
@@ -63,6 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.prototype_title": "Prototipação",
 
     // Certificates
+    "certificates.bridge": "Depois dos cases, a formação contínua",
     "certificates.title": "Certificados",
     "certificates.subtitle": "Formações que reforçam minha prática em UX/UI e Design Engineering.",
     "certificates.view": "Ver certificado",
@@ -79,6 +81,7 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.ga.topics": "Configuração do Google Analytics|Métricas essenciais para UX|Interpretação de comportamento|Decisões baseadas em dados|Análise de jornada do usuário",
 
     // Process
+    "process.bridge": "Das habilidades ao método",
     "process.title": "Processo de design",
     "process.subtitle": "Como trabalho, passo a passo, para entregar produtos digitais que resolvem problemas reais.",
     "process.discovery": "Descoberta",
@@ -100,10 +103,12 @@ const translations: Record<Language, Record<string, string>> = {
     "marquee.prototyping": "PROTOTIPAÇÃO",
 
     // Statement
+    "statement.bridge": "A ideia que guia cada entrega",
     "statement.quote": "Design não é só aparência.",
     "statement.quote_highlight": "Design é como funciona.",
 
     // Projects
+    "projects.bridge": "Do método aos resultados",
     "projects.title": "Projetos",
     "projects.subtitle": "Cases de UX/UI e Design Engineering — apps, sites, e-commerces e produtos digitais.",
     "projects.coming_soon": "Em breve",
@@ -140,6 +145,7 @@ const translations: Record<Language, Record<string, string>> = {
     "case.coming_soon_stores_desc": "O MarmitaGest estará disponível em breve na App Store e na Google Play.",
 
     // Contact
+    "contact.bridge": "Pronto para o próximo passo",
     "contact.title_default": "Vamos conversar\nsobre o próximo passo",
     "contact.subtitle_default": "Aberto a vagas de UX/UI e Design Engineering, e a projetos sob demanda: sites, apps, SaaS, landing pages e redesign. Me conte o que você precisa — vaga, briefing ou ideia.",
     "contact.cta": "Entrar em contato",
@@ -188,7 +194,6 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.cta_secondary": "Get in touch",
     "hero.subtitle": "I design and build apps, websites, and digital products — from Figma to code. For teams hiring UX/UI talent, and for businesses that need a clear, polished product ready to grow.",
     "hero.stat_projects": "Projects delivered",
-    "hero.stat_experience": "Years of practice",
     "hero.stat_dedication": "Focused on results",
     "hero.service_ux_title": "User-centered design",
     "hero.service_ux": "Interfaces built for users and for the business",
@@ -200,6 +205,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.service_prototyping": "Clickable prototypes to validate before development",
 
     // About
+    "about.bridge": "First, who is behind the design",
     "about.title_default": "About\nme",
     "about.text_1_default": "I'm Luiz Filipe, a UX/UI Designer and Design Engineer. I help companies, startups, and professionals turn ideas into digital products that are easy to use — from the first Figma concept to a live interface.",
     "about.text_2_default": "I'm 28 and hold a degree in Digital Design and User Experience from Uniasselvi. I work across research, wireframes, prototyping, UI, and implementation with React, Tailwind, and Supabase.",
@@ -213,6 +219,7 @@ const translations: Record<Language, Record<string, string>> = {
     "about.tools_title": "Tools I use",
 
     // Skills
+    "skills.bridge": "From profile to capabilities",
     "skills.title": "Skills",
     "skills.subtitle": "What I use day to day to deliver digital products that are clear, usable, and aligned with the business.",
     "skills.ux_desc": "Easy-to-use experiences focused on usability and accessibility.",
@@ -226,6 +233,7 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.prototype_title": "Prototyping",
 
     // Certificates
+    "certificates.bridge": "After the cases, continuous learning",
     "certificates.title": "Certificates",
     "certificates.subtitle": "Training that strengthens my practice in UX/UI and Design Engineering.",
     "certificates.view": "View certificate",
@@ -242,6 +250,7 @@ const translations: Record<Language, Record<string, string>> = {
     "certificates.ga.topics": "Google Analytics setup|Essential UX metrics|Behavioral data interpretation|Data-driven decisions|User journey analysis",
 
     // Process
+    "process.bridge": "From skills to method",
     "process.title": "Design process",
     "process.subtitle": "How I work, step by step, to deliver digital products that solve real problems.",
     "process.discovery": "Discovery",
@@ -263,10 +272,12 @@ const translations: Record<Language, Record<string, string>> = {
     "marquee.prototyping": "PROTOTYPING",
 
     // Statement
+    "statement.bridge": "The idea behind every delivery",
     "statement.quote": "Design is not just how it looks.",
     "statement.quote_highlight": "Design is how it works.",
 
     // Projects
+    "projects.bridge": "From method to results",
     "projects.title": "Projects",
     "projects.subtitle": "UX/UI and Design Engineering case studies — apps, websites, e-commerce, and digital products.",
     "projects.coming_soon": "Coming soon",
@@ -303,6 +314,7 @@ const translations: Record<Language, Record<string, string>> = {
     "case.coming_soon_stores_desc": "MarmitaGest will soon be available on the App Store and Google Play.",
 
     // Contact
+    "contact.bridge": "Ready for the next step",
     "contact.title_default": "Let's talk about\nthe next step",
     "contact.subtitle_default": "Open to UX/UI and Design Engineering roles, and to project-based work: websites, apps, SaaS, landing pages, and redesigns. Tell me what you need — a role, a brief, or an idea.",
     "contact.cta": "Get in touch",

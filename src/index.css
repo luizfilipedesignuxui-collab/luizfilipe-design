@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --background: 220 20% 96%;
     --foreground: 215 25% 12%;
@@ -106,10 +110,6 @@
   .font-body {
     font-family: 'DM Sans', sans-serif;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 @keyframes marquee {

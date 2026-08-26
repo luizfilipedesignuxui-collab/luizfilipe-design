@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
+import SectionBridge from "@/components/SectionBridge";
 
 const ProjectsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,9 +24,10 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section id="projetos" className="py-24 md:py-32">
+    <section id="projetos" className="scroll-mt-24 py-24 md:py-32 bg-card/40">
       <div ref={ref} className="container mx-auto px-6">
         <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <SectionBridge bridgeKey="projects.bridge" />
           <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             {t("projects.title")}
           </h2>

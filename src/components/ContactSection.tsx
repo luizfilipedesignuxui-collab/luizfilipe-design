@@ -3,6 +3,7 @@ import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SectionBridge from "@/components/SectionBridge";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 448 512" fill="currentColor" className={className} aria-hidden="true">
@@ -32,9 +33,10 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section id="contato" className="py-24 md:py-32 bg-sand-light/50">
+    <section id="contato" className="scroll-mt-24 py-24 md:py-32 bg-sand-light/50">
       <div ref={ref} className="container mx-auto px-6">
         <div className={`max-w-2xl mx-auto text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <SectionBridge bridgeKey="contact.bridge" className="text-center" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 whitespace-pre-line">
             {title}
           </h2>

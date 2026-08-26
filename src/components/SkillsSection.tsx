@@ -3,6 +3,7 @@ import {
   Compass, Users, PenTool, Layers, Palette, Component, MousePointerClick, Lightbulb,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SectionBridge from "@/components/SectionBridge";
 
 const SkillsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -30,9 +31,10 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="habilidades" className="py-24 md:py-32">
+    <section id="habilidades" className="scroll-mt-24 py-24 md:py-32 bg-card/40">
       <div ref={ref} className="container mx-auto px-6">
         <div className={`mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <SectionBridge bridgeKey="skills.bridge" />
           <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             {t("skills.title")}
           </h2>
