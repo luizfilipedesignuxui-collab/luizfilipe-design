@@ -46,20 +46,22 @@ const Projects = () => {
               </p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
               {projects.map((project) => {
                 const l = loc(project);
                 return (
                   <Link
                     to={`/projetos/${project.slug}`}
                     key={project.id}
-                    className="group block rounded-3xl overflow-hidden border border-border bg-card/30 hover:shadow-2xl transition-all duration-500"
+                    className="group flex flex-col rounded-3xl overflow-hidden border border-border bg-card/30 hover:border-primary/30 hover:shadow-2xl transition-all duration-500"
                   >
                     <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
                       {project.imagem_capa ? (
                         <img
                           src={project.imagem_capa}
-                          alt={l.titulo}
+                          alt={`Prévia do case: ${l.titulo}`}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
@@ -71,20 +73,20 @@ const Projects = () => {
                           </div>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 hidden sm:flex items-center justify-center">
                         <span className="text-background font-display font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
                           {t("projects.view_case")} <ArrowRight className="w-5 h-5" />
                         </span>
                       </div>
                     </div>
-                    <div className="p-6 space-y-3">
-                      <span className="font-display text-xs text-accent font-semibold uppercase tracking-widest">
+                    <div className="flex flex-1 flex-col p-5 sm:p-6 space-y-3">
+                      <span className="font-display text-xs text-primary font-semibold uppercase tracking-widest">
                         {l.categoria}
                       </span>
-                      <h3 className="font-display font-extrabold text-xl text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors leading-snug">
                         {l.titulo}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
                         {l.descricao}
                       </p>
                       <div className="flex flex-wrap gap-2 pt-1">
@@ -94,6 +96,10 @@ const Projects = () => {
                           </span>
                         ))}
                       </div>
+                      <span className="inline-flex items-center gap-1.5 pt-1 text-sm font-display font-semibold text-primary sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                        {t("projects.view_case")}
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
                   </Link>
                 );
