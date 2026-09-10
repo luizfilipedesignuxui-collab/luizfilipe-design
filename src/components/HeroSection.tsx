@@ -1,9 +1,8 @@
-import { ArrowDown, Mail, Sparkles, Smartphone, Monitor, Figma } from "lucide-react";
+import { ArrowDown, Mail, Code2, Layout, Smartphone, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import profilePhoto from "@/assets/profile-hero-cutout.png";
-
 
 const HeroSection = () => {
   const { content } = useSiteContent();
@@ -13,6 +12,8 @@ const HeroSection = () => {
   const subtitle = t("hero.subtitle");
   const ctaPrimary = t("hero.cta_primary");
   const ctaSecondary = t("hero.cta_secondary");
+  const role = t("hero.role");
+  const photoAlt = `${title}, ${role}`;
 
   const nameParts = title.split(" ");
   const firstName = nameParts[0] || "Luiz";
@@ -24,10 +25,10 @@ const HeroSection = () => {
   ];
 
   const services = [
-    { icon: Sparkles, title: t("hero.service_ux_title"), desc: t("hero.service_ux") },
-    { icon: Figma, title: t("hero.service_brand_title"), desc: t("hero.service_brand") },
-    { icon: Monitor, title: t("hero.service_responsive_title"), desc: t("hero.service_responsive") },
-    { icon: Smartphone, title: t("hero.service_prototyping_title"), desc: t("hero.service_prototyping") },
+    { icon: Compass, title: t("hero.service_ux_title"), desc: t("hero.service_ux") },
+    { icon: Layout, title: t("hero.service_brand_title"), desc: t("hero.service_brand") },
+    { icon: Smartphone, title: t("hero.service_responsive_title"), desc: t("hero.service_responsive") },
+    { icon: Code2, title: t("hero.service_prototyping_title"), desc: t("hero.service_prototyping") },
   ];
 
   return (
@@ -38,26 +39,21 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* === EDITORIAL HERO BANNER === */}
         <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
-
-          {/* UX/UI Designer - same Sora font as name */}
-          <span className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2"
-            style={{ fontSize: "clamp(1rem, 2.5vw, 1.8rem)", letterSpacing: "0.15em" }}
+          <span
+            className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2 text-center px-4"
+            style={{ fontSize: "clamp(0.85rem, 2vw, 1.35rem)", letterSpacing: "0.12em" }}
           >
-            UX/UI Designer
+            {role}
           </span>
 
-
-          {/* Name + Photo layered composition */}
           <div
             className="relative w-screen flex flex-col sm:flex-row items-end sm:items-center justify-center"
             style={{ minHeight: "clamp(240px, 34vw, 440px)" }}
           >
-            {/* Desktop: standing portrait overlapping the name */}
             <img
               src={profilePhoto}
-              alt={`${title}, UX/UI Designer e Product Designer`}
+              alt={photoAlt}
               fetchPriority="high"
               decoding="async"
               className="hidden sm:block absolute z-10 object-cover object-top pointer-events-none select-none"
@@ -81,10 +77,9 @@ const HeroSection = () => {
             >
               {firstName} {lastName}
             </h1>
-            {/* Mobile: photo below name with soft fade */}
             <img
               src={profilePhoto}
-              alt={`${title}, UX/UI Designer e Product Designer`}
+              alt={photoAlt}
               fetchPriority="high"
               decoding="async"
               className="block sm:hidden w-[72%] max-w-[300px] object-cover object-top mt-3"
@@ -97,7 +92,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Subtitle and CTAs */}
         <div className="text-center space-y-6 max-w-xl mx-auto">
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
             {subtitle}
@@ -118,7 +112,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Stats */}
         <div className="flex justify-center gap-10 sm:gap-14 pt-10">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -128,7 +121,6 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* Services */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-8 sm:pt-10 border-t border-border/50">
           {services.map((service) => (
             <div key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">

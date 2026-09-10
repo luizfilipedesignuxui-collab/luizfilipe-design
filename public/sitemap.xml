@@ -1,47 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://luizfilipe-design.lovable.app/</loc>
+    <loc>https://luizfilipe-design.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/pontuo</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/app-mobilidade-pontuo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/aura-scent</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/aura-scent-boutique</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/desafio-saudavel</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/desafio-saudavel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/be-careful</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/be-careful-app</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/guia-acessivel</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/guia-acessivel-app</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/forjado</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/forjado-fitness</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://luizfilipe-design.lovable.app/projetos/gabriel-augusto-psicanalista</loc>
+    <loc>https://luizfilipe-design.vercel.app/projetos/gabriel-augusto-psicanalista</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luizfilipe-design.vercel.app/projetos/marmitagest</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luizfilipe-design.vercel.app/projetos/multifit-store</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
