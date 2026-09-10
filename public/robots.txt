@@ -15,4 +15,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://luizfilipe-design.lovable.app/sitemap.xml
+Sitemap: https://luizfilipe-design.vercel.app/sitemap.xml
