@@ -1,0 +1,25 @@
+---
+description: Evita deploy BLOCKED na Vercel Hobby deste portfólio
+alwaysApply: true
+---
+
+# Deploy Vercel (Hobby)
+
+Este projeto está no plano **Hobby** da conta `luizfilipedesignuxui-collab`.
+
+## Regra crítica
+
+- Em **repositório privado**, a Vercel Hobby só aceita deploys cujo autor do commit seja o dono da conta (`luizfilipedesignuxui-collab` / `luizfilipe.designuxui@gmail.com`).
+- Commits de `LFilipeBess` ou do Cursor em repo privado ficam **BLOCKED**.
+- Em **repositório público**, a colaboração no Hobby é permitida — o repo `luizfilipe-design` deve permanecer **público** enquanto o plano for Hobby.
+
+## Ao publicar mudanças
+
+1. Preferir push normal em `main` (repo público).
+2. Se o repo voltar a ser privado: criar o commit via GitHub como `luizfilipedesignuxui-collab` (MCP GitHub autenticado nessa conta), não como `LFilipeBess`.
+3. Depois do push, conferir na Vercel se o deploy ficou `READY` (não `BLOCKED`).
+4. Não alterar `git config` global. Só use autor alternativo via API do GitHub quando o repo estiver privado.
+
+## Alternativa paga
+
+Upgrade para **Pro** permite membros no time e deploys de colaboradores com o repo privado.
