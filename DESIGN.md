@@ -96,14 +96,15 @@ Portfólio pessoal centrado em um nicho: UX/UI e Design Engineering (Figma → R
 Fluxo narrativo da home:
 
 1. Hero
-2. Sobre
-3. Marquee (ponte visual)
-4. Habilidades
-5. Processo
-6. Statement
-7. Projetos
-8. Certificados
-9. Contato
+2. Posicionamento (card)
+3. Sobre
+4. Marquee (ponte visual)
+5. Habilidades
+6. Processo
+7. Statement
+8. Projetos
+9. Certificados
+10. Contato
 
 Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 
@@ -116,5 +117,5 @@ Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 ## Don't
 
 - Não remover informação do portfólio só por limpeza visual.
-- Não quebrar âncoras `#sobre`, `#habilidades`, `#processo`, `#projetos`, `#certificados`, `#contato`.
+- Não quebrar âncoras `#posicionamento`, `#sobre`, `#habilidades`, `#processo`, `#projetos`, `#certificados`, `#contato`.
 - Não usar Inter/Roboto como fonte principal.

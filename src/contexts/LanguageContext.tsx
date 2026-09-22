@@ -13,6 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Record<string, string>> = {
  pt: {
  // Nav
+ "nav.positioning": "Posicionamento",
  "nav.about": "Sobre",
  "nav.skills": "Habilidades",
  "nav.certificates": "Certificados",
@@ -35,6 +36,10 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Produtos digitais do conceito à publicação",
  "hero.service_prototyping_title": "Do Figma ao código",
  "hero.service_prototyping": "Design Engineer: prototipo e publico em React",
+
+ // Positioning
+ "positioning.filled_label": "Meu posicionamento",
+ "positioning.filled": "Eu ajudo startups e negócios digitais a lançar produtos claros e prontos para converter através de UX/UI Design e Design Engineering, do Figma ao código.",
 
  // About
  "about.bridge": "Primeiro, quem está por trás do design",
@@ -191,6 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
  },
  en: {
  // Nav
+ "nav.positioning": "Positioning",
  "nav.about": "About",
  "nav.skills": "Skills",
  "nav.certificates": "Certificates",
@@ -213,6 +219,10 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Digital products from concept to launch",
  "hero.service_prototyping_title": "From Figma to code",
  "hero.service_prototyping": "Design Engineer: I prototype and ship in React",
+
+ // Positioning
+ "positioning.filled_label": "My positioning",
+ "positioning.filled": "I help startups and digital businesses ship clear, conversion-ready products through UX/UI Design and Design Engineering, from Figma to code.",
 
  // About
  "about.bridge": "First, who is behind the design",

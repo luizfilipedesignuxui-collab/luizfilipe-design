@@ -1,4 +1,5 @@
-import { ArrowDown, Mail, Code2, Layout, Smartphone, Compass } from "lucide-react";
+import { ArrowRight, Mail, Code2, Layout, Smartphone, Compass } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -39,7 +40,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="relative flex flex-col items-center justify-center mb-6 sm:mb-10">
+        <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
           <span
             className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2 text-center px-4"
             style={{ fontSize: "clamp(0.85rem, 2vw, 1.35rem)", letterSpacing: "0.12em" }}
@@ -49,7 +50,7 @@ const HeroSection = () => {
 
           <div
             className="relative w-screen flex flex-col sm:flex-row items-end sm:items-center justify-center"
-            style={{ minHeight: "clamp(240px, 34vw, 440px)" }}
+            style={{ minHeight: "clamp(280px, 40vw, 480px)" }}
           >
             <img
               src={profilePhoto}
@@ -89,14 +90,24 @@ const HeroSection = () => {
             />
           </div>
 
-          <div className="relative z-30 mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-            <Button asChild size="lg" className="rounded-full px-8 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20">
-              <a href="#projetos">
-                <ArrowDown className="mr-2 h-4 w-4" />
+          {/* CTA no banner — acima da foto (z-index) para não ficar coberto */}
+          <div className="relative z-40 -mt-2 sm:-mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full px-10 h-12 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/25"
+            >
+              <Link to="/projetos">
                 {ctaPrimary}
-              </a>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/5 bg-white/80 backdrop-blur-sm">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 h-12 border-primary/30 hover:bg-primary/5 bg-white"
+            >
               <a href="#contato">
                 <Mail className="mr-2 h-4 w-4" />
                 {ctaSecondary}
