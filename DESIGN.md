@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Luiz Filipe Portfolio
-description: Portfólio UX/UI e Design Engineering: narrativa clara para recrutadores e clientes.
+description: Portfólio UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.
 colors:
   primary: "#0F2A4A"
   secondary: "#285A8C"
@@ -78,7 +78,7 @@ components:
 
 ## Overview
 
-Portfólio pessoal de UX/UI Designer e Design Engineer. A página inicial conta uma história contínua: quem sou → o que entrego → como trabalho → cases → formação → contato.
+Portfólio pessoal centrado em um nicho: UX/UI e Design Engineering (Figma → React) para startups e negócios digitais que precisam de produtos claros e prontos para converter. Fluxo: hero → anatomia do posicionamento → sobre → capacidades → método → cases → formação → contato.
 
 ## Colors
 
@@ -95,15 +95,16 @@ Portfólio pessoal de UX/UI Designer e Design Engineer. A página inicial conta 
 
 Fluxo narrativo da home:
 
-1. Hero
-2. Sobre
-3. Marquee (ponte visual)
-4. Habilidades
-5. Processo
-6. Statement
-7. Projetos
-8. Certificados
-9. Contato
+ 1. Hero
+2. Posicionamento (nicho)
+3. Sobre
+4. Marquee (ponte visual)
+5. Habilidades
+6. Processo
+7. Statement
+8. Projetos
+9. Certificados
+10. Contato
 
 Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 
@@ -116,5 +117,5 @@ Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 ## Don't
 
 - Não remover informação do portfólio só por limpeza visual.
-- Não quebrar âncoras `#sobre`, `#habilidades`, `#processo`, `#projetos`, `#certificados`, `#contato`.
+- Não quebrar âncoras `#posicionamento`, `#sobre`, `#habilidades`, `#processo`, `#projetos`, `#certificados`, `#contato`.
 - Não usar Inter/Roboto como fonte principal.

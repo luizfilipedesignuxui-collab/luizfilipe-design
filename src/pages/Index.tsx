@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import PositioningSection from "@/components/PositioningSection";
 import AboutSection from "@/components/AboutSection";
 import MarqueeSection from "@/components/MarqueeSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -11,8 +12,8 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 /**
- * Narrative flow for recruiters and clients:
- * Hook → Who I am → Capabilities → How I work → Philosophy → Proof → Credentials → CTA
+ * Narrative flow:
+ * Hook → Positioning niche → Who I am → Capabilities → Method → Proof → Credentials → CTA
  */
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <HeroSection />
+        <PositioningSection />
         <AboutSection />
         <MarqueeSection />
         <SkillsSection />

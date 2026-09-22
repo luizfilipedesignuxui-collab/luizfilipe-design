@@ -56,15 +56,14 @@ const HeroSection = () => {
               alt={photoAlt}
               fetchPriority="high"
               decoding="async"
-              className="hidden sm:block absolute z-10 object-cover object-top pointer-events-none select-none"
+              className="hidden sm:block absolute z-10 object-contain object-bottom pointer-events-none select-none"
               style={{
-                height: "clamp(300px, 52vw, 580px)",
+                height: "clamp(340px, 58vw, 620px)",
                 width: "auto",
-                aspectRatio: "3 / 4",
-                right: "max(4%, calc(50% - 38vw))",
+                right: "max(2%, calc(50% - 42vw))",
                 bottom: 0,
-                maskImage: "linear-gradient(to bottom, black 72%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 72%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
               }}
             />
             <h1
@@ -82,11 +81,10 @@ const HeroSection = () => {
               alt={photoAlt}
               fetchPriority="high"
               decoding="async"
-              className="block sm:hidden w-[72%] max-w-[300px] object-cover object-top mt-3"
+              className="block sm:hidden w-[78%] max-w-[320px] object-contain object-bottom mt-3"
               style={{
-                aspectRatio: "3 / 4",
-                maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
               }}
             />
           </div>
