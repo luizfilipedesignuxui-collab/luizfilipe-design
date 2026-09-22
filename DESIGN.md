@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Luiz Filipe Portfolio
-description: Portfólio UX/UI e Design Engineering — narrativa clara para recrutadores e clientes.
+description: Portfólio UX/UI e Design Engineering: narrativa clara para recrutadores e clientes.
 colors:
   primary: "#0F2A4A"
   secondary: "#285A8C"
@@ -74,7 +74,7 @@ components:
     padding: "{spacing.lg}"
 ---
 
-# Luiz Filipe Portfolio — Design System
+# Luiz Filipe Portfolio: Design System
 
 ## Overview
 
@@ -82,8 +82,8 @@ Portfólio pessoal de UX/UI Designer e Design Engineer. A página inicial conta 
 
 ## Colors
 
-- **Primary** (`#0F2A4A`): navy — CTAs, títulos de destaque e ênfase.
-- **Accent / tertiary** (`#F0C93A`): amarelo — marca no hero e destaques.
+- **Primary** (`#0F2A4A`): navy: CTAs, títulos de destaque e ênfase.
+- **Accent / tertiary** (`#F0C93A`): amarelo: marca no hero e destaques.
 - **Neutral** (`#F0F2F5`): fundo claro da página.
 
 ## Typography

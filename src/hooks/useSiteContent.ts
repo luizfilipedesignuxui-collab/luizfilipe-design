@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { stripTravessao } from "@/lib/stripTravessao";
 
 let cachedContent: Record<string, string> | null = null;
 let fetchPromise: Promise<Record<string, string>> | null = null;
@@ -13,7 +14,7 @@ async function fetchContent(): Promise<Record<string, string>> {
   const map: Record<string, string> = {};
   if (data) {
     data.forEach((item) => {
-      map[item.key] = item.value;
+      map[item.key] = stripTravessao(item.value ?? "");
     });
   }
   return map;
