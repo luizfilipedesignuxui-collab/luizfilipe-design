@@ -13,7 +13,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Record<string, string>> = {
  pt: {
  // Nav
- "nav.positioning": "Posicionamento",
  "nav.about": "Sobre",
  "nav.skills": "Habilidades",
  "nav.certificates": "Certificados",
@@ -25,7 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.cta_primary": "Ver projetos",
  "hero.cta_secondary": "Falar comigo",
  "hero.role": "UX/UI Designer & Design Engineer",
- "hero.subtitle": "Eu ajudo startups e negócios digitais a lançar produtos claros e prontos para converter: do Figma ao código, com UX/UI e Design Engineering.",
+ "hero.subtitle": "UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.",
  "hero.stat_projects": "Projetos entregues",
  "hero.stat_dedication": "Foco no resultado",
  "hero.service_ux_title": "UX/UI Design",
@@ -36,25 +35,6 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Produtos digitais do conceito à publicação",
  "hero.service_prototyping_title": "Do Figma ao código",
  "hero.service_prototyping": "Design Engineer: prototipo e publico em React",
-
- // Positioning
- "positioning.bridge": "O nicho que guia este portfólio",
- "positioning.title": "Anatomia de um posicionamento forte",
- "positioning.subtitle": "Uma frase clara para quem chega aqui entender, em segundos, para quem eu trabalho e o que entrego.",
- "positioning.formula_prefix": "Eu ajudo",
- "positioning.formula_mid": "a",
- "positioning.formula_through": "através de",
- "positioning.client_short": "tipo de cliente",
- "positioning.result_short": "resultado que ele quer",
- "positioning.specialty_short": "sua especialidade",
- "positioning.client_label": "Cliente",
- "positioning.result_label": "Resultado",
- "positioning.specialty_label": "Especialidade",
- "positioning.client": "Startups e negócios digitais que precisam de produto no ar",
- "positioning.result": "Lançar produtos claros, usáveis e prontos para converter",
- "positioning.specialty": "UX/UI Design e Design Engineering (Figma → React)",
- "positioning.filled_label": "Meu posicionamento",
- "positioning.filled": "Eu ajudo startups e negócios digitais a lançar produtos claros e prontos para converter através de UX/UI Design e Design Engineering, do Figma ao código.",
 
  // About
  "about.bridge": "Primeiro, quem está por trás do design",
@@ -83,6 +63,8 @@ const translations: Record<Language, Record<string, string>> = {
  "skills.interaction_desc": "Microinterações e animações que tornam o uso mais claro e agradável.",
  "skills.product_desc": "Decisões de design ligadas a objetivos de produto e negócio.",
  "skills.prototype_title": "Prototipação",
+ "skills.group_discovery": "Pesquisa e estratégia",
+ "skills.group_craft": "Interface e sistema",
 
  // Certificates
  "certificates.bridge": "Depois dos cases, a formação contínua",
@@ -209,7 +191,6 @@ const translations: Record<Language, Record<string, string>> = {
  },
  en: {
  // Nav
- "nav.positioning": "Positioning",
  "nav.about": "About",
  "nav.skills": "Skills",
  "nav.certificates": "Certificates",
@@ -221,7 +202,7 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.cta_primary": "View projects",
  "hero.cta_secondary": "Get in touch",
  "hero.role": "UX/UI Designer & Design Engineer",
- "hero.subtitle": "I help startups and digital businesses ship clear, conversion-ready products: from Figma to code, with UX/UI and Design Engineering.",
+ "hero.subtitle": "UX/UI and Design Engineering for startups and digital businesses: from Figma to a live product.",
  "hero.stat_projects": "Projects delivered",
  "hero.stat_dedication": "Focused on results",
  "hero.service_ux_title": "UX/UI Design",
@@ -232,25 +213,6 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Digital products from concept to launch",
  "hero.service_prototyping_title": "From Figma to code",
  "hero.service_prototyping": "Design Engineer: I prototype and ship in React",
-
- // Positioning
- "positioning.bridge": "The niche that guides this portfolio",
- "positioning.title": "Anatomy of a strong positioning",
- "positioning.subtitle": "One clear sentence so anyone who lands here instantly understands who I serve and what I deliver.",
- "positioning.formula_prefix": "I help",
- "positioning.formula_mid": "to",
- "positioning.formula_through": "through",
- "positioning.client_short": "client type",
- "positioning.result_short": "result they want",
- "positioning.specialty_short": "your specialty",
- "positioning.client_label": "Client",
- "positioning.result_label": "Result",
- "positioning.specialty_label": "Specialty",
- "positioning.client": "Startups and digital businesses that need a live product",
- "positioning.result": "Ship clear, usable, conversion-ready products",
- "positioning.specialty": "UX/UI Design and Design Engineering (Figma → React)",
- "positioning.filled_label": "My positioning",
- "positioning.filled": "I help startups and digital businesses ship clear, conversion-ready products through UX/UI Design and Design Engineering, from Figma to code.",
 
  // About
  "about.bridge": "First, who is behind the design",
@@ -279,6 +241,8 @@ const translations: Record<Language, Record<string, string>> = {
  "skills.interaction_desc": "Micro-interactions and animations that make usage clearer and more pleasant.",
  "skills.product_desc": "Design decisions tied to product and business goals.",
  "skills.prototype_title": "Prototyping",
+ "skills.group_discovery": "Research and strategy",
+ "skills.group_craft": "Interface and systems",
 
  // Certificates
  "certificates.bridge": "After the cases, continuous learning",

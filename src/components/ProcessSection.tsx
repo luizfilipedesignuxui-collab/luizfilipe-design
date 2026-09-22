@@ -30,36 +30,58 @@ const ProcessSection = () => {
   return (
     <section id="processo" className="scroll-mt-24 py-24 md:py-32">
       <div ref={ref} className="container mx-auto px-6">
-        <div className={`text-center mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <SectionBridge bridgeKey="process.bridge" className="text-center" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div
+          className={`mb-12 md:mb-16 max-w-2xl transition-all duration-700 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <SectionBridge bridgeKey="process.bridge" />
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             {t("process.title")}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             {t("process.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+        <ol className="relative max-w-3xl mx-auto">
+          <div
+            className="absolute left-[19px] top-3 bottom-3 w-px bg-border md:left-[23px]"
+            aria-hidden
+          />
+
           {steps.map((step, index) => (
-            <div
+            <li
               key={step.title}
-              className={`relative group text-center p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`relative flex gap-5 md:gap-6 pb-10 last:pb-0 transition-all duration-500 ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 70}ms` }}
             >
-              <div className="text-xs font-display font-bold text-primary mb-3">
-                0{index + 1}
+              <div className="relative z-10 flex-shrink-0">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background border-2 border-primary/25 flex items-center justify-center">
+                  <span className="font-display text-xs md:text-sm font-extrabold text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                <step.icon className="w-5 h-5 text-primary" />
+
+              <div className="flex-1 min-w-0 pt-1 md:pt-2">
+                <div className="flex items-start gap-3 mb-2">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <step.icon className="w-4 h-4 text-primary" aria-hidden />
+                  </div>
+                  <h3 className="font-display font-bold text-foreground text-lg md:text-xl leading-tight pt-1.5">
+                    {step.title}
+                  </h3>
+                </div>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed pl-0 sm:pl-12">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="font-display font-semibold text-foreground text-sm mb-2">{step.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -39,7 +39,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
+        <div className="relative flex flex-col items-center justify-center mb-6 sm:mb-10">
           <span
             className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2 text-center px-4"
             style={{ fontSize: "clamp(0.85rem, 2vw, 1.35rem)", letterSpacing: "0.12em" }}
@@ -88,26 +88,27 @@ const HeroSection = () => {
               }}
             />
           </div>
-        </div>
 
-        <div className="text-center space-y-6 max-w-xl mx-auto">
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
-            {subtitle}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="rounded-full px-8 bg-primary hover:bg-primary/90">
+          <div className="relative z-30 mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+            <Button asChild size="lg" className="rounded-full px-8 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20">
               <a href="#projetos">
                 <ArrowDown className="mr-2 h-4 w-4" />
                 {ctaPrimary}
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/5">
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/5 bg-white/80 backdrop-blur-sm">
               <a href="#contato">
                 <Mail className="mr-2 h-4 w-4" />
                 {ctaSecondary}
               </a>
             </Button>
           </div>
+        </div>
+
+        <div className="text-center max-w-xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+            {subtitle}
+          </p>
         </div>
 
         <div className="flex justify-center gap-10 sm:gap-14 pt-10">

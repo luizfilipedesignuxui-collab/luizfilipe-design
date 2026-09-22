@@ -9,7 +9,6 @@ const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
-    { label: t("nav.positioning"), href: "#posicionamento" },
     { label: t("nav.about"), href: "#sobre" },
     { label: t("nav.skills"), href: "#habilidades" },
     { label: t("nav.process"), href: "#processo" },
