@@ -36,6 +36,8 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Produtos digitais do conceito à publicação",
  "hero.service_prototyping_title": "Do Figma ao código",
  "hero.service_prototyping": "Design Engineer: prototipo e publico em React",
+ "hero.stats_label": "Números do portfólio",
+ "hero.services_label": "Áreas de atuação",
 
  // Positioning
  "positioning.filled_label": "Meu posicionamento",
@@ -171,6 +173,16 @@ const translations: Record<Language, Record<string, string>> = {
  "footer.rights": "© 2026 Luiz Filipe. Todos os direitos reservados.",
  "footer.made_with": "Feito com ♥ e muito café",
 
+ // Accessibility
+ "a11y.skip_to_content": "Pular para o conteúdo",
+ "a11y.main_nav": "Navegação principal",
+ "a11y.mobile_nav": "Menu móvel",
+ "a11y.open_menu": "Abrir menu",
+ "a11y.close_menu": "Fechar menu",
+ "a11y.switch_to_en": "Mudar idioma para inglês",
+ "a11y.switch_to_pt": "Mudar idioma para português",
+ "a11y.opens_new_tab": "abre em nova aba",
+
  // Design System
  "ds.title": "Design System",
  "ds.subtitle": "O sistema visual que mantém consistência e escala em todos os projetos.",
@@ -219,6 +231,8 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.service_responsive": "Digital products from concept to launch",
  "hero.service_prototyping_title": "From Figma to code",
  "hero.service_prototyping": "Design Engineer: I prototype and ship in React",
+ "hero.stats_label": "Portfolio stats",
+ "hero.services_label": "Areas of work",
 
  // Positioning
  "positioning.filled_label": "My positioning",
@@ -353,6 +367,16 @@ const translations: Record<Language, Record<string, string>> = {
  "footer.connect": "Connect",
  "footer.rights": "© 2026 Luiz Filipe. All rights reserved.",
  "footer.made_with": "Made with ♥ and lots of coffee",
+
+ // Accessibility
+ "a11y.skip_to_content": "Skip to content",
+ "a11y.main_nav": "Main navigation",
+ "a11y.mobile_nav": "Mobile menu",
+ "a11y.open_menu": "Open menu",
+ "a11y.close_menu": "Close menu",
+ "a11y.switch_to_en": "Switch language to English",
+ "a11y.switch_to_pt": "Switch language to Portuguese",
+ "a11y.opens_new_tab": "opens in a new tab",
 
  // Design System
  "ds.title": "Design System",

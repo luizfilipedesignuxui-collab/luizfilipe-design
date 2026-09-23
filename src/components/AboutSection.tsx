@@ -62,7 +62,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {specialties.map((s) => (
                 <div key={s.title} className="p-5 rounded-2xl border border-border bg-card/30 hover:border-primary/40 transition-colors">
-                  <div className="font-display text-lg sm:text-xl font-extrabold text-primary leading-tight">{s.title}</div>
+                  <h3 className="font-display text-lg sm:text-xl font-extrabold text-primary leading-tight">{s.title}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
@@ -80,17 +80,17 @@ const AboutSection = () => {
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">
                 {t("about.tools_title")}
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 list-none m-0 p-0">
                 {tools.map((tool) => (
-                  <div
+                  <li
                     key={tool.name}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card/40 hover:border-primary/40 hover:shadow-md transition-all"
                   >
-                    <img src={tool.logo} alt={`${tool.name}, ferramenta de design`} loading="lazy" decoding="async" className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                    <img src={tool.logo} alt="" aria-hidden="true" loading="lazy" decoding="async" className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
                     <span className="font-display font-semibold text-sm text-foreground truncate">{tool.name}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>

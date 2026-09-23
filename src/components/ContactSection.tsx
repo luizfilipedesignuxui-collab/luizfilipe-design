@@ -60,6 +60,7 @@ const ContactSection = () => {
                 href="https://wa.me/5562992776534"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`WhatsApp (${t("a11y.opens_new_tab")})`}
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 WhatsApp
@@ -67,26 +68,31 @@ const ContactSection = () => {
             </Button>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
+          <ul className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap list-none m-0 p-0">
+            <li>
             <a
               href={`mailto:${email}`}
-              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
+              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              <Mail className="w-5 h-5 text-primary" />
+              <Mail className="w-5 h-5 text-primary" aria-hidden="true" />
               <span className="text-foreground font-medium">{email}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
             </a>
+            </li>
+            <li>
             <a
               href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group"
+              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              aria-label={`LinkedIn (${t("a11y.opens_new_tab")})`}
             >
-              <Linkedin className="w-5 h-5 text-primary" />
+              <Linkedin className="w-5 h-5 text-primary" aria-hidden="true" />
               <span className="text-foreground font-medium">LinkedIn</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
             </a>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

@@ -33,13 +33,13 @@ const PositioningSection = () => {
         }`}
       >
         <div className="max-w-4xl mx-auto rounded-2xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-10 text-center relative overflow-hidden shadow-[0_20px_60px_-24px_rgba(15,42,74,0.45)]">
-          <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full bg-accent/20 blur-2xl" aria-hidden />
+          <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full bg-accent/20 blur-2xl" aria-hidden="true" />
           <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
             {t("positioning.filled_label")}
           </p>
-          <p className="font-display text-lg sm:text-xl md:text-2xl font-bold leading-snug relative z-10">
+          <h2 className="font-display text-lg sm:text-xl md:text-2xl font-bold leading-snug relative z-10">
             {t("positioning.filled")}
-          </p>
+          </h2>
         </div>
       </div>
     </section>

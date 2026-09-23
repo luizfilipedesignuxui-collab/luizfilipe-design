@@ -56,14 +56,14 @@ const ProjectsSection = () => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 list-none m-0 p-0">
             {projects.map((project, index) => {
               const l = loc(project);
               return (
+                <li key={project.id}>
                 <Link
                   to={`/projetos/${project.slug}`}
-                  key={project.id}
-                  className={`group flex flex-col rounded-3xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-xl transition-all duration-500 ${
+                  className={`group flex flex-col h-full rounded-3xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-xl transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                     visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{ transitionDelay: `${Math.min(index, 8) * 60}ms` }}
@@ -72,20 +72,20 @@ const ProjectsSection = () => {
                     {project.imagem_capa ? (
                       <img
                         src={project.imagem_capa}
-                        alt={`Prévia do case: ${l.titulo}`}
+                        alt=""
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-500"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
                         <span className="font-display font-extrabold text-primary/40 text-4xl">
                           {l.titulo.charAt(0)}
                         </span>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-all duration-500 hidden sm:flex items-center justify-center">
-                      <span className="text-background font-display font-bold text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-2">
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 group-focus-visible:bg-foreground/55 transition-all duration-500 hidden sm:flex items-center justify-center" aria-hidden="true">
+                      <span className="text-background font-display font-bold text-sm md:text-base opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500 flex items-center gap-2">
                         {t("projects.view_case")} <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -95,7 +95,7 @@ const ProjectsSection = () => {
                     <span className="font-display text-xs text-primary font-semibold uppercase tracking-widest">
                       {l.categoria}
                     </span>
-                    <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors leading-snug">
+                    <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary group-focus-visible:text-primary transition-colors leading-snug">
                       {l.titulo}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
@@ -113,15 +113,16 @@ const ProjectsSection = () => {
                         ))}
                       </div>
                     )}
-                    <span className="inline-flex items-center gap-1.5 pt-2 text-sm font-display font-semibold text-primary sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                    <span className="inline-flex items-center gap-1.5 pt-2 text-sm font-display font-semibold text-primary sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100 transition-opacity">
                       {t("projects.view_case")}
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </span>
                   </div>
                 </Link>
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
       </div>
     </section>

@@ -33,7 +33,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 bg-white">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 sm:pt-28 bg-white">
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-muted blur-3xl" />
         <div className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-muted blur-3xl" />
@@ -42,15 +42,15 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="relative flex flex-col items-center justify-center mb-8 sm:mb-12">
           <span
-            className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-2 text-center px-4"
+            className="relative z-30 font-display font-bold text-foreground select-none tracking-wide uppercase mb-3 sm:mb-4 text-center px-4"
             style={{ fontSize: "clamp(0.85rem, 2vw, 1.35rem)", letterSpacing: "0.12em" }}
           >
             {role}
           </span>
 
           <div
-            className="relative w-screen flex flex-col sm:flex-row items-end sm:items-center justify-center"
-            style={{ minHeight: "clamp(280px, 40vw, 480px)" }}
+            className="relative w-full max-w-[100vw] flex flex-col sm:flex-row items-end sm:items-center justify-center overflow-hidden"
+            style={{ height: "clamp(260px, 38vw, 420px)" }}
           >
             <img
               src={profilePhoto}
@@ -59,10 +59,12 @@ const HeroSection = () => {
               decoding="async"
               className="hidden sm:block absolute z-10 object-contain object-bottom pointer-events-none select-none"
               style={{
-                height: "clamp(340px, 58vw, 620px)",
+                height: "100%",
+                maxHeight: "100%",
                 width: "auto",
-                right: "max(2%, calc(50% - 42vw))",
+                right: "max(2%, calc(50% - 38vw))",
                 bottom: 0,
+                top: "auto",
                 maskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
                 WebkitMaskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
               }}
@@ -82,7 +84,7 @@ const HeroSection = () => {
               alt={photoAlt}
               fetchPriority="high"
               decoding="async"
-              className="block sm:hidden w-[78%] max-w-[320px] object-contain object-bottom mt-3"
+              className="block sm:hidden w-[72%] max-w-[280px] object-contain object-bottom mt-2"
               style={{
                 maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
                 WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
@@ -90,8 +92,7 @@ const HeroSection = () => {
             />
           </div>
 
-          {/* CTA no banner — acima da foto (z-index) para não ficar coberto */}
-          <div className="relative z-40 -mt-2 sm:-mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <div className="relative z-40 mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               asChild
               size="lg"
@@ -99,7 +100,7 @@ const HeroSection = () => {
             >
               <Link to="/projetos">
                 {ctaPrimary}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
             <Button
@@ -109,7 +110,7 @@ const HeroSection = () => {
               className="rounded-full px-8 h-12 border-primary/30 hover:bg-primary/5 bg-white"
             >
               <a href="#contato">
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
                 {ctaSecondary}
               </a>
             </Button>
@@ -122,28 +123,28 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex justify-center gap-10 sm:gap-14 pt-10">
+        <div className="flex justify-center gap-10 sm:gap-14 pt-10" role="group" aria-label={t("hero.stats_label")}>
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary">{stat.number}</div>
+              <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary">{stat.number}</p>
               <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-8 sm:pt-10 border-t border-border/50">
+        <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-8 sm:pt-10 border-t border-border/50 list-none m-0 p-0" aria-label={t("hero.services_label")}>
           {services.map((service) => (
-            <div key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
+            <li key={service.title} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-primary/5 transition-colors group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors" aria-hidden="true">
                 <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-xs sm:text-sm text-foreground">{service.title}</h3>
+                <p className="font-display font-semibold text-xs sm:text-sm text-foreground">{service.title}</p>
                 <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{service.desc}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

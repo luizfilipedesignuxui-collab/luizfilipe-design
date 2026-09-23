@@ -28,26 +28,26 @@ const ProcessSection = () => {
   }, []);
 
   return (
-    <section id="processo" className="scroll-mt-24 py-24 md:py-32">
+    <section id="processo" className="scroll-mt-24 py-24 md:py-32" aria-labelledby="process-heading">
       <div ref={ref} className="container mx-auto px-6">
-        <div
+        <header
           className={`mb-12 md:mb-16 max-w-2xl transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <SectionBridge bridgeKey="process.bridge" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-4">
+          <h2 id="process-heading" className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             {t("process.title")}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             {t("process.subtitle")}
           </p>
-        </div>
+        </header>
 
-        <ol className="relative max-w-3xl mx-auto">
+        <ol className="relative max-w-3xl mx-auto list-none p-0 m-0">
           <div
-            className="absolute left-[19px] top-3 bottom-3 w-px bg-border md:left-[23px]"
-            aria-hidden
+            className="absolute left-5 top-3 bottom-3 w-px bg-border md:left-6"
+            aria-hidden="true"
           />
 
           {steps.map((step, index) => (
@@ -59,23 +59,19 @@ const ProcessSection = () => {
               style={{ transitionDelay: `${index * 70}ms` }}
             >
               <div className="relative z-10 flex-shrink-0">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background border-2 border-primary/25 flex items-center justify-center">
-                  <span className="font-display text-xs md:text-sm font-extrabold text-primary">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                <div
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background border-2 border-primary/25 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <step.icon className="w-5 h-5 text-primary" />
                 </div>
               </div>
 
-              <div className="flex-1 min-w-0 pt-1 md:pt-2">
-                <div className="flex items-start gap-3 mb-2">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <step.icon className="w-4 h-4 text-primary" aria-hidden />
-                  </div>
-                  <h3 className="font-display font-bold text-foreground text-lg md:text-xl leading-tight pt-1.5">
-                    {step.title}
-                  </h3>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed pl-0 sm:pl-12">
+              <div className="flex-1 min-w-0 pt-1.5 md:pt-2.5">
+                <h3 className="font-display font-bold text-foreground text-lg md:text-xl leading-tight mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>
