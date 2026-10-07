@@ -126,16 +126,9 @@ const HeroSection = () => {
     <section className="relative overflow-hidden bg-sky-hero">
       <div className="relative pt-28 sm:pt-32">
         <div className="container mx-auto px-6 relative z-40 text-center">
-          <h1 className="text-foreground leading-[0.95]">
-            <span className="block font-display font-semibold tracking-tight text-[clamp(2.4rem,6.2vw,5rem)]">
-              {t("hero.title_1")}
-            </span>
-            <span className="block font-serif-display italic font-normal tracking-tight text-[clamp(2.6rem,6.8vw,5.6rem)]">
-              {t("hero.title_2")}
-            </span>
-          </h1>
+          <h1 className="sr-only">Luiz Filipe · {t("hero.role")}</h1>
 
-          <p className="mt-5 mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+          <p className="mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
             {t("hero.subtitle")}
           </p>
 

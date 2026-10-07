@@ -100,7 +100,7 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 ## Typography
 
 - **Display:** Sora (títulos e marca).
-- **Display serif:** Instrument Serif itálica, só na segunda linha do título do hero.
+- **Display serif:** Instrument Serif itálica, reservada para destaques pontuais (o hero não tem título visível; o `h1` é só para leitores de tela).
 - **Body:** DM Sans (parágrafos e UI).
 
 ## Components
