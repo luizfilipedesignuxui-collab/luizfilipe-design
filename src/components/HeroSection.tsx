@@ -1,6 +1,4 @@
 import {
-  ArrowRight,
-  MessageCircle,
   Code2,
   Layout,
   Smartphone,
@@ -152,30 +150,13 @@ const HeroSection = () => {
     <section className="relative overflow-hidden bg-sky-hero">
       <div className="relative pt-28 sm:pt-32">
         <div className="container mx-auto px-6 relative z-40 text-center">
-          <h1 className="sr-only">Luiz Filipe · {t("hero.role")}</h1>
-
-          <p className="mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {t("hero.subtitle")}
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/projetos"
-              className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 h-12 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors ${focusRing}`}
-            >
-              {t("hero.cta_primary")}
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-            <a
-              href={anchor("#contato")}
-              className={`inline-flex items-center gap-2.5 rounded-full border border-white/80 bg-white/35 backdrop-blur-md px-5 h-12 text-sm font-semibold text-foreground hover:bg-white/70 transition-colors ${focusRing}`}
-            >
-              <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
-                <MessageCircle className="w-3.5 h-3.5 text-primary-foreground" />
-              </span>
-              {t("hero.cta_secondary")}
-            </a>
-          </div>
+          <h1 className="text-foreground leading-[0.9] tracking-tight whitespace-nowrap text-[clamp(3.25rem,12vw,9.5rem)]">
+            <span className="font-display font-bold tracking-[-0.04em]">Luiz</span>{" "}
+            <span className="font-serif-display italic font-normal">
+              Filipe<span className="text-accent not-italic font-display">.</span>
+            </span>
+            <span className="sr-only"> · {t("hero.role")}</span>
+          </h1>
         </div>
 
         {/* Side cards (wide screens) */}
