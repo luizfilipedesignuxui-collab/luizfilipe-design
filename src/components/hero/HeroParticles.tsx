@@ -6,13 +6,13 @@ import { useEffect, useRef, type RefObject } from "react";
  */
 const PARTICLE_CONFIG = {
   /** Particle budget per breakpoint (the sampler adapts cell size to hit it). */
-  count: { mobile: 4000, tablet: 7000, desktop: 12000 },
+  count: { mobile: 8000, tablet: 14000, desktop: 24000 },
   breakpoints: { tablet: 768, desktop: 1200 },
 
   minSize: 0.8,
   maxSize: 9,
   /** Dot radius as a fraction of the pixel cell it represents (≥0.71 leaves no gaps). */
-  sizeFill: 0.74,
+  sizeFill: 0.8,
   /** Dots shrink to this fraction of their size while far from home. */
   flightSize: 0.45,
 
@@ -37,7 +37,7 @@ const PARTICLE_CONFIG = {
   idleSpeed: 0.0011,
 
   /** Luminance std-dev above which a cell is split into 4 finer dots. */
-  detailThreshold: 13,
+  detailThreshold: 9,
   alphaThreshold: 0.06,
   maxDpr: 2,
   /** Opacity of the untouched photo before it breaks apart. */
@@ -189,7 +189,7 @@ const sample = (img: HTMLImageElement, g: Geometry, mask: Mask, budget: number):
       }
       const cover = n ? a / n : 0;
       if (cover < PARTICLE_CONFIG.alphaThreshold || a <= 0) return;
-      const jitter = size * 0.12;
+      const jitter = size * 0.06;
       seeds.push({
         x: visLeft + (cx + (Math.random() - 0.5) * jitter) / s,
         y: visTop + (cy + (Math.random() - 0.5) * jitter) / s,
