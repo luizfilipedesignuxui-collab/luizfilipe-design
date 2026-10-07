@@ -50,54 +50,43 @@ const SkillsSection = () => {
   let skillIndex = 0;
 
   return (
-    <section id="habilidades" className="scroll-mt-24 py-24 md:py-32 bg-card/40">
+    <section id="habilidades" className="scroll-mt-24 py-16 md:py-20">
       <div ref={ref} className="container mx-auto px-6">
         <div
-          className={`mb-12 md:mb-16 max-w-2xl transition-all duration-700 ${
+          className={`mb-8 md:mb-10 max-w-2xl transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <SectionBridge bridgeKey="skills.bridge" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-foreground mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-3">
             {t("skills.title")}
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-            {t("skills.subtitle")}
-          </p>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{t("skills.subtitle")}</p>
         </div>
 
-        <div className="space-y-12 md:space-y-16">
+        <div className="grid lg:grid-cols-2 gap-x-12 gap-y-8">
           {groups.map((group) => (
             <div key={group.label}>
-              <div className="flex items-center gap-4 mb-6">
-                <h3 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-primary whitespace-nowrap">
-                  {group.label}
-                </h3>
-                <div className="h-px flex-1 bg-border" aria-hidden />
-              </div>
+              <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1">
+                {group.label}
+              </h3>
 
-              <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-0">
+              <ul className="grid sm:grid-cols-2 gap-x-6 list-none m-0 p-0">
                 {group.skills.map((skill) => {
                   const index = skillIndex++;
                   return (
                     <li
                       key={skill.title}
-                      className={`flex gap-4 py-5 border-b border-border/70 transition-all duration-500 ${
-                        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                      className={`border-t border-border/70 py-3.5 transition-all duration-500 ${
+                        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                       }`}
-                      style={{ transitionDelay: `${index * 60}ms` }}
+                      style={{ transitionDelay: `${index * 50}ms` }}
                     >
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <skill.icon className="w-5 h-5 text-primary" aria-hidden />
-                      </div>
-                      <div className="min-w-0">
-                        <h4 className="font-display font-bold text-foreground text-base mb-1">
-                          {skill.title}
-                        </h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {skill.description}
-                        </p>
-                      </div>
+                      <h4 className="flex items-center gap-2 font-display font-semibold text-foreground text-sm">
+                        <skill.icon className="w-3.5 h-3.5 text-secondary shrink-0" aria-hidden />
+                        {skill.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">{skill.description}</p>
                     </li>
                   );
                 })}
