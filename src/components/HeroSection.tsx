@@ -37,7 +37,7 @@ const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
 const orbitSlots: OrbitSlot[] = [
   {
     position: "left-[2%] top-[18%] md:left-[10%] md:top-[16%]",
-    arc: -32,
+    arc: -20,
     roll: -6,
     icon: PenTool,
     tone: "bg-secondary/20 text-secondary",
@@ -46,7 +46,7 @@ const orbitSlots: OrbitSlot[] = [
   },
   {
     position: "left-[2%] top-[44%] md:left-[7%] md:top-[56%]",
-    arc: -28,
+    arc: -18,
     roll: -3,
     icon: Sparkles,
     tone: "bg-primary/10 text-primary",
@@ -65,7 +65,7 @@ const orbitSlots: OrbitSlot[] = [
   {
     position: "left-[3%] top-[72%] md:left-auto md:right-[6%] md:top-[63%]",
     arc: 28,
-    mobileArc: -28,
+    mobileArc: -18,
     roll: 3,
     icon: MapPin,
     tone: "bg-primary/10 text-primary",
@@ -364,7 +364,11 @@ const HeroSection = () => {
                   <li
                     key={project.id}
                     className={`absolute ${slot.layer} ${slot.position} w-[var(--card-w)] [--card-w:10.5rem] md:[--card-w:14rem] animate-hero-float`}
-                    style={{ animationDelay: slot.delay, perspective: "900px" }}
+                    style={{
+                      animationDelay: slot.delay,
+                      perspective: "640px",
+                      perspectiveOrigin: arc < 0 ? "120% 50%" : "-30% 50%",
+                    }}
                   >
                     <Link
                       to={`/projetos/${project.slug}`}
