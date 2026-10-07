@@ -16,12 +16,16 @@ import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
+import { useIsMobile } from "@/hooks/use-mobile";
 import profilePhoto from "@/assets/profile-hero-pose.png";
 
 type OrbitSlot = {
   position: string;
-  tilt: string;
-  variant: "image" | "chip";
+  /** Angle (deg) of the card centre on the cylinder wrapped around the head; negative = left side. */
+  arc: number;
+  /** Used below md when the card sits on the opposite side of the face. */
+  mobileArc?: number;
+  roll: number;
   icon: LucideIcon;
   tone: string;
   delay: string;
@@ -32,51 +36,86 @@ const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
 
 const orbitSlots: OrbitSlot[] = [
   {
-    position: "left-[2%] top-[18%] w-40 md:left-[10%] md:top-[16%] md:w-52",
-    tilt: "rotateY(-18deg) rotate(-7deg)",
-    variant: "chip",
+    position: "left-[2%] top-[18%] md:left-[10%] md:top-[16%]",
+    arc: -32,
+    roll: -6,
     icon: PenTool,
-    tone: "bg-secondary/15 text-secondary",
+    tone: "bg-secondary/20 text-secondary",
     delay: "0.8s",
     layer: "z-20",
   },
   {
-    position: "left-[2%] top-[44%] w-40 md:left-[7%] md:top-[56%] md:w-52",
-    tilt: "rotateY(-12deg) rotate(-4deg)",
-    variant: "chip",
+    position: "left-[2%] top-[44%] md:left-[7%] md:top-[56%]",
+    arc: -28,
+    roll: -3,
     icon: Sparkles,
     tone: "bg-primary/10 text-primary",
     delay: "1.6s",
     layer: "z-30",
   },
   {
-    position: "right-[2%] top-[58%] w-40 md:right-[2%] md:top-[40%] md:w-52",
-    tilt: "rotateY(22deg) rotate(9deg)",
-    variant: "chip",
+    position: "right-[2%] top-[58%] md:right-[2%] md:top-[40%]",
+    arc: 32,
+    roll: 7,
     icon: Rocket,
-    tone: "bg-accent/20 text-accent",
+    tone: "bg-accent/25 text-accent",
     delay: "0.4s",
     layer: "z-30",
   },
   {
-    position: "left-[3%] top-[72%] w-40 md:left-auto md:right-[6%] md:top-[63%] md:w-52",
-    tilt: "rotateY(20deg) rotate(4deg)",
-    variant: "chip",
+    position: "left-[3%] top-[72%] md:left-auto md:right-[6%] md:top-[63%]",
+    arc: 28,
+    mobileArc: -28,
+    roll: 3,
     icon: MapPin,
     tone: "bg-primary/10 text-primary",
     delay: "1.2s",
     layer: "z-20",
   },
   {
-    position: "right-[2%] top-[4%] w-40 md:right-[7%] md:top-[17%] md:w-52",
-    tilt: "rotateY(18deg) rotate(5deg)",
-    variant: "chip",
+    position: "right-[2%] top-[4%] md:right-[7%] md:top-[17%]",
+    arc: 30,
+    roll: 4,
     icon: Layers,
-    tone: "bg-secondary/15 text-secondary",
+    tone: "bg-secondary/20 text-secondary",
     delay: "2s",
     layer: "z-20",
   },
 ];
+
+const CURVE_SLICES = 10;
+const CURVE_RADIUS = 0.9;
+
+const curveSlices = (arcDeg: number) => {
+  const phi0 = (arcDeg * Math.PI) / 180;
+  return Array.from({ length: CURVE_SLICES }, (_, i) => {
+    const u = (i + 0.5) / CURVE_SLICES - 0.5;
+    const theta = phi0 + u / CURVE_RADIUS;
+    const dx = CURVE_RADIUS * (Math.sin(theta) - Math.sin(phi0)) - u;
+    const dz = CURVE_RADIUS * (Math.cos(theta) - Math.cos(phi0));
+    const left = (i / CURVE_SLICES) * 100;
+    const right = 100 - ((i + 1) / CURVE_SLICES) * 100;
+    return {
+      clipPath: `inset(0 calc(${right}% - 0.75px) 0 calc(${left}% - 0.75px))`,
+      transformOrigin: `${((i + 0.5) / CURVE_SLICES) * 100}% 50%`,
+      transform: `translate3d(calc(var(--card-w) * ${dx.toFixed(4)}), 0, calc(var(--card-w) * ${dz.toFixed(4)})) rotateY(${(
+        (theta * 180) /
+        Math.PI
+      ).toFixed(2)}deg)`,
+    };
+  });
+};
+
+const curveShading = (arcDeg: number) => {
+  const phi0 = (arcDeg * Math.PI) / 180;
+  const stops = Array.from({ length: 11 }, (_, i) => {
+    const u = i / 10 - 0.5;
+    const theta = phi0 + u / CURVE_RADIUS;
+    const shade = Math.min(0.3, (1 - Math.cos(theta)) * 0.85);
+    return `hsl(var(--foreground) / ${shade.toFixed(3)}) ${i * 10}%`;
+  });
+  return `linear-gradient(to right, ${stops.join(", ")})`;
+};
 
 const ringPath =
   "M20 20 C 42 9, 68 10, 83 21 C 89 27, 90 36, 88 44 C 86 52, 88 60, 84 67 C 68 82, 34 78, 18 60 C 10 51, 10 31, 20 20 Z";
@@ -160,6 +199,7 @@ const HeroSection = () => {
   const { pathname } = useLocation();
   const { projects } = usePublishedProjects();
   const { loc } = useProjectLocale();
+  const isMobile = useIsMobile();
 
   const anchor = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
   const featured = projects
@@ -301,53 +341,60 @@ const HeroSection = () => {
                 const slot = orbitSlots[index];
                 const l = loc(project);
                 const shortTitle = l.titulo.split(":")[0];
+                const arc = isMobile ? (slot.mobileArc ?? slot.arc) : slot.arc;
+                const shading = curveShading(arc);
+                const face = (
+                  <span className="flex items-center gap-3 px-3.5 py-3 md:px-4 md:py-3.5 text-left">
+                    <span
+                      className={`w-9 h-9 md:w-10 md:h-10 shrink-0 rounded-xl flex items-center justify-center ${slot.tone}`}
+                    >
+                      <slot.icon className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-display text-sm md:text-base font-semibold text-foreground line-clamp-1">
+                        {shortTitle}
+                      </span>
+                      <span className="block text-[10px] md:text-xs text-muted-foreground line-clamp-1">
+                        {l.categoria}
+                      </span>
+                    </span>
+                  </span>
+                );
                 return (
                   <li
                     key={project.id}
-                    className={`absolute ${slot.layer} ${slot.position} animate-hero-float`}
-                    style={{ animationDelay: slot.delay }}
+                    className={`absolute ${slot.layer} ${slot.position} w-[var(--card-w)] [--card-w:10.5rem] md:[--card-w:14rem] animate-hero-float`}
+                    style={{ animationDelay: slot.delay, perspective: "900px" }}
                   >
                     <Link
                       to={`/projetos/${project.slug}`}
                       aria-label={`${t("projects.view_case")}: ${l.titulo}`}
-                      className={`group block transition-transform duration-300 hover:scale-[1.05] ${focusRing} ${
-                        slot.variant === "image"
-                          ? "rounded-2xl border border-white/80 bg-white/30 p-1.5 backdrop-blur-md shadow-[0_20px_40px_-16px_rgba(18,29,48,0.35)]"
-                          : "rounded-2xl glass-card px-3 py-2.5 hover:bg-white/80"
-                      }`}
-                      style={{ transform: `perspective(900px) ${slot.tilt}` }}
+                      className={`group block rounded-2xl [transform-style:preserve-3d] ${focusRing}`}
+                      style={{ transform: `rotate(${slot.roll}deg)` }}
                     >
-                      {slot.variant === "image" ? (
-                        <span className="relative block aspect-[3/5] overflow-hidden rounded-xl bg-white">
-                          <img
-                            src={project.imagem_capa}
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                            className="w-full h-full object-cover grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                          />
-                          <span className="absolute inset-x-1.5 bottom-1.5 rounded-lg bg-white/80 backdrop-blur px-2 py-1 text-left text-[10px] lg:text-[11px] font-semibold text-foreground line-clamp-1">
-                            {shortTitle}
-                          </span>
+                      <span className="relative block [transform-style:preserve-3d] transition-transform duration-300 group-hover:scale-[1.06]">
+                        <span className="invisible block" aria-hidden="true">
+                          {face}
                         </span>
-                      ) : (
-                        <span className="flex items-center gap-2.5 text-left">
+                        {curveSlices(arc).map((slice, i) => (
                           <span
-                            className={`w-8 h-8 lg:w-9 lg:h-9 shrink-0 rounded-full flex items-center justify-center ${slot.tone}`}
+                            key={i}
+                            className="absolute inset-0 rounded-2xl border border-white bg-gradient-to-br from-white via-[hsl(var(--background))] to-[hsl(var(--sky-mid))] [backface-visibility:hidden]"
+                            style={{
+                              clipPath: slice.clipPath,
+                              transformOrigin: slice.transformOrigin,
+                              transform: slice.transform,
+                            }}
                             aria-hidden="true"
                           >
-                            <slot.icon className="w-4 h-4" />
+                            {face}
+                            <span
+                              className="absolute inset-0 rounded-2xl pointer-events-none"
+                              style={{ backgroundImage: shading }}
+                            />
                           </span>
-                          <span className="min-w-0">
-                            <span className="font-display text-xs lg:text-sm font-semibold text-foreground line-clamp-1">
-                              {shortTitle}
-                            </span>
-                            <span className="text-[10px] lg:text-[11px] text-muted-foreground line-clamp-1">
-                              {l.categoria}
-                            </span>
-                          </span>
-                        </span>
-                      )}
+                        ))}
+                      </span>
                     </Link>
                   </li>
                 );
