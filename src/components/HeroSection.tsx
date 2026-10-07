@@ -18,6 +18,7 @@ import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
 import { motion } from "motion/react";
 import { EASE_OUT, REVEAL_DISTANCE, STAGGER, revealItem } from "@/components/motion/tokens";
+import HeroParticles from "@/components/hero/HeroParticles";
 import profilePhoto from "@/assets/profile-hero-pose.png";
 
 type OrbitSlot = {
@@ -30,6 +31,10 @@ type OrbitSlot = {
   delay: string;
   layer: string;
 };
+
+/** Bottom fade of the hero photo, shared by the <img> mask and the particle sampler. */
+const PHOTO_MASK = { solid: 0.58, clear: 0.76 };
+const photoMaskCss = `linear-gradient(to bottom, black ${PHOTO_MASK.solid * 100}%, transparent ${PHOTO_MASK.clear * 100}%)`;
 
 const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
 
@@ -198,6 +203,10 @@ const HeroSection = () => {
   const { pathname } = useLocation();
   const { projects } = usePublishedProjects();
   const { loc } = useProjectLocale();
+  const stageRef = useRef<HTMLDivElement>(null);
+  const photoFrameRef = useRef<HTMLDivElement>(null);
+  const photoRef = useRef<HTMLImageElement>(null);
+  const [particlesActive, setParticlesActive] = useState(false);
 
   const anchor = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
   const featured = projects
@@ -289,30 +298,30 @@ const HeroSection = () => {
 
         {/* Photo + ring of clickable projects around the head */}
         <div
+          ref={stageRef}
           className="relative mx-auto mt-2 w-full max-w-5xl"
           style={{ height: "clamp(440px, 60vw, 680px)" }}
         >
-          <motion.div
-            className="absolute inset-0 overflow-hidden"
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: EASE_OUT, delay: 0.15 }}
-          >
+          <div ref={photoFrameRef} className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
+              ref={photoRef}
               src={profilePhoto}
               alt=""
               fetchPriority="high"
               decoding="async"
-              className="absolute left-1/2 -translate-x-1/2 w-auto max-w-none select-none pointer-events-none"
-              style={{
-                height: "150%",
-                top: "-14%",
-                maskImage: "linear-gradient(to bottom, black 58%, transparent 76%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 58%, transparent 76%)",
-              }}
+              className={`absolute left-1/2 -translate-x-1/2 w-auto max-w-none select-none pointer-events-none ${
+                particlesActive ? "invisible" : ""
+              }`}
+              style={{ height: "150%", top: "-14%", maskImage: photoMaskCss, WebkitMaskImage: photoMaskCss }}
             />
-          </motion.div>
+            <HeroParticles
+              imageRef={photoRef}
+              containerRef={photoFrameRef}
+              interactionRef={stageRef}
+              mask={PHOTO_MASK}
+              onActiveChange={setParticlesActive}
+            />
+          </div>
           <span className="sr-only">{t("hero.photo_alt")}</span>
 
           {glassSlivers.map((pos) => (

@@ -132,6 +132,7 @@ Biblioteca: `motion` (Motion for React). Tokens em `src/components/motion/tokens
 
 - **Um só movimento:** fade + subida de 24px, easing `cubic-bezier(0.22, 1, 0.36, 1)`, 0.6s; listas em cascata de 70ms.
 - **Hero:** entra ao carregar, em sequência — nome → foto → cards em órbita → cards de serviço.
+- **Partículas da foto do hero:** `src/components/hero/HeroParticles.tsx` (WebGL, `PARTICLE_CONFIG`). A própria foto se desfaz em pontos com as cores dos pixels, que se espalham, reagem ao mouse e reconstroem a imagem (~4s, só na entrada). Com "reduzir movimento" ativo, a foto aparece estática.
 - **Seções (Posicionamento → Projetos):** `Reveal` / `RevealGroup` + `RevealItem`, disparam uma única vez ao entrar na tela.
 - **Abrir/fechar (cards de serviço):** mesma curva de easing, 0.5s.
 - `MotionConfig reducedMotion="user"` respeita "reduzir movimento" do sistema.
