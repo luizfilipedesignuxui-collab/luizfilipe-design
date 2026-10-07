@@ -150,11 +150,8 @@ const HeroSection = () => {
     <section className="relative overflow-hidden bg-sky-hero">
       <div className="relative pt-28 sm:pt-32">
         <div className="container mx-auto px-6 relative z-40 text-center">
-          <h1 className="text-foreground leading-[0.9] tracking-tight whitespace-nowrap text-[clamp(3.25rem,12vw,9.5rem)]">
-            <span className="font-display font-bold tracking-[-0.04em]">Luiz</span>{" "}
-            <span className="font-serif-display italic font-normal">
-              Filipe<span className="text-accent not-italic font-display">.</span>
-            </span>
+          <h1 className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]">
+            Luiz <span className="text-accent">Filipe.</span>
             <span className="sr-only"> · {t("hero.role")}</span>
           </h1>
         </div>
