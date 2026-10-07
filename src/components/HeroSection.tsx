@@ -16,15 +16,12 @@ import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
-import { useIsMobile } from "@/hooks/use-mobile";
 import profilePhoto from "@/assets/profile-hero-pose.png";
 
 type OrbitSlot = {
   position: string;
   /** Angle (deg) of the card centre on the cylinder wrapped around the head; negative = left side. */
   arc: number;
-  /** Used below md when the card sits on the opposite side of the face. */
-  mobileArc?: number;
   roll: number;
   icon: LucideIcon;
   tone: string;
@@ -36,7 +33,7 @@ const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
 
 const orbitSlots: OrbitSlot[] = [
   {
-    position: "left-[2%] top-[18%] md:left-[10%] md:top-[16%]",
+    position: "left-[1%] top-[12%] md:left-[10%] md:top-[16%]",
     arc: -20,
     roll: -6,
     icon: PenTool,
@@ -45,7 +42,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-20",
   },
   {
-    position: "left-[2%] top-[44%] md:left-[7%] md:top-[56%]",
+    position: "left-[1%] top-[54%] md:left-[7%] md:top-[56%]",
     arc: -18,
     roll: -3,
     icon: Sparkles,
@@ -54,7 +51,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-30",
   },
   {
-    position: "right-[2%] top-[58%] md:right-[2%] md:top-[40%]",
+    position: "right-[1%] top-[36%] md:right-[2%] md:top-[40%]",
     arc: 32,
     roll: 7,
     icon: Rocket,
@@ -63,9 +60,8 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-30",
   },
   {
-    position: "left-[3%] top-[72%] md:left-auto md:right-[6%] md:top-[63%]",
+    position: "right-[1%] top-[72%] md:right-[6%] md:top-[63%]",
     arc: 28,
-    mobileArc: -18,
     roll: 3,
     icon: MapPin,
     tone: "bg-primary/10 text-primary",
@@ -73,7 +69,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-20",
   },
   {
-    position: "right-[2%] top-[4%] md:right-[7%] md:top-[17%]",
+    position: "right-[1%] top-[3%] md:right-[7%] md:top-[17%]",
     arc: 30,
     roll: 4,
     icon: Layers,
@@ -199,7 +195,6 @@ const HeroSection = () => {
   const { pathname } = useLocation();
   const { projects } = usePublishedProjects();
   const { loc } = useProjectLocale();
-  const isMobile = useIsMobile();
 
   const anchor = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
   const featured = projects
@@ -341,20 +336,20 @@ const HeroSection = () => {
                 const slot = orbitSlots[index];
                 const l = loc(project);
                 const shortTitle = l.titulo.split(":")[0];
-                const arc = isMobile ? (slot.mobileArc ?? slot.arc) : slot.arc;
-                const shading = curveShading(arc);
+                                const { arc } = slot;
+                                const shading = curveShading(arc);
                 const face = (
-                  <span className="flex items-center gap-3 px-3.5 py-3 md:px-4 md:py-3.5 text-left">
+                  <span className="flex items-center gap-2 px-2.5 py-2 md:gap-3 md:px-4 md:py-3.5 text-left">
                     <span
-                      className={`w-9 h-9 md:w-10 md:h-10 shrink-0 rounded-xl flex items-center justify-center ${slot.tone}`}
+                      className={`w-7 h-7 md:w-10 md:h-10 shrink-0 rounded-lg md:rounded-xl flex items-center justify-center ${slot.tone}`}
                     >
-                      <slot.icon className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+                      <slot.icon className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block font-display text-sm md:text-base font-semibold text-foreground line-clamp-1">
+                      <span className="block font-display text-[11px] leading-tight md:text-base md:leading-normal font-semibold text-foreground line-clamp-2 md:line-clamp-1">
                         {shortTitle}
                       </span>
-                      <span className="block text-[10px] md:text-xs text-muted-foreground line-clamp-1">
+                      <span className="hidden md:block text-xs text-muted-foreground line-clamp-1">
                         {l.categoria}
                       </span>
                     </span>
@@ -363,7 +358,7 @@ const HeroSection = () => {
                 return (
                   <li
                     key={project.id}
-                    className={`absolute ${slot.layer} ${slot.position} w-[var(--card-w)] [--card-w:10.5rem] md:[--card-w:14rem] animate-hero-float`}
+                    className={`absolute ${slot.layer} ${slot.position} w-[var(--card-w)] [--card-w:8rem] md:[--card-w:14rem] animate-hero-float`}
                     style={{
                       animationDelay: slot.delay,
                       perspective: "640px",
