@@ -3,10 +3,11 @@ version: alpha
 name: Luiz Filipe Portfolio
 description: Portfólio UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.
 colors:
-  primary: "#0F2A4A"
-  secondary: "#285A8C"
-  tertiary: "#F0C93A"
-  neutral: "#F0F2F5"
+  primary: "#121D30"
+  secondary: "#5A80A8"
+  tertiary: "#F49C55"
+  neutral: "#F1F5F9"
+  sky: "#D5E2F0"
   success: "#16A34A"
   warning: "#CA8A04"
   error: "#DC2626"
@@ -17,6 +18,12 @@ typography:
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: -0.03em
+  display-serif:
+    fontFamily: Instrument Serif
+    fontSize: 3.5rem
+    fontWeight: 400
+    lineHeight: 0.95
+    letterSpacing: -0.01em
   h2:
     fontFamily: Sora
     fontSize: 2.5rem
@@ -80,16 +87,26 @@ components:
 
 Portfólio pessoal centrado em um nicho: UX/UI e Design Engineering (Figma → React) para startups e negócios digitais que precisam de produtos claros e prontos para converter. Fluxo: hero → sobre → capacidades → método → cases → formação → contato.
 
+Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-céu, cards de vidro (`.glass-card`), header flutuante em pílula e hero com foto P&B ao centro, cercada por cards de projetos clicáveis.
+
 ## Colors
 
-- **Primary** (`#0F2A4A`): navy: CTAs, títulos de destaque e ênfase.
-- **Accent / tertiary** (`#F0C93A`): amarelo: marca no hero e destaques.
-- **Neutral** (`#F0F2F5`): fundo claro da página.
+- **Primary** (`#121D30`): navy quase preto: texto principal e CTA sólido.
+- **Secondary** (`#5A80A8`): azul acinzentado: ícones e apoio.
+- **Accent / tertiary** (`#F49C55`): laranja suave: setas, ponto da marca e detalhes.
+- **Sky** (`#D5E2F0`): topo do gradiente do hero (`.bg-sky-hero`).
+- **Neutral** (`#F1F5F9`): fundo da página.
 
 ## Typography
 
 - **Display:** Sora (títulos e marca).
+- **Display serif:** Instrument Serif itálica, só na segunda linha do título do hero.
 - **Body:** DM Sans (parágrafos e UI).
+
+## Components
+
+- **Header:** pílula de vidro flutuante; logo em pílula branca à esquerda, links com ícone no centro (xl+), CTA "Falar comigo" em pílula branca à direita.
+- **Hero orbit:** até 5 projetos com capa, em cards de vidro inclinados (`perspective` + `rotateY`) ao redor da foto; cada card é um link para o case.
 
 ## Layout
 

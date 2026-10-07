@@ -37,8 +37,6 @@ export interface PublishedProject {
   };
 }
 
-import { stripTravessaoDeep } from "@/lib/stripTravessao";
-
 const mapPublishedProject = (p: any): PublishedProject => {
   const staticMatch = staticProjects.find((s) => s.slug === p.slug);
   const gallery =

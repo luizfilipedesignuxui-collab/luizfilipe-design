@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -24,33 +24,37 @@
   }
 
   :root {
-    --background: 220 20% 96%;
-    --foreground: 215 25% 12%;
+    --background: 212 33% 96%;
+    --foreground: 217 45% 11%;
 
-    --card: 215 20% 92%;
-    --card-foreground: 215 25% 12%;
+    --card: 212 30% 92%;
+    --card-foreground: 217 45% 11%;
 
-    --popover: 220 20% 96%;
-    --popover-foreground: 215 25% 12%;
+    --popover: 212 33% 96%;
+    --popover-foreground: 217 45% 11%;
 
-    --primary: 210 70% 22%;
+    --primary: 217 45% 13%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 55% 35%;
+    --secondary: 212 32% 51%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 15% 85%;
-    --muted-foreground: 215 10% 40%;
+    --muted: 212 25% 87%;
+    --muted-foreground: 215 14% 42%;
 
-    --accent: 45 85% 55%;
-    --accent-foreground: 215 25% 12%;
+    --accent: 29 90% 63%;
+    --accent-foreground: 217 45% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 12% 82%;
-    --input: 215 12% 82%;
-    --ring: 210 70% 22%;
+    --border: 212 24% 84%;
+    --input: 212 24% 84%;
+    --ring: 217 45% 13%;
+
+    --sky-top: 212 45% 88%;
+    --sky-mid: 210 38% 93%;
+    --sky-glow: 0 0% 100%;
 
     --radius: 0.75rem;
 
@@ -124,6 +128,33 @@
   .font-body {
     font-family: 'DM Sans', sans-serif;
   }
+
+  .font-serif-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+
+  .bg-sky-hero {
+    background:
+      radial-gradient(ellipse 60% 45% at 50% 38%, hsl(var(--sky-glow) / 0.9), transparent 70%),
+      linear-gradient(180deg, hsl(var(--sky-top)) 0%, hsl(var(--sky-mid)) 45%, hsl(var(--background)) 100%);
+  }
+
+  .glass-card {
+    background: hsl(0 0% 100% / 0.55);
+    border: 1px solid hsl(0 0% 100% / 0.75);
+    box-shadow: 0 18px 40px -18px hsl(217 45% 13% / 0.28);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-hero-float {
+  animation: hero-float 6s ease-in-out infinite;
 }
 
 @keyframes marquee {
