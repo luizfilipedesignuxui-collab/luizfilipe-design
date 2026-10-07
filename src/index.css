@@ -135,8 +135,8 @@
 
   .bg-sky-hero {
     background:
-      radial-gradient(ellipse 60% 45% at 50% 38%, hsl(var(--sky-glow) / 0.9), transparent 70%),
-      linear-gradient(180deg, hsl(var(--sky-top)) 0%, hsl(var(--sky-mid)) 45%, hsl(var(--background)) 100%);
+      radial-gradient(ellipse 45% 22% at 50% 10%, hsl(var(--sky-glow) / 0.45), transparent 70%),
+      linear-gradient(180deg, hsl(var(--sky-top)) 0%, hsl(var(--sky-mid)) 35%, hsl(var(--sky-top)) 78%, hsl(var(--background)) 100%);
   }
 
   .glass-card {

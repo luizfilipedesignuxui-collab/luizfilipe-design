@@ -215,9 +215,13 @@ const HeroSection = () => {
               fetchPriority="high"
               decoding="async"
               className="absolute left-1/2 -translate-x-1/2 w-auto max-w-none select-none pointer-events-none"
-              style={{ height: "150%", top: "-14%" }}
+              style={{
+                height: "150%",
+                top: "-14%",
+                maskImage: "linear-gradient(to bottom, black 58%, transparent 76%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 58%, transparent 76%)",
+              }}
             />
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
           </div>
           <span className="sr-only">{t("hero.photo_alt")}</span>
 
@@ -352,7 +356,7 @@ const HeroSection = () => {
         </a>
       </div>
 
-      <div className="relative z-40 bg-background pb-14 sm:pb-20">
+      <div className="relative z-40 pb-14 sm:pb-20">
         <div className="container mx-auto px-6">
           <ul
             className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 list-none m-0 p-0"
