@@ -105,8 +105,8 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 
 ## Components
 
-- **Header:** pílula de vidro flutuante; logo em pílula branca à esquerda, links com ícone no centro (xl+), CTA "Falar comigo" em pílula branca à direita.
-- **Hero orbit:** até 5 projetos com capa, em cards de vidro inclinados (`perspective` + `rotateY`) ao redor da foto; cada card é um link para o case.
+- **Header:** moldura em pílula translúcida; logo e CTA "Falar comigo" em pílulas brancas nas pontas; aba central "pendurada" com laterais curvas (lg+) contendo Sobre ▾, Trabalho ▾ (dropdowns), Projetos e idioma.
+- **Hero orbit:** anel 3D colado à cabeça: 2 painéis verticais com capa de projeto nas laterais, 3 chips de projeto (sobre o cabelo, junto ao queixo e ao lado do rosto) e lâminas de vidro decorativas; cada card de projeto é um link para o case.
 
 ## Layout
 

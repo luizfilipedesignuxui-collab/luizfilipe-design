@@ -19,7 +19,12 @@ const translations: Record<Language, Record<string, string>> = {
  "nav.certificates": "Certificados",
  "nav.process": "Processo",
  "nav.projects": "Projetos",
- "nav.contact": "Contato",
+  "nav.contact": "Contato",
+  "nav.group_about": "Sobre",
+  "nav.group_work": "Trabalho",
+  "nav.about_me": "Sobre mim",
+  "nav.language": "Idioma",
+  "hero.trusted": "8+ projetos entregues para startups e negócios.",
 
  // Hero
  "hero.cta_primary": "Ver projetos",
@@ -225,7 +230,12 @@ const translations: Record<Language, Record<string, string>> = {
  "nav.certificates": "Certificates",
  "nav.process": "Process",
  "nav.projects": "Projects",
- "nav.contact": "Contact",
+  "nav.contact": "Contact",
+  "nav.group_about": "About",
+  "nav.group_work": "Work",
+  "nav.about_me": "About me",
+  "nav.language": "Language",
+  "hero.trusted": "8+ projects delivered for startups and businesses.",
 
  // Hero
  "hero.cta_primary": "View projects",

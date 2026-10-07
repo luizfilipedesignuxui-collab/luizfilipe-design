@@ -8,7 +8,6 @@ import {
   PenTool,
   Sparkles,
   Rocket,
-  Layers,
   type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -24,49 +23,62 @@ type OrbitSlot = {
   icon: LucideIcon;
   tone: string;
   delay: string;
+  layer: string;
 };
 
 const orbitSlots: OrbitSlot[] = [
   {
-    position: "hidden md:block md:left-[6%] md:top-[36%] md:w-40 lg:w-48",
-    tilt: "rotateY(34deg) rotate(-3deg)",
+    position: "hidden md:block md:left-[19%] md:top-[28%] md:w-[13%]",
+    tilt: "rotateY(-42deg) rotate(-2deg)",
     variant: "image",
-    icon: Layers,
-    tone: "bg-secondary/15 text-secondary",
+    icon: Sparkles,
+    tone: "",
     delay: "0s",
+    layer: "z-10",
   },
   {
-    position: "left-[1%] top-[4%] w-36 md:left-[22%] md:top-[8%] md:w-48 lg:w-52",
-    tilt: "rotateY(24deg) rotate(-6deg)",
+    position: "left-[2%] top-[18%] w-40 md:left-[27%] md:top-[18%] md:w-52",
+    tilt: "rotateY(-18deg) rotate(-7deg)",
     variant: "chip",
     icon: PenTool,
-    tone: "bg-accent/20 text-accent",
+    tone: "bg-secondary/15 text-secondary",
     delay: "0.8s",
+    layer: "z-20",
   },
   {
-    position: "left-[3%] top-[52%] w-36 md:left-[29%] md:top-[50%] md:w-48 lg:w-52",
-    tilt: "rotateY(14deg) rotate(-3deg)",
+    position: "left-[2%] top-[44%] w-40 md:left-[31%] md:top-[56%] md:w-52",
+    tilt: "rotateY(-12deg) rotate(-4deg)",
     variant: "chip",
     icon: Sparkles,
     tone: "bg-primary/10 text-primary",
     delay: "1.6s",
+    layer: "z-30",
   },
   {
-    position: "right-[1%] top-[14%] w-36 md:right-[21%] md:top-[12%] md:w-48 lg:w-52",
-    tilt: "rotateY(-24deg) rotate(7deg)",
+    position: "right-[2%] top-[58%] w-40 md:right-[12%] md:top-[40%] md:w-52",
+    tilt: "rotateY(22deg) rotate(9deg)",
     variant: "chip",
     icon: Rocket,
     tone: "bg-accent/20 text-accent",
     delay: "0.4s",
+    layer: "z-30",
   },
   {
-    position: "hidden md:block md:right-[6%] md:top-[38%] md:w-40 lg:w-48",
-    tilt: "rotateY(-34deg) rotate(4deg)",
+    position: "hidden md:block md:right-[15%] md:top-[54%] md:w-[13%]",
+    tilt: "rotateY(42deg) rotate(3deg)",
     variant: "image",
-    icon: Layers,
-    tone: "bg-secondary/15 text-secondary",
+    icon: Sparkles,
+    tone: "",
     delay: "1.2s",
+    layer: "z-20",
   },
+];
+
+const glassSlivers = [
+  "left-[26%] top-[20%] w-[2.5%] h-[24%] rotate-[-4deg]",
+  "left-[17%] top-[52%] w-[3%] h-[22%] rotate-[3deg]",
+  "right-[27%] top-[27%] w-[6%] h-[12%] rotate-[8deg]",
+  "right-[13%] top-[32%] w-[3%] h-[32%] rotate-[6deg]",
 ];
 
 const focusRing =
@@ -89,180 +101,228 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-sky-hero pt-28 sm:pt-36">
-      <div className="container mx-auto px-6 relative z-20 text-center">
-        <p className="inline-flex items-center gap-2 rounded-full glass-card px-4 py-1.5 text-xs sm:text-sm font-medium text-foreground/80">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
-          {t("hero.eyebrow")}
-        </p>
-
-        <h1 className="mt-5 text-foreground leading-[0.95]">
-          <span className="block font-display font-semibold tracking-tight text-[clamp(2.4rem,6.2vw,5rem)]">
-            {t("hero.title_1")}
-          </span>
-          <span className="block font-serif-display italic font-normal tracking-tight text-[clamp(2.6rem,6.8vw,5.6rem)]">
-            {t("hero.title_2")}
-          </span>
-        </h1>
-
-        <p className="mt-5 mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-          {t("hero.subtitle")}
-        </p>
-
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            to="/projetos"
-            className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 h-12 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors ${focusRing}`}
-          >
-            {t("hero.cta_primary")}
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
-          <a
-            href={anchor("#contato")}
-            className={`inline-flex items-center gap-2.5 rounded-full glass-card px-5 h-12 text-sm font-semibold text-foreground hover:bg-white transition-colors ${focusRing}`}
-          >
-            <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
-              <MessageCircle className="w-3.5 h-3.5 text-primary-foreground" />
+    <section className="relative overflow-hidden bg-sky-hero">
+      <div className="relative pt-28 sm:pt-32">
+        <div className="container mx-auto px-6 relative z-40 text-center">
+          <h1 className="text-foreground leading-[0.95]">
+            <span className="block font-display font-semibold tracking-tight text-[clamp(2.4rem,6.2vw,5rem)]">
+              {t("hero.title_1")}
             </span>
-            {t("hero.cta_secondary")}
-          </a>
-        </div>
-      </div>
+            <span className="block font-serif-display italic font-normal tracking-tight text-[clamp(2.6rem,6.8vw,5.6rem)]">
+              {t("hero.title_2")}
+            </span>
+          </h1>
 
-      {/* Side cards (desktop) */}
-      <div className="hidden lg:block absolute left-[4%] top-[38%] z-20 w-56 -rotate-6 animate-hero-float">
-        <div className="glass-card rounded-3xl p-5 text-left">
-          <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm" aria-hidden="true">
-            <Code2 className="w-4 h-4 text-foreground" />
-          </span>
-          <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
-            {t("hero.card_left_title")}
+          <p className="mt-5 mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+            {t("hero.subtitle")}
           </p>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_left_desc")}</p>
-        </div>
-        <svg className="absolute left-1/2 top-full w-40 h-36 text-foreground/25" viewBox="0 0 160 144" fill="none" aria-hidden="true">
-          <path d="M4 0 C 4 70, 70 120, 152 136" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="152" cy="136" r="3.5" fill="currentColor" />
-        </svg>
-      </div>
 
-      <div className="hidden lg:block absolute right-[4%] top-[42%] z-20 w-56 rotate-6 animate-hero-float" style={{ animationDelay: "1s" }}>
-        <div className="glass-card rounded-3xl p-5 text-left">
-          <div className="flex items-center" aria-hidden="true">
-            {featured.slice(0, 3).map((p, i) => (
-              <img
-                key={p.id}
-                src={p.imagem_capa}
-                alt=""
-                className="w-9 h-9 rounded-full object-cover border-2 border-white bg-white"
-                style={{ marginLeft: i === 0 ? 0 : -10 }}
-              />
-            ))}
-            <span className="w-9 h-9 -ml-2.5 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
-              +
-            </span>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/projetos"
+              className={`inline-flex items-center gap-2 rounded-full bg-primary px-6 h-12 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors ${focusRing}`}
+            >
+              {t("hero.cta_primary")}
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+            <a
+              href={anchor("#contato")}
+              className={`inline-flex items-center gap-2.5 rounded-full border border-white/80 bg-white/35 backdrop-blur-md px-5 h-12 text-sm font-semibold text-foreground hover:bg-white/70 transition-colors ${focusRing}`}
+            >
+              <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <MessageCircle className="w-3.5 h-3.5 text-primary-foreground" />
+              </span>
+              {t("hero.cta_secondary")}
+            </a>
           </div>
-          <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
-            {t("hero.card_right_title")}
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_right_desc")}</p>
         </div>
-        <svg className="absolute right-1/2 top-full w-40 h-36 text-foreground/25" viewBox="0 0 160 144" fill="none" aria-hidden="true">
-          <path d="M156 0 C 156 70, 90 120, 8 136" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="8" cy="136" r="3.5" fill="currentColor" />
-        </svg>
-      </div>
 
-      {/* Photo + orbit of clickable projects */}
-      <div
-        className="relative mx-auto mt-8 w-full max-w-5xl"
-        style={{ height: "clamp(380px, 52vw, 620px)" }}
-      >
-        <img
-          src={profilePhoto}
-          alt={t("hero.photo_alt")}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none object-contain select-none pointer-events-none"
-        />
+        {/* Side cards (desktop) */}
+        <div className="hidden lg:block absolute left-[3%] top-[27%] z-40 w-56 -rotate-6 animate-hero-float">
+          <div className="glass-card rounded-3xl p-5 text-left">
+            <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm" aria-hidden="true">
+              <Code2 className="w-4 h-4 text-foreground" />
+            </span>
+            <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
+              {t("hero.card_left_title")}
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_left_desc")}</p>
+          </div>
+          <svg
+            className="absolute left-1/2 top-full w-[220px] h-[300px] text-foreground/25 rotate-6 origin-top-left"
+            viewBox="0 0 220 300"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M2 0 C 2 170, 90 280, 216 294" stroke="currentColor" strokeWidth="1.25" />
+            <circle cx="216" cy="294" r="3.5" fill="currentColor" />
+          </svg>
+        </div>
 
-        <nav aria-label={t("hero.orbit_label")}>
-          <ul className="list-none m-0 p-0">
-            {featured.map((project, index) => {
-              const slot = orbitSlots[index];
-              const l = loc(project);
-              const shortTitle = l.titulo.split(":")[0];
-              return (
-                <li
-                  key={project.id}
-                  className={`absolute z-20 ${slot.position} animate-hero-float`}
-                  style={{ animationDelay: slot.delay }}
-                >
-                  <Link
-                    to={`/projetos/${project.slug}`}
-                    aria-label={`${t("projects.view_case")}: ${l.titulo}`}
-                    className={`group block rounded-2xl glass-card p-2.5 transition-transform duration-300 hover:scale-[1.06] hover:bg-white/80 ${focusRing}`}
-                    style={{ transform: `perspective(900px) ${slot.tilt}` }}
+        <div
+          className="hidden lg:block absolute right-[3%] top-[34%] z-40 w-56 rotate-[5deg] animate-hero-float"
+          style={{ animationDelay: "1s" }}
+        >
+          <div className="glass-card rounded-3xl p-5 text-left">
+            <div className="flex items-center" aria-hidden="true">
+              {featured.slice(0, 3).map((p, i) => (
+                <img
+                  key={p.id}
+                  src={p.imagem_capa}
+                  alt=""
+                  className="w-9 h-9 rounded-full object-cover border-2 border-white bg-white"
+                  style={{ marginLeft: i === 0 ? 0 : -10 }}
+                />
+              ))}
+              <span className="w-9 h-9 -ml-2.5 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
+                +
+              </span>
+            </div>
+            <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
+              {t("hero.card_right_title")}
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_right_desc")}</p>
+          </div>
+          <svg
+            className="absolute right-1/2 top-full w-[200px] h-[300px] text-foreground/25 -rotate-[5deg] origin-top-right"
+            viewBox="0 0 200 300"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M198 0 C 198 170, 110 280, 4 294" stroke="currentColor" strokeWidth="1.25" />
+            <circle cx="4" cy="294" r="3.5" fill="currentColor" />
+          </svg>
+        </div>
+
+        {/* Photo + ring of clickable projects around the head */}
+        <div
+          className="relative mx-auto mt-2 w-full max-w-5xl"
+          style={{ height: "clamp(440px, 60vw, 680px)" }}
+        >
+          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+            <img
+              src={profilePhoto}
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              className="absolute left-1/2 -translate-x-1/2 w-auto max-w-none select-none pointer-events-none"
+              style={{ height: "150%", top: "-14%" }}
+            />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
+          </div>
+          <span className="sr-only">{t("hero.photo_alt")}</span>
+
+          {glassSlivers.map((pos) => (
+            <span
+              key={pos}
+              className={`hidden md:block absolute ${pos} rounded-xl border border-white/70 bg-gradient-to-b from-white/50 to-white/10 backdrop-blur-sm shadow-[0_10px_30px_-12px_rgba(18,29,48,0.25)]`}
+              aria-hidden="true"
+            />
+          ))}
+
+          <nav aria-label={t("hero.orbit_label")}>
+            <ul className="list-none m-0 p-0">
+              {featured.map((project, index) => {
+                const slot = orbitSlots[index];
+                const l = loc(project);
+                const shortTitle = l.titulo.split(":")[0];
+                return (
+                  <li
+                    key={project.id}
+                    className={`absolute ${slot.layer} ${slot.position} animate-hero-float`}
+                    style={{ animationDelay: slot.delay }}
                   >
-                    {slot.variant === "image" ? (
-                      <>
-                        <span className="block aspect-[4/3] overflow-hidden rounded-xl bg-white">
+                    <Link
+                      to={`/projetos/${project.slug}`}
+                      aria-label={`${t("projects.view_case")}: ${l.titulo}`}
+                      className={`group block transition-transform duration-300 hover:scale-[1.05] ${focusRing} ${
+                        slot.variant === "image"
+                          ? "rounded-2xl border border-white/80 bg-white/30 p-1.5 backdrop-blur-md shadow-[0_20px_40px_-16px_rgba(18,29,48,0.35)]"
+                          : "rounded-2xl glass-card px-3 py-2.5 hover:bg-white/80"
+                      }`}
+                      style={{ transform: `perspective(900px) ${slot.tilt}` }}
+                    >
+                      {slot.variant === "image" ? (
+                        <span className="relative block aspect-[3/5] overflow-hidden rounded-xl bg-white">
                           <img
                             src={project.imagem_capa}
                             alt=""
                             loading="lazy"
                             decoding="async"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-cover grayscale-[35%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                           />
-                        </span>
-                        <span className="mt-2 px-1 text-left text-[11px] lg:text-xs font-semibold text-foreground line-clamp-1">
-                          {shortTitle}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="flex items-center gap-2.5 text-left">
-                        <span className={`w-8 h-8 lg:w-9 lg:h-9 shrink-0 rounded-full flex items-center justify-center ${slot.tone}`} aria-hidden="true">
-                          <slot.icon className="w-4 h-4" />
-                        </span>
-                        <span className="min-w-0">
-                          <span className="font-display text-xs lg:text-sm font-semibold text-foreground line-clamp-1">
+                          <span className="absolute inset-x-1.5 bottom-1.5 rounded-lg bg-white/80 backdrop-blur px-2 py-1 text-left text-[10px] lg:text-[11px] font-semibold text-foreground line-clamp-1">
                             {shortTitle}
                           </span>
-                          <span className="text-[10px] lg:text-[11px] text-muted-foreground line-clamp-1">
-                            {l.categoria}
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-2.5 text-left">
+                          <span
+                            className={`w-8 h-8 lg:w-9 lg:h-9 shrink-0 rounded-full flex items-center justify-center ${slot.tone}`}
+                            aria-hidden="true"
+                          >
+                            <slot.icon className="w-4 h-4" />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="font-display text-xs lg:text-sm font-semibold text-foreground line-clamp-1">
+                              {shortTitle}
+                            </span>
+                            <span className="text-[10px] lg:text-[11px] text-muted-foreground line-clamp-1">
+                              {l.categoria}
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
 
-        <div className="hidden lg:block absolute left-[-4%] bottom-16 z-20 text-left">
+        {/* Bottom notes (desktop) */}
+        <div className="hidden lg:block absolute left-[6%] bottom-[14%] z-40 max-w-[15rem] text-left">
           <span className="block w-8 h-px bg-foreground/30 mb-3" aria-hidden="true" />
-          <p className="text-sm text-foreground/80 leading-snug">
-            {t("hero.role")}
-            <br />
-            <span className="text-muted-foreground">8+ {t("hero.stat_projects").toLowerCase()}</span>
-          </p>
+          <p className="text-sm text-foreground/80 leading-snug">{t("hero.trusted")}</p>
+          <div className="mt-3 flex items-center" aria-hidden="true">
+            {featured.slice(0, 4).map((p, i) => (
+              <img
+                key={p.id}
+                src={p.imagem_capa}
+                alt=""
+                className="w-8 h-8 rounded-full object-cover border-2 border-white bg-white"
+                style={{ marginLeft: i === 0 ? 0 : -8 }}
+              />
+            ))}
+            <span className="w-8 h-8 -ml-2 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
+              +
+            </span>
+          </div>
         </div>
 
-        <div className="hidden lg:flex absolute right-[-4%] bottom-20 z-20 items-start gap-3 text-left">
-          <Sparkles className="w-4 h-4 text-foreground mt-0.5" aria-hidden="true" />
-          <p className="text-sm text-foreground/80 leading-snug">
-            {t("hero.note_right_1")}
-            <br />
-            {t("hero.note_right_2")}
-          </p>
+        <div className="hidden lg:flex absolute right-[8%] bottom-[18%] z-40 items-center gap-4 text-left">
+          <span className="block w-6 h-px bg-foreground/30" aria-hidden="true" />
+          <div>
+            <Sparkles className="w-4 h-4 text-foreground mb-2" aria-hidden="true" />
+            <p className="text-sm text-foreground/80 leading-snug">
+              {t("hero.note_right_1")}
+              <br />
+              {t("hero.note_right_2")}
+            </p>
+          </div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" aria-hidden="true" />
+        <a
+          href={anchor("#contato")}
+          aria-label={t("hero.cta_secondary")}
+          className={`hidden md:flex absolute right-[3%] bottom-[5%] z-40 w-16 h-16 rounded-full glass-card items-center justify-center hover:bg-white transition-colors ${focusRing}`}
+        >
+          <Sparkles className="w-6 h-6 text-foreground" aria-hidden="true" />
+        </a>
       </div>
 
-      <div className="relative z-20 bg-background pb-14 sm:pb-20">
+      <div className="relative z-40 bg-background pb-14 sm:pb-20">
         <div className="container mx-auto px-6">
           <ul
             className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 list-none m-0 p-0"
