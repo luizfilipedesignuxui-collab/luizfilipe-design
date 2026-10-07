@@ -1,35 +1,20 @@
-import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
 import SectionBridge from "@/components/SectionBridge";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 
 const ProjectsSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
   const { projects } = usePublishedProjects();
   const { t } = useLanguage();
   const { loc } = useProjectLocale();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.08 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="projetos" className="scroll-mt-24 py-24 md:py-32 bg-card/40">
-      <div ref={ref} className="container mx-auto px-6">
-        <div
-          className={`mb-12 md:mb-16 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+      <div className="container mx-auto px-6">
+        <Reveal className="mb-12 md:mb-16">
           <SectionBridge bridgeKey="projects.bridge" />
           <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
             {t("projects.title")}
@@ -37,14 +22,10 @@ const ProjectsSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl">
             {t("projects.subtitle")}
           </p>
-        </div>
+        </Reveal>
 
         {projects.length === 0 ? (
-          <div
-            className={`text-center py-20 rounded-3xl border border-dashed border-border transition-all duration-700 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
+          <Reveal className="text-center py-20 rounded-3xl border border-dashed border-border">
             <div className="w-16 h-16 rounded-2xl bg-primary/15 mx-auto flex items-center justify-center mb-4">
               <ArrowRight className="w-6 h-6 text-primary" />
             </div>
@@ -54,19 +35,16 @@ const ProjectsSection = () => {
             <p className="text-muted-foreground max-w-md mx-auto">
               {t("projects.coming_soon_desc")}
             </p>
-          </div>
+          </Reveal>
         ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 list-none m-0 p-0">
-            {projects.map((project, index) => {
+          <RevealGroup as="ul" className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 list-none m-0 p-0">
+            {projects.map((project) => {
               const l = loc(project);
               return (
-                <li key={project.id}>
+                <RevealItem key={project.id}>
                 <Link
                   to={`/projetos/${project.slug}`}
-                  className={`group flex flex-col h-full rounded-3xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-xl transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                    visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ transitionDelay: `${Math.min(index, 8) * 60}ms` }}
+                  className="group flex flex-col h-full rounded-3xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
                     {project.imagem_capa ? (
@@ -119,10 +97,10 @@ const ProjectsSection = () => {
                     </span>
                   </div>
                 </Link>
-                </li>
+                </RevealItem>
               );
             })}
-          </ul>
+          </RevealGroup>
         )}
       </div>
     </section>

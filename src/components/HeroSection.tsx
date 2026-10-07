@@ -16,6 +16,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
+import { motion } from "motion/react";
+import { EASE_OUT, REVEAL_DISTANCE, STAGGER, revealItem } from "@/components/motion/tokens";
 import profilePhoto from "@/assets/profile-hero-pose.png";
 
 type OrbitSlot = {
@@ -142,7 +144,8 @@ const RevealCard = ({ icon: Icon, title, desc, className = "" }: RevealCardProps
   const panelId = useId();
 
   return (
-    <li
+    <motion.li
+      variants={revealItem}
       className={`rounded-2xl glass-card transition-[background-color,box-shadow] duration-300 ${
         open ? "bg-white/80 shadow-lg" : ""
       } ${className}`}
@@ -178,7 +181,7 @@ const RevealCard = ({ icon: Icon, title, desc, className = "" }: RevealCardProps
       </button>
       <div
         id={panelId}
-        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+        className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
@@ -186,7 +189,7 @@ const RevealCard = ({ icon: Icon, title, desc, className = "" }: RevealCardProps
           <p className="pl-[3.75rem] pr-4 pb-4 text-xs text-muted-foreground leading-relaxed">{desc}</p>
         </div>
       </div>
-    </li>
+    </motion.li>
   );
 };
 
@@ -243,10 +246,15 @@ const HeroSection = () => {
     <section className="relative overflow-hidden bg-sky-hero">
       <div className="relative pt-28 sm:pt-32">
         <div className="container mx-auto px-6 relative z-40 text-center">
-          <h1 className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]">
+          <motion.h1
+            initial={{ opacity: 0, y: REVEAL_DISTANCE }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE_OUT }}
+            className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]"
+          >
             Luiz <span className="text-accent">Filipe.</span>
             <span className="sr-only"> · {t("hero.role")}</span>
-          </h1>
+          </motion.h1>
         </div>
 
         {/* Side cards (wide screens) */}
@@ -284,7 +292,13 @@ const HeroSection = () => {
           className="relative mx-auto mt-2 w-full max-w-5xl"
           style={{ height: "clamp(440px, 60vw, 680px)" }}
         >
-          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <motion.div
+            className="absolute inset-0 overflow-hidden"
+            aria-hidden="true"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: EASE_OUT, delay: 0.15 }}
+          >
             <img
               src={profilePhoto}
               alt=""
@@ -298,7 +312,7 @@ const HeroSection = () => {
                 WebkitMaskImage: "linear-gradient(to bottom, black 58%, transparent 76%)",
               }}
             />
-          </div>
+          </motion.div>
           <span className="sr-only">{t("hero.photo_alt")}</span>
 
           {glassSlivers.map((pos) => (
@@ -336,8 +350,8 @@ const HeroSection = () => {
                 const slot = orbitSlots[index];
                 const l = loc(project);
                 const shortTitle = l.titulo.split(":")[0];
-                                const { arc } = slot;
-                                const shading = curveShading(arc);
+                const { arc } = slot;
+                const shading = curveShading(arc);
                 const face = (
                   <span className="flex items-center gap-2 px-2.5 py-2 md:gap-3 md:px-4 md:py-3.5 text-left">
                     <span
@@ -346,7 +360,7 @@ const HeroSection = () => {
                       <slot.icon className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block font-display text-[11px] leading-tight md:text-base md:leading-normal font-semibold text-foreground line-clamp-2 md:line-clamp-1">
+                      <span className="block font-display text-[11px] leading-tight md:text-base md:leading-normal font-semibold text-foreground line-clamp-2">
                         {shortTitle}
                       </span>
                       <span className="hidden md:block text-xs text-muted-foreground line-clamp-1">
@@ -365,6 +379,12 @@ const HeroSection = () => {
                       perspectiveOrigin: arc < 0 ? "120% 50%" : "-30% 50%",
                     }}
                   >
+                    <motion.span
+                      className="block [transform-style:preserve-3d]"
+                      initial={{ opacity: 0, y: REVEAL_DISTANCE, scale: 0.92 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.45 + index * STAGGER }}
+                    >
                     <Link
                       to={`/projetos/${project.slug}`}
                       aria-label={`${t("projects.view_case")}: ${l.titulo}`}
@@ -395,6 +415,7 @@ const HeroSection = () => {
                         ))}
                       </span>
                     </Link>
+                    </motion.span>
                   </li>
                 );
               })}
@@ -425,9 +446,12 @@ const HeroSection = () => {
 
       <div className="relative z-40 pb-14 sm:pb-20">
         <div className="container mx-auto px-6">
-          <ul
+          <motion.ul
             className="grid sm:grid-cols-2 lg:grid-cols-4 items-start gap-3 list-none m-0 p-0"
             aria-label={t("hero.services_label")}
+            initial="hidden"
+            animate="visible"
+            variants={{ visible: { transition: { staggerChildren: STAGGER, delayChildren: 0.7 } } }}
           >
             <RevealCard
               icon={Code2}
@@ -438,7 +462,7 @@ const HeroSection = () => {
             {services.map((service) => (
               <RevealCard key={service.title} icon={service.icon} title={service.title} desc={service.desc} />
             ))}
-          </ul>
+          </motion.ul>
         </div>
       </div>
     </section>

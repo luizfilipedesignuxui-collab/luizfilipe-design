@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import DOMPurify from "dompurify";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionBridge from "@/components/SectionBridge";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import clickupLogo from "@/assets/clickup-logo.svg";
 
 const tools = [
@@ -16,8 +16,6 @@ const tools = [
 ];
 
 const AboutSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
   const { t } = useLanguage();
 
   const specialties = [
@@ -34,25 +32,11 @@ const AboutSection = () => {
     t("about.text_4_default"),
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="sobre" className="scroll-mt-24 py-24 md:py-32">
-      <div
-        ref={ref}
-        className={`container mx-auto px-6 transition-all duration-700 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
+      <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-2 space-y-8">
+          <Reveal className="lg:col-span-2 space-y-8">
             <div>
               <SectionBridge bridgeKey="about.bridge" />
               <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground leading-tight whitespace-pre-line">
@@ -67,9 +51,9 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-3 space-y-6 pt-2">
+          <Reveal className="lg:col-span-3 space-y-6 pt-2" delay={0.1}>
             <div className="space-y-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
               {paragraphs.map((p, i) => (
                 <p key={i} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>'), { ALLOWED_TAGS: ['strong'], ALLOWED_ATTR: ['class'] }) }} />
@@ -80,19 +64,19 @@ const AboutSection = () => {
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">
                 {t("about.tools_title")}
               </h3>
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 list-none m-0 p-0">
+              <RevealGroup as="ul" className="grid grid-cols-2 sm:grid-cols-3 gap-3 list-none m-0 p-0">
                 {tools.map((tool) => (
-                  <li
+                  <RevealItem
                     key={tool.name}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card/40 hover:border-primary/40 hover:shadow-md transition-all"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card/40 hover:border-primary/40 hover:shadow-md transition-[border-color,box-shadow]"
                   >
                     <img src={tool.logo} alt="" aria-hidden="true" loading="lazy" decoding="async" className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
                     <span className="font-display font-semibold text-sm text-foreground truncate">{tool.name}</span>
-                  </li>
+                  </RevealItem>
                 ))}
-              </ul>
+              </RevealGroup>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -126,6 +126,16 @@ Fluxo narrativo da home:
 
 Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 
+## Motion
+
+Biblioteca: `motion` (Motion for React). Tokens em `src/components/motion/tokens.ts`.
+
+- **Um só movimento:** fade + subida de 24px, easing `cubic-bezier(0.22, 1, 0.36, 1)`, 0.6s; listas em cascata de 70ms.
+- **Hero:** entra ao carregar, em sequência — nome → foto → cards em órbita → cards de serviço.
+- **Seções (Posicionamento → Projetos):** `Reveal` / `RevealGroup` + `RevealItem`, disparam uma única vez ao entrar na tela.
+- **Abrir/fechar (cards de serviço):** mesma curva de easing, 0.5s.
+- `MotionConfig reducedMotion="user"` respeita "reduzir movimento" do sistema.
+
 ## Do
 
 - Manter a ordem narrativa ao adicionar seções.
