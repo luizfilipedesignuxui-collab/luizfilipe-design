@@ -27,16 +27,9 @@ type OrbitSlot = {
   layer: string;
 };
 
+const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
+
 const orbitSlots: OrbitSlot[] = [
-  {
-    position: "hidden md:block md:left-[19%] md:top-[28%] md:w-[13%]",
-    tilt: "rotateY(-42deg) rotate(-2deg)",
-    variant: "image",
-    icon: Sparkles,
-    tone: "",
-    delay: "0s",
-    layer: "z-10",
-  },
   {
     position: "left-[2%] top-[18%] w-40 md:left-[27%] md:top-[18%] md:w-52",
     tilt: "rotateY(-18deg) rotate(-7deg)",
@@ -93,7 +86,6 @@ const ringDots = [
   [78, 44],
   [78.5, 70],
   [41, 60],
-  [25.5, 44],
 ];
 
 const glassSlivers = [
@@ -113,7 +105,9 @@ const HeroSection = () => {
   const { loc } = useProjectLocale();
 
   const anchor = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
-  const featured = projects.filter((p) => p.imagem_capa).slice(0, orbitSlots.length);
+  const featured = projects
+    .filter((p) => p.imagem_capa && !orbitExcludedSlugs.includes(p.slug))
+    .slice(0, orbitSlots.length);
 
   const services = [
     { icon: Compass, title: t("hero.service_ux_title"), desc: t("hero.service_ux") },
