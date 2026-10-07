@@ -24,8 +24,6 @@ const translations: Record<Language, Record<string, string>> = {
   "nav.group_work": "Trabalho",
   "nav.about_me": "Sobre mim",
   "nav.language": "Idioma",
-  "hero.trusted": "8+ projetos entregues para startups e negócios.",
-
  // Hero
  "hero.cta_primary": "Ver projetos",
  "hero.cta_secondary": "Falar comigo",
@@ -233,8 +231,6 @@ const translations: Record<Language, Record<string, string>> = {
   "nav.group_work": "Work",
   "nav.about_me": "About me",
   "nav.language": "Language",
-  "hero.trusted": "8+ projects delivered for startups and businesses.",
-
  // Hero
  "hero.cta_primary": "View projects",
  "hero.cta_secondary": "Get in touch",

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
-  ArrowUpLeft,
   ArrowUpRight,
   ChevronDown,
   Target,
@@ -198,13 +197,11 @@ const Header = () => {
           <div className="relative h-full flex items-center justify-between gap-3 px-1.5 sm:px-2">
             <Link
               to="/"
-              className={`flex items-center gap-2.5 rounded-full bg-white/90 px-4 sm:px-5 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
+              className={`flex items-center rounded-full bg-white/90 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
             >
-              <ArrowUpLeft className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
               <span className="font-display text-sm sm:text-base font-semibold text-foreground">
                 Luiz<span className="text-accent">.</span>Filipe
               </span>
-              <ArrowUpRight className="w-4 h-4 text-accent" aria-hidden="true" />
             </Link>
 
             <div className="flex items-center gap-2">

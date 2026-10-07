@@ -32,7 +32,7 @@ const orbitExcludedSlugs = ["app-mobilidade-pontuo"];
 
 const orbitSlots: OrbitSlot[] = [
   {
-    position: "left-[2%] top-[18%] w-40 md:left-[27%] md:top-[18%] md:w-52",
+    position: "left-[2%] top-[18%] w-40 md:left-[10%] md:top-[16%] md:w-52",
     tilt: "rotateY(-18deg) rotate(-7deg)",
     variant: "chip",
     icon: PenTool,
@@ -41,7 +41,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-20",
   },
   {
-    position: "left-[2%] top-[44%] w-40 md:left-[31%] md:top-[56%] md:w-52",
+    position: "left-[2%] top-[44%] w-40 md:left-[7%] md:top-[56%] md:w-52",
     tilt: "rotateY(-12deg) rotate(-4deg)",
     variant: "chip",
     icon: Sparkles,
@@ -50,7 +50,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-30",
   },
   {
-    position: "right-[2%] top-[58%] w-40 md:right-[12%] md:top-[40%] md:w-52",
+    position: "right-[2%] top-[58%] w-40 md:right-[2%] md:top-[40%] md:w-52",
     tilt: "rotateY(22deg) rotate(9deg)",
     variant: "chip",
     icon: Rocket,
@@ -59,7 +59,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-30",
   },
   {
-    position: "left-[3%] top-[72%] w-40 md:left-auto md:right-[14%] md:top-[60%] md:w-52",
+    position: "left-[3%] top-[72%] w-40 md:left-auto md:right-[6%] md:top-[63%] md:w-52",
     tilt: "rotateY(20deg) rotate(4deg)",
     variant: "chip",
     icon: MapPin,
@@ -68,7 +68,7 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-20",
   },
   {
-    position: "right-[2%] top-[4%] w-40 md:right-[16%] md:top-[22%] md:w-52",
+    position: "right-[2%] top-[4%] w-40 md:right-[7%] md:top-[17%] md:w-52",
     tilt: "rotateY(18deg) rotate(5deg)",
     variant: "chip",
     icon: Layers,
@@ -79,21 +79,21 @@ const orbitSlots: OrbitSlot[] = [
 ];
 
 const ringPath =
-  "M37 22 C 52 17, 66 20, 74 26 C 78 30, 79 37, 78 44 C 77 52, 78 58, 76 64 C 66 74, 50 70, 41 60 C 33 54, 26 52, 25.5 44 C 25 34, 29 24, 37 22 Z";
+  "M20 20 C 42 9, 68 10, 83 21 C 89 27, 90 36, 88 44 C 86 52, 88 60, 84 67 C 68 82, 34 78, 18 60 C 10 51, 10 31, 20 20 Z";
 
 const ringDots = [
-  [37, 22],
-  [74, 26],
-  [78, 44],
-  [76, 64],
-  [41, 60],
+  [20, 20],
+  [83, 21],
+  [88, 44],
+  [84, 67],
+  [18, 60],
 ];
 
 const glassSlivers = [
-  "left-[26%] top-[20%] w-[2.5%] h-[24%] rotate-[-4deg]",
-  "left-[17%] top-[52%] w-[3%] h-[22%] rotate-[3deg]",
-  "right-[27%] top-[27%] w-[6%] h-[12%] rotate-[8deg]",
-  "right-[13%] top-[32%] w-[3%] h-[32%] rotate-[6deg]",
+  "left-[30%] top-[30%] w-[2.5%] h-[22%] rotate-[-4deg]",
+  "left-[6%] top-[32%] w-[3%] h-[20%] rotate-[3deg]",
+  "right-[28%] top-[30%] w-[5%] h-[11%] rotate-[8deg]",
+  "right-[1%] top-[56%] w-[3%] h-[24%] rotate-[6deg]",
 ];
 
 const focusRing =
@@ -116,6 +116,37 @@ const HeroSection = () => {
     { icon: Smartphone, title: t("hero.service_responsive_title"), desc: t("hero.service_responsive") },
     { icon: Code2, title: t("hero.service_prototyping_title"), desc: t("hero.service_prototyping") },
   ];
+
+  const leftCardBody = (
+    <>
+      <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm" aria-hidden="true">
+        <Code2 className="w-4 h-4 text-foreground" />
+      </span>
+      <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">{t("hero.card_left_title")}</p>
+      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_left_desc")}</p>
+    </>
+  );
+
+  const rightCardBody = (
+    <>
+      <div className="flex items-center" aria-hidden="true">
+        {featured.slice(0, 3).map((p, i) => (
+          <img
+            key={p.id}
+            src={p.imagem_capa}
+            alt=""
+            className="w-9 h-9 rounded-full object-cover border-2 border-white bg-white"
+            style={{ marginLeft: i === 0 ? 0 : -10 }}
+          />
+        ))}
+        <span className="w-9 h-9 -ml-2.5 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
+          +
+        </span>
+      </div>
+      <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">{t("hero.card_right_title")}</p>
+      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_right_desc")}</p>
+    </>
+  );
 
   return (
     <section className="relative overflow-hidden bg-sky-hero">
@@ -147,17 +178,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Side cards (desktop) */}
-        <div className="hidden lg:block absolute left-[3%] top-[27%] z-40 w-56 -rotate-6 animate-hero-float">
-          <div className="glass-card rounded-3xl p-5 text-left">
-            <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm" aria-hidden="true">
-              <Code2 className="w-4 h-4 text-foreground" />
-            </span>
-            <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
-              {t("hero.card_left_title")}
-            </p>
-            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_left_desc")}</p>
-          </div>
+        {/* Side cards (wide screens) */}
+        <div className="hidden min-[1400px]:block absolute left-[3%] top-[22%] z-40 w-56 -rotate-6 animate-hero-float">
+          <div className="glass-card rounded-3xl p-5 text-left">{leftCardBody}</div>
           <svg
             className="absolute left-1/2 top-full w-[220px] h-[300px] text-foreground/25 rotate-6 origin-top-left"
             viewBox="0 0 220 300"
@@ -170,29 +193,10 @@ const HeroSection = () => {
         </div>
 
         <div
-          className="hidden lg:block absolute right-[3%] top-[34%] z-40 w-56 rotate-[5deg] animate-hero-float"
+          className="hidden min-[1400px]:block absolute right-[3%] top-[24%] z-40 w-56 rotate-[5deg] animate-hero-float"
           style={{ animationDelay: "1s" }}
         >
-          <div className="glass-card rounded-3xl p-5 text-left">
-            <div className="flex items-center" aria-hidden="true">
-              {featured.slice(0, 3).map((p, i) => (
-                <img
-                  key={p.id}
-                  src={p.imagem_capa}
-                  alt=""
-                  className="w-9 h-9 rounded-full object-cover border-2 border-white bg-white"
-                  style={{ marginLeft: i === 0 ? 0 : -10 }}
-                />
-              ))}
-              <span className="w-9 h-9 -ml-2.5 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
-                +
-              </span>
-            </div>
-            <p className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
-              {t("hero.card_right_title")}
-            </p>
-            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{t("hero.card_right_desc")}</p>
-          </div>
+          <div className="glass-card rounded-3xl p-5 text-left">{rightCardBody}</div>
           <svg
             className="absolute right-1/2 top-full w-[200px] h-[300px] text-foreground/25 -rotate-[5deg] origin-top-right"
             viewBox="0 0 200 300"
@@ -316,27 +320,7 @@ const HeroSection = () => {
           </nav>
         </div>
 
-        {/* Bottom notes (desktop) */}
-        <div className="hidden lg:block absolute left-[6%] bottom-[14%] z-40 max-w-[15rem] text-left">
-          <span className="block w-8 h-px bg-foreground/30 mb-3" aria-hidden="true" />
-          <p className="text-sm text-foreground/80 leading-snug">{t("hero.trusted")}</p>
-          <div className="mt-3 flex items-center" aria-hidden="true">
-            {featured.slice(0, 4).map((p, i) => (
-              <img
-                key={p.id}
-                src={p.imagem_capa}
-                alt=""
-                className="w-8 h-8 rounded-full object-cover border-2 border-white bg-white"
-                style={{ marginLeft: i === 0 ? 0 : -8 }}
-              />
-            ))}
-            <span className="w-8 h-8 -ml-2 rounded-full bg-white border-2 border-white flex items-center justify-center text-sm font-semibold text-foreground">
-              +
-            </span>
-          </div>
-        </div>
-
-        <div className="hidden lg:flex absolute right-[8%] bottom-[18%] z-40 items-center gap-4 text-left">
+        <div className="hidden min-[1400px]:flex absolute right-[4%] bottom-[16%] z-40 items-center gap-4 text-left">
           <span className="block w-6 h-px bg-foreground/30" aria-hidden="true" />
           <div>
             <Sparkles className="w-4 h-4 text-foreground mb-2" aria-hidden="true" />
@@ -359,6 +343,10 @@ const HeroSection = () => {
 
       <div className="relative z-40 pb-14 sm:pb-20">
         <div className="container mx-auto px-6">
+          <div className="min-[1400px]:hidden grid sm:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <div className="glass-card rounded-3xl p-5 text-left">{leftCardBody}</div>
+            <div className="glass-card rounded-3xl p-5 text-left">{rightCardBody}</div>
+          </div>
           <ul
             className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 list-none m-0 p-0"
             aria-label={t("hero.services_label")}
