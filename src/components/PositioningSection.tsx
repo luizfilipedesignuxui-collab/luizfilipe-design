@@ -21,7 +21,7 @@ const PositioningSection = () => {
       className="scroll-mt-24 py-16 md:py-24 relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] via-accent/[0.08] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.06] to-transparent" />
         <div className="absolute top-10 left-1/4 w-72 h-72 rounded-full bg-accent/10 blur-3xl" />
         <div className="absolute bottom-0 right-1/5 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
       </div>

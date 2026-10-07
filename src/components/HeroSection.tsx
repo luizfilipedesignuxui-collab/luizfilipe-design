@@ -9,6 +9,7 @@ import {
   Sparkles,
   Rocket,
   Layers,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -58,11 +59,11 @@ const orbitSlots: OrbitSlot[] = [
     layer: "z-30",
   },
   {
-    position: "hidden md:block md:right-[15%] md:top-[54%] md:w-[13%]",
-    tilt: "rotateY(42deg) rotate(3deg)",
-    variant: "image",
-    icon: Sparkles,
-    tone: "",
+    position: "left-[3%] top-[72%] w-40 md:left-auto md:right-[14%] md:top-[60%] md:w-52",
+    tilt: "rotateY(20deg) rotate(4deg)",
+    variant: "chip",
+    icon: MapPin,
+    tone: "bg-primary/10 text-primary",
     delay: "1.2s",
     layer: "z-20",
   },
@@ -78,13 +79,13 @@ const orbitSlots: OrbitSlot[] = [
 ];
 
 const ringPath =
-  "M37 22 C 52 17, 66 20, 74 26 C 78 30, 79 37, 78 44 C 77 54, 80 62, 78.5 70 C 66 78, 50 70, 41 60 C 33 54, 26 52, 25.5 44 C 25 34, 29 24, 37 22 Z";
+  "M37 22 C 52 17, 66 20, 74 26 C 78 30, 79 37, 78 44 C 77 52, 78 58, 76 64 C 66 74, 50 70, 41 60 C 33 54, 26 52, 25.5 44 C 25 34, 29 24, 37 22 Z";
 
 const ringDots = [
   [37, 22],
   [74, 26],
   [78, 44],
-  [78.5, 70],
+  [76, 64],
   [41, 60],
 ];
 
