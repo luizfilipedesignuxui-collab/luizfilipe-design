@@ -8,6 +8,7 @@ import {
   PenTool,
   Sparkles,
   Rocket,
+  Layers,
   type LucideIcon,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -72,6 +73,27 @@ const orbitSlots: OrbitSlot[] = [
     delay: "1.2s",
     layer: "z-20",
   },
+  {
+    position: "right-[2%] top-[4%] w-40 md:right-[16%] md:top-[22%] md:w-52",
+    tilt: "rotateY(18deg) rotate(5deg)",
+    variant: "chip",
+    icon: Layers,
+    tone: "bg-secondary/15 text-secondary",
+    delay: "2s",
+    layer: "z-20",
+  },
+];
+
+const ringPath =
+  "M37 22 C 52 17, 66 20, 74 26 C 78 30, 79 37, 78 44 C 77 54, 80 62, 78.5 70 C 66 78, 50 70, 41 60 C 33 54, 26 52, 25.5 44 C 25 34, 29 24, 37 22 Z";
+
+const ringDots = [
+  [37, 22],
+  [74, 26],
+  [78, 44],
+  [78.5, 70],
+  [41, 60],
+  [25.5, 44],
 ];
 
 const glassSlivers = [
@@ -219,6 +241,27 @@ const HeroSection = () => {
               aria-hidden="true"
             />
           ))}
+
+          <div className="hidden md:block absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+              <path d={ringPath} stroke="white" strokeOpacity="0.55" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <path
+                d={ringPath}
+                stroke="hsl(var(--foreground))"
+                strokeOpacity="0.14"
+                strokeWidth="1"
+                strokeDasharray="3 5"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+            {ringDots.map(([x, y]) => (
+              <span
+                key={`${x}-${y}`}
+                className="absolute w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-white shadow-[0_0_0_3px_rgba(255,255,255,0.35)]"
+                style={{ left: `${x}%`, top: `${y}%` }}
+              />
+            ))}
+          </div>
 
           <nav aria-label={t("hero.orbit_label")}>
             <ul className="list-none m-0 p-0">
