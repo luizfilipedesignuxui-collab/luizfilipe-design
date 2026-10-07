@@ -1,4 +1,6 @@
+import { useId, useRef, useState } from "react";
 import {
+  ChevronDown,
   Code2,
   Layout,
   Smartphone,
@@ -96,6 +98,62 @@ const glassSlivers = [
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+
+type RevealCardProps = { icon: LucideIcon; title: string; desc: string; className?: string };
+
+const RevealCard = ({ icon: Icon, title, desc, className = "" }: RevealCardProps) => {
+  const [open, setOpen] = useState(false);
+  const hoveredByMouse = useRef(false);
+  const panelId = useId();
+
+  return (
+    <li
+      className={`rounded-2xl glass-card transition-[background-color,box-shadow] duration-300 ${
+        open ? "bg-white/80 shadow-lg" : ""
+      } ${className}`}
+      onPointerEnter={(e) => {
+        if (e.pointerType !== "mouse") return;
+        hoveredByMouse.current = true;
+        setOpen(true);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType !== "mouse") return;
+        hoveredByMouse.current = false;
+        setOpen(false);
+      }}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => {
+          if (hoveredByMouse.current) return;
+          setOpen((value) => !value);
+        }}
+        className={`w-full flex items-center gap-3 rounded-2xl p-3.5 text-left ${focusRing}`}
+      >
+        <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm" aria-hidden="true">
+          <Icon className="w-4 h-4 text-foreground" />
+        </span>
+        <span className="flex-1 font-display text-sm font-semibold text-foreground">{title}</span>
+        <ChevronDown
+          className={`w-4 h-4 shrink-0 text-muted-foreground transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+      <div
+        id={panelId}
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="pl-[3.75rem] pr-4 pb-4 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+        </div>
+      </div>
+    </li>
+  );
+};
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -321,24 +379,18 @@ const HeroSection = () => {
 
       <div className="relative z-40 pb-14 sm:pb-20">
         <div className="container mx-auto px-6">
-          <div className="min-[1400px]:hidden grid sm:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
-            <div className="glass-card rounded-3xl p-5 text-left">{leftCardBody}</div>
-            <div className="glass-card rounded-3xl p-5 text-left">{rightCardBody}</div>
-          </div>
           <ul
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 list-none m-0 p-0"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 items-start gap-3 list-none m-0 p-0"
             aria-label={t("hero.services_label")}
           >
+            <RevealCard
+              icon={Code2}
+              title={t("hero.card_left_title")}
+              desc={t("hero.card_left_desc")}
+              className="sm:col-span-2 lg:col-span-4 min-[1400px]:hidden"
+            />
             {services.map((service) => (
-              <li key={service.title} className="flex items-start gap-3 rounded-2xl glass-card p-4">
-                <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm" aria-hidden="true">
-                  <service.icon className="w-4 h-4 text-foreground" />
-                </span>
-                <span>
-                  <span className="block font-display text-xs sm:text-sm font-semibold text-foreground">{service.title}</span>
-                  <span className="block text-[11px] sm:text-xs text-muted-foreground mt-0.5">{service.desc}</span>
-                </span>
-              </li>
+              <RevealCard key={service.title} icon={service.icon} title={service.title} desc={service.desc} />
             ))}
           </ul>
         </div>
