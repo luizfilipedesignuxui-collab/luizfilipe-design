@@ -114,8 +114,8 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 Fluxo narrativo da home:
 
 1. Hero
-2. Posicionamento (card)
-3. Sobre
+2. Sobre
+3. Posicionamento (card)
 4. Marquee (ponte visual)
 5. Habilidades
 6. Processo

@@ -11,8 +11,8 @@ const Footer = () => {
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 
   const navLinks = [
-    { label: t("nav.positioning"), href: "#posicionamento" },
     { label: t("nav.about"), href: "#sobre" },
+    { label: t("nav.positioning"), href: "#posicionamento" },
     { label: t("nav.skills"), href: "#habilidades" },
     { label: t("nav.process"), href: "#processo" },
     { label: t("nav.projects"), href: "#projetos" },

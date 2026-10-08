@@ -55,8 +55,8 @@ const Header = () => {
       label: t("nav.group_about"),
       icon: UserRound,
       items: [
-        { label: t("nav.positioning"), href: anchor("#posicionamento"), icon: Target },
         { label: t("nav.about_me"), href: anchor("#sobre"), icon: UserRound },
+        { label: t("nav.positioning"), href: anchor("#posicionamento"), icon: Target },
         { label: t("nav.skills"), href: anchor("#habilidades"), icon: Layers },
       ],
     },

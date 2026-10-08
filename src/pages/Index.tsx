@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 
 /**
  * Narrative flow:
- * Hook → Positioning → Who I am → Capabilities → Method → Proof → Credentials → CTA
+ * Hook → Who I am → Positioning → Capabilities → Method → Proof → Credentials → CTA
  */
 const Index = () => {
   return (
@@ -21,8 +21,8 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <HeroSection />
-        <PositioningSection />
         <AboutSection />
+        <PositioningSection />
         <MarqueeSection />
         <SkillsSection />
         <ProcessSection />
