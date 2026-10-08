@@ -87,7 +87,7 @@ components:
 
 Portfólio pessoal centrado em um nicho: UX/UI e Design Engineering (Figma → React) para startups e negócios digitais que precisam de produtos claros e prontos para converter. Fluxo: hero → sobre → capacidades → método → cases → formação → contato.
 
-Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-céu, cards de vidro (`.glass-card`), header flutuante em pílula e hero com foto P&B ao centro, cercada por cards de projetos clicáveis.
+Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-céu, cards de vidro (`.glass-card`), header flutuante em pílula e hero com foto P&B ao centro, cercada por cards de projetos clicáveis e por um anel de órbita (linha branca + tracejada) visível em todos os tamanhos de tela.
 
 ## Colors
 
@@ -101,7 +101,7 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 
 - **Display:** Sora (títulos e marca).
 - **Display serif:** Instrument Serif itálica, reservada para destaques pontuais.
-- **Nome no hero:** `h1` em Sora bold; "Luiz" em `primary` e "Filipe." em `tertiary`.
+- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." inteiro em `tertiary`.
 - **Body:** DM Sans (parágrafos e UI).
 
 ## Components

@@ -261,7 +261,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]"
           >
-            Luiz <span className="text-accent">Filipe.</span>
+            <span className="text-accent">Luiz Filipe.</span>
             <span className="sr-only"> · {t("hero.role")}</span>
           </motion.h1>
         </div>
@@ -332,7 +332,7 @@ const HeroSection = () => {
             />
           ))}
 
-          <div className="hidden md:block absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
+          <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
               <path d={ringPath} stroke="white" strokeOpacity="0.55" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
               <path
