@@ -124,7 +124,7 @@ const Header = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4">
         <div className="relative mx-auto max-w-6xl h-[60px] sm:h-[68px]">
           <div
-            className={`absolute inset-0 rounded-full border border-white/80 backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
+            className={`pointer-events-none absolute inset-0 rounded-full border border-white/80 backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
               scrolled ? "bg-white/45 shadow-lg shadow-primary/5" : "bg-white/20"
             }`}
             aria-hidden="true"
@@ -132,7 +132,7 @@ const Header = () => {
 
           <nav
             ref={navRef}
-            className="hidden lg:flex absolute top-0 left-1/2 -translate-x-1/2 h-[56px]"
+            className="hidden lg:flex absolute top-0 left-1/2 z-20 -translate-x-1/2 h-[56px]"
             aria-label={t("a11y.main_nav")}
           >
             <TabCurve side="left" />
@@ -194,17 +194,17 @@ const Header = () => {
             <TabCurve side="right" />
           </nav>
 
-          <div className="relative h-full flex items-center justify-between gap-3 px-1.5 sm:px-2">
+          <div className="pointer-events-none relative z-10 h-full flex items-center justify-between gap-3 px-1.5 sm:px-2">
             <Link
               to="/"
-              className={`flex items-center rounded-full bg-white/90 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
+              className={`pointer-events-auto flex items-center rounded-full bg-white/90 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
             >
               <span className="font-display text-sm sm:text-base font-semibold text-foreground">
                 Luiz<span className="text-accent-ink">.</span>Filipe
               </span>
             </Link>
 
-            <div className="flex items-center gap-2">
+            <div className="pointer-events-auto flex items-center gap-2">
               <button
                 type="button"
                 onClick={toggleLanguage}
