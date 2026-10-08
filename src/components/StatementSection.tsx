@@ -21,7 +21,7 @@ const StatementSection = () => {
             "{t("statement.quote")}{" "}
             <span className="text-accent">{t("statement.quote_highlight")}</span>"
           </p>
-          <cite className="block mt-8 text-lg text-background/60 not-italic font-display">
+          <cite className="block mt-8 text-lg text-background/90 not-italic font-display">
             Steve Jobs
           </cite>
         </Reveal>

@@ -84,7 +84,7 @@ const ProjectsSection = () => {
                         {project.tags.slice(0, 4).map((tag) => (
                           <span
                             key={tag}
-                            className="text-[11px] sm:text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground"
+                            className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground"
                           >
                             {tag}
                           </span>

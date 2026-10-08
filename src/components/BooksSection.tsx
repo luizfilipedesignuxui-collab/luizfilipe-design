@@ -213,7 +213,7 @@ const BooksSection = () => {
  <div className="flex items-start gap-2">
  <FileText className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">
  {isPT ? "Páginas" : "Pages"}
  </p>
  <p className="text-sm text-foreground">{featured.pages}</p>
@@ -224,7 +224,7 @@ const BooksSection = () => {
  <div className="flex items-start gap-2">
  <Languages className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">
  {isPT ? "Idioma" : "Language"}
  </p>
  <p className="text-sm text-foreground">{featured.language}</p>
@@ -235,7 +235,7 @@ const BooksSection = () => {
  <div className="flex items-start gap-2">
  <Calendar className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">
  {isPT ? "Publicação" : "Published"}
  </p>
  <p className="text-sm text-foreground">{featured.publishedAt}</p>
@@ -246,7 +246,7 @@ const BooksSection = () => {
  <div className="flex items-start gap-2">
  <Tag className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">
  {isPT ? "Gênero" : "Genre"}
  </p>
  <p className="text-sm text-foreground">{featured.genre}</p>
@@ -349,7 +349,7 @@ const BooksSection = () => {
  </div>
  <CardContent className="p-5 sm:p-6 flex flex-col flex-1">
  {book.genre && (
- <p className="text-[11px] uppercase tracking-wider text-muted-foreground/70 font-medium mb-2">
+ <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium mb-2">
  {book.genre}
  </p>
  )}

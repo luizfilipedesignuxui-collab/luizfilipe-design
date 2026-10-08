@@ -12,7 +12,7 @@ const AdminLayout = () => {
           <header className="h-14 flex items-center justify-between border-b border-border px-4">
             <div className="flex items-center gap-3">
               <SidebarTrigger />
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent text-xs font-display font-semibold uppercase tracking-wider">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent-ink text-xs font-display font-semibold uppercase tracking-wider">
                 <Shield className="w-3 h-3" />
                 Modo Administrador
               </div>

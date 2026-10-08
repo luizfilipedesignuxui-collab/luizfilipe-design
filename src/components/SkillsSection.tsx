@@ -50,7 +50,7 @@ const SkillsSection = () => {
         <div className="grid lg:grid-cols-2 gap-x-12 gap-y-8">
           {groups.map((group) => (
             <div key={group.label}>
-              <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1">
+              <h3 className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1">
                 {group.label}
               </h3>
 

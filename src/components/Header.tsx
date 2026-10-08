@@ -200,7 +200,7 @@ const Header = () => {
               className={`flex items-center rounded-full bg-white/90 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
             >
               <span className="font-display text-sm sm:text-base font-semibold text-foreground">
-                Luiz<span className="text-accent">.</span>Filipe
+                Luiz<span className="text-accent-ink">.</span>Filipe
               </span>
             </Link>
 
@@ -220,7 +220,7 @@ const Header = () => {
                 className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-white/90 pl-6 pr-5 h-12 text-sm font-semibold text-foreground shadow-sm hover:bg-white transition-colors ${focusRing}`}
               >
                 {t("hero.cta_secondary")}
-                <ArrowUpRight className="w-4 h-4 text-accent" aria-hidden="true" />
+                <ArrowUpRight className="w-4 h-4 text-accent-ink" aria-hidden="true" />
               </a>
 
               <button

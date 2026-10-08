@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 
 export type Language = "pt" | "en";
 
@@ -195,6 +195,9 @@ const translations: Record<Language, Record<string, string>> = {
  "a11y.switch_to_en": "Mudar idioma para inglês",
  "a11y.switch_to_pt": "Mudar idioma para português",
  "a11y.opens_new_tab": "abre em nova aba",
+ "a11y.close": "Fechar",
+ "case.prev": "Imagem anterior",
+ "case.next": "Próxima imagem",
 
  // Design System
  "ds.title": "Design System",
@@ -403,6 +406,9 @@ const translations: Record<Language, Record<string, string>> = {
  "a11y.switch_to_en": "Switch language to English",
  "a11y.switch_to_pt": "Switch language to Portuguese",
  "a11y.opens_new_tab": "opens in a new tab",
+ "a11y.close": "Close",
+ "case.prev": "Previous image",
+ "case.next": "Next image",
 
  // Design System
  "ds.title": "Design System",
@@ -442,6 +448,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
  return next;
  });
  }, []);
+
+ useEffect(() => {
+ document.documentElement.lang = language === "en" ? "en" : "pt-BR";
+ }, [language]);
 
  const t = useCallback(
  (key: string) => {

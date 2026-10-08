@@ -36,7 +36,7 @@
     --primary: 217 45% 13%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 212 32% 51%;
+    --secondary: 212 40% 35%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 212 25% 87%;
@@ -44,6 +44,8 @@
 
     --accent: 29 90% 63%;
     --accent-foreground: 217 45% 11%;
+    /* Text and icons on light surfaces. Bright accent stays for fills and for text on navy. */
+    --accent-ink: 24 70% 35%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -113,6 +115,11 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
+  }
+
+  :focus-visible {
+    outline: 3px solid hsl(var(--primary));
+    outline-offset: 3px;
   }
 
   h1, h2, h3, h4, h5, h6 {

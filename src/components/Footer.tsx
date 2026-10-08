@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="space-y-4">
             <p className="font-display text-4xl md:text-5xl font-black text-foreground">
-              Luiz<span className="text-accent">.</span>Filipe
+              Luiz<span className="text-accent-ink">.</span>Filipe
             </p>
             <p className="text-muted-foreground leading-relaxed">{tagline}</p>
           </div>

@@ -33,7 +33,7 @@ const AdminSettings = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 text-accent text-sm">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 text-accent-ink text-sm">
           <Shield className="w-4 h-4" />
           <span className="font-medium">Permissão: Admin</span>
         </div>

@@ -70,7 +70,7 @@ function MetricCard({ value, label, muted }: { value: string; label: string; mut
         )}
       </svg>
       <p className="font-display text-lg font-extrabold text-foreground leading-none">{value}</p>
-      <p className="text-[10px] text-muted-foreground mt-1 uppercase tracking-wide">{label}</p>
+      <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wide">{label}</p>
     </div>
   );
 }
@@ -86,7 +86,7 @@ const CaseMetricsBlock = ({ metricas, isEn, title }: Props) => {
       aria-label={title}
     >
       <div>
-        <p className="font-display text-sm font-bold text-accent uppercase tracking-widest mb-2">{title}</p>
+        <p className="font-display text-sm font-bold text-accent-ink uppercase tracking-widest mb-2">{title}</p>
         <p className="text-foreground leading-relaxed text-base md:text-lg">{narrativa}</p>
       </div>
 

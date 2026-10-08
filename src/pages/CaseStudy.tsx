@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   ArrowLeft,
-  X,
   ChevronLeft,
   ChevronRight,
   Search,
@@ -75,7 +74,7 @@ const CaseStudy = () => {
 
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent font-semibold uppercase tracking-wider">
+              <span className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent-ink font-semibold uppercase tracking-wider">
                 {l.categoria}
               </span>
               {project.tags.map((tag) => (
@@ -236,7 +235,7 @@ const CaseStudy = () => {
           <section className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                <TrendingUp className="w-5 h-5 text-accent" aria-hidden />
+                <TrendingUp className="w-5 h-5 text-accent-ink" aria-hidden />
               </div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{t("case.result")}</h2>
             </div>
@@ -286,18 +285,13 @@ const CaseStudy = () => {
 
           <Dialog open={lightboxIndex !== null} onOpenChange={() => setLightboxIndex(null)}>
             <DialogContent className="max-w-[90vw] max-h-[90vh] p-2 bg-background/95 backdrop-blur-sm border-border">
-              <button
-                onClick={() => setLightboxIndex(null)}
-                className="absolute top-3 right-3 z-10 p-1.5 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
-              >
-                <X className="w-5 h-5 text-foreground" />
-              </button>
               {lightboxIndex !== null && (
                 <>
                   {lightboxIndex > 0 && (
                     <button
                       onClick={() => setLightboxIndex(lightboxIndex - 1)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      aria-label={t("case.prev")}
                     >
                       <ChevronLeft className="w-6 h-6 text-foreground" />
                     </button>
@@ -310,7 +304,8 @@ const CaseStudy = () => {
                   {lightboxIndex < visuals.length - 1 && (
                     <button
                       onClick={() => setLightboxIndex(lightboxIndex + 1)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      aria-label={t("case.next")}
                     >
                       <ChevronRight className="w-6 h-6 text-foreground" />
                     </button>

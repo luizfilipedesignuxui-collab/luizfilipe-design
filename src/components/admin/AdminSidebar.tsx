@@ -43,7 +43,7 @@ export function AdminSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-accent" />
+              <Shield className="w-4 h-4 text-accent-ink" />
               {!collapsed && <span className="font-display font-bold text-xs uppercase tracking-wider">Admin</span>}
             </div>
           </SidebarGroupLabel>

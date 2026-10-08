@@ -4,8 +4,9 @@ name: Luiz Filipe Portfolio
 description: Portfólio UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.
 colors:
   primary: "#121D30"
-  secondary: "#5A80A8"
-  tertiary: "#F49C55"
+  secondary: "#356080"
+  tertiary: "#F69E4C"
+  accent-ink: "#984D1B"
   neutral: "#F1F5F9"
   sky: "#D5E2F0"
   success: "#16A34A"
@@ -92,8 +93,8 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 ## Colors
 
 - **Primary** (`#121D30`): navy quase preto: texto principal e CTA sólido.
-- **Secondary** (`#5A80A8`): azul acinzentado: ícones e apoio.
-- **Accent / tertiary** (`#F49C55`): laranja suave: setas, ponto da marca e detalhes.
+- **Secondary** (`#356080`): azul de apoio. Escuro o bastante para texto branco em botão (contraste AA) e para ícones em fundo claro.
+- **Accent / tertiary** (`#F69E4C`): laranja da marca. Vale para preenchimento e para texto sobre o azul-marinho. Em fundo claro o texto usa **accent-ink** (`#984D1B`), que passa 4,5:1.
 - **Sky** (`#D5E2F0`): topo do gradiente do hero (`.bg-sky-hero`).
 - **Neutral** (`#F1F5F9`): fundo da página.
 
@@ -101,7 +102,7 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 
 - **Display:** Sora (títulos e marca).
 - **Display serif:** Instrument Serif itálica, reservada para destaques pontuais.
-- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." inteiro em `tertiary`.
+- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." inteiro em accent-ink.
 - **Body:** DM Sans (parágrafos e UI).
 
 ## Components

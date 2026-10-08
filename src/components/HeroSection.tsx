@@ -62,7 +62,7 @@ const orbitSlots: OrbitSlot[] = [
     arc: 32,
     roll: 7,
     icon: Rocket,
-    tone: "bg-accent/25 text-accent",
+    tone: "bg-accent/25 text-accent-ink",
     delay: "0.4s",
     layer: "z-30",
   },
@@ -261,7 +261,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]"
           >
-            <span className="text-accent">Luiz Filipe.</span>
+            <span className="text-accent-ink">Luiz Filipe.</span>
             <span className="sr-only"> · {t("hero.role")}</span>
           </motion.h1>
         </div>
@@ -369,7 +369,7 @@ const HeroSection = () => {
                       <slot.icon className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block font-display text-[11px] leading-tight md:text-base md:leading-normal font-semibold text-foreground line-clamp-2">
+                      <span className="block font-display text-xs leading-tight md:text-base md:leading-normal font-semibold text-foreground line-clamp-2">
                         {shortTitle}
                       </span>
                       <span className="hidden md:block text-xs text-muted-foreground line-clamp-1">

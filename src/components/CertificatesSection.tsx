@@ -141,7 +141,7 @@ const CertificatesSection = () => {
  </div>
  <p className="text-sm text-muted-foreground mb-3">
  {cert.institution}
- {cert.hours && <span className="text-muted-foreground/70"> · {cert.hours}</span>}
+ {cert.hours && <span className="text-muted-foreground"> · {cert.hours}</span>}
  </p>
  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
  {t("certificates.view_details")}
@@ -191,7 +191,7 @@ const CertificatesSection = () => {
  <div className="flex items-start gap-2">
  <Calendar className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
  {t("certificates.meta.date")}
  </p>
  <p className="text-sm text-foreground">{selected.date}</p>
@@ -202,7 +202,7 @@ const CertificatesSection = () => {
  <div className="flex items-start gap-2">
  <Clock className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
  {t("certificates.meta.hours")}
  </p>
  <p className="text-sm text-foreground">{selected.hours}</p>
@@ -213,7 +213,7 @@ const CertificatesSection = () => {
  <div className="flex items-start gap-2">
  <Building2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
  {t("certificates.meta.format")}
  </p>
  <p className="text-sm text-foreground">{selected.format}</p>
@@ -224,7 +224,7 @@ const CertificatesSection = () => {
  <div className="flex items-start gap-2">
  <Award className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
  <div>
- <p className="text-[11px] uppercase tracking-wide text-muted-foreground/70 font-medium">
+ <p className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
  {t("certificates.meta.instructor")}
  </p>
  <p className="text-sm text-foreground">{selected.instructor}</p>

@@ -36,7 +36,7 @@ const Projects = () => {
           {projects.length === 0 ? (
             <div className="text-center py-32 rounded-3xl border border-dashed border-border">
               <div className="w-20 h-20 rounded-2xl bg-accent/15 mx-auto flex items-center justify-center mb-6">
-                <ArrowRight className="w-8 h-8 text-accent" />
+                <ArrowRight className="w-8 h-8 text-accent-ink" />
               </div>
               <h2 className="font-display text-2xl font-semibold text-foreground mb-3">
                 {t("projects_page.coming_soon")}
