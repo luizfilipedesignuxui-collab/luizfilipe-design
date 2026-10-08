@@ -130,7 +130,7 @@ export function usePublishedProjects() {
           const remote = data.map(mapPublishedProject);
           const remoteSlugs = new Set(remote.map((p) => p.slug));
           const staticOnly = initialProjects.filter((p) => !remoteSlugs.has(p.slug));
-          setProjects([...remote, ...staticOnly]);
+          setProjects([...staticOnly, ...remote]);
         }
       });
 
