@@ -65,10 +65,10 @@ import multifitMockup1 from "@/assets/multifit/mockup-1.png";
 import multifitMockup2 from "@/assets/multifit/mockup-2.png";
 import multifitMockup4 from "@/assets/multifit/mockup-4.png";
 import curioCover from "@/assets/curio-mulher/cover.webp";
-import curioArquetipos from "@/assets/curio-mulher/arquetipos.webp";
-import curioTipografia from "@/assets/curio-mulher/tipografia.webp";
-import curioMockupsEtiqueta from "@/assets/curio-mulher/mockups-etiqueta-ecobag.webp";
-import curioMockupsCaixa from "@/assets/curio-mulher/mockups-caixa-cartao.webp";
+import curioFotografia from "@/assets/curio-mulher/diretrizes-fotograficas.webp";
+import curioMockups from "@/assets/curio-mulher/mockups.webp";
+import curioSite from "@/assets/curio-mulher/aplicacoes-site.webp";
+import curioRedesSociais from "@/assets/curio-mulher/aplicacoes-redes-sociais.webp";
 import labYesAntes from "@/assets/lab-yes/fale-conosco-antes.webp";
 import labYesDepois from "@/assets/lab-yes/fale-conosco-depois.webp";
 
@@ -162,31 +162,31 @@ export const projects: Project[] = [
  id: "13",
  slug: "curio-mulher-brandbook",
  titulo: "Curió Mulher: Brandbook de Moda Íntima Sustentável",
- descricao: "Brandbook completo da Curió Mulher, marca de moda íntima sustentável feita por mulheres produtoras: essência, tom de voz, logo, paleta, tipografia e aplicações.",
+ descricao: "Brandbook completo da Curió Mulher, marca de moda íntima sustentável feita por mulheres produtoras: pesquisa, essência, tom de voz, logo, paleta, tipografia, fotografia e aplicações em site e redes sociais.",
  imagem_capa: curioCover,
  categoria: "Branding",
  ferramentas: ["Canva"],
- galeria_de_imagens: [curioArquetipos, curioTipografia, curioMockupsEtiqueta, curioMockupsCaixa],
+ galeria_de_imagens: [curioFotografia, curioMockups, curioSite, curioRedesSociais],
  contexto: "A Curió Mulher é uma marca de moda íntima sustentável confeccionada por mulheres produtoras que encontram na costura autonomia e renda. A marca precisava de uma identidade que comunicasse cuidado, força e impacto social ao mesmo tempo, e de um manual que garantisse consistência em todos os pontos de contato.",
  objetivo: "Construir o brandbook da marca do zero: definir essência, propósito, posicionamento, arquétipos e tom de voz, e traduzir tudo em diretrizes visuais (logo, paleta, tipografia e fotografia) e aplicações físicas e digitais.",
  processo: {
- research: "Parti do briefing da marca para entender propósito, público e valores. Mapeei o público (mulheres conscientes, produtoras e consumidoras) e defini os arquétipos Cuidadora (principal) e Guerreira (secundário), que guiam toda a comunicação.",
- wireframe: "Estruturei o manual em quatro capítulos: Essência da Marca (manifesto, naming, propósito, posicionamento), Comunicação (storytelling, tom de voz e palavras-chave), Diretrizes Visuais e Aplicações.",
- ui_design: "Criei o logo com o curió em voo pousado sobre um galho, símbolo de liberdade, força e conexão com a natureza. Defini a paleta com vermelho #970209, verde #A6B866, pêssego #FFB27A e bege #FAF3ED, a tipografia Kopik para títulos e Varela Round para textos, e as versões do logo para fundos claros, vermelhos e verdes.",
+ research: "Fiz a pesquisa de mercado de moda íntima no Brasil, com tendências como consumo consciente, economia circular, empreendedorismo feminino e body positivity, e analisei concorrentes e benchmarks nacionais e internacionais. Criei duas personas, a consumidora consciente e a mulher produtora, e defini os arquétipos Cuidadora (principal) e Guerreira (secundário).",
+ wireframe: "Estruturei o manual em quatro capítulos: Essência da Marca (manifesto, naming, propósito, posicionamento e público), Comunicação (storytelling, tom de voz e palavras-chave), Diretrizes Visuais e Aplicações.",
+ ui_design: "Criei o logo com o curió em voo pousado sobre um galho com brotos, símbolo de liberdade, força e sustentabilidade. Defini a paleta com vermelho #970209, verde #A6B866, pêssego #FFB27A e bege #FAF3ED, a tipografia Kopik para títulos e Varela Round para textos, as versões do logo e as diretrizes fotográficas com mulheres reais e corpos diversos.",
  },
- resultado: "Um brandbook de 28 páginas que reúne estratégia e identidade visual da Curió Mulher, com aplicações em etiqueta, ecobag, caixa de entrega, papelaria, cartão de visita e redes sociais, pronto para orientar qualquer peça da marca.",
+ resultado: "Um brandbook de 29 páginas que reúne estratégia e identidade visual da Curió Mulher, com mockups de ecobag, tag e caixa de entrega, papelaria, banners para o site e posts para redes sociais, pronto para orientar qualquer peça da marca.",
  tags: ["Branding", "Brandbook", "Identidade Visual", "Moda Sustentável"],
  link_projeto: "/brandbook/curio-mulher.pdf",
  titulo_en: "Curió Mulher: Sustainable Lingerie Brandbook",
- descricao_en: "Complete brandbook for Curió Mulher, a sustainable lingerie brand made by women producers: essence, tone of voice, logo, palette, typography and applications.",
+ descricao_en: "Complete brandbook for Curió Mulher, a sustainable lingerie brand made by women producers: research, essence, tone of voice, logo, palette, typography, photography and website and social media applications.",
  categoria_en: "Branding",
  contexto_en: "Curió Mulher is a sustainable lingerie brand made by women producers who find autonomy and income in sewing. The brand needed an identity that conveyed care, strength and social impact at once, plus a manual to keep every touchpoint consistent.",
  objetivo_en: "Build the brandbook from scratch: define essence, purpose, positioning, archetypes and tone of voice, and translate it all into visual guidelines (logo, palette, typography and photography) and physical and digital applications.",
- resultado_en: "A 28-page brandbook bringing together Curió Mulher's strategy and visual identity, with applications on tags, tote bags, shipping boxes, stationery, business cards and social media, ready to guide any brand piece.",
+ resultado_en: "A 29-page brandbook bringing together Curió Mulher's strategy and visual identity, with tote bag, tag and shipping box mockups, stationery, website banners and social media posts, ready to guide any brand piece.",
  processo_en: {
- research: "I started from the brand brief to understand purpose, audience and values. I mapped the audience (conscious women, both producers and consumers) and defined the Caregiver (main) and Warrior (secondary) archetypes, which guide all communication.",
- wireframe: "I structured the manual into four chapters: Brand Essence (manifesto, naming, purpose, positioning), Communication (storytelling, tone of voice and keywords), Visual Guidelines and Applications.",
- ui_design: "I created the logo with a curió bird in flight perched on a branch, a symbol of freedom, strength and connection with nature. I defined the palette with red #970209, green #A6B866, peach #FFB27A and beige #FAF3ED, Kopik for headlines and Varela Round for body text, and logo versions for light, red and green backgrounds.",
+ research: "I researched the Brazilian lingerie market, with trends such as conscious consumption, circular economy, female entrepreneurship and body positivity, and analyzed national and international competitors and benchmarks. I created two personas, the conscious consumer and the woman producer, and defined the Caregiver (main) and Warrior (secondary) archetypes.",
+ wireframe: "I structured the manual into four chapters: Brand Essence (manifesto, naming, purpose, positioning and audience), Communication (storytelling, tone of voice and keywords), Visual Guidelines and Applications.",
+ ui_design: "I created the logo with a curió bird in flight perched on a sprouting branch, a symbol of freedom, strength and sustainability. I defined the palette with red #970209, green #A6B866, peach #FFB27A and beige #FAF3ED, Kopik for headlines and Varela Round for body text, the logo versions and photography guidelines featuring real women and diverse bodies.",
  },
  },
  {
