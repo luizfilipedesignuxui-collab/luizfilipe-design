@@ -290,7 +290,7 @@ const CaseStudy = () => {
                   {lightboxIndex > 0 && (
                     <button
                       onClick={() => setLightboxIndex(lightboxIndex - 1)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                       aria-label={t("case.prev")}
                     >
                       <ChevronLeft className="w-6 h-6 text-foreground" />
@@ -304,7 +304,7 @@ const CaseStudy = () => {
                   {lightboxIndex < visuals.length - 1 && (
                     <button
                       onClick={() => setLightboxIndex(lightboxIndex + 1)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                       aria-label={t("case.next")}
                     >
                       <ChevronRight className="w-6 h-6 text-foreground" />
