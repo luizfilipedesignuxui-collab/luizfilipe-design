@@ -261,7 +261,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="font-display font-bold text-foreground leading-[0.9] tracking-[-0.04em] whitespace-nowrap text-[clamp(2.75rem,11vw,8.5rem)]"
           >
-            <span className="text-accent-ink">Luiz Filipe.</span>
+            <span className="text-accent-display">Luiz Filipe.</span>
             <span className="sr-only"> · {t("hero.role")}</span>
           </motion.h1>
         </div>

@@ -7,6 +7,7 @@ colors:
   secondary: "#356080"
   tertiary: "#F69E4C"
   accent-ink: "#984D1B"
+  accent-display: "#CB6724"
   neutral: "#F1F5F9"
   sky: "#D5E2F0"
   success: "#16A34A"
@@ -102,7 +103,7 @@ Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-c
 
 - **Display:** Sora (títulos e marca).
 - **Display serif:** Instrument Serif itálica, reservada para destaques pontuais.
-- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." inteiro em accent-ink.
+- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." em accent-display (`#CB6724`). É texto grande, então o contraste exigido é 3:1. O laranja mais escuro (`#984D1B`) fica nos textos pequenos.
 - **Body:** DM Sans (parágrafos e UI).
 
 ## Components

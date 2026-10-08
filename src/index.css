@@ -46,6 +46,8 @@
     --accent-foreground: 217 45% 11%;
     /* Text and icons on light surfaces. Bright accent stays for fills and for text on navy. */
     --accent-ink: 24 70% 35%;
+    /* Large hero name only. Large text needs 3:1, so this stays closer to the brand orange. */
+    --accent-display: 24 70% 46.75%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
