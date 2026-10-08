@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { projects as staticProjects, type Project } from "@/data/projects";
 import { stripTravessaoDeep } from "@/lib/stripTravessao";
 import type { CaseMetricas } from "@/components/CaseMetricsBlock";
+import type { CaseAntesDepois } from "@/components/CaseBeforeAfter";
 
 export interface PublishedProject {
   id: string;
@@ -22,6 +23,7 @@ export interface PublishedProject {
   };
   resultado: string;
   metricas?: CaseMetricas;
+  antes_depois?: CaseAntesDepois;
   tags: string[];
   link_projeto: string;
   titulo_en?: string;
@@ -64,6 +66,7 @@ const mapPublishedProject = (p: any): PublishedProject => {
     },
     resultado: staticMatch?.resultado || p.resultado || "",
     metricas: staticMatch?.metricas,
+    antes_depois: staticMatch?.antes_depois,
     tags: p.tags ?? [],
     link_projeto: p.link_projeto ?? "",
     titulo_en: p.titulo_en || staticMatch?.titulo_en || "",
@@ -95,6 +98,7 @@ const initialProjects: PublishedProject[] = staticProjects.map((p: Project) => (
   processo: p.processo,
   resultado: p.resultado,
   metricas: p.metricas,
+  antes_depois: p.antes_depois,
   tags: p.tags,
   link_projeto: p.link_projeto ?? "",
   titulo_en: p.titulo_en,
@@ -123,7 +127,10 @@ export function usePublishedProjects() {
         if (!isMounted) return;
 
         if (!error && data && data.length > 0) {
-          setProjects(data.map(mapPublishedProject));
+          const remote = data.map(mapPublishedProject);
+          const remoteSlugs = new Set(remote.map((p) => p.slug));
+          const staticOnly = initialProjects.filter((p) => !remoteSlugs.has(p.slug));
+          setProjects([...remote, ...staticOnly]);
         }
       });
 

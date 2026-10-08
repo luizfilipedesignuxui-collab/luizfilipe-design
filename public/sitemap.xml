@@ -55,4 +55,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://luizfilipe-design.vercel.app/projetos/lab-yes-fale-conosco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luizfilipe-design.vercel.app/projetos/curio-mulher-brandbook</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

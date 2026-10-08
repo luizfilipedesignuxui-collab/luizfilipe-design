@@ -18,6 +18,7 @@ import { useProjectLocale } from "@/hooks/useProjectLocale";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CaseMetricsBlock from "@/components/CaseMetricsBlock";
+import CaseBeforeAfter from "@/components/CaseBeforeAfter";
 
 /** Keep problem to one or two sentences (case matador). */
 function toProblem(text: string): string {
@@ -92,7 +93,7 @@ const CaseStudy = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
               >
-                {t("case.view_live")}
+                {project.link_projeto.endsWith(".pdf") ? t("case.view_pdf") : t("case.view_live")}
               </a>
             )}
           </div>
@@ -190,6 +191,8 @@ const CaseStudy = () => {
             </div>
             <p className="text-muted-foreground leading-relaxed text-lg pl-0 sm:pl-14">{problema}</p>
           </section>
+
+          {project.antes_depois && <CaseBeforeAfter data={project.antes_depois} isEn={language === "en"} />}
 
           {/* 2. O processo */}
           <section className="space-y-6">
