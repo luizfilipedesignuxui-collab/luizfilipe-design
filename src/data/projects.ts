@@ -516,8 +516,8 @@ export const projects: Project[] = [
   },
   depois: {
    imagem: labYesDepois,
-   alt: "Tela nova do Fale Conosco do Lab Yes! em mockups de monitor, tablet e celular: no monitor, o hero e a seção Black Belts; no tablet e no celular, o formulário Entre no Tatame com rótulos visíveis.",
-   alt_en: "New Lab Yes! Contact page in monitor, tablet and phone mockups: the monitor shows the hero and Black Belts section; the tablet and phone show the Entre no Tatame form with visible labels.",
+   alt: "Tela nova do Fale Conosco do Lab Yes! em mockups de monitor, tablet e celular: no monitor, o hero #boraláserfeliz!; no tablet, a seção Black Belts com as faixas; no celular, o formulário Entre no Tatame com rótulos visíveis.",
+   alt_en: "New Lab Yes! Contact page in monitor, tablet and phone mockups: the monitor shows the #boraláserfeliz! hero; the tablet shows the Black Belts section with the belts; the phone shows the Entre no Tatame form with visible labels.",
    pontos: [
     "Tema escuro com alto contraste entre texto e fundo, sem texto sobre fotografia.",
     "Rótulo visível acima de cada campo (Nome, E-mail, LinkedIn, Portfólio), além de texto de ajuda.",
