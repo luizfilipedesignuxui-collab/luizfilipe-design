@@ -17,12 +17,12 @@ const MarqueeSection = () => {
   const content = items.map((item) => `${item} •`).join("  ");
 
   return (
-    <div className="bg-primary py-4 overflow-hidden" aria-hidden="true">
+    <div className="section-brand py-5 overflow-hidden border-y border-white" aria-hidden="true">
       <div className="animate-marquee whitespace-nowrap flex">
-        <span className="font-display text-primary-foreground text-lg md:text-xl font-bold tracking-widest px-4">
+        <span className="font-display text-white text-2xl md:text-3xl font-extrabold px-4">
           {content}&nbsp;&nbsp;{content}
         </span>
-        <span className="font-display text-primary-foreground text-lg md:text-xl font-bold tracking-widest px-4">
+        <span className="font-display text-white text-2xl md:text-3xl font-extrabold px-4">
           {content}&nbsp;&nbsp;{content}
         </span>
       </div>

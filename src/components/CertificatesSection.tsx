@@ -1,13 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { Award, ExternalLink, ZoomIn, Calendar, Clock, Building2, CheckCircle2 } from "lucide-react";
-import {
- Carousel,
- CarouselContent,
- CarouselItem,
- CarouselNext,
- CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
+import { Award, ArrowUpRight, ZoomIn, Calendar, Clock, Building2, CheckCircle2 } from "lucide-react";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLanguage } from "@/contexts/LanguageContext";
 import certVagaUX from "@/assets/certificates/cert-vagaux.jpg";
@@ -29,8 +23,6 @@ interface Certificate {
 }
 
 const CertificatesSection = () => {
- const ref = useRef<HTMLDivElement>(null);
- const [visible, setVisible] = useState(false);
  const [selected, setSelected] = useState<Certificate | null>(null);
  const { t, language } = useLanguage();
 
@@ -61,104 +53,71 @@ const CertificatesSection = () => {
  },
  ];
 
- useEffect(() => {
- const observer = new IntersectionObserver(
- ([entry]) => entry.isIntersecting && setVisible(true),
- { threshold: 0.1 }
- );
- if (ref.current) observer.observe(ref.current);
- return () => observer.disconnect();
- }, []);
-
  const topics = selected ? t(selected.topicsKey).split("|") : [];
 
  return (
- <section id="certificados" className="scroll-mt-24 py-24 md:py-32 bg-background" ref={ref}>
+ <section id="certificados" className="section-paper scroll-mt-24 py-16 md:py-20">
  <div className="container mx-auto px-6">
- <div
- className={`max-w-2xl mb-16 transition-all duration-700 ${
- visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
- }`}
- >
+ <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12 items-start">
+ <Reveal>
  <SectionBridge bridgeKey="certificates.bridge" />
- <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
- {t("certificates.title")}
+ <h2 className="font-display text-4xl md:text-5xl text-primary mb-4">
+ <RevealTitle text={t("certificates.title")} />
  </h2>
- <p className="text-lg text-muted-foreground">
+ <p className="text-base md:text-lg text-muted-foreground max-w-md">
  {t("certificates.subtitle")}
  </p>
- </div>
+ </Reveal>
 
- <div
- className={`transition-all duration-700 delay-150 ${
- visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
- }`}
- >
- <Carousel
- opts={{ align: "start", loop: true }}
- className="w-full"
- >
- <CarouselContent className="-ml-4">
- {certificates.map((cert, index) => (
- <CarouselItem
- key={index}
- className="pl-4 basis-full sm:basis-1/2 lg:basis-1/2"
- >
- <Card className="h-full overflow-hidden border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
+ <RevealGroup as="ul" className="grid gap-4 list-none m-0 p-0">
+ {certificates.map((cert) => (
+ <RevealItem key={cert.title}>
  <button
  type="button"
  onClick={() => setSelected(cert)}
- className="block w-full text-left cursor-pointer"
+ className="lift-card group grid w-full grid-cols-1 sm:grid-cols-[11rem_1fr] items-center gap-4 sm:gap-5 rounded-[8px] border border-primary bg-white p-3 sm:p-4 text-left"
  aria-label={`${t("certificates.view_details")}: ${cert.title}`}
  >
- <div className="aspect-[4/3] bg-muted relative overflow-hidden">
+ <div className="relative aspect-[16/9] sm:aspect-[4/3] overflow-hidden rounded-[8px] bg-muted">
  {cert.image ? (
  <>
  <img
  src={cert.image}
  alt={`${t("certificates.alt")} ${cert.title}`}
- className="w-full h-full object-contain p-3 group-hover:scale-[1.02] transition-transform duration-500"
+ className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
  loading="lazy"
  />
- <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-background/90 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
- <ZoomIn className="w-4 h-4 text-foreground" />
- </div>
+ <span className="absolute inset-0 flex items-center justify-center bg-primary/80 opacity-0 transition-opacity group-hover:opacity-100">
+ <ZoomIn className="h-6 w-6 text-white" aria-hidden="true" />
+ </span>
  </>
  ) : (
- <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/10">
- <Award className="w-16 h-16 text-primary/40" strokeWidth={1.5} />
- </div>
+ <span className="flex h-full w-full items-center justify-center">
+ <Award className="h-10 w-10 text-primary" strokeWidth={1.5} aria-hidden="true" />
+ </span>
  )}
  </div>
- <CardContent className="p-5 sm:p-6">
- <div className="flex items-start justify-between gap-3 mb-2">
- <h3 className="font-display text-base sm:text-lg font-semibold text-foreground leading-tight">
+ <div className="min-w-0 px-1 pb-1 sm:p-0">
+ <p className="text-[0.65rem] font-medium uppercase tracking-[0.15em] sm:tracking-[0.4em] text-foreground mb-2">
+ {cert.institution} · {cert.year}
+ </p>
+ <h3 className="font-display text-2xl text-primary leading-tight mb-2">
  {cert.title}
  </h3>
- <span className="text-xs font-medium text-muted-foreground whitespace-nowrap mt-1">
- {cert.year}
- </span>
- </div>
- <p className="text-sm text-muted-foreground mb-3">
- {cert.institution}
- {cert.hours && <span className="text-muted-foreground"> · {cert.hours}</span>}
+ <p className="text-sm text-foreground mb-2">
+ {[cert.hours, cert.format].filter(Boolean).join(" · ")}
  </p>
- <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
+ <span className="inline-flex items-center gap-1.5 text-sm font-extrabold text-foreground underline decoration-primary decoration-2 underline-offset-4">
  {t("certificates.view_details")}
- <ExternalLink className="w-3.5 h-3.5" />
+ <ArrowUpRight className="btn-arrow h-4 w-4 text-primary" aria-hidden="true" />
  </span>
- </CardContent>
+ </div>
  </button>
- </Card>
- </CarouselItem>
+ </RevealItem>
  ))}
- </CarouselContent>
- <CarouselPrevious className="hidden md:flex -left-4" />
- <CarouselNext className="hidden md:flex -right-4" />
- </Carousel>
+ </RevealGroup>
  </div>
  </div>
-
  <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
  <DialogContent className="max-w-4xl p-0 bg-background overflow-hidden max-h-[90vh] overflow-y-auto">
  {selected && (

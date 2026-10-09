@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Sora", "sans-serif"],
-        sans: ["DM Sans", "sans-serif"],
-        serif: ["Instrument Serif", "Georgia", "serif"],
+        display: ["Bricolage Grotesque", "sans-serif"],
+        sans: ["Bricolage Grotesque", "sans-serif"],
+        serif: ["DM Serif Display", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

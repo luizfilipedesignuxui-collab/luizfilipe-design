@@ -100,7 +100,7 @@ const SiteContent = () => {
           <p className="text-muted-foreground mt-1">Edite textos, títulos e links, tudo em um só lugar</p>
         </div>
         {savedSuccess && (
-          <div className="flex items-center gap-2 text-green-600 text-sm font-medium animate-fade-in">
+          <div className="flex items-center gap-2 text-primary text-sm font-medium animate-fade-in">
             <CheckCircle2 className="w-4 h-4" />
             Salvo!
           </div>

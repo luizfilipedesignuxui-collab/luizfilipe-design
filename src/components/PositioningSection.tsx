@@ -1,31 +1,39 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Reveal } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
 
 const PositioningSection = () => {
   const { t } = useLanguage();
+  const pillars = t("positioning.pillars").split("|");
 
   return (
-    <section
-      id="posicionamento"
-      className="scroll-mt-24 py-16 md:py-24 relative overflow-hidden"
-    >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.06] to-transparent" />
-        <div className="absolute top-10 left-1/4 w-72 h-72 rounded-full bg-accent/10 blur-3xl" />
-        <div className="absolute bottom-0 right-1/5 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
-      </div>
+    <section id="posicionamento" className="section-paper scroll-mt-24 py-16 md:py-20">
+      <div className="container mx-auto px-6">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12 items-center">
+          <Reveal>
+            <p className="font-label text-foreground mb-4">{t("positioning.filled_label")}</p>
+            <h2 className="font-display text-[2.75rem] leading-[0.9] md:text-6xl text-primary whitespace-pre-line">
+              <RevealTitle text={t("positioning.headline")} />
+            </h2>
+          </Reveal>
 
-      <Reveal className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto rounded-2xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-10 text-center relative overflow-hidden shadow-[0_20px_60px_-24px_rgba(15,42,74,0.45)]">
-          <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full bg-accent/20 blur-2xl" aria-hidden="true" />
-          <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">
-            {t("positioning.filled_label")}
-          </p>
-          <h2 className="font-display text-lg sm:text-xl md:text-2xl font-bold leading-snug relative z-10">
-            {t("positioning.filled")}
-          </h2>
+          <Reveal delay={0.1} className="border-l-2 border-primary pl-5 lg:pl-12">
+            <p className="text-lg md:text-2xl font-extrabold leading-snug text-foreground max-w-2xl">
+              {t("positioning.filled")}
+            </p>
+            <ul className="mt-5 flex flex-wrap gap-2 list-none p-0">
+              {pillars.map((pillar) => (
+                <li
+                  key={pillar}
+                  className="rounded-full border border-primary bg-white px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm font-extrabold text-foreground"
+                >
+                  {pillar}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 };

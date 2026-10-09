@@ -1,30 +1,34 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Reveal } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
 
 const StatementSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-32 md:py-40 bg-foreground text-background relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-secondary/10 blur-3xl" />
-      </div>
-      <div className="container mx-auto px-6 relative z-10">
-        <Reveal className="text-center mb-10">
-          <p className="font-display text-sm font-semibold text-accent uppercase tracking-widest">
-            {t("statement.bridge")}
-          </p>
-        </Reveal>
-        <Reveal as="blockquote" className="max-w-4xl mx-auto text-center" delay={0.1}>
-          <p className="font-display text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
-            "{t("statement.quote")}{" "}
-            <span className="text-accent">{t("statement.quote_highlight")}</span>"
-          </p>
-          <cite className="block mt-8 text-lg text-background/90 not-italic font-display">
-            Steve Jobs
-          </cite>
-        </Reveal>
+    <section className="section-brand py-16 md:py-20">
+      <div className="container mx-auto px-6">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12 items-center">
+          <Reveal>
+            <p className="font-label text-foreground mb-2">{t("statement.bridge")}</p>
+            <span
+              className="block font-serif-display text-[5rem] md:text-[11rem] leading-[0.8] text-white h-[2.5rem] md:h-[7rem] mt-4 md:mt-0"
+              aria-hidden="true"
+            >
+              “
+            </span>
+          </Reveal>
+
+          <Reveal as="blockquote" delay={0.1} className="border-l-2 border-white pl-5 lg:pl-12">
+            <p className="font-serif-display text-[2rem] md:text-5xl lg:text-6xl leading-tight text-white">
+              <RevealTitle text={`${t("statement.quote")} ${t("statement.quote_highlight")}`} />
+            </p>
+            <footer className="mt-6 flex items-center gap-3">
+              <span className="h-0.5 w-10 bg-white" aria-hidden="true" />
+              <cite className="font-label text-foreground not-italic">Steve Jobs</cite>
+            </footer>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

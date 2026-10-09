@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=DM+Serif+Display&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -24,88 +24,76 @@
   }
 
   :root {
-    --background: 212 33% 96%;
-    --foreground: 217 45% 11%;
+    --color-brand: #ea1d2c;
+    --color-paper: #ffffff;
+    --color-ink: #1a1a1a;
+    --color-whatsapp: #25d366;
 
-    --card: 212 30% 92%;
-    --card-foreground: 217 45% 11%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
-    --popover: 212 33% 96%;
-    --popover-foreground: 217 45% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --primary: 217 45% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 356 83% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 212 40% 35%;
+    --secondary: 356 83% 52%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 212 25% 87%;
-    --muted-foreground: 215 14% 42%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 10%;
 
-    --accent: 29 90% 63%;
-    --accent-foreground: 217 45% 11%;
-    /* Text and icons on light surfaces. Bright accent stays for fills and for text on navy. */
-    --accent-ink: 24 70% 35%;
-    /* Large hero name only. Large text needs 3:1, so this stays closer to the brand orange. */
-    --accent-display: 24 70% 46.75%;
+    --accent: 356 83% 52%;
+    --accent-foreground: 0 0% 100%;
+    --accent-ink: 356 83% 52%;
+    --accent-display: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 14 100% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 212 24% 84%;
-    --input: 212 24% 84%;
-    --ring: 217 45% 13%;
+    --border: 356 83% 52%;
+    --input: 356 83% 52%;
+    --ring: 356 83% 52%;
 
-    --sky-top: 212 45% 88%;
-    --sky-mid: 210 38% 93%;
-    --sky-glow: 0 0% 100%;
+    --radius: 8px;
 
-    --radius: 0.75rem;
+    --gold: 356 83% 52%;
+    --gold-foreground: 0 0% 100%;
 
-    --gold: 45 85% 55%;
-    --gold-foreground: 215 25% 12%;
-
-    --sidebar-background: 220 20% 94%;
-    --sidebar-foreground: 215 25% 12%;
-    --sidebar-primary: 210 70% 22%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 356 83% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 85% 55%;
-    --sidebar-accent-foreground: 215 25% 12%;
-    --sidebar-border: 215 12% 82%;
-    --sidebar-ring: 210 70% 22%;
+    --sidebar-accent: 356 83% 52%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 356 83% 52%;
+    --sidebar-ring: 356 83% 52%;
   }
 
   .dark {
-    --background: 215 25% 8%;
-    --foreground: 220 15% 92%;
-
-    --card: 215 20% 14%;
-    --card-foreground: 220 15% 92%;
-
-    --popover: 215 25% 8%;
-    --popover-foreground: 220 15% 92%;
-
-    --primary: 210 60% 40%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 356 83% 52%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 215 45% 50%;
+    --secondary: 356 83% 52%;
     --secondary-foreground: 0 0% 100%;
-
-    --muted: 215 15% 18%;
-    --muted-foreground: 215 8% 60%;
-
-    --accent: 45 80% 50%;
-    --accent-foreground: 215 25% 8%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 215 15% 18%;
-    --input: 215 15% 18%;
-    --ring: 210 60% 40%;
-
-    --gold: 45 80% 50%;
-    --gold-foreground: 215 25% 8%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 10%;
+    --accent: 356 83% 52%;
+    --accent-foreground: 0 0% 100%;
+    --border: 356 83% 52%;
+    --input: 356 83% 52%;
+    --ring: 356 83% 52%;
+    --gold: 356 83% 52%;
+    --gold-foreground: 0 0% 100%;
   }
 }
 
@@ -116,45 +104,334 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    overflow-x: hidden;
   }
 
   :focus-visible {
-    outline: 3px solid hsl(var(--primary));
+    outline: 2px solid var(--color-brand) !important;
     outline-offset: 3px;
   }
 
+  .section-brand :focus-visible {
+    outline-color: var(--color-paper) !important;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.85;
+  }
+
+  .font-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 
   .font-body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
   }
 
   .font-serif-display {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.15;
   }
 
-  .bg-sky-hero {
-    background:
-      radial-gradient(ellipse 45% 22% at 50% 10%, hsl(var(--sky-glow) / 0.45), transparent 70%),
-      linear-gradient(180deg, hsl(var(--sky-top)) 0%, hsl(var(--sky-mid)) 35%, hsl(var(--sky-top)) 78%, hsl(var(--background)) 100%);
+  .section-brand {
+    --foreground: 0 0% 0%;
+    --muted-foreground: 0 0% 0%;
+    background: var(--color-brand);
+    color: #000000;
+  }
+
+  .section-paper {
+    background: var(--color-paper);
+    color: var(--color-ink);
   }
 
   .glass-card {
-    background: hsl(0 0% 100% / 0.55);
-    border: 1px solid hsl(0 0% 100% / 0.75);
-    box-shadow: 0 18px 40px -18px hsl(217 45% 13% / 0.28);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: var(--color-paper);
+    border: 1px solid var(--color-brand);
   }
+
+  .btn-on-paper,
+  .btn-on-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .btn-on-paper {
+    background: var(--color-brand);
+    color: var(--color-paper);
+    border-color: var(--color-brand);
+  }
+
+  .btn-on-paper:hover {
+    background: var(--color-paper);
+    color: var(--color-brand);
+  }
+
+  .btn-on-paper-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-brand);
+    background: var(--color-paper);
+    color: var(--color-brand);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .btn-on-paper-outline:hover {
+    background: var(--color-brand);
+    color: var(--color-paper);
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-whatsapp);
+    background: var(--color-whatsapp);
+    color: var(--color-ink);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 0.25s, color 0.25s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-compact {
+    min-height: 2.75rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 1.1875rem;
+    white-space: nowrap;
+  }
+
+  .btn-whatsapp:hover {
+    background: var(--color-paper);
+    transform: translateY(-2px);
+  }
+
+  .btn-on-brand {
+    background: var(--color-paper);
+    color: var(--color-brand);
+    border-color: var(--color-paper);
+  }
+
+  .btn-on-brand:hover {
+    background: var(--color-brand);
+    color: var(--color-paper);
+    border-color: var(--color-paper);
+  }
+
+  .site-with-name {
+    --name-size: min(18vh, 40vw);
+    --name-size: min(18svh, 40vw);
+    --name-bleed: 0.24;
+    --name-gutter: calc(var(--name-size) * (0.84 - var(--name-bleed)));
+  }
+
+  .site-with-name .container {
+    padding-right: calc(var(--name-gutter) + 1rem);
+  }
+
+  .side-name {
+    position: fixed;
+    right: calc(var(--name-size) * var(--name-bleed) * -1);
+    bottom: calc(var(--name-size) * -0.06);
+    z-index: 40;
+    margin: 0;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: var(--name-size);
+    letter-spacing: max(0px, calc((100vh - var(--name-size) * 4.45) / 11));
+    letter-spacing: max(0px, calc((100svh - var(--name-size) * 4.45) / 11));
+    white-space: nowrap;
+    color: var(--color-paper);
+    -webkit-text-stroke: 2px var(--color-brand);
+    paint-order: stroke fill;
+  }
+
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--color-paper);
+  }
+
+  .hero-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 8.5rem calc(var(--name-gutter) + 1rem) 3rem 1.5rem;
+  }
+
+  .hero-phrase {
+    margin: 0;
+    color: var(--color-brand);
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    line-height: 1;
+  }
+
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    min-height: 18rem;
+    padding: 2.5rem calc(var(--name-gutter) + 1rem) 2.5rem 1.5rem;
+    background: var(--color-brand);
+  }
+
+  .hero-split--cycle {
+    grid-template-areas: "stage";
+    min-height: 100svh;
+  }
+
+  .hero-split--cycle > .hero-main,
+  .hero-split--cycle > .hero-panel {
+    grid-area: stage;
+  }
+
+  .hero-split--cycle > .hero-panel {
+    z-index: 1;
+    justify-content: center;
+    padding-top: 8.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-with-name {
+      --name-size: clamp(5.5rem, 17vh, 10rem);
+      --name-bleed: 0.1;
+      --name-gutter: calc(var(--name-size) * 0.8);
+    }
+
+    .side-name {
+      letter-spacing: normal;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-with-name {
+      --name-size: clamp(6.5rem, 22vh, 15rem);
+    }
+
+    .hero-split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+      min-height: 100svh;
+    }
+
+    .hero-main {
+      padding: 8rem 4rem 4rem max(2rem, calc((100vw - 1400px) / 2 + 2rem));
+    }
+
+    .hero-panel {
+      padding: 8rem calc(var(--name-gutter) + 2rem) 4rem 3rem;
+    }
+  }
+}
+.side-name {
+  animation: side-name-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  transition: filter 0.35s ease;
+}
+
+/* filter instead of opacity: the entrance animation keeps opacity pinned at 1. */
+.side-name[data-hidden="true"] {
+  filter: opacity(0);
+}
+
+@keyframes side-name-in {
+  from {
+    opacity: 0;
+    transform: rotate(180deg) translateY(-35%);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(180deg) translateY(0);
+  }
+}
+
+.btn-on-paper,
+.btn-on-paper-outline,
+.btn-on-brand {
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-on-paper:hover,
+.btn-on-paper-outline:hover,
+.btn-on-brand:hover {
+  transform: translateY(-2px);
+}
+
+.btn-arrow {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-on-paper-outline:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.lift-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s;
+}
+
+.lift-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.45);
+}
+
+.card-row {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand) transparent;
+}
+
+.card-marquee-track {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.card-marquee:active .card-marquee-track,
+.card-marquee:hover .card-marquee-track,
+.card-marquee:focus-within .card-marquee-track {
+  animation-play-state: paused;
+}
+
+.section-brand .card-row {
+  scrollbar-color: var(--color-paper) transparent;
 }
 
 @keyframes hero-float {

@@ -3,11 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const colors = [
-  { name: "Sand", hex: "#D6CFC6", variable: "--sand" },
-  { name: "Sea", hex: "#63B7C6", variable: "--sea" },
-  { name: "Tropical Teal", hex: "#2E7C83", variable: "--teal" },
-  { name: "Sea Salt", hex: "#8FAFA4", variable: "--sea-salt" },
-  { name: "Foreground", hex: "#1a2332", variable: "--foreground" },
+  { name: "Brand", hex: "#EA1D2C", variable: "--color-brand" },
+  { name: "Paper", hex: "#FFFFFF", variable: "--color-paper" },
+  { name: "Ink", hex: "#1A1A1A", variable: "--color-ink" },
+  { name: "WhatsApp", hex: "#25D366", variable: "--color-whatsapp" },
 ];
 
 const DesignSystemSection = () => {

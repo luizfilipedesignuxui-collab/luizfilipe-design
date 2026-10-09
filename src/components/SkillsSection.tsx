@@ -10,7 +10,9 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionBridge from "@/components/SectionBridge";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
+import CardRow from "@/components/CardRow";
 
 const SkillsSection = () => {
   const { t } = useLanguage();
@@ -37,37 +39,20 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="habilidades" className="scroll-mt-24 py-16 md:py-20">
+    <section id="habilidades" className="section-paper scroll-mt-24 py-16 md:py-20">
       <div className="container mx-auto px-6">
         <Reveal className="mb-8 md:mb-10 max-w-2xl">
           <SectionBridge bridgeKey="skills.bridge" />
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-3">
-            {t("skills.title")}
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-3">
+            <RevealTitle text={t("skills.title")} />
           </h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{t("skills.subtitle")}</p>
         </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-x-12 gap-y-8">
-          {groups.map((group) => (
-            <div key={group.label}>
-              <h3 className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1">
-                {group.label}
-              </h3>
-
-              <RevealGroup as="ul" className="grid sm:grid-cols-2 gap-x-6 list-none m-0 p-0">
-                {group.skills.map((skill) => (
-                  <RevealItem key={skill.title} className="border-t border-border/70 py-3.5">
-                      <h4 className="flex items-center gap-2 font-display font-semibold text-foreground text-sm">
-                        <skill.icon className="w-3.5 h-3.5 text-secondary shrink-0" aria-hidden />
-                        {skill.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">{skill.description}</p>
-                    </RevealItem>
-                ))}
-              </RevealGroup>
-            </div>
-          ))}
-        </div>
+        <CardRow
+          label={t("skills.title")}
+          items={groups.flatMap((group) => group.skills.map((skill) => ({ ...skill, tag: group.label })))}
+        />
       </div>
     </section>
   );

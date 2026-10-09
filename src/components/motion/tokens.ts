@@ -18,3 +18,13 @@ export const revealGroup: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: STAGGER } },
 };
+
+export const titleGroup: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06, delayChildren: 0.05 } },
+};
+
+export const titleWord: Variants = {
+  hidden: { opacity: 0, y: "110%" },
+  visible: { opacity: 1, y: "0%", transition: { duration: 0.9, ease: EASE_OUT } },
+};

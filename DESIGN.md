@@ -3,61 +3,56 @@ version: alpha
 name: Luiz Filipe Portfolio
 description: Portfólio UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.
 colors:
-  primary: "#121D30"
-  secondary: "#356080"
-  tertiary: "#F69E4C"
-  accent-ink: "#984D1B"
-  accent-display: "#CB6724"
-  neutral: "#F1F5F9"
-  sky: "#D5E2F0"
-  success: "#16A34A"
-  warning: "#CA8A04"
-  error: "#DC2626"
+  brand: "#EA1D2C"
+  paper: "#FFFFFF"
+  ink: "#1A1A1A"
+  whatsapp: "#25D366"
 typography:
   h1:
-    fontFamily: Sora
-    fontSize: 3rem
+    fontFamily: Bricolage Grotesque
+    fontSize: clamp(8rem, 28vh, 22rem)
     fontWeight: 800
-    lineHeight: 1.05
-    letterSpacing: -0.03em
+    lineHeight: 0.85
+    letterSpacing: -0.02em
   display-serif:
-    fontFamily: Instrument Serif
-    fontSize: 3.5rem
+    fontFamily: DM Serif Display
+    fontSize: 3.25rem
     fontWeight: 400
-    lineHeight: 0.95
-    letterSpacing: -0.01em
+    lineHeight: 1.15
+    letterSpacing: 0em
   h2:
-    fontFamily: Sora
+    fontFamily: Bricolage Grotesque
     fontSize: 2.5rem
     fontWeight: 800
-    lineHeight: 1.15
+    lineHeight: 0.85
+    letterSpacing: -0.02em
   h3:
-    fontFamily: Sora
+    fontFamily: Bricolage Grotesque
     fontSize: 1.25rem
-    fontWeight: 700
-    lineHeight: 1.3
+    fontWeight: 800
+    lineHeight: 0.85
   body-md:
-    fontFamily: DM Sans
+    fontFamily: Bricolage Grotesque
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.6
   body-sm:
-    fontFamily: DM Sans
+    fontFamily: Bricolage Grotesque
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.5
   label-caps:
-    fontFamily: Sora
+    fontFamily: Bricolage Grotesque
     fontSize: 0.75rem
-    fontWeight: 600
-    lineHeight: 1.33
-    letterSpacing: 0.1em
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: 0.4em
 rounded:
   sm: 8px
-  md: 12px
-  lg: 16px
-  xl: 24px
-  full: 9999px
+  md: 8px
+  lg: 8px
+  xl: 8px
+  full: 8px
 spacing:
   xs: 4px
   sm: 8px
@@ -66,19 +61,19 @@ spacing:
   xl: 32px
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "#FFFFFF"
+    backgroundColor: "{colors.brand}"
+    textColor: "{colors.paper}"
     borderRadius: "{rounded.full}"
     paddingX: "{spacing.lg}"
     paddingY: "{spacing.sm}"
   button-secondary:
     backgroundColor: "transparent"
-    textColor: "{colors.primary}"
-    borderColor: "{colors.primary}"
+    textColor: "{colors.brand}"
+    borderColor: "{colors.brand}"
     borderRadius: "{rounded.full}"
   card:
-    backgroundColor: "#FFFFFF"
-    borderColor: "#C9D0D8"
+    backgroundColor: "{colors.paper}"
+    borderColor: "{colors.brand}"
     borderRadius: "{rounded.xl}"
     padding: "{spacing.lg}"
 ---
@@ -87,29 +82,30 @@ components:
 
 ## Overview
 
-Portfólio pessoal centrado em um nicho: UX/UI e Design Engineering (Figma → React) para startups e negócios digitais que precisam de produtos claros e prontos para converter. Fluxo: hero → sobre → capacidades → método → cases → formação → contato.
-
-Rebranding (out/2026): estética "céu claro + vidro". Fundo em gradiente azul-céu, cards de vidro (`.glass-card`), header flutuante em pílula e hero com foto P&B ao centro, cercada por cards de projetos clicáveis e por um anel de órbita (linha branca + tracejada) visível em todos os tamanhos de tela.
+Portfólio pessoal centrado em UX/UI e Design Engineering. A identidade segue o cartão de visita: fundo vermelho-laranja e o nome em branco, enorme, na vertical, cortado pela borda.
 
 ## Colors
 
-- **Primary** (`#121D30`): navy quase preto: texto principal e CTA sólido.
-- **Secondary** (`#356080`): azul de apoio. Escuro o bastante para texto branco em botão (contraste AA) e para ícones em fundo claro.
-- **Accent / tertiary** (`#F69E4C`): laranja da marca. Vale para preenchimento e para texto sobre o azul-marinho. Em fundo claro o texto usa **accent-ink** (`#984D1B`), que passa 4,5:1.
-- **Sky** (`#D5E2F0`): topo do gradiente do hero (`.bg-sky-hero`).
-- **Neutral** (`#F1F5F9`): fundo da página.
+- **Brand** (`#EA1D2C`): fundo das seções ímpares e títulos em seção branca.
+- **Paper** (`#FFFFFF`): fundo das seções pares e texto grande (a partir de 24px, peso 800) sobre o vermelho.
+- **Ink** (`#1A1A1A`): corpo de texto em seção branca. Em seção vermelha (`.section-brand`) o texto pequeno vira preto puro, porque `#1A1A1A` sobre `#EA1D2C` dá só 3,9:1 e o preto dá 4,7:1.
+- **WhatsApp** (`#25D366`): só o botão e o ícone do WhatsApp.
+- **Botões compactos** (`.btn-compact`, usado no Contato): 44px de altura, texto 19px bold (conta como texto grande para o contraste branco sobre vermelho).
+
+Ritmo da home (nunca duas seções vermelhas seguidas): hero vermelho, sobre branco, áreas de atuação vermelho, posicionamento branco, marquee vermelho, habilidades branco, processo vermelho, projetos branco, statement vermelho, certificados branco, contato vermelho.
 
 ## Typography
 
-- **Display:** Sora (títulos e marca).
-- **Display serif:** Instrument Serif itálica, reservada para destaques pontuais.
-- **Nome no hero:** `h1` em Sora bold; "Luiz Filipe." em accent-display (`#CB6724`). É texto grande, então o contraste exigido é 3:1. O laranja mais escuro (`#984D1B`) fica nos textos pequenos.
-- **Body:** DM Sans (parágrafos e UI).
+- **Display:** Bricolage Grotesque 800, caixa alta, line-height 0.85, letter-spacing -0.02em. Nome do hero e títulos.
+- **Rótulo:** Bricolage Grotesque 500, caixa alta, letter-spacing 0.4em, 12px.
+- **Editorial:** DM Serif Display 400, na frase do hero e no statement.
+- **Corpo:** Bricolage Grotesque 400.
 
 ## Components
 
-- **Header:** moldura em pílula translúcida; logo e CTA "Falar comigo" em pílulas brancas nas pontas; aba central "pendurada" com laterais curvas (lg+) contendo Sobre ▾, Trabalho ▾ (dropdowns), Projetos e idioma.
-- **Hero orbit:** anel 3D colado à cabeça: 2 painéis verticais com capa de projeto nas laterais, 3 chips de projeto (sobre o cabelo, junto ao queixo e ao lado do rosto) e lâminas de vidro decorativas; cada card de projeto é um link para o case.
+- **Header:** barra branca com borda vermelha e cantos de 8px. O menu central continua recebendo clique (a moldura é `pointer-events-none`).
+- **Hero:** `100svh`, fundo `#EA1D2C`. O `h1` "LUIZ" / "FILIPE" fica na vertical (de baixo para cima) no desktop e sangra pela direita e por baixo. No mobile o nome fica horizontal, em duas linhas, cortado na borda direita. A frase e o botão do WhatsApp ficam fora do nome.
+- **Botões:** 8px. No branco, fundo vermelho e texto branco. No vermelho, fundo branco e texto vermelho. Hover inverte.
 
 ## Layout
 
@@ -117,14 +113,15 @@ Fluxo narrativo da home:
 
 1. Hero
 2. Sobre
-3. Posicionamento (card)
-4. Marquee (ponte visual)
-5. Habilidades
-6. Processo
-7. Statement
+3. Áreas de atuação (`#atuacao`)
+4. Posicionamento
+5. Marquee (ponte visual)
+6. Habilidades
+7. Processo
 8. Projetos
-9. Certificados
-10. Contato
+9. Statement
+10. Certificados
+11. Contato
 
 Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 
@@ -133,11 +130,15 @@ Cada seção usa uma linha-ponte (`SectionBridge`) para conectar com a anterior.
 Biblioteca: `motion` (Motion for React). Tokens em `src/components/motion/tokens.ts`.
 
 - **Um só movimento:** fade + subida de 24px, easing `cubic-bezier(0.22, 1, 0.36, 1)`, 0.6s; listas em cascata de 70ms.
-- **Hero:** entra ao carregar, em sequência — nome → foto → cards em órbita → cards de serviço.
-- **Partículas da foto do hero:** `src/components/hero/HeroParticles.tsx` (WebGL, `PARTICLE_CONFIG`). A própria foto se desfaz em pontos com as cores dos pixels, que se espalham, reagem ao mouse e reconstroem a imagem (~4s, só na entrada). Com "reduzir movimento" ativo, a foto aparece estática.
-- **Seções (Posicionamento → Projetos):** `Reveal` / `RevealGroup` + `RevealItem`, disparam uma única vez ao entrar na tela.
+- **Hero:** o nome é tipografia estática. Os cards de serviço abaixo ainda entram em cascata.
+- **Reduzir movimento:** animações globais caem para 0.01ms quando `prefers-reduced-motion` está ativo.
+- **Seções (Posicionamento → Projetos):** `Reveal` / `RevealGroup` + `RevealItem`, repetem toda vez que a seção volta para a tela, inclusive o banner.
 - **Abrir/fechar (cards de serviço):** mesma curva de easing, 0.5s.
+- **Títulos de seção:** `RevealTitle` divide o título em palavras que sobem de trás de uma máscara (110% → 0, 0.9s, cascata de 60ms), repetindo a cada entrada na tela. O texto completo fica em `sr-only` para leitores de tela.
 - `MotionConfig reducedMotion="user"` respeita "reduzir movimento" do sistema.
+- **Mobile (< 768px):** o banner abre no lado branco e alterna com o painel vermelho (wipe por clip-path, 3,5s / 4,5s). As linhas de cards (Habilidades, Processo) viram carrossel automático em loop. Sem botão de pausa: a animação para enquanto o usuário toca/segura ou foca algo dentro dela, e some com "reduzir movimento".
+- **Nome lateral no mobile:** proporção natural (sem esticar), `min(18svh, 40vw)`, de ponta a ponta da altura da tela: o espaçamento entre letras é calculado (`(100svh - tamanho × 4,45) / 11`) para completar a altura sem esticar; a base das letras sangra 24% para fora da borda direita para não espremer o conteúdo (desktop/tablet: sangria de 10%).
+- **Carrossel de cards (Habilidades, Processo), todas as larguras:** loop automático de borda a borda da tela (largura medida em JS), sem corte visível; pausa no hover/toque/foco. Com "reduzir movimento" volta a ser uma fileira com rolagem.
 
 ## Do
 

@@ -40,6 +40,7 @@ const TabCurve = ({ side }: { side: "left" | "right" }) => (
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const { language, toggleLanguage, t } = useLanguage();
@@ -80,7 +81,11 @@ const Header = () => {
   const langLabel = language === "pt" ? t("a11y.switch_to_en") : t("a11y.switch_to_pt");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      setHidden(window.scrollY > 120);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -111,7 +116,7 @@ const Header = () => {
     };
   }, [mobileOpen, openGroup]);
 
-  const tabItemClass = `flex items-center gap-1.5 rounded-full px-3 py-2 text-[13px] font-medium text-foreground/75 hover:text-foreground transition-colors ${focusRing}`;
+  const tabItemClass = `flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-extrabold text-foreground hover:text-primary transition-colors ${focusRing}`;
 
   return (
     <>
@@ -121,11 +126,15 @@ const Header = () => {
       >
         {t("a11y.skip_to_content")}
       </a>
-      <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 transition-transform duration-300 focus-within:translate-y-0 ${
+          hidden && !mobileOpen ? "-translate-y-[130%]" : "translate-y-0"
+        }`}
+      >
         <div className="relative mx-auto max-w-6xl h-[60px] sm:h-[68px]">
           <div
-            className={`pointer-events-none absolute inset-0 rounded-full border border-white/80 backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
-              scrolled ? "bg-white/45 shadow-lg shadow-primary/5" : "bg-white/20"
+            className={`pointer-events-none absolute inset-0 rounded-full border border-primary/30 shadow-[0_10px_30px_-12px_rgba(234,29,44,0.35)] backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
+              scrolled ? "bg-white/70" : "bg-white/40"
             }`}
             aria-hidden="true"
           />
@@ -166,7 +175,7 @@ const Header = () => {
                             <a
                               href={item.href}
                               onClick={() => setOpenGroup(null)}
-                              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
+                              className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-extrabold text-foreground hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
                             >
                               <item.icon className="w-4 h-4 text-secondary" aria-hidden="true" />
                               {item.label}
@@ -197,9 +206,9 @@ const Header = () => {
           <div className="pointer-events-none relative z-10 h-full flex items-center justify-between gap-3 px-1.5 sm:px-2">
             <Link
               to="/"
-              className={`pointer-events-auto flex items-center rounded-full bg-white/90 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
+              className={`pointer-events-auto flex items-center rounded-full bg-white ring-1 ring-primary/30 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
             >
-              <span className="font-display text-sm sm:text-base font-semibold text-foreground">
+              <span className="font-display text-sm sm:text-base font-extrabold text-foreground">
                 Luiz<span className="text-accent-ink">.</span>Filipe
               </span>
             </Link>
@@ -208,7 +217,7 @@ const Header = () => {
               <button
                 type="button"
                 onClick={toggleLanguage}
-                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center gap-1 rounded-full bg-white/80 px-3 text-xs font-semibold text-foreground/80 hover:bg-white transition-colors ${focusRing}`}
+                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center gap-1 rounded-full bg-white ring-1 ring-primary/30 px-3 text-xs font-extrabold text-foreground hover:bg-white transition-colors ${focusRing}`}
                 aria-label={langLabel}
               >
                 <Globe className="w-4 h-4" aria-hidden="true" />
@@ -217,16 +226,16 @@ const Header = () => {
 
               <a
                 href={anchor("#contato")}
-                className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-white/90 pl-6 pr-5 h-12 text-sm font-semibold text-foreground shadow-sm hover:bg-white transition-colors ${focusRing}`}
+                className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-primary pl-6 pr-5 h-12 text-[1.2rem] font-extrabold text-white shadow-sm hover:bg-white hover:text-primary hover:ring-1 hover:ring-primary transition-colors ${focusRing}`}
               >
                 {t("hero.cta_secondary")}
-                <ArrowUpRight className="w-4 h-4 text-accent-ink" aria-hidden="true" />
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
 
               <button
                 ref={menuButtonRef}
                 type="button"
-                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center rounded-full bg-white text-foreground shadow-sm ${focusRing}`}
+                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center rounded-full bg-white ring-1 ring-primary/30 text-foreground shadow-sm ${focusRing}`}
                 onClick={() => setMobileOpen((open) => !open)}
                 aria-label={mobileOpen ? t("a11y.close_menu") : t("a11y.open_menu")}
                 aria-expanded={mobileOpen}
@@ -250,7 +259,7 @@ const Header = () => {
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground/80 hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-extrabold text-foreground hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
                   >
                     <link.icon className="w-4 h-4 text-secondary" aria-hidden="true" />
                     {link.label}

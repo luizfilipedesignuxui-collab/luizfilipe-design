@@ -116,7 +116,7 @@ const CaseStudy = () => {
 
         {project.slug === "desafio-saudavel" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
-            <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+            <div className="p-6 rounded-[8px] border border-primary bg-white">
               <p className="text-muted-foreground">
                 <strong>{t("case.created_by_me")}</strong>, Este aplicativo foi desenvolvido como uma solução pessoal
                 baseada em uma experiência real com amigos, transformando uma dinâmica informal de grupo em uma
@@ -128,16 +128,16 @@ const CaseStudy = () => {
 
         {project.slug === "be-careful-app" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl space-y-4">
-            <div className="p-6 rounded-2xl border-2 border-yellow-400/40 bg-gradient-to-r from-yellow-400/10 via-amber-400/10 to-orange-400/10 flex items-center gap-4">
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-yellow-400/20 flex items-center justify-center">
-                <span className="font-display font-extrabold text-yellow-500 text-2xl">10</span>
+            <div className="p-6 rounded-[8px] border-2 border-primary bg-white flex items-center gap-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center">
+                <span className="font-display font-extrabold text-white text-2xl">10</span>
               </div>
               <div>
                 <h3 className="font-display font-bold text-foreground text-lg">{t("case.grade_highlight")}</h3>
                 <p className="text-muted-foreground text-sm">{t("case.grade_highlight_desc")}</p>
               </div>
             </div>
-            <div className="p-6 rounded-2xl border border-border bg-gradient-to-r from-purple-500/10 to-blue-500/10">
+            <div className="p-6 rounded-[8px] border border-primary bg-white">
               <p className="text-muted-foreground">
                 <strong>{t("case.created_by_me")}</strong>, {t("case.be_careful_intro")}
               </p>
@@ -147,8 +147,8 @@ const CaseStudy = () => {
 
         {project.slug === "marmitagest" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
-            <div className="p-6 rounded-2xl border-2 border-orange-400/40 bg-gradient-to-r from-orange-400/10 via-amber-400/10 to-orange-500/10 flex items-center gap-4">
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center">
+            <div className="p-6 rounded-[8px] border-2 border-primary bg-white flex items-center gap-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center">
                 <span className="text-2xl" aria-hidden>
                   📱
                 </span>

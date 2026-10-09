@@ -42,6 +42,12 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.stats_label": "Números do portfólio",
  "hero.services_label": "Áreas de atuação",
  "hero.eyebrow": "Luiz Filipe · UX/UI Designer & Design Engineer",
+ "hero.phrase": "Bora colocar sua ideia no ar?",
+ "hero.whatsapp": "Falar no WhatsApp",
+ "hero.lead": "Eu desenho a experiência, escrevo o código e entrego seu site rodando. Sem telefone sem fio entre designer e dev.",
+ "hero.panel_label": "Do rabisco ao deploy",
+ "hero.panel_title": "Ideia boa não merece ficar na gaveta.",
+ "hero.panel_note": "Pesquisa, interface e React no mesmo par de mãos.",
  "hero.card_left_title": "Ideias que viram produto no ar.",
  "hero.card_left_desc": "Pesquisa, interface e React em um só fluxo.",
  "hero.card_right_title": "Cases reais, do briefing ao ar.",
@@ -53,6 +59,8 @@ const translations: Record<Language, Record<string, string>> = {
 
  // Positioning
  "positioning.filled_label": "Meu posicionamento",
+ "positioning.headline": "Do Figma\nao código.",
+ "positioning.pillars": "Startups|Negócios digitais|UX/UI + Design Engineering",
  "positioning.filled": "Eu ajudo startups e negócios digitais a lançar produtos claros e prontos para converter através de UX/UI Design e Design Engineering, do Figma ao código.",
 
  // About
@@ -253,6 +261,12 @@ const translations: Record<Language, Record<string, string>> = {
  "hero.stats_label": "Portfolio stats",
  "hero.services_label": "Areas of work",
  "hero.eyebrow": "Luiz Filipe · UX/UI Designer & Design Engineer",
+ "hero.phrase": "Ready to put your idea online?",
+ "hero.whatsapp": "Chat on WhatsApp",
+ "hero.lead": "I design the experience, write the code and ship your site live. No broken telephone between designer and developer.",
+ "hero.panel_label": "From sketch to deploy",
+ "hero.panel_title": "Good ideas don't belong in a drawer.",
+ "hero.panel_note": "Research, interface and React in the same pair of hands.",
  "hero.card_left_title": "Ideas that become live products.",
  "hero.card_left_desc": "Research, interface and React in one flow.",
  "hero.card_right_title": "Real cases, from brief to launch.",
@@ -264,6 +278,8 @@ const translations: Record<Language, Record<string, string>> = {
 
  // Positioning
  "positioning.filled_label": "My positioning",
+ "positioning.headline": "From Figma\nto code.",
+ "positioning.pillars": "Startups|Digital businesses|UX/UI + Design Engineering",
  "positioning.filled": "I help startups and digital businesses ship clear, conversion-ready products through UX/UI Design and Design Engineering, from Figma to code.",
 
  // About

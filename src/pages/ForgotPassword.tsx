@@ -39,8 +39,8 @@ const ForgotPassword = () => {
       <div className="w-full max-w-sm space-y-8">
         {sent ? (
           <div className="text-center space-y-4">
-            <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto">
-              <CheckCircle className="w-8 h-8 text-green-500" />
+            <div className="w-16 h-16 rounded-[8px] bg-primary flex items-center justify-center mx-auto">
+              <CheckCircle className="w-8 h-8 text-white" />
             </div>
             <h1 className="font-display text-2xl font-extrabold text-foreground">
               Email enviado!

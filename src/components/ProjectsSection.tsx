@@ -5,6 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useProjectLocale } from "@/hooks/useProjectLocale";
 import SectionBridge from "@/components/SectionBridge";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
 
 const ProjectsSection = () => {
   const { projects } = usePublishedProjects();
@@ -12,14 +13,14 @@ const ProjectsSection = () => {
   const { loc } = useProjectLocale();
 
   return (
-    <section id="projetos" className="scroll-mt-24 py-24 md:py-32 bg-card/40">
+    <section id="projetos" className="section-paper scroll-mt-24 py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <Reveal className="mb-12 md:mb-16">
+        <Reveal className="mb-8 md:mb-12">
           <SectionBridge bridgeKey="projects.bridge" />
-          <h2 className="font-display text-5xl md:text-6xl font-extrabold text-foreground mb-4">
-            {t("projects.title")}
+          <h2 className="font-display text-[2.75rem] leading-[0.9] md:text-6xl font-extrabold text-primary mb-4">
+            <RevealTitle text={t("projects.title")} />
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl">
             {t("projects.subtitle")}
           </p>
         </Reveal>
@@ -37,66 +38,59 @@ const ProjectsSection = () => {
             </p>
           </Reveal>
         ) : (
-          <RevealGroup as="ul" className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 list-none m-0 p-0">
+          <RevealGroup as="ul" className="flex flex-wrap justify-center gap-4 md:gap-6 list-none m-0 p-0">
             {projects.map((project) => {
               const l = loc(project);
               return (
-                <RevealItem key={project.id}>
-                <Link
-                  to={`/projetos/${project.slug}`}
-                  className="group flex flex-col h-full rounded-3xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                <RevealItem
+                  key={project.id}
+                  className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
                 >
-                  <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
+                  <Link
+                    to={`/projetos/${project.slug}`}
+                    className="lift-card group relative block aspect-[16/11] overflow-hidden rounded-[8px] border border-primary bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
                     {project.imagem_capa ? (
-                      <img
-                        src={project.imagem_capa}
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-contain group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-500"
-                      />
+                      <>
+                        <img
+                          src={project.imagem_capa}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-xl"
+                        />
+                        <img
+                          src={project.imagem_capa}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-x-0 top-0 bottom-[2.125rem] h-[calc(100%-2.125rem)] w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </>
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-                        <span className="font-display font-extrabold text-primary/40 text-4xl">
-                          {l.titulo.charAt(0)}
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 group-focus-visible:bg-foreground/55 transition-all duration-500 hidden sm:flex items-center justify-center" aria-hidden="true">
-                      <span className="text-background font-display font-bold text-sm md:text-base opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500 flex items-center gap-2">
-                        {t("projects.view_case")} <ArrowRight className="w-4 h-4" />
+                      <span
+                        className="absolute inset-0 flex items-center justify-center font-display text-6xl text-primary/40"
+                        aria-hidden="true"
+                      >
+                        {l.titulo.charAt(0)}
                       </span>
-                    </div>
-                  </div>
+                    )}
 
-                  <div className="flex flex-1 flex-col p-5 sm:p-6 space-y-3">
-                    <span className="font-display text-xs text-primary font-semibold uppercase tracking-widest">
+                    <span className="absolute left-3 top-3 rounded-full bg-white px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.15em] text-foreground shadow-sm">
                       {l.categoria}
                     </span>
-                    <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary group-focus-visible:text-primary transition-colors leading-snug">
-                      {l.titulo}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
-                      {l.descricao}
-                    </p>
-                    {project.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {project.tags.slice(0, 4).map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <span className="inline-flex items-center gap-1.5 pt-2 text-sm font-display font-semibold text-primary sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100 transition-opacity">
-                      {t("projects.view_case")}
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </span>
-                  </div>
-                </Link>
+
+                    <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-primary px-4 py-2">
+                      <h3 className="min-w-0 truncate font-display text-[1.2rem] text-white leading-tight pt-0.5">
+                        {l.titulo}
+                      </h3>
+                      <ArrowRight
+                        className="h-4 w-4 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </Link>
                 </RevealItem>
               );
             })}

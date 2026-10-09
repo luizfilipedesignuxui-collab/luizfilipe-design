@@ -2,7 +2,11 @@ import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { revealGroup, revealItem } from "./tokens";
 
-const viewport = { once: true, amount: 0.2 } as const;
+/** Replays every time the block re-enters the viewport, so every section feels the same. */
+export const viewport = { once: false, amount: 0.2 } as const;
+
+/** Tall lists (stacked cards on mobile) never reach a percentage threshold, so groups trigger on entry. */
+const groupViewport = { once: false, amount: 0, margin: "0px 0px -15% 0px" } as const;
 
 type Tag = "div" | "header" | "ul" | "ol" | "li" | "blockquote";
 
@@ -13,7 +17,7 @@ type RevealProps = {
   delay?: number;
 };
 
-/** Fades and lifts its content once it scrolls into view. */
+/** Fades and lifts its content whenever it scrolls into view. */
 export const Reveal = ({ children, className, as = "div", delay = 0 }: RevealProps) => {
   const Component = motion[as];
   return (
@@ -38,7 +42,7 @@ export const RevealGroup = ({ children, className, as = "div" }: Omit<RevealProp
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={groupViewport}
       variants={revealGroup}
     >
       {children}

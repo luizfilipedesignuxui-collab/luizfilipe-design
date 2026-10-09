@@ -34,17 +34,17 @@ const CaseBeforeAfter = ({ data, isEn }: Props) => {
       key: "antes",
       tela: data.antes,
       titulo: isEn ? "Old screen" : "Tela antiga",
-      badge: "bg-red-600/10 text-red-700",
+      badge: "bg-primary/10 text-primary",
       Icon: X,
-      iconClass: "bg-red-600/10 text-red-700",
+      iconClass: "bg-primary/10 text-primary",
     },
     {
       key: "depois",
       tela: data.depois,
       titulo: isEn ? "New screen" : "Tela nova",
-      badge: "bg-green-600/15 text-green-800",
+      badge: "bg-primary text-white",
       Icon: Check,
-      iconClass: "bg-green-600/15 text-green-800",
+      iconClass: "bg-primary text-white",
     },
   ];
 

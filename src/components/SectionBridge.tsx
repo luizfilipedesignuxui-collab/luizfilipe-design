@@ -10,7 +10,7 @@ const SectionBridge = ({ bridgeKey, className = "" }: SectionBridgeProps) => {
   const { t } = useLanguage();
   return (
     <p
-      className={`font-display text-sm font-semibold text-primary uppercase tracking-widest mb-3 ${className}`}
+      className={`font-label text-foreground mb-3 ${className}`}
     >
       {t(bridgeKey)}
     </p>

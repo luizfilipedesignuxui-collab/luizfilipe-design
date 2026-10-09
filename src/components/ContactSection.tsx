@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/Reveal";
+import { RevealTitle } from "@/components/motion/RevealTitle";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionBridge from "@/components/SectionBridge";
@@ -13,8 +13,6 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 
 const ContactSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
   const { content } = useSiteContent();
   const { t } = useLanguage();
 
@@ -23,80 +21,63 @@ const ContactSection = () => {
   const email = content.contact_email || "luizfilipe.designuxui@gmail.com";
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const rowClass =
+    "group flex items-center justify-center sm:justify-start gap-2 sm:gap-3 rounded-full border border-primary/30 sm:border-transparent min-h-11 px-4 py-2 text-foreground hover:bg-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
   return (
-    <section id="contato" className="scroll-mt-24 py-24 md:py-32 bg-sand-light/50">
-      <div ref={ref} className="container mx-auto px-6">
-        <div className={`max-w-2xl mx-auto text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <SectionBridge bridgeKey="contact.bridge" className="text-center" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 whitespace-pre-line">
-            {title}
-          </h2>
-          <p className="text-lg text-muted-foreground mb-10">
-            {subtitle}
-          </p>
+    <section id="contato" className="section-brand scroll-mt-24 py-16 md:py-20">
+      <div className="container mx-auto px-6">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <Reveal>
+            <SectionBridge bridgeKey="contact.bridge" />
+            <h2 className="font-display text-[2.25rem] leading-[0.95] md:text-5xl text-white mb-4 whitespace-pre-line"><RevealTitle text={title} /></h2>
+            <p className="text-base md:text-lg text-foreground max-w-lg">{subtitle}</p>
+          </Reveal>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Button size="lg" className="rounded-full px-10" asChild>
-              <a href={`mailto:${email}`}>
+          <Reveal delay={0.1} className="rounded-[8px] bg-white p-5 sm:p-6">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a href={`mailto:${email}`} className="btn-on-paper btn-compact w-full">
                 {t("contact.cta")}
               </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full px-10 bg-[#25D366] hover:bg-[#25D366]/90 text-white border-[#25D366] hover:text-white"
-              asChild
-            >
               <a
                 href="https://wa.me/5562992776534"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`WhatsApp (${t("a11y.opens_new_tab")})`}
+                className="btn-whatsapp btn-compact w-full gap-2"
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 WhatsApp
               </a>
-            </Button>
-          </div>
+            </div>
 
-          <ul className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap list-none m-0 p-0">
-            <li>
-            <a
-              href={`mailto:${email}`}
-              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-            >
-              <Mail className="w-5 h-5 text-primary" aria-hidden="true" />
-              <span className="text-foreground font-medium">{email}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
-            </a>
-            </li>
-            <li>
-            <a
-              href={linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              aria-label={`LinkedIn (${t("a11y.opens_new_tab")})`}
-            >
-              <Linkedin className="w-5 h-5 text-primary" aria-hidden="true" />
-              <span className="text-foreground font-medium">LinkedIn</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
-            </a>
-            </li>
-          </ul>
+            <ul className="mt-4 border-t border-primary/20 pt-3 list-none px-0 pb-0 grid grid-cols-1 gap-2 sm:gap-1">
+              <li>
+                <a href={`mailto:${email}`} className={rowClass} aria-label={`E-mail: ${email}`}>
+                  <Mail className="w-5 h-5 text-primary group-hover:text-white shrink-0" aria-hidden="true" />
+                  <span className="font-medium underline underline-offset-4 sm:hidden">E-mail</span>
+                  <span className="hidden sm:inline font-medium underline underline-offset-4 break-all">{email}</span>
+                  <ArrowUpRight className="hidden sm:block w-4 h-4 ml-auto shrink-0" aria-hidden="true" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={rowClass}
+                  aria-label={`LinkedIn (${t("a11y.opens_new_tab")})`}
+                >
+                  <Linkedin className="w-5 h-5 text-primary group-hover:text-white shrink-0" aria-hidden="true" />
+                  <span className="font-medium underline underline-offset-4">LinkedIn</span>
+                  <ArrowUpRight className="hidden sm:block w-4 h-4 ml-auto shrink-0" aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
+          </Reveal>
         </div>
       </div>
     </section>
   );
 };
-
 export default ContactSection;

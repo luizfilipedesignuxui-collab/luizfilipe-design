@@ -125,7 +125,7 @@ const Dashboard = () => {
                   <h3 className="font-display font-semibold text-sm text-foreground truncate">{project.titulo}</h3>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="text-xs px-1.5 py-0.5 rounded-full bg-accent/15 text-accent-ink font-semibold">{project.categoria}</span>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${project.is_published ? "bg-green-500/15 text-green-600" : "bg-muted text-muted-foreground"}`}>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${project.is_published ? "bg-primary text-white" : "bg-white text-foreground border border-primary"}`}>
                       {project.is_published ? "Publicado" : "Rascunho"}
                     </span>
                   </div>
