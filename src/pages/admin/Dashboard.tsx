@@ -117,15 +117,15 @@ const Dashboard = () => {
                     <img src={project.imagem_capa} alt={project.titulo} className="w-full h-full object-contain" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-display font-bold text-primary text-sm">{project.titulo.charAt(0)}</span>
+                      <span className="font-display font-bold text-primary-hover text-sm">{project.titulo.charAt(0)}</span>
                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-display font-semibold text-sm text-foreground truncate">{project.titulo}</h3>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-accent/15 text-accent-ink font-semibold">{project.categoria}</span>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${project.is_published ? "bg-primary text-white" : "bg-white text-foreground border border-primary"}`}>
+                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-sand text-primary-hover font-semibold">{project.categoria}</span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${project.is_published ? "bg-success text-white" : "bg-white text-foreground border border-border"}`}>
                       {project.is_published ? "Publicado" : "Rascunho"}
                     </span>
                   </div>

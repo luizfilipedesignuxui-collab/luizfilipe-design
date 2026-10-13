@@ -96,7 +96,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
               {specialties.map((s) => (
                 <div key={s.title} className="p-4 sm:p-5 rounded-2xl border border-border bg-card/30 hover:border-primary/40 transition-colors">
-                  <h3 className="font-display text-base sm:text-xl font-extrabold text-primary leading-tight">{s.title}</h3>
+                  <h3 className="font-display text-base sm:text-xl font-extrabold text-primary-hover leading-tight">{s.title}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{s.desc}</p>
                 </div>
               ))}

@@ -68,7 +68,7 @@ const mapPublishedProject = (p: any): PublishedProject => {
     metricas: staticMatch?.metricas,
     antes_depois: staticMatch?.antes_depois,
     tags: p.tags ?? [],
-    link_projeto: p.link_projeto ?? "",
+    link_projeto: staticMatch?.link_projeto || p.link_projeto || "",
     titulo_en: p.titulo_en || staticMatch?.titulo_en || "",
     descricao_en: staticMatch?.descricao_en || p.descricao_en || "",
     categoria_en: p.categoria_en || staticMatch?.categoria_en || "",

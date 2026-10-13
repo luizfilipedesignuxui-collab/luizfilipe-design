@@ -101,7 +101,7 @@ const HeroSection = () => {
 
         <motion.div
           ref={panelRef}
-          className="hero-panel section-brand"
+          className="hero-panel"
           initial={cycle ? "hidden" : undefined}
           animate={sideState("brand")}
           variants={{

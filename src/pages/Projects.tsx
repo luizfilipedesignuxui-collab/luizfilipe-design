@@ -53,7 +53,7 @@ const Projects = () => {
                   <Link
                     to={`/projetos/${project.slug}`}
                     key={project.id}
-                    className="group flex flex-col rounded-3xl overflow-hidden border border-border bg-card/30 hover:border-primary/30 hover:shadow-2xl transition-all duration-500"
+                    className="group flex flex-col rounded-3xl overflow-hidden border border-border bg-card hover:border-primary/40 hover:shadow-md transition-all duration-500"
                   >
                     <div className="aspect-[16/10] bg-primary/5 relative overflow-hidden">
                       {project.imagem_capa ? (
@@ -80,10 +80,10 @@ const Projects = () => {
                       </div>
                     </div>
                     <div className="flex flex-1 flex-col p-5 sm:p-6 space-y-3">
-                      <span className="font-display text-xs text-primary font-semibold uppercase tracking-widest">
+                      <span className="font-display text-xs text-primary-hover font-semibold uppercase tracking-widest">
                         {l.categoria}
                       </span>
-                      <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors leading-snug">
+                      <h3 className="font-display font-extrabold text-lg sm:text-xl text-foreground group-hover:text-primary-hover transition-colors leading-snug">
                         {l.titulo}
                       </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
@@ -91,12 +91,12 @@ const Projects = () => {
                       </p>
                       <div className="flex flex-wrap gap-2 pt-1">
                         {project.ferramentas.map((tool) => (
-                          <span key={tool} className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                          <span key={tool} className="text-xs px-2 py-0.5 rounded-full bg-sand text-primary-hover font-medium">
                             {tool}
                           </span>
                         ))}
                       </div>
-                      <span className="inline-flex items-center gap-1.5 pt-1 text-sm font-display font-semibold text-primary sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                      <span className="inline-flex items-center gap-1.5 pt-1 text-sm font-display font-semibold text-primary-hover sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                         {t("projects.view_case")}
                         <ArrowRight className="w-4 h-4" />
                       </span>

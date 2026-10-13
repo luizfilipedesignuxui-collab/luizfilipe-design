@@ -23,7 +23,7 @@ const ProcessSection = () => {
       <div className="container mx-auto px-6">
         <Reveal as="header" className="mb-8 md:mb-10 max-w-2xl">
           <SectionBridge bridgeKey="process.bridge" />
-          <h2 id="process-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-3">
+          <h2 id="process-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-3">
             <RevealTitle text={t("process.title")} />
           </h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{t("process.subtitle")}</p>

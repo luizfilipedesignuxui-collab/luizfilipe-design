@@ -22,7 +22,7 @@ const AreasSection = () => {
       <div className="container mx-auto px-6">
         <Reveal className="mb-10 max-w-2xl">
           <p className="font-label text-foreground mb-3">{t("hero.card_left_title")}</p>
-          <h2 id="areas-heading" className="font-display text-4xl md:text-5xl text-white mb-4">
+          <h2 id="areas-heading" className="font-display text-4xl md:text-5xl text-primary mb-4">
             <RevealTitle text={t("hero.services_label")} />
           </h2>
           <p className="text-base text-foreground">{t("hero.card_left_desc")}</p>
@@ -31,7 +31,7 @@ const AreasSection = () => {
         <RevealGroup as="ul" className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none m-0 p-0">
           {services.map((service) => (
             <RevealItem key={service.title} className="h-full">
-              <div className="lift-card group flex h-full flex-col gap-4 rounded-[8px] bg-white p-6">
+              <div className="lift-card group flex h-full flex-col gap-4 rounded-[8px] border border-border bg-white p-6">
                 <span
                   className="w-11 h-11 rounded-[8px] bg-primary flex items-center justify-center transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
                   aria-hidden="true"

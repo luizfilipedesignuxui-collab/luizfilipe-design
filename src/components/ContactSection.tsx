@@ -22,7 +22,7 @@ const ContactSection = () => {
   const linkedin = content.contact_linkedin || "https://www.linkedin.com/in/luiz-filipe-cardoso";
 
   const rowClass =
-    "group flex items-center justify-center sm:justify-start gap-2 sm:gap-3 rounded-full border border-primary/30 sm:border-transparent min-h-11 px-4 py-2 text-foreground hover:bg-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    "group flex items-center justify-center sm:justify-start gap-2 sm:gap-3 rounded-full border border-border sm:border-transparent min-h-11 px-4 py-2 text-foreground hover:bg-primary-hover hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
   return (
     <section id="contato" className="section-brand scroll-mt-24 py-16 md:py-20">
@@ -30,7 +30,7 @@ const ContactSection = () => {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <Reveal>
             <SectionBridge bridgeKey="contact.bridge" />
-            <h2 className="font-display text-[2.25rem] leading-[0.95] md:text-5xl text-white mb-4 whitespace-pre-line"><RevealTitle text={title} /></h2>
+            <h2 className="font-display text-[2.25rem] leading-[0.95] md:text-5xl text-primary mb-4 whitespace-pre-line"><RevealTitle text={title} /></h2>
             <p className="text-base md:text-lg text-foreground max-w-lg">{subtitle}</p>
           </Reveal>
 
@@ -51,10 +51,10 @@ const ContactSection = () => {
               </a>
             </div>
 
-            <ul className="mt-4 border-t border-primary/20 pt-3 list-none px-0 pb-0 grid grid-cols-1 gap-2 sm:gap-1">
+            <ul className="mt-4 border-t border-border pt-3 list-none px-0 pb-0 grid grid-cols-1 gap-2 sm:gap-1">
               <li>
                 <a href={`mailto:${email}`} className={rowClass} aria-label={`E-mail: ${email}`}>
-                  <Mail className="w-5 h-5 text-primary group-hover:text-white shrink-0" aria-hidden="true" />
+                  <Mail className="w-5 h-5 text-primary-hover group-hover:text-white shrink-0" aria-hidden="true" />
                   <span className="font-medium underline underline-offset-4 sm:hidden">E-mail</span>
                   <span className="hidden sm:inline font-medium underline underline-offset-4 break-all">{email}</span>
                   <ArrowUpRight className="hidden sm:block w-4 h-4 ml-auto shrink-0" aria-hidden="true" />
@@ -68,7 +68,7 @@ const ContactSection = () => {
                   className={rowClass}
                   aria-label={`LinkedIn (${t("a11y.opens_new_tab")})`}
                 >
-                  <Linkedin className="w-5 h-5 text-primary group-hover:text-white shrink-0" aria-hidden="true" />
+                  <Linkedin className="w-5 h-5 text-primary-hover group-hover:text-white shrink-0" aria-hidden="true" />
                   <span className="font-medium underline underline-offset-4">LinkedIn</span>
                   <ArrowUpRight className="hidden sm:block w-4 h-4 ml-auto shrink-0" aria-hidden="true" />
                 </a>

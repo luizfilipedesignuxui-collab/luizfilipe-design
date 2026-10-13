@@ -25,7 +25,7 @@ const PositioningSection = () => {
               {pillars.map((pillar) => (
                 <li
                   key={pillar}
-                  className="rounded-full border border-primary bg-white px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm font-extrabold text-foreground"
+                  className="rounded-full border border-border bg-white px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm font-extrabold text-foreground"
                 >
                   {pillar}
                 </li>

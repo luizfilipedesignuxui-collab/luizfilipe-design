@@ -94,7 +94,7 @@ const ResetPassword = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <div className="w-16 h-16 rounded-[8px] bg-primary flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-[8px] bg-success flex items-center justify-center mx-auto">
             <CheckCircle className="w-8 h-8 text-white" />
           </div>
           <h1 className="font-display text-2xl font-extrabold text-foreground">

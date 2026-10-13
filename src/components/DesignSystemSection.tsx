@@ -3,10 +3,15 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const colors = [
-  { name: "Brand", hex: "#EA1D2C", variable: "--color-brand" },
-  { name: "Paper", hex: "#FFFFFF", variable: "--color-paper" },
-  { name: "Ink", hex: "#1A1A1A", variable: "--color-ink" },
-  { name: "WhatsApp", hex: "#25D366", variable: "--color-whatsapp" },
+  { name: "Tangerina Terrosa", hex: "#E85A24", variable: "--color-brand" },
+  { name: "Terracota Escura", hex: "#C44A1C", variable: "--color-brand-hover" },
+  { name: "Pêssego Suave", hex: "#F3B99B", variable: "--color-accent" },
+  { name: "Branco", hex: "#FFFFFF", variable: "--color-paper" },
+  { name: "Grafite Quente", hex: "#26211E", variable: "--color-ink" },
+  { name: "Areia Clara", hex: "#FAF5F0", variable: "--color-sand" },
+  { name: "Bege Rosado", hex: "#E8D5C7", variable: "--color-line" },
+  { name: "Cinza Quente", hex: "#716761", variable: "--color-muted" },
+  { name: "Verde Oliva", hex: "#536747", variable: "--color-success" },
 ];
 
 const DesignSystemSection = () => {
@@ -54,12 +59,12 @@ const DesignSystemSection = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-6 rounded-2xl border border-border bg-background">
                 <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">{t("ds.titles")}</p>
-                <p className="font-display text-3xl font-bold text-foreground">Space Grotesk</p>
+                <p className="font-display text-3xl font-bold text-foreground">Bricolage Grotesque</p>
                 <p className="font-display text-lg text-muted-foreground mt-2">Aa Bb Cc Dd Ee Ff Gg</p>
               </div>
               <div className="p-6 rounded-2xl border border-border bg-background">
                 <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider">{t("ds.body")}</p>
-                <p className="text-3xl font-semibold text-foreground">Inter</p>
+                <p className="font-serif-display text-3xl text-foreground">DM Serif Display</p>
                 <p className="text-lg text-muted-foreground mt-2">Aa Bb Cc Dd Ee Ff Gg</p>
               </div>
             </div>

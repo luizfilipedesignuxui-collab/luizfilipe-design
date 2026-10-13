@@ -116,7 +116,7 @@ const Header = () => {
     };
   }, [mobileOpen, openGroup]);
 
-  const tabItemClass = `flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-extrabold text-foreground hover:text-primary transition-colors ${focusRing}`;
+  const tabItemClass = `flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-extrabold text-foreground hover:text-primary-hover transition-colors ${focusRing}`;
 
   return (
     <>
@@ -133,7 +133,7 @@ const Header = () => {
       >
         <div className="relative mx-auto max-w-6xl h-[60px] sm:h-[68px]">
           <div
-            className={`pointer-events-none absolute inset-0 rounded-full border border-primary/30 shadow-[0_10px_30px_-12px_rgba(234,29,44,0.35)] backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
+            className={`pointer-events-none absolute inset-0 rounded-full border border-border shadow-[0_10px_30px_-12px_rgba(38,33,30,0.12)] backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
               scrolled ? "bg-white/70" : "bg-white/40"
             }`}
             aria-hidden="true"
@@ -177,7 +177,7 @@ const Header = () => {
                               onClick={() => setOpenGroup(null)}
                               className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-extrabold text-foreground hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
                             >
-                              <item.icon className="w-4 h-4 text-secondary" aria-hidden="true" />
+                              <item.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                               {item.label}
                             </a>
                           </li>
@@ -206,7 +206,7 @@ const Header = () => {
           <div className="pointer-events-none relative z-10 h-full flex items-center justify-between gap-3 px-1.5 sm:px-2">
             <Link
               to="/"
-              className={`pointer-events-auto flex items-center rounded-full bg-white ring-1 ring-primary/30 px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
+              className={`pointer-events-auto flex items-center rounded-full bg-white ring-1 ring-border px-5 sm:px-6 h-11 sm:h-12 shadow-sm hover:bg-white transition-colors select-none ${focusRing}`}
             >
               <span className="font-display text-sm sm:text-base font-extrabold text-foreground">
                 Luiz<span className="text-accent-ink">.</span>Filipe
@@ -217,7 +217,7 @@ const Header = () => {
               <button
                 type="button"
                 onClick={toggleLanguage}
-                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center gap-1 rounded-full bg-white ring-1 ring-primary/30 px-3 text-xs font-extrabold text-foreground hover:bg-white transition-colors ${focusRing}`}
+                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center gap-1 rounded-full bg-white ring-1 ring-border px-3 text-xs font-extrabold text-foreground hover:bg-white transition-colors ${focusRing}`}
                 aria-label={langLabel}
               >
                 <Globe className="w-4 h-4" aria-hidden="true" />
@@ -226,7 +226,7 @@ const Header = () => {
 
               <a
                 href={anchor("#contato")}
-                className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-primary pl-6 pr-5 h-12 text-[1.2rem] font-extrabold text-white shadow-sm hover:bg-white hover:text-primary hover:ring-1 hover:ring-primary transition-colors ${focusRing}`}
+                className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-primary pl-6 pr-5 h-12 text-[1.2rem] font-extrabold text-white shadow-sm hover:bg-primary-hover hover:text-white hover:ring-1 hover:ring-primary-hover transition-colors ${focusRing}`}
               >
                 {t("hero.cta_secondary")}
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -235,7 +235,7 @@ const Header = () => {
               <button
                 ref={menuButtonRef}
                 type="button"
-                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center rounded-full bg-white ring-1 ring-primary/30 text-foreground shadow-sm ${focusRing}`}
+                className={`lg:hidden min-h-11 min-w-11 inline-flex items-center justify-center rounded-full bg-white ring-1 ring-border text-foreground shadow-sm ${focusRing}`}
                 onClick={() => setMobileOpen((open) => !open)}
                 aria-label={mobileOpen ? t("a11y.close_menu") : t("a11y.open_menu")}
                 aria-expanded={mobileOpen}
@@ -261,7 +261,7 @@ const Header = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-extrabold text-foreground hover:bg-white hover:text-foreground transition-colors ${focusRing}`}
                   >
-                    <link.icon className="w-4 h-4 text-secondary" aria-hidden="true" />
+                    <link.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                     {link.label}
                   </a>
                 </li>

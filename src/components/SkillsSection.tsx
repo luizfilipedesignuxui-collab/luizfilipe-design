@@ -50,6 +50,7 @@ const SkillsSection = () => {
         </Reveal>
 
         <CardRow
+          moving={false}
           label={t("skills.title")}
           items={groups.flatMap((group) => group.skills.map((skill) => ({ ...skill, tag: group.label })))}
         />

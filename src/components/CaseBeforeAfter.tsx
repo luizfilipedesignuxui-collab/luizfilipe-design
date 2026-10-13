@@ -34,9 +34,9 @@ const CaseBeforeAfter = ({ data, isEn }: Props) => {
       key: "antes",
       tela: data.antes,
       titulo: isEn ? "Old screen" : "Tela antiga",
-      badge: "bg-primary/10 text-primary",
+      badge: "bg-sand text-primary-hover",
       Icon: X,
-      iconClass: "bg-primary/10 text-primary",
+      iconClass: "bg-sand text-primary-hover",
     },
     {
       key: "depois",
@@ -112,7 +112,7 @@ const CaseBeforeAfter = ({ data, isEn }: Props) => {
             {data.wcag.criterios.map((c) => (
               <li key={c.codigo} className="p-4 rounded-2xl bg-background border border-border space-y-1">
                 <p className="font-display font-bold text-sm text-foreground">
-                  <span className="text-primary tabular-nums mr-1.5">{c.codigo}</span>
+                  <span className="text-primary-hover tabular-nums mr-1.5">{c.codigo}</span>
                   {(isEn && c.nome_en) || c.nome}
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">

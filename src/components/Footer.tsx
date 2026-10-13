@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   const linkClass =
-    "text-sm font-extrabold text-foreground underline decoration-primary decoration-2 underline-offset-4 hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    "text-sm font-extrabold text-foreground underline decoration-primary decoration-2 underline-offset-4 hover:text-primary-hover transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
   const connectLinks = [
     { label: "Email", href: `mailto:${email}` },
@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   const pillClass =
-    "inline-flex items-center gap-1 rounded-full border-2 border-primary px-5 py-2 text-sm font-extrabold text-foreground no-underline hover:bg-primary hover:text-white transition-colors lg:rounded-sm lg:border-0 lg:px-0 lg:py-0 lg:text-foreground lg:underline lg:decoration-primary lg:decoration-2 lg:underline-offset-4 lg:hover:bg-transparent lg:hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    "inline-flex items-center gap-1 rounded-full border-2 border-primary px-5 py-2 text-sm font-extrabold text-foreground no-underline hover:bg-primary-hover hover:text-white transition-colors lg:rounded-sm lg:border-0 lg:px-0 lg:py-0 lg:text-foreground lg:underline lg:decoration-primary lg:decoration-2 lg:underline-offset-4 lg:hover:bg-transparent lg:hover:text-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
   return (
     <footer className="section-paper border-t-4 border-primary py-10">
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-5 border-t border-primary/30 flex flex-col items-center gap-1 text-center lg:flex-row lg:justify-between lg:gap-2">
+        <div className="mt-8 pt-5 border-t border-border flex flex-col items-center gap-1 text-center lg:flex-row lg:justify-between lg:gap-2">
           <p className="text-xs text-foreground">{t("footer.rights")}</p>
           <p className="text-xs text-foreground">{t("footer.made_with")}</p>
         </div>

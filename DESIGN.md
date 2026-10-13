@@ -3,9 +3,15 @@ version: alpha
 name: Luiz Filipe Portfolio
 description: Portfólio UX/UI e Design Engineering para startups e negócios digitais: do Figma ao produto no ar.
 colors:
-  brand: "#EA1D2C"
+  brand: "#E85A24"
+  brandHover: "#C44A1C"
+  accent: "#F3B99B"
   paper: "#FFFFFF"
-  ink: "#1A1A1A"
+  ink: "#26211E"
+  sand: "#FAF5F0"
+  border: "#E8D5C7"
+  muted: "#716761"
+  success: "#536747"
   whatsapp: "#25D366"
 typography:
   h1:
@@ -73,7 +79,7 @@ components:
     borderRadius: "{rounded.full}"
   card:
     backgroundColor: "{colors.paper}"
-    borderColor: "{colors.brand}"
+    borderColor: "{colors.border}"
     borderRadius: "{rounded.xl}"
     padding: "{spacing.lg}"
 ---
@@ -82,17 +88,23 @@ components:
 
 ## Overview
 
-Portfólio pessoal centrado em UX/UI e Design Engineering. A identidade segue o cartão de visita: fundo vermelho-laranja e o nome em branco, enorme, na vertical, cortado pela borda.
+Portfólio pessoal centrado em UX/UI e Design Engineering. A identidade **Tangerina Terrosa** é editorial e premium: branco predominante, areia nas seções de apoio e tangerina como assinatura — CTAs, títulos de seção, painel do hero e detalhes gráficos. O laranja não pinta o site inteiro.
 
 ## Colors
 
-- **Brand** (`#EA1D2C`): fundo das seções ímpares e títulos em seção branca.
-- **Paper** (`#FFFFFF`): fundo das seções pares e texto grande (a partir de 24px, peso 800) sobre o vermelho.
-- **Ink** (`#1A1A1A`): corpo de texto em seção branca. Em seção vermelha (`.section-brand`) o texto pequeno vira preto puro, porque `#1A1A1A` sobre `#EA1D2C` dá só 3,9:1 e o preto dá 4,7:1.
-- **WhatsApp** (`#25D366`): só o botão e o ícone do WhatsApp.
-- **Botões compactos** (`.btn-compact`, usado no Contato): 44px de altura, texto 19px bold (conta como texto grande para o contraste branco sobre vermelho).
+- **Brand / Tangerina Terrosa** (`#E85A24`): CTAs, títulos grandes em seção clara, ícones selecionados e o painel do hero. Texto e ícones sobre esta cor são brancos, em tamanho grande/bold (≥18,67px bold). Texto pequeno de marca sobre branco usa o hover.
+- **Brand hover / Terracota** (`#C44A1C`): hover, foco e texto pequeno de marca sobre branco. Branco sobre hover passa.
+- **Accent / Pêssego** (`#F3B99B`): aspas, bullets e detalhes decorativos. Nunca texto pequeno sobre branco.
+- **Paper** (`#FFFFFF`): fundo predominante.
+- **Ink / Grafite** (`#26211E`): títulos, corpo e navegação.
+- **Sand / Areia** (`#FAF5F0`): `.section-brand`, cards de apoio. Muted (`#716761`) sobre areia dá ~4,39:1 — nessas seções o secundário vira Ink.
+- **Border / Bege** (`#E8D5C7`): bordas, separadores e contornos.
+- **Muted / Cinza quente** (`#716761`): texto secundário só sobre branco (~4,99:1).
+- **Success / Verde oliva** (`#536747`): feedback positivo.
+- **WhatsApp** (`#25D366`): só o botão e o ícone do WhatsApp, com letras e ícone brancos.
+- **Botões compactos** (`.btn-compact`): 44px de altura, texto 19px bold. Preenchimento tangerina com texto e ícones brancos.
 
-Ritmo da home (nunca duas seções vermelhas seguidas): hero vermelho, sobre branco, áreas de atuação vermelho, posicionamento branco, marquee vermelho, habilidades branco, processo vermelho, projetos branco, statement vermelho, certificados branco, contato vermelho.
+Ritmo da home (branco e areia se alternam): hero branco + painel tangerina, sobre branco, áreas areia, posicionamento branco, marquee tangerina (`#E85A24`, o mesmo tom do painel do hero), habilidades branco, processo areia, projetos branco, statement areia, certificados branco, contato areia.
 
 ## Typography
 
@@ -103,9 +115,9 @@ Ritmo da home (nunca duas seções vermelhas seguidas): hero vermelho, sobre bra
 
 ## Components
 
-- **Header:** barra branca com borda vermelha e cantos de 8px. O menu central continua recebendo clique (a moldura é `pointer-events-none`).
-- **Hero:** `100svh`, fundo `#EA1D2C`. O `h1` "LUIZ" / "FILIPE" fica na vertical (de baixo para cima) no desktop e sangra pela direita e por baixo. No mobile o nome fica horizontal, em duas linhas, cortado na borda direita. A frase e o botão do WhatsApp ficam fora do nome.
-- **Botões:** 8px. No branco, fundo vermelho e texto branco. No vermelho, fundo branco e texto vermelho. Hover inverte.
+- **Header:** barra branca com borda bege e cantos de 8px. O menu central continua recebendo clique (a moldura é `pointer-events-none`).
+- **Hero:** `100svh`, lado branco com frase editorial e CTAs; painel `.hero-panel` em `#E85A24`. O `h1` "LUIZ" / "FILIPE" fica na vertical (de baixo para cima) no desktop e sangra pela direita e por baixo. No mobile o nome fica horizontal, em duas linhas, cortado na borda direita. A frase e o botão do WhatsApp ficam fora do nome.
+- **Botões:** 8px. Primário: fundo tangerina, texto e ícones brancos. Hover terracota, texto branco. Secundário: contorno tangerina e texto tangerina; hover preenchido com texto branco.
 
 ## Layout
 
@@ -136,18 +148,23 @@ Biblioteca: `motion` (Motion for React). Tokens em `src/components/motion/tokens
 - **Abrir/fechar (cards de serviço):** mesma curva de easing, 0.5s.
 - **Títulos de seção:** `RevealTitle` divide o título em palavras que sobem de trás de uma máscara (110% → 0, 0.9s, cascata de 60ms), repetindo a cada entrada na tela. O texto completo fica em `sr-only` para leitores de tela.
 - `MotionConfig reducedMotion="user"` respeita "reduzir movimento" do sistema.
-- **Mobile (< 768px):** o banner abre no lado branco e alterna com o painel vermelho (wipe por clip-path, 3,5s / 4,5s). As linhas de cards (Habilidades, Processo) viram carrossel automático em loop. Sem botão de pausa: a animação para enquanto o usuário toca/segura ou foca algo dentro dela, e some com "reduzir movimento".
+- **Mobile (< 768px):** o banner abre no lado branco e alterna com o painel tangerina (wipe por clip-path, 3,5s / 4,5s). A linha de cards do Processo vira carrossel automático em loop. Sem botão de pausa: a animação para enquanto o usuário toca/segura ou foca algo dentro dela, e some com "reduzir movimento".
 - **Nome lateral no mobile:** proporção natural (sem esticar), `min(18svh, 40vw)`, de ponta a ponta da altura da tela: o espaçamento entre letras é calculado (`(100svh - tamanho × 4,45) / 11`) para completar a altura sem esticar; a base das letras sangra 24% para fora da borda direita para não espremer o conteúdo (desktop/tablet: sangria de 10%).
-- **Carrossel de cards (Habilidades, Processo), todas as larguras:** loop automático de borda a borda da tela (largura medida em JS), sem corte visível; pausa no hover/toque/foco. Com "reduzir movimento" volta a ser uma fileira com rolagem.
+- **Cards de Habilidades:** grade estática (sem loop), para não competir com os títulos animados da faixa de posicionamento.
+- **Carrossel de cards (Processo):** loop automático de borda a borda da tela (largura medida em JS), sem corte visível; pausa no hover/toque/foco. Com "reduzir movimento" vira grade estática.
 
 ## Do
 
 - Manter a ordem narrativa ao adicionar seções.
 - Usar tokens de cor e tipografia do YAML.
 - Preservar conteúdo existente ao reorganizar.
+- Reservar a tangerina para assinatura visual, não para fundos de seção inteiros.
 
 ## Don't
 
 - Não remover informação do portfólio só por limpeza visual.
 - Não quebrar âncoras `#posicionamento`, `#sobre`, `#habilidades`, `#processo`, `#projetos`, `#certificados`, `#contato`.
 - Não usar Inter/Roboto como fonte principal.
+- Não usar texto branco pequeno sobre `#E85A24`.
+- Não usar `#716761` sobre `#FAF5F0`.
+- Não usar `#F3B99B` como texto pequeno sobre branco.

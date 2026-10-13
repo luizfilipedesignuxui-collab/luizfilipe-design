@@ -48,7 +48,7 @@ const ProjectsSection = () => {
                 >
                   <Link
                     to={`/projetos/${project.slug}`}
-                    className="lift-card group relative block aspect-[16/11] overflow-hidden rounded-[8px] border border-primary bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="lift-card group relative block aspect-[16/11] overflow-hidden rounded-[8px] border border-border bg-sand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     {project.imagem_capa ? (
                       <>

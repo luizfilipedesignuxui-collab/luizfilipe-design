@@ -90,8 +90,8 @@ const AdminProjects = () => {
               <div className="flex-1 min-w-0">
                 <h3 className="font-display font-bold text-foreground truncate">{project.titulo}</h3>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-accent/15 text-accent-ink font-semibold">{project.categoria}</span>
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${project.is_published ? "bg-primary text-white" : "bg-white text-foreground border border-primary"}`}>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-sand text-primary-hover font-semibold">{project.categoria}</span>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${project.is_published ? "bg-success text-white" : "bg-white text-foreground border border-border"}`}>
                     {project.is_published ? "Publicado" : "Rascunho"}
                   </span>
                 </div>

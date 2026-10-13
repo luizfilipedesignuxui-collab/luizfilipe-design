@@ -74,11 +74,11 @@ const CaseStudy = () => {
 
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="text-xs px-3 py-1 rounded-full bg-accent/15 text-accent-ink font-semibold uppercase tracking-wider">
+              <span className="text-xs px-3 py-1 rounded-full bg-sand text-primary-hover font-semibold uppercase tracking-wider">
                 {l.categoria}
               </span>
               {project.tags.map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
+                <span key={tag} className="text-xs px-3 py-1 rounded-full bg-sand text-primary-hover font-medium">
                   {tag}
                 </span>
               ))}
@@ -90,9 +90,13 @@ const CaseStudy = () => {
                 href={project.link_projeto}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary-hover hover:text-white transition-colors"
               >
-                {project.link_projeto.endsWith(".pdf") ? t("case.view_pdf") : t("case.view_live")}
+                {project.link_projeto.endsWith(".pdf")
+                  ? t("case.view_pdf")
+                  : project.link_projeto.includes("figma.com")
+                    ? t("case.view_prototype")
+                    : t("case.view_live")}
               </a>
             )}
           </div>
@@ -116,8 +120,8 @@ const CaseStudy = () => {
 
         {project.slug === "desafio-saudavel" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
-            <div className="p-6 rounded-[8px] border border-primary bg-white">
-              <p className="text-muted-foreground">
+            <div className="p-6 rounded-[8px] border border-border bg-sand">
+              <p className="text-foreground">
                 <strong>{t("case.created_by_me")}</strong>, Este aplicativo foi desenvolvido como uma solução pessoal
                 baseada em uma experiência real com amigos, transformando uma dinâmica informal de grupo em uma
                 experiência digital completa.
@@ -128,7 +132,7 @@ const CaseStudy = () => {
 
         {project.slug === "be-careful-app" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl space-y-4">
-            <div className="p-6 rounded-[8px] border-2 border-primary bg-white flex items-center gap-4">
+            <div className="p-6 rounded-[8px] border border-border bg-sand flex items-center gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center">
                 <span className="font-display font-extrabold text-white text-2xl">10</span>
               </div>
@@ -137,7 +141,7 @@ const CaseStudy = () => {
                 <p className="text-muted-foreground text-sm">{t("case.grade_highlight_desc")}</p>
               </div>
             </div>
-            <div className="p-6 rounded-[8px] border border-primary bg-white">
+            <div className="p-6 rounded-[8px] border border-border bg-white">
               <p className="text-muted-foreground">
                 <strong>{t("case.created_by_me")}</strong>, {t("case.be_careful_intro")}
               </p>
@@ -147,7 +151,7 @@ const CaseStudy = () => {
 
         {project.slug === "marmitagest" && (
           <section className="container mx-auto px-6 mb-12 max-w-4xl">
-            <div className="p-6 rounded-[8px] border-2 border-primary bg-white flex items-center gap-4">
+            <div className="p-6 rounded-[8px] border border-border bg-sand flex items-center gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center">
                 <span className="text-2xl" aria-hidden>
                   📱

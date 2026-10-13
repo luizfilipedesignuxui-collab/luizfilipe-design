@@ -3,29 +3,28 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const MarqueeSection = () => {
   const { t } = useLanguage();
 
+  /** Ordered by priority: each breakpoint shows as many as fit on a single line. */
   const items = [
-    "UX DESIGN",
-    "UI DESIGN",
-    "PRODUCT THINKING",
-    "DESIGN SYSTEM",
-    "USER RESEARCH",
-    t("marquee.prototyping"),
-    "WIREFRAMING",
-    "INTERACTION DESIGN",
+    { label: "UX DESIGN", className: "" },
+    { label: "UI DESIGN", className: "" },
+    { label: "DESIGN SYSTEM", className: "" },
+    { label: t("marquee.prototyping"), className: "hidden sm:flex" },
+    { label: "USER RESEARCH", className: "hidden md:flex" },
+    { label: "PRODUCT THINKING", className: "hidden lg:flex" },
+    { label: "WIREFRAMING", className: "hidden xl:flex" },
+    { label: "INTERACTION DESIGN", className: "hidden xl:flex" },
   ];
 
-  const content = items.map((item) => `${item} •`).join("  ");
-
   return (
-    <div className="section-brand py-5 overflow-hidden border-y border-white" aria-hidden="true">
-      <div className="animate-marquee whitespace-nowrap flex">
-        <span className="font-display text-white text-2xl md:text-3xl font-extrabold px-4">
-          {content}&nbsp;&nbsp;{content}
-        </span>
-        <span className="font-display text-white text-2xl md:text-3xl font-extrabold px-4">
-          {content}&nbsp;&nbsp;{content}
-        </span>
-      </div>
+    <div className="py-5 overflow-hidden" style={{ background: "var(--color-brand)" }} aria-hidden="true">
+      <ul className="container mx-auto px-6 flex flex-nowrap justify-center list-none m-0 font-display text-white text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold">
+        {items.map((item, i) => (
+          <li key={item.label} className={`${item.className || "flex"} items-center whitespace-nowrap`}>
+            {i > 0 && <span className="mx-2 sm:mx-3 text-white" aria-hidden="true">•</span>}
+            {item.label}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

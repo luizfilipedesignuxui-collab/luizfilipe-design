@@ -24,76 +24,89 @@
   }
 
   :root {
-    --color-brand: #ea1d2c;
-    --color-paper: #ffffff;
-    --color-ink: #1a1a1a;
-    --color-whatsapp: #25d366;
+    --color-brand: #E85A24;
+    --color-brand-hover: #C44A1C;
+    --color-accent: #F3B99B;
+    --color-paper: #FFFFFF;
+    --color-ink: #26211E;
+    --color-sand: #FAF5F0;
+    --color-line: #E8D5C7;
+    --color-muted: #716761;
+    --color-success: #536747;
+    --color-whatsapp: #25D366;
 
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 22 12% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 22 12% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 22 12% 13%;
 
-    --primary: 356 83% 52%;
+    --primary: 17 81% 53%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 16 75% 44%;
 
-    --secondary: 356 83% 52%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 30 50% 96%;
+    --secondary-foreground: 22 12% 13%;
 
-    --muted: 0 0% 100%;
-    --muted-foreground: 0 0% 10%;
+    --muted: 30 50% 96%;
+    --muted-foreground: 22 8% 41%;
 
-    --accent: 356 83% 52%;
-    --accent-foreground: 0 0% 100%;
-    --accent-ink: 356 83% 52%;
-    --accent-display: 0 0% 100%;
+    --accent: 20 79% 78%;
+    --accent-foreground: 22 12% 13%;
+    --accent-ink: 17 81% 53%;
+    --accent-display: 20 79% 78%;
 
     --destructive: 14 100% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 356 83% 52%;
-    --input: 356 83% 52%;
-    --ring: 356 83% 52%;
+    --success: 98 18% 34%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 25 39% 85%;
+    --input: 25 39% 85%;
+    --ring: 17 81% 53%;
 
     --radius: 8px;
 
-    --gold: 356 83% 52%;
+    --gold: 17 81% 53%;
     --gold-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 356 83% 52%;
+    --sidebar-foreground: 22 12% 13%;
+    --sidebar-primary: 17 81% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 356 83% 52%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 356 83% 52%;
-    --sidebar-ring: 356 83% 52%;
+    --sidebar-accent: 30 50% 96%;
+    --sidebar-accent-foreground: 22 12% 13%;
+    --sidebar-border: 25 39% 85%;
+    --sidebar-ring: 17 81% 53%;
   }
 
   .dark {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 22 12% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 22 12% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 356 83% 52%;
+    --popover-foreground: 22 12% 13%;
+    --primary: 17 81% 53%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 356 83% 52%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 100%;
-    --muted-foreground: 0 0% 10%;
-    --accent: 356 83% 52%;
-    --accent-foreground: 0 0% 100%;
-    --border: 356 83% 52%;
-    --input: 356 83% 52%;
-    --ring: 356 83% 52%;
-    --gold: 356 83% 52%;
+    --primary-hover: 16 75% 44%;
+    --secondary: 30 50% 96%;
+    --secondary-foreground: 22 12% 13%;
+    --muted: 30 50% 96%;
+    --muted-foreground: 22 8% 41%;
+    --accent: 20 79% 78%;
+    --accent-foreground: 22 12% 13%;
+    --border: 25 39% 85%;
+    --input: 25 39% 85%;
+    --ring: 17 81% 53%;
+    --gold: 17 81% 53%;
     --gold-foreground: 0 0% 100%;
+    --success: 98 18% 34%;
+    --success-foreground: 0 0% 100%;
   }
 }
 
@@ -113,7 +126,7 @@
     outline-offset: 3px;
   }
 
-  .section-brand :focus-visible {
+  .hero-panel :focus-visible {
     outline-color: var(--color-paper) !important;
   }
 
@@ -153,10 +166,11 @@
   }
 
   .section-brand {
-    --foreground: 0 0% 0%;
-    --muted-foreground: 0 0% 0%;
-    background: var(--color-brand);
-    color: #000000;
+    --foreground: 22 12% 13%;
+    --muted-foreground: 22 12% 13%;
+    --border: 25 39% 85%;
+    background: var(--color-sand);
+    color: var(--color-ink);
   }
 
   .section-paper {
@@ -166,7 +180,7 @@
 
   .glass-card {
     background: var(--color-paper);
-    border: 1px solid var(--color-brand);
+    border: 1px solid var(--color-line);
   }
 
   .btn-on-paper,
@@ -192,8 +206,9 @@
   }
 
   .btn-on-paper:hover {
-    background: var(--color-paper);
-    color: var(--color-brand);
+    background: var(--color-brand-hover);
+    color: var(--color-paper);
+    border-color: var(--color-brand-hover);
   }
 
   .btn-on-paper-outline {
@@ -215,6 +230,7 @@
   .btn-on-paper-outline:hover {
     background: var(--color-brand);
     color: var(--color-paper);
+    border-color: var(--color-brand);
   }
 
   .btn-whatsapp {
@@ -226,7 +242,7 @@
     border-radius: 9999px;
     border: 2px solid var(--color-whatsapp);
     background: var(--color-whatsapp);
-    color: var(--color-ink);
+    color: var(--color-paper);
     font-size: 1.25rem;
     font-weight: 800;
     line-height: 1;
@@ -243,19 +259,27 @@
 
   .btn-whatsapp:hover {
     background: var(--color-paper);
+    color: var(--color-ink);
     transform: translateY(-2px);
   }
 
   .btn-on-brand {
     background: var(--color-paper);
-    color: var(--color-brand);
+    color: var(--color-brand-hover);
     border-color: var(--color-paper);
   }
 
   .btn-on-brand:hover {
-    background: var(--color-brand);
+    background: var(--color-brand-hover);
     color: var(--color-paper);
     border-color: var(--color-paper);
+  }
+
+  .btn-on-paper:disabled,
+  .btn-on-paper-outline:disabled,
+  .btn-on-brand:disabled {
+    opacity: 0.45;
+    pointer-events: none;
   }
 
   .site-with-name {
@@ -315,6 +339,7 @@
     min-height: 18rem;
     padding: 2.5rem calc(var(--name-gutter) + 1rem) 2.5rem 1.5rem;
     background: var(--color-brand);
+    color: var(--color-ink);
   }
 
   .hero-split--cycle {
@@ -411,7 +436,7 @@
 
 .lift-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 28px -18px rgba(38, 33, 30, 0.16);
 }
 
 .card-row {
@@ -431,7 +456,7 @@
 }
 
 .section-brand .card-row {
-  scrollbar-color: var(--color-paper) transparent;
+  scrollbar-color: var(--color-brand) transparent;
 }
 
 @keyframes hero-float {

@@ -9,12 +9,14 @@ type CardRowProps = {
   items: CardRowItem[];
   label: string;
   ordered?: boolean;
+  /** Continuous sideways loop. Off when the row sits next to other motion. */
+  moving?: boolean;
 };
 
 const SECONDS_PER_CARD = 4;
 
 const Card = ({ item }: { item: CardRowItem }) => (
-  <div className="lift-card group flex h-full flex-col gap-4 rounded-[8px] border border-primary bg-white p-6">
+  <div className="lift-card group flex h-full flex-col gap-4 rounded-[8px] border border-border bg-white p-6">
     <span
       className="w-11 h-11 rounded-[8px] bg-primary flex items-center justify-center transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
       aria-hidden="true"
@@ -70,15 +72,15 @@ const CardMarquee = ({ items, label, ordered }: CardRowProps) => {
 /** Single horizontal row of icon cards; scrolls sideways when it doesn't fit. */
 const CardRow = (props: CardRowProps) => {
   const reduceMotion = useReducedMotion();
-  const { items, label, ordered = false } = props;
+  const { items, label, ordered = false, moving = true } = props;
 
-  if (!reduceMotion) return <CardMarquee {...props} />;
+  if (moving && !reduceMotion) return <CardMarquee {...props} />;
 
   return (
-    <div className="card-row -mx-1 overflow-x-auto px-1 pb-4" role="region" aria-label={label} tabIndex={0}>
-      <RevealGroup as={ordered ? "ol" : "ul"} className="flex w-max gap-4 list-none m-0 p-0 pt-2">
+    <div role="region" aria-label={label}>
+      <RevealGroup as={ordered ? "ol" : "ul"} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none m-0 p-0">
         {items.map((item) => (
-          <RevealItem key={item.title} className="w-64 shrink-0 snap-start">
+          <RevealItem key={item.title}>
             <Card item={item} />
           </RevealItem>
         ))}

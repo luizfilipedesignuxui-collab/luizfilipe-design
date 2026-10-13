@@ -75,7 +75,7 @@ const CertificatesSection = () => {
  <button
  type="button"
  onClick={() => setSelected(cert)}
- className="lift-card group grid w-full grid-cols-1 sm:grid-cols-[11rem_1fr] items-center gap-4 sm:gap-5 rounded-[8px] border border-primary bg-white p-3 sm:p-4 text-left"
+ className="lift-card group grid w-full grid-cols-1 sm:grid-cols-[11rem_1fr] items-center gap-4 sm:gap-5 rounded-[8px] border border-border bg-white p-3 sm:p-4 text-left"
  aria-label={`${t("certificates.view_details")}: ${cert.title}`}
  >
  <div className="relative aspect-[16/9] sm:aspect-[4/3] overflow-hidden rounded-[8px] bg-muted">
@@ -87,7 +87,7 @@ const CertificatesSection = () => {
  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
  loading="lazy"
  />
- <span className="absolute inset-0 flex items-center justify-center bg-primary/80 opacity-0 transition-opacity group-hover:opacity-100">
+ <span className="absolute inset-0 flex items-center justify-center bg-primary-hover/80 opacity-0 transition-opacity group-hover:opacity-100">
  <ZoomIn className="h-6 w-6 text-white" aria-hidden="true" />
  </span>
  </>

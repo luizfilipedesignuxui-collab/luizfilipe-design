@@ -39,7 +39,7 @@ const ForgotPassword = () => {
       <div className="w-full max-w-sm space-y-8">
         {sent ? (
           <div className="text-center space-y-4">
-            <div className="w-16 h-16 rounded-[8px] bg-primary flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-[8px] bg-success flex items-center justify-center mx-auto">
               <CheckCircle className="w-8 h-8 text-white" />
             </div>
             <h1 className="font-display text-2xl font-extrabold text-foreground">
@@ -92,7 +92,7 @@ const ForgotPassword = () => {
               <div className="text-center">
                 <Link
                   to="/admin/login"
-                  className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+                  className="text-sm text-primary-hover hover:underline inline-flex items-center gap-1"
                 >
                   <ArrowLeft className="w-3 h-3" /> Voltar ao login
                 </Link>
