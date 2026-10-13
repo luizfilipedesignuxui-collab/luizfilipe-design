@@ -77,12 +77,12 @@ const AboutSection = () => {
                 src={profilePhoto}
                 alt={t("hero.photo_alt")}
                 decoding="async"
-                className={`absolute left-1/2 top-0 h-full w-auto max-w-none -translate-x-1/2 select-none mix-blend-multiply ${
+                className={`absolute left-1/2 top-0 h-full w-auto max-w-none -translate-x-1/2 select-none ${
                   particlesActive ? "invisible" : ""
                 }`}
               />
               {playParticles && (
-                <div className="absolute inset-0 mix-blend-multiply">
+                <div className="absolute inset-0">
                   <HeroParticles
                     imageRef={photoRef}
                     containerRef={photoFrameRef}
