@@ -214,6 +214,7 @@
   .btn-on-paper-outline {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     min-height: 3rem;
     padding: 0.75rem 1.5rem;
@@ -286,11 +287,16 @@
     --name-size: min(18vh, 40vw);
     --name-size: min(18svh, 40vw);
     --name-bleed: 0.24;
-    --name-gutter: calc(var(--name-size) * (0.84 - var(--name-bleed)));
+    /* Mobile: equal inset so blocks sit in the center; the name overlays. */
+    --name-gutter: 0px;
+    --page-inline: 1.5rem;
+    --page-inline-end: max(var(--page-inline), calc(var(--name-gutter) + var(--page-inline)));
+    --hero-inline-end: max(var(--page-inline-end), calc(var(--name-size) * 0.42));
   }
 
   .site-with-name .container {
-    padding-right: calc(var(--name-gutter) + 1rem);
+    padding-left: var(--page-inline);
+    padding-right: var(--page-inline-end);
   }
 
   .side-name {
@@ -321,7 +327,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
-    padding: 8.5rem calc(var(--name-gutter) + 1rem) 3rem 1.5rem;
+    padding: 8.5rem var(--hero-inline-end) 3rem var(--page-inline);
   }
 
   .hero-phrase {
@@ -337,7 +343,7 @@
     justify-content: flex-end;
     gap: 1rem;
     min-height: 18rem;
-    padding: 2.5rem calc(var(--name-gutter) + 1rem) 2.5rem 1.5rem;
+    padding: 2.5rem var(--hero-inline-end) 2.5rem var(--page-inline);
     background: var(--color-brand);
     color: var(--color-ink);
   }

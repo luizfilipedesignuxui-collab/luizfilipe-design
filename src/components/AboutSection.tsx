@@ -70,7 +70,7 @@ const AboutSection = () => {
           <Reveal className="lg:col-span-2 space-y-6">
             <figure
               ref={photoFrameRef}
-              className="relative isolate m-0 overflow-hidden rounded-[8px] bg-primary aspect-square sm:aspect-[4/5] w-full max-w-md"
+              className="relative isolate mx-auto overflow-hidden rounded-[8px] bg-primary aspect-square sm:aspect-[4/5] w-full max-w-md"
             >
               <img
                 ref={photoRef}
@@ -93,7 +93,7 @@ const AboutSection = () => {
                 </div>
               )}
             </figure>
-            <div className="grid grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
               {specialties.map((s) => (
                 <div key={s.title} className="p-4 sm:p-5 rounded-2xl border border-border bg-card/30 hover:border-primary/40 transition-colors">
                   <h3 className="font-display text-base sm:text-xl font-extrabold text-primary-hover leading-tight">{s.title}</h3>

@@ -82,17 +82,17 @@ const HeroSection = () => {
           <motion.p variants={revealItem} className="max-w-xl text-base sm:text-lg text-foreground leading-relaxed">
             {t("hero.lead")}
           </motion.p>
-          <motion.div variants={revealItem} className="flex flex-wrap gap-3">
+          <motion.div variants={revealItem} className="mx-auto flex w-full max-w-sm flex-col gap-3 sm:mx-0 sm:max-w-none sm:flex-row sm:flex-wrap">
             <a
               href="https://wa.me/5562992776534"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-on-paper"
+              className="btn-on-paper w-full justify-center sm:w-auto"
               aria-label={`${t("hero.whatsapp")} (${t("a11y.opens_new_tab")})`}
             >
               {t("hero.whatsapp")}
             </a>
-            <a href={anchor("#projetos")} className="btn-on-paper-outline">
+            <a href={anchor("#projetos")} className="btn-on-paper-outline w-full justify-center sm:w-auto">
               {t("hero.cta_primary")}
               <ArrowRight className="btn-arrow w-5 h-5" aria-hidden="true" />
             </a>

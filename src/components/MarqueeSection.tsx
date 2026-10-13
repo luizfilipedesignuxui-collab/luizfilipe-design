@@ -7,7 +7,7 @@ const MarqueeSection = () => {
   const items = [
     { label: "UX DESIGN", className: "" },
     { label: "UI DESIGN", className: "" },
-    { label: "DESIGN SYSTEM", className: "" },
+    { label: "DESIGN SYSTEM", className: "hidden sm:flex" },
     { label: t("marquee.prototyping"), className: "hidden sm:flex" },
     { label: "USER RESEARCH", className: "hidden md:flex" },
     { label: "PRODUCT THINKING", className: "hidden lg:flex" },
@@ -17,7 +17,7 @@ const MarqueeSection = () => {
 
   return (
     <div className="py-5 overflow-hidden" style={{ background: "var(--color-brand)" }} aria-hidden="true">
-      <ul className="container mx-auto px-6 flex flex-nowrap justify-center list-none m-0 font-display text-white text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold">
+      <ul className="flex flex-nowrap justify-center list-none m-0 px-4 font-display text-white text-sm sm:text-lg md:text-xl lg:text-2xl font-extrabold">
         {items.map((item, i) => (
           <li key={item.label} className={`${item.className || "flex"} items-center whitespace-nowrap`}>
             {i > 0 && <span className="mx-2 sm:mx-3 text-white" aria-hidden="true">•</span>}
