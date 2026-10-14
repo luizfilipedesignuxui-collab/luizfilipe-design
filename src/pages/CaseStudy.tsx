@@ -276,7 +276,7 @@ const CaseStudy = () => {
                   >
                     <img
                       src={img}
-                      alt={`${l.titulo}: tela ${i + 1} do projeto de UX/UI Design`}
+                      alt={`${l.titulo}: tela ${i + 1} do projeto de UX/UI e Design Engineering`}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-auto object-contain"

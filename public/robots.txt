@@ -9,6 +9,21 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 User-agent: Twitterbot
 Allow: /
 
@@ -16,3 +31,5 @@ User-agent: facebookexternalhit
 Allow: /
 
 Sitemap: https://luizfilipe-design.vercel.app/sitemap.xml
+# LLM / recruiter AI feed
+# https://luizfilipe-design.vercel.app/llms.txt

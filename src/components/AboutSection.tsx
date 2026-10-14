@@ -45,7 +45,7 @@ const AboutSection = () => {
 
   const specialties = [
     { title: "UX/UI Design", desc: t("about.spec_uxui_desc") },
-    { title: "Design Engineer", desc: t("about.spec_de_desc") },
+    { title: "Design Engineering", desc: t("about.spec_de_desc") },
   ];
 
   // Translations are the source of truth for PT and EN (clear for recruiters + clients)
@@ -109,6 +109,29 @@ const AboutSection = () => {
                 <p key={i} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>'), { ALLOWED_TAGS: ['strong'], ALLOWED_ATTR: ['class'] }) }} />
               ))}
             </div>
+
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3" aria-label={t("about.facts_title")}>
+              {(
+                [
+                  ["about.fact_role", "about.fact_role_value"],
+                  ["about.fact_stack", "about.fact_stack_value"],
+                  ["about.fact_education", "about.fact_education_value"],
+                  ["about.fact_availability", "about.fact_availability_value"],
+                  ["about.fact_location", "about.fact_location_value"],
+                  ["about.fact_languages", "about.fact_languages_value"],
+                ] as const
+              ).map(([labelKey, valueKey]) => (
+                <div
+                  key={labelKey}
+                  className="rounded-[8px] border border-border bg-card/30 p-4"
+                >
+                  <dt className="font-label text-muted-foreground">{t(labelKey)}</dt>
+                  <dd className="mt-1 font-display font-extrabold text-foreground text-sm sm:text-base leading-snug">
+                    {t(valueKey)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
             <div className="pt-4">
               <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-widest mb-4">

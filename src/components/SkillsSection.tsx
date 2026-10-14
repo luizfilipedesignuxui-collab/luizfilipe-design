@@ -7,6 +7,10 @@ import {
   Component,
   MousePointerClick,
   Lightbulb,
+  Code2,
+  FileCode2,
+  Wind,
+  Figma,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionBridge from "@/components/SectionBridge";
@@ -34,6 +38,15 @@ const SkillsSection = () => {
         { icon: Palette, title: "UI Design", description: t("skills.ui_desc") },
         { icon: Component, title: "Design System", description: t("skills.design_system_desc") },
         { icon: MousePointerClick, title: "Interaction Design", description: t("skills.interaction_desc") },
+      ],
+    },
+    {
+      label: t("skills.group_eng"),
+      skills: [
+        { icon: Code2, title: t("skills.de_title"), description: t("skills.de_desc") },
+        { icon: FileCode2, title: t("skills.react_title"), description: t("skills.react_desc") },
+        { icon: Wind, title: t("skills.tailwind_title"), description: t("skills.tailwind_desc") },
+        { icon: Figma, title: t("skills.figma_title"), description: t("skills.figma_desc") },
       ],
     },
   ];

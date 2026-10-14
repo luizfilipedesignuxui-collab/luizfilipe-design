@@ -1,0 +1,33 @@
+# Luiz Filipe
+
+> UX/UI Designer, Product Designer, and Design Engineer. Designs in Figma, implements in React, and ships live products. Based in Brazil. Open to roles.
+
+- Site: https://luizfilipe-design.vercel.app/
+- LinkedIn: https://www.linkedin.com/in/luiz-filipe-cardoso
+- Email: luizfilipe.designuxui@gmail.com
+- WhatsApp: https://wa.me/5562992776534
+
+## Recruiter facts
+
+- Roles: UX/UI Designer, Product Designer, Design Engineer
+- Availability: open to full-time (CLT), contractor (PJ), remote, and hybrid
+- Location: Brazil, remote-friendly
+- Languages: Portuguese (native), English (professional)
+- Education: Digital Design and User Experience, Uniasselvi
+- Stack: Figma, React, TypeScript, Tailwind CSS, Supabase, Cursor
+- Strength: closes the gap between UX/UI and Design Engineering (Figma to production)
+
+## Skills
+
+UX Design, UI Design, Product Design, Design Engineering, User Research, Wireframing, Prototyping, Design Systems, Interaction Design, Accessibility (WCAG), Figma, React, TypeScript, Tailwind CSS, Supabase.
+
+## Work
+
+Portfolio case studies: SaaS, apps, e-commerce, and landing pages from Figma to live.
+
+- Home: https://luizfilipe-design.vercel.app/
+- Projects: https://luizfilipe-design.vercel.app/projetos
+
+## Optional
+
+- [Sitemap](https://luizfilipe-design.vercel.app/sitemap.xml)

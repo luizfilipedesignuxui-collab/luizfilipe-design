@@ -5,14 +5,14 @@ const MarqueeSection = () => {
 
   /** Ordered by priority: each breakpoint shows as many as fit on a single line. */
   const items = [
-    { label: "UX DESIGN", className: "" },
-    { label: "UI DESIGN", className: "" },
-    { label: "DESIGN SYSTEM", className: "hidden sm:flex" },
-    { label: t("marquee.prototyping"), className: "hidden sm:flex" },
-    { label: "USER RESEARCH", className: "hidden md:flex" },
-    { label: "PRODUCT THINKING", className: "hidden lg:flex" },
-    { label: "WIREFRAMING", className: "hidden xl:flex" },
-    { label: "INTERACTION DESIGN", className: "hidden xl:flex" },
+    { label: "UX/UI DESIGN", className: "" },
+    { label: "PRODUCT DESIGN", className: "" },
+    { label: "DESIGN ENGINEER", className: "hidden sm:flex" },
+    { label: "FIGMA", className: "hidden sm:flex" },
+    { label: "REACT", className: "hidden md:flex" },
+    { label: "DESIGN SYSTEM", className: "hidden lg:flex" },
+    { label: "USER RESEARCH", className: "hidden xl:flex" },
+    { label: t("marquee.prototyping"), className: "hidden xl:flex" },
   ];
 
   return (
