@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import CaseStudy from "./pages/CaseStudy";
 import NotFound from "./pages/NotFound";
+import Sites from "./pages/Sites";
 import AdminLogin from "./pages/AdminLogin";
 import AdminLayout from "./layouts/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/projetos" element={<Projects />} />
               <Route path="/projetos/:slug" element={<CaseStudy />} />
+              <Route path="/sites" element={<Sites />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />

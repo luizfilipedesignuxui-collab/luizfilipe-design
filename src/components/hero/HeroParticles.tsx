@@ -52,6 +52,8 @@ type Props = {
   interactionRef: RefObject<HTMLElement>;
   mask: Mask;
   onActiveChange: (active: boolean) => void;
+  /** Called once the photo has been rebuilt, so the caller can swap back to the sharp image. */
+  onIntroEnd?: () => void;
 };
 
 type Geometry = { w: number; h: number; left: number; top: number; imgW: number; imgH: number };
@@ -423,9 +425,11 @@ const create2DRenderer = (canvas: HTMLCanvasElement): Renderer | null => {
   };
 };
 
-const HeroParticles = ({ imageRef, containerRef, interactionRef, mask, onActiveChange }: Props) => {
+const HeroParticles = ({ imageRef, containerRef, interactionRef, mask, onActiveChange, onIntroEnd }: Props) => {
   const photoCanvasRef = useRef<HTMLCanvasElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const onIntroEndRef = useRef(onIntroEnd);
+  onIntroEndRef.current = onIntroEnd;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -597,7 +601,10 @@ const HeroParticles = ({ imageRef, containerRef, interactionRef, mask, onActiveC
 
       renderer.draw(f, sizes);
 
-      if (!introDone && t > timeline.end) introDone = true;
+      if (!introDone && t > timeline.end) {
+        introDone = true;
+        onIntroEndRef.current?.();
+      }
       raf = requestAnimationFrame(step);
     };
 

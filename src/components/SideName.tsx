@@ -23,7 +23,7 @@ const textOverlapsName = (node: Element, name: DOMRect) => {
 };
 
 /** Giant vertical name pinned to the right edge for the whole page. */
-const SideName = () => {
+const SideName = ({ role }: { role?: string }) => {
   const { t } = useLanguage();
   const nameRef = useRef<HTMLHeadingElement>(null);
   const [hidden, setHidden] = useState(false);
@@ -67,7 +67,7 @@ const SideName = () => {
   return (
     <h1 ref={nameRef} className="side-name font-display" data-hidden={hidden}>
       Luiz Filipe
-      <span className="sr-only"> · {t("hero.role")}</span>
+      <span className="sr-only"> · {role ?? t("hero.role")}</span>
     </h1>
   );
 };

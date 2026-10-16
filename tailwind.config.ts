@@ -60,6 +60,10 @@ export default {
           foreground: "hsl(var(--gold-foreground))",
         },
         sand: "var(--color-sand)",
+        brand: {
+          DEFAULT: "var(--color-brand)",
+          hover: "var(--color-brand-hover)",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
