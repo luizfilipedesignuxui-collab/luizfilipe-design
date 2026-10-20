@@ -408,40 +408,53 @@
   filter: opacity(0);
 }
 
-/* LP mobile: desktop name in a right strip; titles and buttons center in the remaining column. */
+/* LP mobile: no side name, equal insets, content uses the full width. */
 @media (max-width: 767px) {
   .sites-lp.site-with-name {
-    --name-size: min(16vh, 32vw);
-    --name-size: min(16svh, 32vw);
-    --name-bleed: 0.12;
-    --name-gutter: calc(var(--name-size) * 0.78);
-    --page-inline: 1.25rem;
-    --hero-inline-end: var(--page-inline-end);
+    --name-size: 0px;
+    --name-bleed: 0;
+    --name-gutter: 0px;
+    --page-inline: 1.5rem;
+    --hero-inline-end: 1.5rem;
   }
 
   .sites-lp .side-name,
   .sites-lp .side-name[data-hidden="true"] {
-    top: 6rem;
-    bottom: auto;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 1rem;
     letter-spacing: normal;
-    z-index: 30;
-    filter: opacity(1);
+    color: transparent;
+    -webkit-text-stroke: 0;
+    animation: none;
+    filter: none;
   }
 
   .sites-lp .container {
     padding-left: var(--page-inline);
-    padding-right: var(--page-inline-end);
+    padding-right: var(--page-inline);
   }
 
   .sites-lp header {
     padding-left: 0.75rem;
-    padding-right: calc(var(--name-gutter) + 0.5rem);
+    padding-right: 0.75rem;
   }
 
   .sites-lp .hero-main,
   .sites-lp .hero-split--cycle > .hero-panel {
     align-items: center;
     text-align: center;
+    padding-left: var(--page-inline);
+    padding-right: var(--page-inline);
   }
 
   .sites-lp .hero-panel > div {
@@ -455,12 +468,12 @@
   .sites-lp main .btn-on-brand {
     display: inline-flex;
     width: 100%;
-    max-width: 100%;
+    max-width: 22rem;
     box-sizing: border-box;
     margin-inline: auto;
     font-size: 1rem;
     line-height: 1.15;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1.25rem;
     gap: 0.5rem;
     white-space: nowrap;
   }
@@ -472,7 +485,7 @@
   }
 
   .sites-lp .floating-wa {
-    right: 0.65rem;
+    right: 1rem;
   }
 }
 
