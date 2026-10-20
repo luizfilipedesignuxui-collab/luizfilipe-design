@@ -40,7 +40,7 @@ const ContactSection = () => {
                 {t("contact.cta")}
               </a>
               <a
-                href="https://wa.me/5562994474987"
+                href="https://wa.me/5562994474978"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`WhatsApp (${t("a11y.opens_new_tab")})`}

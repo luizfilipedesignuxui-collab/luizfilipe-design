@@ -51,7 +51,7 @@ const HeroSection = ({ id, className = "", content }: HeroSectionProps) => {
     lead: t("hero.lead"),
     primary: {
       label: t("hero.whatsapp"),
-      href: "https://wa.me/5562994474987",
+      href: "https://wa.me/5562994474978",
       ariaLabel: `${t("hero.whatsapp")} (${t("a11y.opens_new_tab")})`,
     },
     secondary: { label: t("hero.cta_primary"), href: anchor("#projetos") },

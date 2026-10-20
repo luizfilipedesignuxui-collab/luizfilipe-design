@@ -8,8 +8,8 @@ import multifitCover from "@/assets/sites/multifit-cover.jpg";
 
 /** Edite tudo da LP /sites aqui. */
 
-/** 62 99447-4987 com DDI 55, formato que o wa.me exige. */
-export const WHATSAPP_NUMBER = "5562994474987";
+/** 62 99447-4978 com DDI 55, formato que o wa.me exige. */
+export const WHATSAPP_NUMBER = "5562994474978";
 
 export const PORTFOLIO_URL = "https://luizfilipe-design.vercel.app";
 
