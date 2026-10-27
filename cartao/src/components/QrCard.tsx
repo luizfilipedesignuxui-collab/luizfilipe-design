@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, type MouseEvent } from "react";
 import { QRCodeCanvas } from "qrcode.react";
-import { easeOut, usePrefersReducedMotion } from "../lib/motion.ts";
+import { easeOut, qrFloat, usePrefersReducedMotion } from "../lib/motion.ts";
 import { QR_CANVAS_ID } from "../lib/page.ts";
 import { qrColors } from "../lib/qrColors.ts";
 
@@ -46,11 +46,12 @@ export function QrCard({
 
   if (embedded) {
     return (
-      <a
+      <motion.a
         href={href}
         onClick={openInvite}
         className="focus-ring block w-fit rounded-[22px] bg-white p-1.5 ring-1 ring-line"
         aria-label={label}
+        {...(animated ? qrFloat(reduced) : {})}
       >
         <QRCodeCanvas
           id={canvasId}
@@ -61,7 +62,7 @@ export function QrCard({
           bgColor={qrColors.paper}
           fgColor={qrColors.ink}
         />
-      </a>
+      </motion.a>
     );
   }
 

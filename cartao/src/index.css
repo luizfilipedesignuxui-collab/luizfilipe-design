@@ -72,6 +72,36 @@ body,
   transform-origin: 20% 50%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .design-sketch-figma {
+    animation: sketch-float 14s ease-in-out infinite;
+  }
+
+  .design-sketch-pen {
+    animation: sketch-sway 18s ease-in-out infinite;
+  }
+}
+
+@keyframes sketch-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-6px, 8px, 0);
+  }
+}
+
+@keyframes sketch-sway {
+  0%,
+  100% {
+    transform: rotate(-16deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-12deg) translate3d(8px, -6px, 0);
+  }
+}
+
 @media (min-width: 768px) {
   .design-sketch-figma {
     top: 2rem;
@@ -187,6 +217,10 @@ html[data-stage="reveal"] #root {
   background: var(--color-cream);
   color: var(--color-ink);
   box-shadow: 0 10px 28px rgb(255 255 255 / 18%);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .cta:hover {
@@ -212,6 +246,10 @@ html[data-stage="reveal"] #root {
   background: var(--color-ink);
   color: var(--color-cream);
   box-shadow: 0 10px 28px rgb(0 0 0 / 18%);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .cta-on-cream:hover {

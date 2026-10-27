@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import type { BusinessCardConfig } from "../../config/business-card.ts";
-import { easeOut, usePrefersReducedMotion } from "../../lib/motion.ts";
+import { easeOut, photoPop, rise, usePrefersReducedMotion } from "../../lib/motion.ts";
 import { PhotoSlot } from "../PhotoSlot.tsx";
 
 const SWIPE_PX = 48;
@@ -85,28 +85,35 @@ export function IdentityView({ card }: { card: BusinessCardConfig }) {
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-hidden text-cream lg:flex-none">
       <div className="mx-auto flex h-full min-h-0 w-full max-w-md flex-1 flex-col overflow-y-auto px-5 pt-5 pb-2 lg:h-auto lg:flex-none lg:overflow-visible lg:pt-4">
-        <div className="self-center">
+        <motion.div {...photoPop(reduced)} className="self-center">
           <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" ring onDark />
-        </div>
+        </motion.div>
 
-        <h1
+        <motion.h1
           id="titulo-pagina"
           tabIndex={-1}
           className="mt-4 text-center text-[2rem] leading-[1.05] font-semibold tracking-[-0.03em] outline-none focus:outline-none focus-visible:outline-none"
+          {...rise(reduced, 0.08)}
         >
           {card.fullName}
-        </h1>
-        <p className="mt-2 text-center text-[1.1875rem] font-medium leading-snug text-cream">{card.role}</p>
+        </motion.h1>
+        <motion.p
+          {...rise(reduced, 0.12)}
+          className="mt-2 text-center text-[1.1875rem] font-medium leading-snug text-cream"
+        >
+          {card.role}
+        </motion.p>
 
         {chips.length > 0 ? (
           <ul className="mt-3 flex flex-wrap justify-center gap-2" aria-label="Áreas de atuação">
-            {chips.map((chip) => (
-              <li
+            {chips.map((chip, index) => (
+              <motion.li
                 key={chip}
                 className="rounded-full bg-cream px-3 py-1.5 text-sm font-semibold text-ink"
+                {...rise(reduced, 0.16 + index * 0.05)}
               >
                 {chip}
-              </li>
+              </motion.li>
             ))}
           </ul>
         ) : null}

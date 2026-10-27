@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import { useEffect, useId, useState, type FormEvent } from "react";
 import { businessCard } from "../config/business-card.ts";
 import { navigateTo } from "../lib/app-location.ts";
+import { cardLand, usePrefersReducedMotion } from "../lib/motion.ts";
 import {
   compressOwnerPhoto,
   loginOwner,
@@ -25,6 +27,7 @@ type EventModeViewProps = {
 };
 
 export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
+  const reduced = usePrefersReducedMotion();
   const formId = useId();
   const [token, setToken] = useState(() => readOwnerToken());
   const [password, setPassword] = useState("");
@@ -139,7 +142,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
 
   return (
     <div className="h-full overflow-y-auto text-cream">
-      <div className="mx-auto flex w-full max-w-md flex-col px-5 py-8">
+      <div className="shell mx-auto flex w-full max-w-md flex-col px-5 py-8">
         <h1 id="titulo-pagina" tabIndex={-1} className="text-[clamp(1.85rem,6vw,2.5rem)] leading-tight font-semibold outline-none">
           Área do proprietário
         </h1>
@@ -148,7 +151,11 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
         </p>
 
         {!token ? (
-          <form className="card mt-6 rounded-[22px] p-4 text-ink" onSubmit={(event) => void onLogin(event)}>
+          <motion.form
+            className="card mt-6 rounded-[22px] p-4 text-ink"
+            onSubmit={(event) => void onLogin(event)}
+            {...cardLand(reduced)}
+          >
             <label className="block text-lg font-medium" htmlFor={`${formId}-senha`}>
               Senha
             </label>
@@ -174,9 +181,13 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
             >
               Entrar
             </button>
-          </form>
+          </motion.form>
         ) : (
-          <form className="card mt-6 rounded-[22px] p-4 text-ink" onSubmit={(event) => void onSave(event)}>
+          <motion.form
+            className="card mt-6 rounded-[22px] p-4 text-ink"
+            onSubmit={(event) => void onSave(event)}
+            {...cardLand(reduced)}
+          >
             <fieldset disabled={!ready || busy} className="grid gap-4">
               <div>
                 <p className="text-lg font-semibold">Foto</p>
@@ -312,7 +323,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
             >
               Salvar
             </button>
-          </form>
+          </motion.form>
         )}
 
         <button

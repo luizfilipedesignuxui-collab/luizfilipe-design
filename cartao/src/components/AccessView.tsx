@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import type { BusinessCardConfig } from "../config/business-card.ts";
 import { newWindowLabel } from "../lib/a11y.ts";
 import { buildEmailComposeUrl, buildWhatsAppUrl, linkedinProfileUrl } from "../lib/contact.ts";
-import { easeOut, usePrefersReducedMotion } from "../lib/motion.ts";
+import { photoPop, rise, usePrefersReducedMotion } from "../lib/motion.ts";
 import { PhotoSlot } from "./PhotoSlot.tsx";
 
 type AccessViewProps = {
@@ -37,14 +37,6 @@ function linksFor(card: BusinessCardConfig): AccessLink[] {
 export function AccessView({ card, onBack, onSaveCard }: AccessViewProps) {
   const reduced = usePrefersReducedMotion();
   const links = linksFor(card);
-  const rise = (delay: number) =>
-    reduced
-      ? {}
-      : {
-          initial: { opacity: 0, y: 18 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.45, delay, ease: easeOut },
-        };
 
   useEffect(() => {
     document.getElementById("titulo-acessos")?.focus({ preventScroll: true });
@@ -53,26 +45,26 @@ export function AccessView({ card, onBack, onSaveCard }: AccessViewProps) {
   return (
     <section className="h-full min-h-0 overflow-y-auto" aria-labelledby="titulo-acessos">
       <div className="mx-auto flex w-full max-w-md flex-col px-4 pt-8 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-        <motion.div {...rise(0)} className="flex justify-center">
+        <motion.div {...photoPop(reduced)} className="flex justify-center">
           <div className="rounded-full bg-cream p-1 shadow-[0_12px_28px_rgb(38_33_30/16%)]">
             <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" />
           </div>
         </motion.div>
         <motion.h1
-          {...rise(0.06)}
+          {...rise(reduced, 0.08)}
           id="titulo-acessos"
           tabIndex={-1}
           className="mt-4 text-center text-[clamp(2rem,7vw,2.6rem)] leading-none font-semibold tracking-[-0.03em] text-cream outline-none"
         >
           {card.fullName}
         </motion.h1>
-        <motion.p {...rise(0.1)} className="mt-3 text-center text-[1.1875rem] leading-snug font-medium text-cream">
+        <motion.p {...rise(reduced, 0.12)} className="mt-3 text-center text-[1.1875rem] leading-snug font-medium text-cream">
           {card.role}
         </motion.p>
 
         <ul id="acessos" className="mt-6 grid gap-3">
           {links.map((link, index) => (
-            <motion.li key={link.id} {...rise(0.14 + index * 0.05)}>
+            <motion.li key={link.id} {...rise(reduced, 0.16 + index * 0.06)}>
               <a
                 className="card focus-ring flex min-h-[64px] items-center justify-between gap-3 rounded-[22px] px-4 py-3 text-ink"
                 href={link.href}
@@ -90,7 +82,7 @@ export function AccessView({ card, onBack, onSaveCard }: AccessViewProps) {
               </a>
             </motion.li>
           ))}
-          <motion.li {...rise(0.14 + links.length * 0.05)}>
+          <motion.li {...rise(reduced, 0.16 + links.length * 0.06)}>
             <button
               type="button"
               className="cta focus-ring-cream flex min-h-[64px] w-full items-center justify-center rounded-[22px] px-4 text-[1.1875rem] font-semibold"
@@ -102,7 +94,7 @@ export function AccessView({ card, onBack, onSaveCard }: AccessViewProps) {
         </ul>
 
         <motion.button
-          {...rise(0.2 + links.length * 0.05)}
+          {...rise(reduced, 0.22 + links.length * 0.06)}
           type="button"
           className="focus-ring-cream mt-4 min-h-11 text-[1.1875rem] font-medium text-cream underline decoration-white/70 underline-offset-4"
           onClick={onBack}

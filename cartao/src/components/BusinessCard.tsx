@@ -16,7 +16,7 @@ import {
 import { LAYER_ANNOUNCE, focusPageTitle } from "../lib/a11y.ts";
 import { loadLiveCard } from "../lib/event-mode-client.ts";
 import { type SurpriseContextId } from "../lib/surprise.ts";
-import { easeOut, usePrefersReducedMotion } from "../lib/motion.ts";
+import { paneMotion, usePrefersReducedMotion } from "../lib/motion.ts";
 import { applyPublicUrl, QR_CANVAS_ID } from "../lib/page.ts";
 import { qrColors } from "../lib/qrColors.ts";
 import { type RevealLayer } from "../lib/reveal.ts";
@@ -208,22 +208,7 @@ export function BusinessCard() {
     if (id === "share") void shareCard();
   }
 
-  const paneMotion = reduced
-    ? { initial: { opacity: 1 }, animate: { opacity: 1 }, exit: { opacity: 1 } }
-    : {
-        initial: { opacity: 0, y: 16 },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -12 },
-        transition: { duration: 0.4, ease: easeOut },
-      };
-  const glassPaneMotion = reduced
-    ? { initial: { opacity: 1 }, animate: { opacity: 1 }, exit: { opacity: 1 } }
-    : {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 },
-        transition: { duration: 0.4, ease: easeOut },
-      };
+  const panes = paneMotion(reduced);
 
   return (
     <div className="relative h-full overflow-hidden">
@@ -253,7 +238,7 @@ export function BusinessCard() {
       <main id="conteudo" tabIndex={-1} className="relative z-10 h-full outline-none" aria-label={`Cartão digital de ${card.fullName}`}>
         <AnimatePresence mode="wait" initial={false}>
           {ownerOpen ? (
-            <motion.div key="owner" className="h-full" {...paneMotion}>
+            <motion.div key="owner" className="h-full" {...panes}>
               <EventModeView
                 onClose={() => setOwnerOpen(false)}
                 onSaved={() => {
@@ -265,15 +250,15 @@ export function BusinessCard() {
               />
             </motion.div>
           ) : access ? (
-            <motion.div key="access" className="h-full" {...paneMotion}>
+            <motion.div key="access" className="h-full" {...panes}>
               <AccessView card={card} onBack={closeAccess} onSaveCard={() => void saveGallery()} />
             </motion.div>
           ) : surprise ? (
-            <motion.div key="surprise" className="h-full" {...paneMotion}>
+            <motion.div key="surprise" className="h-full" {...panes}>
               <SurpriseView card={card} context={surpriseContext} onBack={closeSurprise} />
             </motion.div>
           ) : layer === "entry" ? (
-            <motion.div key="entry" className="relative h-full" {...paneMotion}>
+            <motion.div key="entry" className="relative h-full" {...panes}>
               <EntryView
                 card={card}
                 qrValue={qrValue}
@@ -290,7 +275,7 @@ export function BusinessCard() {
               ) : null}
             </motion.div>
           ) : (
-            <motion.div key={layer} {...glassPaneMotion} className="grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto]">
+            <motion.div key={layer} {...panes} className="grid h-full min-h-0 grid-rows-[minmax(0,1fr)_auto]">
               <div className="min-h-0 overflow-y-auto overscroll-y-contain">
                 {layer === "identity" ? <IdentityView card={card} /> : null}
                 {layer === "connection" ? <ConnectionView card={card} extras={extras} onAction={onAction} /> : null}

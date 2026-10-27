@@ -156,6 +156,10 @@ QR com raio de 32px. Ícones em círculo branco. Botão principal em cápsula br
 
 Mobile first. O fundo traz traços finos, em branco translúcido, da marca do Figma e de uma caneta de desenho, atrás do conteúdo. Na entrada, a foto fica acima do nome, sem cobri-lo. O QR abre a página de acessos, com LinkedIn, WhatsApp, e-mail, portfólio e vendas. Salvar cartão gera a imagem para a galeria do celular. Abaixo do cartão branco há um cadeado para a área do proprietário, protegida por senha. Voltar e Contato ficam na faixa de baixo da seção, sem cobrir os cards. O fato atual fica num bloco branco abaixo da foto, com o texto completo visível. No contato, a lista rola por dentro da tela e Voltar e Contato ficam fixos abaixo dela, sem cobrir os cards. Quem abre o QR cai na conexão, no mesmo cartão. Ver o restante do cartão abre a identidade, não a entrada. Voltar para a primeira tela existe só no contato. Se o convite for mais alto que a tela, a página rola por dentro, sem travar o cursor.
 
+## Motion
+
+O cartão pousa na mesa: escala e um leve `rotateX`, sem esconder a foto. A foto dá um spring curto. Nome, ações e QR entram em cascata. O QR flutua 6px. Os traços do fundo se deslocam bem devagar. Trocas de tela sobem e saem para cima. Toque escala para 0.97. Com `prefers-reduced-motion`, tudo para.
+
 ## Accessibility
 
 Camada WCAG 2.2 AA: texto branco em negrito, a partir de 19px, sobre a tangerina; texto grafite sobre os blocos brancos. Foco visível de 3px, alvos de toque com 44px, cápsulas de 52px, um título por tela, atalhos de teclado no carrossel, pausa de movimento e anúncio de status para leitor de tela. `#716761` só sobre branco.
