@@ -1,0 +1,25 @@
+{
+  "name": "Luiz Filipe, UX/UI e Design Engineering",
+  "short_name": "Luiz Filipe",
+  "description": "Cartão digital de Luiz Filipe.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "pt-BR",
+  "background_color": "#E85A24",
+  "theme_color": "#E85A24",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
