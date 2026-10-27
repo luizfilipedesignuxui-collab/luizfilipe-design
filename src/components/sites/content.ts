@@ -3,7 +3,7 @@ import auraCover from "@/assets/sites/aura-scent-cover.jpg";
 import desafioCover from "@/assets/sites/desafio-saudavel-cover.jpg";
 import forjadoCover from "@/assets/sites/forjado-cover.jpg";
 import gabrielCover from "@/assets/sites/gabriel-augusto-cover.jpg";
-import marmitagestCover from "@/assets/sites/marmitagest-cover.jpg";
+import mesaCover from "@/assets/mesa/cover.png";
 import multifitCover from "@/assets/sites/multifit-cover.jpg";
 
 /** Edite tudo da LP /sites aqui. */
@@ -166,12 +166,13 @@ export const PROJETOS: (Projeto & { link: string })[] = ([
     imagem: auraCover,
   },
   {
-    slug: "marmitagest",
-    nome: "MarmitaGest",
-    nicho: "Restaurantes e marmitarias",
+    slug: "mesa",
+    nome: "Mesa",
+    nicho: "Restaurantes",
     categoria: "Sistemas e apps",
-    descricao: "Sistema que mostra receita, custo e lucro da semana em um painel.",
-    imagem: marmitagestCover,
+    descricao: "Cardápio que o dono monta e manda no WhatsApp, com o pedido de volta na conversa.",
+    imagem: mesaCover,
+    imagemVertical: true,
   },
   {
     slug: "desafio-saudavel",

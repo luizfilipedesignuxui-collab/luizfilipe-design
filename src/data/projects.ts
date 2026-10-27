@@ -55,11 +55,9 @@ import gabrielMockup1 from "@/assets/gabriel-augusto/mockup-1.png";
 import gabrielMockup2 from "@/assets/gabriel-augusto/mockup-2.png";
 import gabrielMockup3 from "@/assets/gabriel-augusto/mockup-3.png";
 import gabrielMockup4 from "@/assets/gabriel-augusto/mockup-4.png";
-import marmitagestCover from "@/assets/marmitagest/cover.png";
-import marmitagestMockup1 from "@/assets/marmitagest/mockup-1.png";
-import marmitagestMockup2 from "@/assets/marmitagest/mockup-2.png";
-import marmitagestMockup3 from "@/assets/marmitagest/mockup-3.png";
-import marmitagestMockup4 from "@/assets/marmitagest/mockup-4.png";
+import mesaCover from "@/assets/mesa/cover.png";
+import mesaMockup1 from "@/assets/mesa/mockup-1.png";
+import mesaMockup2 from "@/assets/mesa/mockup-2.png";
 import multifitCover from "@/assets/multifit/cover.png";
 import multifitMockup1 from "@/assets/multifit/mockup-1.png";
 import multifitMockup2 from "@/assets/multifit/mockup-2.png";
@@ -507,45 +505,45 @@ export const projects: Project[] = [
  },
  {
  id: "10",
- slug: "marmitagest",
- titulo: "MarmitaGest: SaaS Financeiro para Restaurantes",
- descricao: "SaaS financeiro para restaurantes: faturamento, custos, lucro e indicadores semanais em um só painel. Design e código ponta a ponta.",
- imagem_capa: marmitagestCover,
+ slug: "mesa",
+ titulo: "Mesa: Cardápio no WhatsApp",
+ descricao: "O dono monta o cardápio, manda o link pelo WhatsApp e recebe o pedido na conversa. Também anota as vendas do dia. Design e código ponta a ponta.",
+ imagem_capa: mesaCover,
  categoria: "UX/UI Design",
  ferramentas: ["Figma", "Cursor", "React", "Tailwind CSS", "Supabase"],
- galeria_de_imagens: [marmitagestMockup1, marmitagestMockup2, marmitagestMockup3, marmitagestMockup4],
- contexto: "Pequenos restaurantes ainda controlam o financeiro no caderno ou em planilhas dispersas. Esse processo manual gera erros de cálculo, perda de receita e dificulta enxergar com clareza o quanto realmente sobra no fim da semana.\n\nO MarmitaGest nasceu para resolver essa dor: dar ao dono do restaurante uma ferramenta simples, rápida e visual para acompanhar toda a saúde financeira do negócio em um só lugar.",
- objetivo: "Construir um SaaS web e mobile dedicado à gestão financeira de restaurantes: registro de faturamento, custos e despesas, cálculo automático de lucro e painel com indicadores semanais. A proposta é entregar uma ferramenta acessível, intuitiva e visualmente acolhedora, mesmo para usuários com pouca familiaridade com tecnologia.",
+ galeria_de_imagens: [mesaMockup1, mesaMockup2],
+ contexto: "Donos de restaurante pequeno ainda mandam o cardápio por foto no WhatsApp e anotam o pedido no papel. O cliente não vê preço atualizado, o dono perde mensagem no meio do movimento e, no fim do dia, não sabe quanto vendeu.\n\nO Mesa nasceu para esse dono: uma página de cardápio que ele mesmo monta, envia pelo WhatsApp e usa para receber o pedido de volta na conversa.",
+ objetivo: "Fazer um app em que o dono cria a página do cardápio, compartilha o link e acompanha pedidos e vendas do dia sem planilha e sem outro aplicativo. A leitura tem que ser fácil para quem tem mais de 50 anos: texto grande, botões altos e poucas decisões por tela.",
  processo: {
- research: "Conversei com donos de restaurantes para entender como controlam o financeiro: como registram receitas, como acompanham custos fixos e variáveis e como calculam o lucro da semana. Identifiquei que o maior gargalo é a falta de visibilidade clara sobre o que realmente sobra no caixa.",
- wireframe: "Estruturei os fluxos principais: login → dashboard financeiro com KPIs → lançamento de receitas e custos → relatório semanal de desempenho. Priorizei poucas telas e ações de no máximo dois cliques para o dono operar com pressa no horário de pico.",
- ui_design: "Desenvolvi a identidade visual com laranja vibrante como cor principal, transmitindo apetite, energia e calor humano. Tipografia bold para os números, cards com hierarquia clara para os indicadores financeiros e gráficos limpos. Layout responsivo, do MacBook ao iPhone, com a mesma experiência fluida.",
+ research: "Acompanhei como o pedido chega hoje: foto do cardápio, áudio e anotação no caderno. O atrito está em três pontos: o cliente não confirma o valor, o dono responde um por um e a venda do dia se perde. O público pede letra grande, poucos botões e o WhatsApp, que ele já sabe usar.",
+ wireframe: "Separei dois caminhos que não se misturam: quem cria a conta da loja e quem já tem conta. Depois, o dono monta a página com modelos e blocos, copia o link para o WhatsApp, e o cliente vê o cardápio e manda o pedido. As vendas do dia ficam numa folha simples, no controle financeiro.",
+ ui_design: "Laranja da marca no símbolo da mesa, ação em terracota, fundo branco e foto grande de comida. Inter a partir de 16px, botões de 48px e rótulos por extenso. A tela inicial abre com o prato em tela cheia e um fade curto até criar conta ou entrar.",
  },
- resultado: "App pensado e construído inteiramente por mim, do descobrimento ao deploy. Plataforma no ar com dashboard financeiro, lançamento de receitas e custos, cálculo de lucro e painel semanal de desempenho. Projeto Design Engineer ponta a ponta: research, UI design, frontend, backend e publicação.",
+ resultado: "Produto desenhado e construído por mim, do Figma ao app no ar: página de cardápio, envio pelo WhatsApp, pedido de volta na conversa e controle das vendas do dia. Projeto de Design Engineering ponta a ponta, com React, Tailwind e Supabase.",
  metricas: {
-  narrativa: "O financeiro do restaurante vivia em caderno e planilhas dispersas. Uni faturamento, custos e lucro em 3 ações principais no painel. Resultado: dono vê a saúde da semana em um só lugar, do design ao código.",
-  narrativa_en: "Restaurant finances lived in notebooks and scattered spreadsheets. I unified revenue, costs, and profit into 3 main dashboard actions. Result: owners see weekly health in one place, from design to code.",
-  fluxo_antes: 6,
+  narrativa: "O pedido vivia em foto, áudio e caderno. Reuni cardápio, WhatsApp e venda do dia em 3 passos: montar a página, mandar o link, receber o pedido. O dono para de copiar preço na mão.",
+  narrativa_en: "Orders lived in photos, voice notes and a notebook. I brought the menu, WhatsApp and the day's sales into 3 steps: build the page, send the link, receive the order. The owner stops copying prices by hand.",
+  fluxo_antes: 5,
   fluxo_depois: 3,
-  valor_antes: "Planilha",
-  valor_depois: "1 painel",
-  label: "controle",
-  label_en: "control",
-  validacao: "Conversas com donos de restaurante",
-  validacao_en: "Talks with restaurant owners",
+  valor_antes: "Caderno",
+  valor_depois: "WhatsApp",
+  label: "pedido",
+  label_en: "order",
+  validacao: "Fluxo desenhado com donos de restaurante",
+  validacao_en: "Flow designed with restaurant owners",
  },
- tags: ["Design Engineer", "SaaS", "Web App", "Mobile", "UI Design"],
- link_projeto: "https://marmitagest.vercel.app/",
- titulo_en: "MarmitaGest: Financial SaaS for Restaurants",
- descricao_en: "Financial SaaS for restaurants: revenue, costs, profit, and weekly indicators in one dashboard. End-to-end design and code.",
+ tags: ["Design Engineer", "App", "WhatsApp", "Restaurante", "UI Design"],
+ link_projeto: "https://mesa-snowy.vercel.app/",
+ titulo_en: "Mesa: Menu on WhatsApp",
+ descricao_en: "The owner builds the menu, sends the link on WhatsApp and gets the order back in the chat. Daily sales stay in the same app. End-to-end design and code.",
  categoria_en: "UX/UI Design",
- contexto_en: "Small restaurants still track finances on paper or scattered spreadsheets. This manual process leads to calculation errors, lost revenue and makes it hard to clearly see how much is actually left at the end of the week.\n\nMarmitaGest was created to solve this pain: give the restaurant owner a simple, fast and visual tool to monitor the financial health of the business in one place.",
- objetivo_en: "Build a web and mobile SaaS dedicated to financial management for restaurants: revenue tracking, costs and expenses, automatic profit calculation and a dashboard with weekly indicators. The goal is an accessible, intuitive and visually warm tool, even for users with low tech familiarity.",
- resultado_en: "App thought through and built entirely by me, from discovery to deploy. Live platform with a financial dashboard, revenue and cost entries, profit calculation and a weekly performance panel. End-to-end Design Engineer project: research, UI design, frontend, backend and publishing.",
+ contexto_en: "Small restaurant owners still send the menu as a photo on WhatsApp and write the order on paper. The customer never sees an updated price, the owner loses messages during the rush and, at the end of the day, does not know what sold.\n\nMesa was built for that owner: a menu page they assemble themselves, send on WhatsApp and use to get the order back in the conversation.",
+ objetivo_en: "Ship an app where the owner creates the menu page, shares the link and follows orders and the day's sales without a spreadsheet or another app. Reading has to be easy for people over 50: large type, tall buttons and few decisions per screen.",
+ resultado_en: "A product I designed and built, from Figma to the live app: menu page, WhatsApp sharing, the order back in the chat and a daily sales tally. End-to-end Design Engineering, with React, Tailwind and Supabase.",
  processo_en: {
- research: "I talked to restaurant owners to understand how they handle their finances: how they record revenue, track fixed and variable costs and calculate weekly profit. I found that the biggest bottleneck is the lack of clear visibility on what is actually left in the cash flow.",
- wireframe: "I structured the main flows: login → financial dashboard with KPIs → revenue and cost entries → weekly performance report. I prioritized few screens and max-two-click actions so the owner can operate quickly during rush hour.",
- ui_design: "I developed the visual identity with vibrant orange as the main color, conveying appetite, energy and human warmth. Bold typography for numbers, cards with clear hierarchy for financial indicators and clean charts. Responsive layout from MacBook to iPhone with the same fluid experience.",
+ research: "I followed how an order arrives today: a menu photo, a voice note and a notebook. The friction is in three places: the customer cannot confirm the price, the owner replies one by one and the day's sales disappear. The audience asks for large type, few buttons and WhatsApp, which they already know.",
+ wireframe: "I kept two paths apart: creating the store account and signing in. Then the owner builds the page with templates and blocks, copies the link to WhatsApp, and the customer reads the menu and sends the order. The day's sales sit on a simple sheet, in the finance view.",
+ ui_design: "Brand orange on the table mark, terracotta for actions, white surfaces and a large food photo. Inter from 16px, 48px buttons and labels in full words. The start screen opens with the plate full-bleed and a short fade into create account or sign in.",
  },
 
 

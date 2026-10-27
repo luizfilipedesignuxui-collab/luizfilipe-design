@@ -104,7 +104,7 @@ Portfólio pessoal centrado em UX/UI e Design Engineering. A identidade **Tanger
 - **WhatsApp** (`#25D366`): só o botão e o ícone do WhatsApp, com letras e ícone brancos.
 - **Botões compactos** (`.btn-compact`): 44px de altura, texto 19px bold. Preenchimento tangerina com texto e ícones brancos.
 
-Ritmo da home (branco e areia se alternam): hero branco + painel tangerina, sobre branco, áreas areia, posicionamento branco, marquee tangerina (`#E85A24`, o mesmo tom do painel do hero), habilidades branco, processo areia, projetos branco, statement areia, certificados branco, contato areia.
+Ritmo da home (branco e areia se alternam): hero branco + painel tangerina, projetos branco, sobre branco, áreas areia, posicionamento branco, marquee tangerina (`#E85A24`, o mesmo tom do painel do hero), habilidades branco, processo areia, statement areia, certificados branco, contato areia.
 
 ## Typography
 
@@ -116,7 +116,7 @@ Ritmo da home (branco e areia se alternam): hero branco + painel tangerina, sobr
 ## Components
 
 - **Header:** barra branca com borda bege e cantos de 8px. O menu central continua recebendo clique (a moldura é `pointer-events-none`).
-- **Hero:** `100svh`, lado branco com frase editorial e CTAs; painel `.hero-panel` em `#E85A24`. O `h1` "LUIZ" / "FILIPE" fica na vertical (de baixo para cima) no desktop e sangra pela direita e por baixo. No mobile o nome fica horizontal, em duas linhas, cortado na borda direita. A frase e o botão do WhatsApp ficam fora do nome.
+- **Hero:** `100svh`, lado branco com frase editorial e CTAs; painel `.hero-panel` em `#E85A24`. O `h1` "LUIZ FILIPE" fica na vertical, à direita, começando abaixo do header. O título do painel encolhe com a largura útil (`11cqi`) para a palavra não entrar embaixo do nome. No mobile o nome ocupa só a faixa da direita e o conteúdo ganha respiro nessa faixa. A frase, o botão do WhatsApp e o título do painel ficam fora do nome.
 - **Botões:** 8px. Primário: fundo tangerina, texto e ícones brancos. Hover terracota, texto branco. Secundário: contorno tangerina e texto tangerina; hover preenchido com texto branco.
 
 ## Layout
@@ -124,13 +124,13 @@ Ritmo da home (branco e areia se alternam): hero branco + painel tangerina, sobr
 Fluxo narrativo da home:
 
 1. Hero
-2. Sobre
-3. Áreas de atuação (`#atuacao`)
-4. Posicionamento
-5. Marquee (ponte visual)
-6. Habilidades
-7. Processo
-8. Projetos
+2. Projetos (`#projetos`), logo após o hero, para o trabalho aparecer no primeiro scroll
+3. Sobre
+4. Áreas de atuação (`#atuacao`)
+5. Posicionamento
+6. Marquee (ponte visual)
+7. Habilidades
+8. Processo
 9. Statement
 10. Certificados
 11. Contato
@@ -149,7 +149,7 @@ Biblioteca: `motion` (Motion for React). Tokens em `src/components/motion/tokens
 - **Títulos de seção:** `RevealTitle` divide o título em palavras que sobem de trás de uma máscara (110% → 0, 0.9s, cascata de 60ms), repetindo a cada entrada na tela. O texto completo fica em `sr-only` para leitores de tela.
 - `MotionConfig reducedMotion="user"` respeita "reduzir movimento" do sistema.
 - **Mobile (< 768px):** o banner abre no lado branco e alterna com o painel tangerina (wipe por clip-path, 3,5s / 4,5s). A linha de cards do Processo vira carrossel automático em loop. Sem botão de pausa: a animação para enquanto o usuário toca/segura ou foca algo dentro dela, e some com "reduzir movimento".
-- **Nome lateral no mobile:** proporção natural (sem esticar), `min(18svh, 40vw)`, de ponta a ponta da altura da tela: o espaçamento entre letras é calculado (`(100svh - tamanho × 4,45) / 11`) para completar a altura sem esticar; a base das letras sangra 24% para fora da borda direita. O `--name-gutter` extra só entra no tablet/desktop — no mobile o padding lateral fica simétrico para foto, cards, faixa e rodapé não parecerem deslocados.
+- **Nome lateral no mobile:** `min(14svh, 26vw)`, com 38% da largura para fora da borda direita. O conteúdo ganha um respiro à direita do tamanho da parte visível do nome, para o texto não ficar embaixo das letras. Se ainda assim uma linha cruzar o nome, o nome some até o scroll liberar.
 - **Cards de Habilidades:** grade estática (sem loop), para não competir com os títulos animados da faixa de posicionamento.
 - **Carrossel de cards (Processo):** loop automático de borda a borda da tela (largura medida em JS), sem corte visível; pausa no hover/toque/foco. Com "reduzir movimento" vira grade estática.
 

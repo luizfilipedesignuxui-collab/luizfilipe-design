@@ -16,7 +16,7 @@ import ScrollProgress from "@/components/motion/ScrollProgress";
 
 /**
  * Narrative flow:
- * Hook → Who I am → Areas → Positioning → Capabilities → Method → Proof → Quote → Credentials → CTA
+ * Hook → Proof → Who I am → Areas → Positioning → Capabilities → Method → Quote → Credentials → CTA
  */
 const Index = () => {
   return (
@@ -26,13 +26,13 @@ const Index = () => {
       <main id="main-content">
         <SideName />
         <HeroSection />
+        <ProjectsSection />
         <AboutSection />
         <AreasSection />
         <PositioningSection />
         <MarqueeSection />
         <SkillsSection />
         <ProcessSection />
-        <ProjectsSection />
         <StatementSection />
         <CertificatesSection />
         <ContactSection />

@@ -149,22 +149,6 @@ const CaseStudy = () => {
           </section>
         )}
 
-        {project.slug === "marmitagest" && (
-          <section className="container mx-auto px-6 mb-12 max-w-4xl">
-            <div className="p-6 rounded-[8px] border border-border bg-sand flex items-center gap-4">
-              <div className="flex-shrink-0 w-14 h-14 rounded-[8px] bg-primary flex items-center justify-center">
-                <span className="text-2xl" aria-hidden>
-                  📱
-                </span>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-foreground text-lg">{t("case.coming_soon_stores")}</h3>
-                <p className="text-muted-foreground text-sm">{t("case.coming_soon_stores_desc")}</p>
-              </div>
-            </div>
-          </section>
-        )}
-
         <section className="container mx-auto px-6 mb-16">
           <div className="w-full rounded-3xl bg-primary/5 border border-border overflow-hidden flex items-center justify-center">
             {project.imagem_capa ? (

@@ -127,7 +127,18 @@ export function usePublishedProjects() {
         if (!isMounted) return;
 
         if (!error && data && data.length > 0) {
-          const remote = data.map(mapPublishedProject);
+          const retired = new Set(["marmitagest"]);
+          const remote: PublishedProject[] = [];
+          let mesaAt = data.length;
+          data.forEach((row) => {
+            if (retired.has(row.slug)) {
+              mesaAt = remote.length;
+              return;
+            }
+            remote.push(mapPublishedProject(row));
+          });
+          const mesa = initialProjects.find((p) => p.slug === "mesa");
+          if (mesa) remote.splice(Math.min(mesaAt, remote.length), 0, mesa);
           const remoteSlugs = new Set(remote.map((p) => p.slug));
           const staticOnly = initialProjects.filter((p) => !remoteSlugs.has(p.slug));
           setProjects([...staticOnly, ...remote]);

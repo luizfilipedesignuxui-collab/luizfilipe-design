@@ -153,7 +153,7 @@ const HeroSection = ({ id, className = "", content }: HeroSectionProps) => {
             <motion.p variants={revealItem} className="font-label text-foreground">
               {c.panelLabel}
             </motion.p>
-            <motion.p variants={revealItem} className="font-display text-white text-[clamp(2.75rem,12vw,3.5rem)] md:text-[clamp(2.25rem,4vw,4rem)]">
+            <motion.p variants={revealItem} className="font-display text-white">
               {c.panelTitle}
             </motion.p>
             <motion.p variants={revealItem} className="text-base text-foreground font-medium">

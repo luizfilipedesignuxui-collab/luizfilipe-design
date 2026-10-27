@@ -347,6 +347,14 @@
     padding: 2.5rem var(--hero-inline-end) 2.5rem var(--page-inline);
     background: var(--color-brand);
     color: var(--color-ink);
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  .hero-panel .font-display {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    font-size: clamp(1.75rem, 11cqi, 3.75rem);
   }
 
   .hero-split--cycle {
@@ -368,12 +376,12 @@
   @media (min-width: 768px) {
     .site-with-name {
       --name-size: clamp(5.5rem, 17vh, 10rem);
-      --name-bleed: 0.1;
-      --name-gutter: calc(var(--name-size) * 1.05);
+      --name-bleed: 0.22;
+      --name-gutter: calc(var(--name-size) * 1.35);
     }
 
     .side-name {
-      top: 6rem;
+      top: 8.5rem;
       bottom: auto;
       letter-spacing: normal;
     }
@@ -394,7 +402,7 @@
     }
 
     .hero-panel {
-      padding: 8rem calc(var(--name-gutter) + 2rem) 4rem 3rem;
+      padding: 8rem calc(var(--name-gutter) + 1.5rem) 4rem 3rem;
     }
   }
 }
@@ -406,6 +414,20 @@
 /* filter instead of opacity: the entrance animation keeps opacity pinned at 1. */
 .side-name[data-hidden="true"] {
   filter: opacity(0);
+}
+
+/* Mobile: the vertical name stays in a right margin so body copy stays readable. */
+@media (max-width: 767px) {
+  .site-with-name:not(.sites-lp) {
+    --name-size: min(14svh, 26vw);
+    --name-bleed: 0.38;
+    --name-gutter: calc(var(--name-size) * (1 - var(--name-bleed)) + 8px);
+  }
+
+  .site-with-name:not(.sites-lp) .side-name {
+    top: 5.75rem;
+    bottom: auto;
+  }
 }
 
 /* LP mobile: no side name, equal insets, content uses the full width. */
