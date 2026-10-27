@@ -36,7 +36,6 @@ export default function App() {
 
   return (
     <div className="card-stage relative h-dvh overflow-hidden bg-bg">
-      <DesignSketch />
       <div className="relative z-10 h-full">{screen}</div>
     </div>
   );
