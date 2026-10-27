@@ -225,7 +225,10 @@ const Header = () => {
               </button>
 
               <a
-                href={anchor("#contato")}
+                href="https://wa.me/5562994474978"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t("hero.cta_secondary")} (${t("a11y.opens_new_tab")})`}
                 className={`hidden sm:inline-flex shrink-0 whitespace-nowrap items-center gap-6 rounded-full bg-primary pl-6 pr-5 h-12 text-[1.2rem] font-extrabold text-white shadow-sm hover:bg-primary-hover hover:text-white hover:ring-1 hover:ring-primary-hover transition-colors ${focusRing}`}
               >
                 {t("hero.cta_secondary")}
