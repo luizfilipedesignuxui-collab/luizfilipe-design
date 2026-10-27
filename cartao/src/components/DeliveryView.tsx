@@ -2,7 +2,6 @@ import { useState } from "react";
 import { businessCard } from "../config/business-card.ts";
 import { cardPath, entryQrValue, navigateTo, resolvePublicCardUrl } from "../lib/app-location.ts";
 import { buildShareMessage, copyText, fileSlug, shareOrCopyLink } from "../lib/contact.ts";
-import { InkScene } from "./InkScene.tsx";
 import { InstallGuide } from "./InstallGuide.tsx";
 import { PhotoSlot } from "./PhotoSlot.tsx";
 import { QrStudio } from "./QrStudio.tsx";
@@ -34,7 +33,6 @@ export function DeliveryView() {
 
   return (
     <div className="relative h-full overflow-hidden text-cream">
-      <InkScene />
       <a className="skip-link" href="#entrega">
         Ir para a entrega
       </a>
@@ -43,45 +41,37 @@ export function DeliveryView() {
       </p>
       <main
         id="entrega"
-        className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-md flex-col overflow-y-auto px-5 pt-10 pb-[max(1rem,env(safe-area-inset-bottom))]"
+        className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-md flex-col overflow-y-auto px-5 pt-10 pb-[max(1rem,env(safe-area-inset-bottom))] lg:max-w-lg lg:justify-center"
       >
         <p className="text-xs tracking-[0.16em] text-cream/90 uppercase">Entrega</p>
         <h1
           id="titulo-pagina"
           tabIndex={-1}
-          className="mt-2 text-[2rem] leading-none font-semibold tracking-[-0.04em] text-pretty outline-none"
+          className="mt-2 text-[clamp(2rem,4vw,2.75rem)] leading-none font-light tracking-[-0.04em] text-pretty outline-none"
         >
           Seu cartão está pronto
         </h1>
         <div className="mt-6 flex items-center gap-4">
           <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" onDark />
           <div>
-            <p className="text-lg font-semibold">{card.fullName}</p>
-            <p className="mt-1 text-sm text-cream/90">{card.role}</p>
+            <p className="text-lg font-light tracking-[-0.03em]">{card.fullName}</p>
+            <p className="mt-1 text-sm font-medium text-cream">{card.role}</p>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col gap-2">
-          <button
-            type="button"
-            className="cta focus-ring-cream flex min-h-[52px] items-center justify-center rounded-full px-5 text-base font-semibold"
-            onClick={openCard}
-          >
+          <button type="button" className="btn btn-cream focus-ring-cream" onClick={openCard}>
             Abrir meu cartão
           </button>
           <button
             type="button"
-            className="cta-outline focus-ring-cream flex min-h-[52px] items-center justify-center rounded-full px-5 text-sm font-semibold"
+            className="btn btn-ink focus-ring-cream"
             onClick={() => setShowInstall((open) => !open)}
             aria-expanded={showInstall}
           >
             Adicionar ao celular
           </button>
-          <button
-            type="button"
-            className="cta-outline focus-ring-cream flex min-h-[52px] items-center justify-center rounded-full px-5 text-sm font-semibold"
-            onClick={() => void shareCard()}
-          >
+          <button type="button" className="btn btn-linkedin focus-ring-cream" onClick={() => void shareCard()}>
             Compartilhar meu cartão
           </button>
         </div>

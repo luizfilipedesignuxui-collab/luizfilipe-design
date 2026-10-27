@@ -35,6 +35,7 @@ export type SurpriseCopy = {
   title: string;
   body: string;
   message: string;
+  cta: string;
 };
 
 const CONTEXT_LABEL: Record<SurpriseContextId, string> = {
@@ -118,38 +119,48 @@ export function buildSurpriseCopy(card: CardFacts, context: SurpriseContextId): 
 
   if (context === "networking") {
     return {
-      kicker: "Conexão",
-      title: "Uma troca a partir do trabalho publicado",
-      body: `${name} trabalha com ${areaLine}. ${practice}`.trim(),
-      message: `Olá, ${name}! Vi seu cartão e gostaria de trocar experiências sobre ${areaLine}.`,
+      kicker: "Isso não é small talk",
+      title: "O crachá acabou. A conversa não.",
+      body: `${practice} ${name} trabalha com ${areaLine}. O networking só esquenta quando vira papo de verdade.`.trim(),
+      message: role
+        ? `Oi, ${name}. A gente se cruzou no networking. Seu cartão de ${role} não parece crachá, parece um convite. Quero trocar ideia sobre ${areaLine}, sem pitch e sem pressa.`
+        : `Oi, ${name}. A gente se cruzou no networking. Seu cartão não parece crachá, parece um convite. Quero trocar ideia sobre ${areaLine}, sem pitch e sem pressa.`,
+      cta: "Trocar ideia",
     };
   }
 
   if (context === "rh") {
     return {
-      kicker: "Conexão",
-      title: "Percurso profissional publicado",
+      kicker: "Olha o percurso",
+      title: "Aqui o currículo respira.",
       body: role
-        ? `${name} atua como ${role}. As competências informadas neste cartão são ${areaLine}. Não há uma vaga anunciada aqui.`
-        : `${name} informa estas competências: ${areaLine}. Não há uma vaga anunciada aqui.`,
-      message: `Olá, ${name}! Vi seu cartão e gostaria de conversar sobre o seu percurso em ${areaLine}.`,
+        ? `Não há uma vaga anunciada neste cartão. Há um percurso: ${name} atua como ${role}, com ${areaLine}.`
+        : `Não há uma vaga anunciada neste cartão. Há um percurso em ${areaLine}.`,
+      message: role
+        ? `Oi, ${name}. Te encontrei num evento de RH e carreira. Não vim com vaga na manga. Vim porque seu percurso como ${role} em ${areaLine} pede uma conversa de verdade.`
+        : `Oi, ${name}. Te encontrei num evento de RH e carreira. Não vim com vaga na manga. Vim porque seu percurso em ${areaLine} pede uma conversa de verdade.`,
+      cta: "Falar do percurso",
     };
   }
 
   if (context === "negocios") {
     return {
-      kicker: "Conexão",
-      title: "Um ponto de partida para conversar",
+      kicker: "Antes do contrato",
+      title: "Primeiro a pergunta. Depois o negócio.",
       body: `${practice || summary || facts(card)} Uma parceria não está combinada neste cartão. Ela só existe se a conversa fizer sentido para os dois.`.trim(),
-      message: `Olá, ${name}! Vi seu cartão e gostaria de conversar sobre uma possível colaboração a partir do seu trabalho em ${areaLine}.`,
+      message: `Oi, ${name}. Te encontrei num encontro de negócios. Vi ${areaLine} e fiquei com uma pergunta, não com uma proposta. Se fizer sentido para os dois, a gente continua.`,
+      cta: "Fazer a pergunta",
     };
   }
 
   return {
-    kicker: "Conexão",
-    title: summary || "Vamos conversar?",
+    kicker: "Temos algo em comum",
+    title: summary || "A conversa começa agora.",
     body: practice || facts(card),
-    message: `Olá, ${name}! Vi seu cartão e gostaria de conversar a partir do seu trabalho.`,
+    message: role
+      ? `Oi, ${name}. Parei no seu cartão e não consegui seguir em frente. ${role}. Quero ver o que vem depois do Figma.`
+      : `Oi, ${name}. Parei no seu cartão e não consegui seguir em frente. Quero ver o que vem depois do Figma.`,
+    cta: "Continuar no LinkedIn",
   };
 }
 

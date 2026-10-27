@@ -111,10 +111,15 @@ export async function readOwnerSecret(): Promise<string> {
   }
 }
 
+/** Código do dono: ignora espaço, traço e maiúsculas. */
+export function normalizeOwnerCode(input: string): string {
+  return input.normalize("NFKC").replace(/[\s\-_.]/g, "").toUpperCase();
+}
+
 function sameSecret(input: string, secret: string): boolean {
-  const left = createHash("sha256").update(input).digest();
-  const right = createHash("sha256").update(secret).digest();
-  return timingSafeEqual(left, right);
+  const left = createHash("sha256").update(normalizeOwnerCode(input)).digest();
+  const right = createHash("sha256").update(normalizeOwnerCode(secret)).digest();
+  return left.length === right.length && timingSafeEqual(left, right);
 }
 
 function sessionKey(secret: string): string {
@@ -187,6 +192,7 @@ function publicBody(settings: EventSettings, now: Date): EventResult {
 
 type SaveBody = {
   action?: unknown;
+  code?: unknown;
   password?: unknown;
   context?: unknown;
   duration?: unknown;
@@ -267,16 +273,17 @@ export async function handleEventMode(
   if (!secret) {
     return {
       status: 503,
-      body: { error: "O acesso do proprietário ainda não foi configurado neste servidor." },
+      body: { error: "O código do proprietário ainda não foi configurado neste servidor." },
     };
   }
 
   if (body.action === "login") {
-    const password = typeof body.password === "string" ? body.password : "";
-    if (!password || password.length > 200 || loginBlocked("owner", now.getTime())) {
+    const submitted =
+      typeof body.code === "string" ? body.code : typeof body.password === "string" ? body.password : "";
+    if (!submitted || submitted.length > 200 || loginBlocked("owner", now.getTime())) {
       return { status: 401, body: { error: "Acesso negado." } };
     }
-    if (!sameSecret(password, secret)) {
+    if (!sameSecret(submitted, secret)) {
       recordLoginFailure("owner", now.getTime());
       return { status: 401, body: { error: "Acesso negado." } };
     }

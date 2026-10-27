@@ -85,11 +85,11 @@ export function buildContextModes(card: CardFacts): ContextMode[] {
 
 const MESSAGE_BODY: Record<ContextModeId, string> = {
   networking:
-    "Conheci seu cartão digital e gostaria de ampliar minha rede de contatos profissionais. Achei interessante conhecer seu trabalho e acredito que podemos trocar experiências e conhecimentos. Vamos nos conectar?",
+    "Seu cartão não parece crachá, parece um convite. Quero trocar ideia, sem pitch e sem pressa. Vamos nos conectar?",
   parcerias:
-    "Conheci seu cartão digital e gostaria de conversar sobre possíveis parcerias profissionais. Acredito que podemos encontrar oportunidades de colaboração que façam sentido para ambos. Você estaria aberto a conversarmos?",
+    "Vi o que você publica e fiquei com uma pergunta, não com uma proposta. Se fizer sentido para os dois, a gente continua.",
   oportunidades:
-    "Conheci seu cartão digital e gostaria de conversar sobre possíveis oportunidades profissionais relacionadas ao seu trabalho. Acredito que pode ser interessante trocarmos algumas ideias. Podemos conversar?",
+    "Não vim com vaga na manga. Vim porque o percurso do seu cartão pede uma conversa de verdade. Podemos conversar?",
 };
 
 /** Mensagem sugerida para o contexto. Sem contexto = string vazia. */

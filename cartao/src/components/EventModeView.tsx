@@ -11,7 +11,12 @@ import {
   saveOwnerSettings,
   writeOwnerToken,
 } from "../lib/event-mode-client.ts";
-import { surpriseContextLabel, type SurpriseContextId, type SurpriseDurationId } from "../lib/surprise.ts";
+import {
+  buildSurpriseCopy,
+  surpriseContextLabel,
+  type SurpriseContextId,
+  type SurpriseDurationId,
+} from "../lib/surprise.ts";
 
 const CONTEXTS: SurpriseContextId[] = ["networking", "rh", "negocios", "geral"];
 
@@ -30,7 +35,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
   const reduced = usePrefersReducedMotion();
   const formId = useId();
   const [token, setToken] = useState(() => readOwnerToken());
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
   const [context, setContext] = useState<SurpriseContextId>("geral");
   const [duration, setDuration] = useState<SurpriseDurationId>("until-change");
   const [endsAtLocal, setEndsAtLocal] = useState("");
@@ -43,6 +48,17 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [ready, setReady] = useState(!readOwnerToken());
+  const linkedinPreview = buildSurpriseCopy(
+    {
+      firstName: businessCard.firstName,
+      role: role.trim() || businessCard.role,
+      summary: businessCard.summary,
+      practiceLine: businessCard.practiceLine,
+      specialty: businessCard.specialty,
+      competencies: businessCard.competencies,
+    },
+    context,
+  );
 
   useEffect(() => {
     if (!token) return;
@@ -86,14 +102,14 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
     event.preventDefault();
     setBusy(true);
     setError("");
-    const result = await loginOwner(password);
+    const result = await loginOwner(code);
     setBusy(false);
     if (!result.ok) {
       setError(result.message);
       return;
     }
     writeOwnerToken(result.token);
-    setPassword("");
+    setCode("");
     setToken(result.token);
     setReady(false);
   }
@@ -142,12 +158,14 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
 
   return (
     <div className="h-full overflow-y-auto text-cream">
-      <div className="shell mx-auto flex w-full max-w-md flex-col px-5 py-8">
-        <h1 id="titulo-pagina" tabIndex={-1} className="text-[clamp(1.85rem,6vw,2.5rem)] leading-tight font-semibold outline-none">
+      <div className="shell mx-auto flex w-full max-w-md flex-col px-5 py-8 lg:max-w-lg">
+        <h1 id="titulo-pagina" tabIndex={-1} className="text-[clamp(1.85rem,6vw,2.5rem)] leading-tight font-light tracking-[-0.04em] outline-none">
           Área do proprietário
         </h1>
         <p className="mt-3 text-xl leading-snug font-medium">
-          {token ? "Altere os dados do cartão e o contexto da conexão." : "Entre com a senha para continuar."}
+          {token
+            ? "Altere os dados do cartão e o contexto da conexão."
+            : "Entre com o código que você recebeu. Só ele abre a edição."}
         </p>
 
         {!token ? (
@@ -156,17 +174,22 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
             onSubmit={(event) => void onLogin(event)}
             {...cardLand(reduced)}
           >
-            <label className="block text-lg font-medium" htmlFor={`${formId}-senha`}>
-              Senha
+            <label className="block text-lg font-medium" htmlFor={`${formId}-codigo`}>
+              Seu código
             </label>
+            <p className="mt-1 text-base leading-snug text-muted">Este código é só seu. Quem visita o cartão não o vê.</p>
             <input
-              id={`${formId}-senha`}
-              className="focus-ring mt-2 min-h-12 w-full rounded-[14px] border border-line bg-white px-3 text-lg text-ink"
-              type="password"
-              name="senha"
-              autoComplete="current-password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              id={`${formId}-codigo`}
+              className="focus-ring mt-2 min-h-12 w-full rounded-[14px] border border-line bg-white px-3 text-lg tracking-[0.12em] text-ink"
+              type="text"
+              name="codigo"
+              inputMode="text"
+              autoComplete="off"
+              autoCapitalize="characters"
+              autoCorrect="off"
+              spellCheck={false}
+              value={code}
+              onChange={(event) => setCode(event.target.value)}
               required
             />
             {error ? (
@@ -174,11 +197,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
                 {error}
               </p>
             ) : null}
-            <button
-              className="cta-on-cream focus-ring-cream mt-4 flex min-h-[52px] w-full items-center justify-center rounded-full px-5 text-[1.1875rem] font-semibold"
-              type="submit"
-              disabled={busy}
-            >
+            <button className="btn btn-ink focus-ring mt-4" type="submit" disabled={busy}>
               Entrar
             </button>
           </motion.form>
@@ -190,7 +209,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
           >
             <fieldset disabled={!ready || busy} className="grid gap-4">
               <div>
-                <p className="text-lg font-semibold">Foto</p>
+                <p className="text-lg font-medium">Foto</p>
                 <div className="mt-2 flex items-center gap-4">
                   {photoSrc ? (
                     <img src={photoSrc} alt="Foto atual do cartão" className="size-20 rounded-full object-cover object-center ring-1 ring-line" />
@@ -251,7 +270,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
             </fieldset>
 
             <fieldset className="mt-5" disabled={!ready || busy}>
-              <legend className="text-lg font-semibold">Contexto da conexão</legend>
+              <legend className="text-lg font-medium">Contexto da conexão</legend>
               <div className="mt-2 grid gap-2">
                 {CONTEXTS.map((id) => (
                   <label key={id} className="flex min-h-11 items-center gap-3 text-lg font-medium">
@@ -269,8 +288,18 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
               </div>
             </fieldset>
 
+            <div className="mt-5 rounded-[14px] border border-line px-3 py-3" aria-live="polite">
+              <p className="text-base font-medium text-muted">O que o visitante vê e copia</p>
+              <p className="mt-1 text-sm font-medium text-ink">{surpriseContextLabel(context)}</p>
+              <p className="mt-2 text-lg leading-snug font-light tracking-[-0.03em]">{linkedinPreview.title}</p>
+              <p className="mt-2 text-base leading-snug font-normal">{linkedinPreview.message}</p>
+              <p className="mt-2 text-sm leading-snug text-muted">
+                Título, texto e botão mudam com o tipo de evento. A mensagem vai colada no LinkedIn.
+              </p>
+            </div>
+
             <fieldset className="mt-5" disabled={!ready || busy || context === "geral"}>
-              <legend className="text-lg font-semibold">Duração</legend>
+              <legend className="text-lg font-medium">Duração</legend>
               <div className="mt-2 grid gap-2">
                 {DURATIONS.map((item) => (
                   <label key={item.id} className="flex min-h-11 items-center gap-3 text-lg font-medium">
@@ -316,11 +345,7 @@ export function EventModeView({ onClose, onSaved }: EventModeViewProps) {
               </p>
             ) : null}
 
-            <button
-              className="cta-on-cream focus-ring-cream mt-5 flex min-h-[52px] w-full items-center justify-center rounded-full px-5 text-[1.1875rem] font-semibold"
-              type="submit"
-              disabled={!ready || busy}
-            >
+            <button className="btn btn-accent focus-ring mt-5" type="submit" disabled={!ready || busy}>
               Salvar
             </button>
           </motion.form>

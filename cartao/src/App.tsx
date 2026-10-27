@@ -3,7 +3,6 @@ import { BusinessCard } from "./components/BusinessCard.tsx";
 import { DeliveryView } from "./components/DeliveryView.tsx";
 import { EventModeView } from "./components/EventModeView.tsx";
 import { MissingCard } from "./components/MissingCard.tsx";
-import { DesignSketch } from "./components/DesignSketch.tsx";
 import { businessCard } from "./config/business-card.ts";
 import { parsePathname, type AppView } from "./lib/app-location.ts";
 import { fileSlug } from "./lib/contact.ts";

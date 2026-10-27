@@ -50,7 +50,7 @@ export function InstallGuide({ onStatus }: InstallGuideProps) {
           {canInstall ? (
             <button
               type="button"
-              className="cta focus-ring mt-4 flex min-h-11 w-full items-center justify-center rounded-full px-4 text-sm font-semibold"
+              className="btn btn-save focus-ring mt-4"
               onClick={() => void install()}
             >
               Instalar neste navegador

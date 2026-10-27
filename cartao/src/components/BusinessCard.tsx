@@ -20,7 +20,6 @@ import { paneMotion, usePrefersReducedMotion } from "../lib/motion.ts";
 import { applyPublicUrl, QR_CANVAS_ID } from "../lib/page.ts";
 import { qrColors } from "../lib/qrColors.ts";
 import { type RevealLayer } from "../lib/reveal.ts";
-import { InkScene } from "./InkScene.tsx";
 import { ConnectionView } from "./reveal/ConnectionView.tsx";
 import { AccessView } from "./AccessView.tsx";
 import { SurpriseView } from "./SurpriseView.tsx";
@@ -212,7 +211,6 @@ export function BusinessCard() {
 
   return (
     <div className="relative h-full overflow-hidden">
-      <InkScene />
       <a className="skip-link" href="#conteudo">
         Ir para o conteúdo
       </a>
@@ -287,8 +285,8 @@ export function BusinessCard() {
                     {status}
                   </p>
                 ) : null}
-                <div className="mx-auto w-full max-w-md">
-                  <LayerNav onBack={goBack} onContact={goContact} current={layer} tone="dark" />
+                <div className="mx-auto w-full max-w-md lg:max-w-xl">
+                  <LayerNav onBack={goBack} onContact={goContact} current={layer} />
                 </div>
               </div>
             </motion.div>

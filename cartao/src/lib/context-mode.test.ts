@@ -57,21 +57,21 @@ describe("withContextParam", () => {
 describe("buildConnectionMessage", () => {
   it("usa o primeiro nome na saudação", () => {
     const message = buildConnectionMessage("Luiz", "networking");
-    expect(message.startsWith("Olá, Luiz! Conheci seu cartão digital")).toBe(true);
-    expect(message.endsWith("Vamos nos conectar?")).toBe(true);
+    expect(message.startsWith("Olá, Luiz!")).toBe(true);
+    expect(message).toContain("Vamos nos conectar?");
   });
 
   it("tem um texto por contexto", () => {
-    expect(buildConnectionMessage("Luiz", "parcerias")).toContain("possíveis parcerias profissionais");
-    expect(buildConnectionMessage("Luiz", "parcerias")).toContain("Você estaria aberto a conversarmos?");
-    expect(buildConnectionMessage("Luiz", "oportunidades")).toContain(
-      "possíveis oportunidades profissionais relacionadas ao seu trabalho",
-    );
-    expect(buildConnectionMessage("Luiz", "oportunidades").endsWith("Podemos conversar?")).toBe(true);
+    const networking = buildConnectionMessage("Luiz", "networking");
+    const parcerias = buildConnectionMessage("Luiz", "parcerias");
+    const oportunidades = buildConnectionMessage("Luiz", "oportunidades");
+    expect(new Set([networking, parcerias, oportunidades]).size).toBe(3);
+    expect(parcerias).toContain("pergunta");
+    expect(oportunidades).toContain("vaga na manga");
   });
 
   it("sem nome usa só Olá!", () => {
-    expect(buildConnectionMessage("  ", "networking").startsWith("Olá! Conheci")).toBe(true);
+    expect(buildConnectionMessage("  ", "networking").startsWith("Olá!")).toBe(true);
   });
 
   it("sem contexto não há mensagem", () => {

@@ -79,9 +79,9 @@ describe("handleEventMode", () => {
     expect(expired.body.context).toBe("geral");
   });
 
-  it("nega leitura e gravação sem senha válida", async () => {
+  it("nega leitura e gravação sem código válido", async () => {
     const store = memoryStore();
-    const denied = await post({ action: "login", password: "errada" }, store);
+    const denied = await post({ action: "login", code: "errada" }, store);
     expect(denied.status).toBe(401);
     expect(denied.body).not.toHaveProperty("token");
 
@@ -96,7 +96,7 @@ describe("handleEventMode", () => {
 
   it("grava o contexto e o mantém até o proprietário mudar", async () => {
     const store = memoryStore();
-    const login = await post({ action: "login", password: secret }, store);
+    const login = await post({ action: "login", code: secret }, store);
     const token = String(login.body.token);
     const saved = await post(
       { action: "save", context: "negocios", duration: "until-change" },
@@ -150,12 +150,27 @@ describe("handleEventMode", () => {
     expect(visible.body).not.toHaveProperty("endsAt");
   });
 
-  it("recusa o acesso quando o servidor não tem senha", async () => {
+  it("recusa o acesso quando o servidor não tem código", async () => {
     const result = await handleEventMode(
-      { method: "POST", authorization: "", body: { action: "login", password: secret } },
+      { method: "POST", authorization: "", body: { action: "login", code: secret } },
       { store: memoryStore(), secret: "" },
     );
     expect(result.status).toBe(503);
+  });
+
+  it("aceita o código com espaço, traço e letra minúscula", async () => {
+    const store = memoryStore();
+    const login = await handleEventMode(
+      {
+        method: "POST",
+        authorization: "",
+        body: { action: "login", code: "lf 7k3m 9q2p" },
+        now: new Date("2026-10-27T15:00:00.000Z"),
+      },
+      { store, secret: "LF-7K3M-9Q2P" },
+    );
+    expect(login.status).toBe(200);
+    expect(login.body).toHaveProperty("token");
   });
 });
 

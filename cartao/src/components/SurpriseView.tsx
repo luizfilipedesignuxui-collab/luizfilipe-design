@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import type { BusinessCardConfig } from "../config/business-card.ts";
 import { newWindowLabel } from "../lib/a11y.ts";
 import { copyText, linkedinProfileUrl } from "../lib/contact.ts";
-import { cardLand, hoverLift, photoPop, press, rise, usePrefersReducedMotion } from "../lib/motion.ts";
-import { buildSurpriseCopy, type SurpriseContextId } from "../lib/surprise.ts";
+import { cardLand, hoverLift, photoFloat, photoPop, press, rise, usePrefersReducedMotion } from "../lib/motion.ts";
+import { buildSurpriseCopy, surpriseContextLabel, type SurpriseContextId } from "../lib/surprise.ts";
 import { PhotoSlot } from "./PhotoSlot.tsx";
 
 type SurpriseViewProps = {
@@ -51,7 +51,7 @@ export function SurpriseView({ card, context, onBack }: SurpriseViewProps) {
 
   return (
     <section className="h-full min-h-0 overflow-y-auto" aria-labelledby="titulo-conexao">
-      <div className="shell mx-auto w-full max-w-md px-4 pt-16 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+      <div className="shell mx-auto w-full max-w-md px-4 pt-16 pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:max-w-lg lg:pt-20">
         <motion.article
           className="card relative rounded-[32px] px-5 pt-16 pb-6 text-ink"
           {...cardLand(reduced)}
@@ -60,25 +60,25 @@ export function SurpriseView({ card, context, onBack }: SurpriseViewProps) {
             className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
             {...photoPop(reduced, 0.08)}
           >
-            <div className="rounded-full bg-cream p-1 shadow-[0_12px_28px_rgb(38_33_30/16%)]">
+            <motion.div {...photoFloat(reduced)} className="rounded-full bg-cream p-1 shadow-[0_12px_28px_rgb(38_33_30/16%)]">
               <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" />
-            </div>
+            </motion.div>
           </motion.div>
 
-          <motion.p {...rise(reduced, 0.12)} className="text-center text-[1.1875rem] font-semibold">
+          <motion.p {...rise(reduced, 0.12)} className="text-center text-[1.1875rem] font-medium">
             {copy.kicker}
           </motion.p>
           <motion.h1
             id="titulo-conexao"
             tabIndex={-1}
-            className="mt-2 text-center text-[clamp(1.7rem,6vw,2.25rem)] leading-tight font-semibold tracking-[-0.03em] text-balance outline-none"
+            className="mt-2 text-center text-[clamp(1.7rem,5vw,2.35rem)] leading-tight font-light tracking-[-0.04em] text-balance outline-none"
             {...rise(reduced, 0.16)}
           >
             {copy.title}
           </motion.h1>
           <motion.p
             {...rise(reduced, 0.2)}
-            className="mt-3 text-center text-[1.1875rem] leading-snug font-medium text-pretty"
+            className="mt-3 text-center text-[1.1875rem] leading-snug font-normal text-pretty"
           >
             {copy.body}
           </motion.p>
@@ -87,25 +87,27 @@ export function SurpriseView({ card, context, onBack }: SurpriseViewProps) {
             {...rise(reduced, 0.26)}
             className="mt-5 rounded-[22px] border border-line px-4 py-4"
           >
-            <p className="text-base font-semibold text-muted">Mensagem para o LinkedIn</p>
-            <p className="mt-2 text-[1.1875rem] leading-snug font-medium">{copy.message}</p>
+            <p className="text-base font-medium text-muted">
+              Mensagem para o LinkedIn · {surpriseContextLabel(context)}
+            </p>
+            <p className="mt-2 text-[1.1875rem] leading-snug font-normal">{copy.message}</p>
           </motion.div>
 
           {linkedin ? (
             <motion.a
               id="vamos-conversar"
-              className="cta-on-cream focus-ring-cream mt-5 flex min-h-[52px] items-center justify-center rounded-full px-5 text-center text-[1.1875rem] font-semibold"
+              className="btn btn-linkedin focus-ring-cream mt-5"
               href={linkedin}
               target="_blank"
               rel="noreferrer"
-              aria-label={newWindowLabel("Vamos conversar?", true)}
+              aria-label={newWindowLabel(copy.cta, true)}
               onClick={() => {
                 void prepareMessage();
               }}
               whileHover={reduced ? undefined : hoverLift}
               whileTap={reduced ? undefined : press}
             >
-              Vamos conversar?
+              {copy.cta}
             </motion.a>
           ) : null}
           {note ? (
@@ -115,7 +117,7 @@ export function SurpriseView({ card, context, onBack }: SurpriseViewProps) {
           ) : null}
           <button
             type="button"
-            className="focus-ring mt-3 min-h-11 w-full text-[1.1875rem] font-semibold text-ink underline decoration-line underline-offset-4"
+            className="focus-ring mt-3 min-h-11 w-full text-[1.1875rem] font-normal text-ink underline decoration-line underline-offset-4"
             onClick={onBack}
           >
             Voltar ao cartão

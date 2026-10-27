@@ -47,28 +47,13 @@ export function QrStudio({ value, name, isLocal, onDownload, onCopy, onShare }: 
         <p className="mt-3 text-sm leading-relaxed text-muted">Área livre ao redor do código para leitura em tela e no papel.</p>
       )}
       <div className="mt-4 grid gap-2">
-        <button
-          type="button"
-          className="cta focus-ring flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold"
-          onClick={save}
-          disabled={!value}
-        >
+        <button type="button" className="btn btn-accent focus-ring" onClick={save} disabled={!value}>
           Baixar QR em alta resolução
         </button>
-        <button
-          type="button"
-          className="focus-ring flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-ink ring-1 ring-line"
-          onClick={onCopy}
-          disabled={!value}
-        >
+        <button type="button" className="btn btn-ink focus-ring" onClick={onCopy} disabled={!value}>
           Copiar URL
         </button>
-        <button
-          type="button"
-          className="focus-ring flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-ink ring-1 ring-line"
-          onClick={onShare}
-          disabled={!value}
-        >
+        <button type="button" className="btn btn-linkedin focus-ring" onClick={onShare} disabled={!value}>
           Compartilhar o link
         </button>
       </div>

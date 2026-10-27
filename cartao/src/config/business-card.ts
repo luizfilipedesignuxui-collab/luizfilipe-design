@@ -83,7 +83,7 @@ export const businessCard = {
   email: "luizfilipe.designuxui@gmail.com",
   emailSubject: "Contato pelo cartão digital",
   phoneDisplay: "+55 62 99447-4978",
-  whatsappMessage: "Olá, Luiz. Vi seu cartão digital e gostaria de conversar.",
+  whatsappMessage: "Oi, Luiz. Seu cartão parou na minha tela. Quero continuar essa conversa.",
   linkedinUrl: "https://www.linkedin.com/in/luiz-filipe-cardoso",
   portfolioUrl: "https://luizfilipe-design.vercel.app",
   websiteUrl: "https://luizfilipe-design.vercel.app/sites",

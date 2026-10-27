@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import type { BusinessCardConfig } from "../../config/business-card.ts";
-import { easeOut, photoPop, rise, usePrefersReducedMotion } from "../../lib/motion.ts";
+import { easeOut, photoFloat, photoPop, rise, usePrefersReducedMotion } from "../../lib/motion.ts";
 import { PhotoSlot } from "../PhotoSlot.tsx";
 
 const SWIPE_PX = 48;
@@ -84,43 +84,47 @@ export function IdentityView({ card }: { card: BusinessCardConfig }) {
 
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-hidden text-cream lg:flex-none">
-      <div className="mx-auto flex h-full min-h-0 w-full max-w-md flex-1 flex-col overflow-y-auto px-5 pt-5 pb-2 lg:h-auto lg:flex-none lg:overflow-visible lg:pt-4">
-        <motion.div {...photoPop(reduced)} className="self-center">
-          <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" ring onDark />
-        </motion.div>
+      <div className="mx-auto flex h-full min-h-0 w-full max-w-md flex-1 flex-col overflow-y-auto px-5 pt-5 pb-2 lg:h-auto lg:max-w-4xl lg:flex-none lg:flex-row lg:items-center lg:gap-12 lg:overflow-visible lg:px-10 lg:pt-8">
+        <div className="flex flex-col items-center lg:w-[280px] lg:shrink-0 lg:items-start">
+          <motion.div {...photoPop(reduced)} className="self-center lg:self-start">
+            <motion.div {...photoFloat(reduced)}>
+              <PhotoSlot src={card.photoSrc} name={card.fullName} size="lg" ring onDark />
+            </motion.div>
+          </motion.div>
 
-        <motion.h1
-          id="titulo-pagina"
-          tabIndex={-1}
-          className="mt-4 text-center text-[2rem] leading-[1.05] font-semibold tracking-[-0.03em] outline-none focus:outline-none focus-visible:outline-none"
-          {...rise(reduced, 0.08)}
-        >
-          {card.fullName}
-        </motion.h1>
-        <motion.p
-          {...rise(reduced, 0.12)}
-          className="mt-2 text-center text-[1.1875rem] font-medium leading-snug text-cream"
-        >
-          {card.role}
-        </motion.p>
+          <motion.h1
+            id="titulo-pagina"
+            tabIndex={-1}
+            className="mt-4 text-center text-[clamp(2rem,4vw,2.75rem)] leading-[1.05] font-light tracking-[-0.04em] outline-none focus:outline-none focus-visible:outline-none lg:text-left"
+            {...rise(reduced, 0.08)}
+          >
+            {card.fullName}
+          </motion.h1>
+          <motion.p
+            {...rise(reduced, 0.12)}
+            className="mt-2 text-center text-[1.1875rem] leading-snug font-medium text-cream lg:text-left"
+          >
+            {card.role}
+          </motion.p>
 
-        {chips.length > 0 ? (
-          <ul className="mt-3 flex flex-wrap justify-center gap-2" aria-label="Áreas de atuação">
-            {chips.map((chip, index) => (
-              <motion.li
-                key={chip}
-                className="rounded-full bg-cream px-3 py-1.5 text-sm font-semibold text-ink"
-                {...rise(reduced, 0.16 + index * 0.05)}
-              >
-                {chip}
-              </motion.li>
-            ))}
-          </ul>
-        ) : null}
+          {chips.length > 0 ? (
+            <ul className="mt-3 flex flex-wrap justify-center gap-2 lg:justify-start" aria-label="Áreas de atuação">
+              {chips.map((chip, chipIndex) => (
+                <motion.li
+                  key={chip}
+                  className="rounded-full bg-cream px-3 py-1.5 text-sm font-medium text-ink"
+                  {...rise(reduced, 0.16 + chipIndex * 0.05)}
+                >
+                  {chip}
+                </motion.li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
 
         {current ? (
           <div
-            className="mt-4 flex min-h-0 flex-1 flex-col lg:flex-none"
+            className="mt-4 flex min-h-0 flex-1 flex-col lg:mt-0 lg:flex-none"
             role="region"
             aria-roledescription="carrossel"
             aria-label={`Informações de ${card.firstName}`}
@@ -155,7 +159,7 @@ export function IdentityView({ card }: { card: BusinessCardConfig }) {
                   <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">
                     {current.label}
                   </p>
-                  <p className="mt-3 text-[1.2rem] leading-snug font-semibold tracking-[-0.03em] text-pretty break-words">
+                  <p className="mt-3 text-[1.2rem] leading-snug font-normal tracking-[-0.03em] text-pretty break-words">
                     {current.title}
                   </p>
                   {current.detail ? (

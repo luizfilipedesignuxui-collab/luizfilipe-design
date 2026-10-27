@@ -119,10 +119,25 @@ describe("buildSurpriseCopy", () => {
     for (const context of ["geral", "networking", "rh", "negocios"] as const) {
       const copy = buildSurpriseCopy(businessCard, context);
       expect(copy.body).not.toMatch(/compatív|vaga aberta|parceria fechada|interesse mútuo/i);
-      expect(copy.message.startsWith("Olá, Luiz!")).toBe(true);
+      expect(copy.message).toContain("Luiz");
+      expect(copy.cta.length).toBeGreaterThan(3);
     }
     expect(buildSurpriseCopy(businessCard, "rh").body).toContain("Não há uma vaga anunciada");
     expect(buildSurpriseCopy(businessCard, "negocios").body).toContain("não está combinada");
     expect(buildSurpriseCopy(businessCard, "networking").body).toContain(businessCard.practiceLine);
+  });
+
+  it("troca a mensagem do LinkedIn conforme o tipo de evento", () => {
+    const geral = buildSurpriseCopy(businessCard, "geral");
+    const networking = buildSurpriseCopy(businessCard, "networking");
+    const rh = buildSurpriseCopy(businessCard, "rh");
+    const negocios = buildSurpriseCopy(businessCard, "negocios");
+    expect(new Set([geral.message, networking.message, rh.message, negocios.message]).size).toBe(4);
+    expect(new Set([geral.title, networking.title, rh.title, negocios.title]).size).toBe(4);
+    expect(new Set([geral.cta, networking.cta, rh.cta, negocios.cta]).size).toBe(4);
+    expect(networking.message).toMatch(/networking/i);
+    expect(rh.message).toMatch(/RH e carreira/);
+    expect(negocios.message).toMatch(/negócios/);
+    expect(geral.message).not.toMatch(/networking|RH e carreira|negócios/);
   });
 });

@@ -5,13 +5,20 @@ export const easeSoft = [0.16, 1, 0.3, 1] as const;
 
 export const springSnap = {
   type: "spring" as const,
-  stiffness: 340,
-  damping: 24,
-  mass: 0.85,
+  stiffness: 420,
+  damping: 18,
+  mass: 0.7,
 };
 
-export const press = { scale: 0.97 };
-export const hoverLift = { y: -2 };
+export const springLand = {
+  type: "spring" as const,
+  stiffness: 170,
+  damping: 14,
+  mass: 0.9,
+};
+
+export const press = { scale: 0.94 };
+export const hoverLift = { y: -4, scale: 1.03 };
 
 export function usePrefersReducedMotion(): boolean {
   const [reduced, setReduced] = useState(() => {
@@ -29,30 +36,30 @@ export function usePrefersReducedMotion(): boolean {
   return reduced;
 }
 
-/** O cartão pousa na mesa. Sem opacity 0 no bloco da foto, para não atrasar o LCP. */
+/** O cartão entra com mola. Sem opacity 0 na foto, para não atrasar o LCP. */
 export function cardLand(reduced: boolean) {
   if (reduced) return {};
   return {
-    initial: { y: 28, scale: 0.97, rotateX: 7 },
-    animate: { y: 0, scale: 1, rotateX: 0 },
-    transition: { duration: 0.7, ease: easeSoft },
+    initial: { y: 64, scale: 0.88, rotateX: 16, rotateZ: -2 },
+    animate: { y: 0, scale: 1, rotateX: 0, rotateZ: 0 },
+    transition: springLand,
   };
 }
 
 export function rise(reduced: boolean, delay = 0) {
   if (reduced) return {};
   return {
-    initial: { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5, delay, ease: easeOut },
+    initial: { opacity: 0, y: 28, scale: 0.96 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    transition: { ...springSnap, delay },
   };
 }
 
 export function photoPop(reduced: boolean, delay = 0) {
   if (reduced) return {};
   return {
-    initial: { scale: 0.9 },
-    animate: { scale: 1 },
+    initial: { scale: 0.72, rotate: -8 },
+    animate: { scale: 1, rotate: 0 },
     transition: { ...springSnap, delay },
   };
 }
@@ -62,17 +69,25 @@ export function paneMotion(reduced: boolean) {
     return { initial: { opacity: 1 }, animate: { opacity: 1 }, exit: { opacity: 1 } };
   }
   return {
-    initial: { opacity: 0, y: 22, scale: 0.985 },
-    animate: { opacity: 1, y: 0, scale: 1 },
-    exit: { opacity: 0, y: -14, scale: 0.99 },
-    transition: { duration: 0.42, ease: easeOut },
+    initial: { opacity: 0, x: 56, rotate: 3, scale: 0.94 },
+    animate: { opacity: 1, x: 0, rotate: 0, scale: 1 },
+    exit: { opacity: 0, x: -40, rotate: -2, scale: 0.97 },
+    transition: { duration: 0.48, ease: easeOut },
   };
 }
 
 export function qrFloat(reduced: boolean) {
   if (reduced) return {};
   return {
-    animate: { y: [0, -6, 0] },
-    transition: { duration: 4.2, repeat: Infinity, ease: "easeInOut" as const },
+    animate: { y: [0, -10, 0], rotate: [0, 2.4, 0] },
+    transition: { duration: 3.2, repeat: Infinity, ease: "easeInOut" as const },
+  };
+}
+
+export function photoFloat(reduced: boolean) {
+  if (reduced) return {};
+  return {
+    animate: { y: [0, -7, 0] },
+    transition: { duration: 3.8, repeat: Infinity, ease: "easeInOut" as const, delay: 0.6 },
   };
 }

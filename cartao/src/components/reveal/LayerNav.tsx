@@ -1,42 +1,43 @@
+import { motion } from "framer-motion";
 import type { RevealLayer } from "../../lib/reveal.ts";
+import { hoverLift, press, usePrefersReducedMotion } from "../../lib/motion.ts";
 
 type LayerNavProps = {
   onBack: () => void;
   onContact: () => void;
   current: RevealLayer;
-  tone?: "light" | "dark";
 };
 
-export function LayerNav({ onBack, onContact, current, tone = "light" }: LayerNavProps) {
-  const back =
-    tone === "dark"
-      ? "cta-outline focus-ring-cream"
-      : "focus-ring bg-surface-raised text-ink ring-1 ring-line";
-  const contact =
-    tone === "dark"
-      ? "cta focus-ring-cream"
-      : "cta-on-cream focus-ring";
-
+export function LayerNav({ onBack, onContact, current }: LayerNavProps) {
+  const reduced = usePrefersReducedMotion();
   const showBack = current === "connection";
 
   return (
     <nav
-      className={`grid w-full max-w-md gap-2 ${showBack ? "grid-cols-2" : "grid-cols-1"}`}
+      className={`mx-auto grid w-full max-w-md gap-2 lg:max-w-xl ${showBack ? "grid-cols-2" : "grid-cols-1"}`}
       aria-label="Navegação do cartão"
     >
       {showBack ? (
-        <button type="button" className={`min-h-[52px] rounded-full px-3 text-[1.1875rem] font-semibold ${back}`} onClick={onBack}>
+        <motion.button
+          type="button"
+          className="btn btn-ink focus-ring-cream"
+          onClick={onBack}
+          whileHover={reduced ? undefined : hoverLift}
+          whileTap={reduced ? undefined : press}
+        >
           Voltar
-        </button>
+        </motion.button>
       ) : null}
-      <button
+      <motion.button
         type="button"
-        className={`min-h-[52px] rounded-full px-3 text-[1.1875rem] font-semibold ${contact}`}
+        className="btn btn-accent focus-ring-cream"
         onClick={onContact}
         aria-current={current === "connection" ? "page" : undefined}
+        whileHover={reduced ? undefined : hoverLift}
+        whileTap={reduced ? undefined : press}
       >
         Contato
-      </button>
+      </motion.button>
     </nav>
   );
 }

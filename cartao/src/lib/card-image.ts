@@ -75,7 +75,6 @@ export async function renderEntryCardBlob(card: EntryCardInput): Promise<Blob | 
 
   context.fillStyle = MEDIA;
   context.fillRect(0, 0, width, height);
-  await drawInkScene(context, width, height);
 
   try {
     const logo = await loadImage(card.logoSrc);
@@ -84,15 +83,15 @@ export async function renderEntryCardBlob(card: EntryCardInput): Promise<Blob | 
     context.drawImage(logo, 80, 80, logoW, logoH);
   } catch {
     context.fillStyle = WHITE;
-    context.font = "800 72px \"Bricolage Grotesque\", Segoe UI, sans-serif";
+    context.font = "300 72px \"Bricolage Grotesque\", Segoe UI, sans-serif";
     context.fillText(card.fullName, 80, 220);
   }
 
-  context.font = "700 40px \"Bricolage Grotesque\", Segoe UI, sans-serif";
+  context.font = "500 40px \"Bricolage Grotesque\", Segoe UI, sans-serif";
   context.fillStyle = WHITE;
   wrapText(context, card.role, 80, 320, 920, 52);
 
-  context.font = "700 32px \"Bricolage Grotesque\", Segoe UI, sans-serif";
+  context.font = "400 32px \"Bricolage Grotesque\", Segoe UI, sans-serif";
   context.fillStyle = WHITE;
   wrapText(context, card.specialty, 80, 460, 920, 44);
 
@@ -122,18 +121,6 @@ export async function renderEntryCardBlob(card: EntryCardInput): Promise<Blob | 
   return new Promise((resolve) => {
     canvas.toBlob((blob) => resolve(blob), "image/png");
   });
-}
-
-async function drawInkScene(context: CanvasRenderingContext2D, width: number, height: number) {
-  try {
-    const art = await loadImage("/fundo-flor.png");
-    const scale = Math.max(width / art.width, height / art.height);
-    const drawW = art.width * scale;
-    const drawH = art.height * scale;
-    context.drawImage(art, width - drawW, height - drawH, drawW, drawH);
-  } catch {
-    /* fundo opcional na imagem salva */
-  }
 }
 
 function wrapText(

@@ -79,15 +79,15 @@ async function ownerPost(token: string, body: Record<string, unknown>): Promise<
   });
 }
 
-export async function loginOwner(password: string): Promise<{ ok: true; token: string } | { ok: false; message: string }> {
+export async function loginOwner(code: string): Promise<{ ok: true; token: string } | { ok: false; message: string }> {
   try {
-    const response = await ownerPost("", { action: "login", password });
+    const response = await ownerPost("", { action: "login", code });
     const data = (await response.json()) as { token?: unknown; error?: unknown };
     if (response.ok && typeof data.token === "string") return { ok: true, token: data.token };
     if (response.status === 503) {
-      return { ok: false, message: "O acesso do proprietário ainda não foi configurado neste servidor." };
+      return { ok: false, message: "O código do proprietário ainda não foi configurado neste servidor." };
     }
-    return { ok: false, message: "Senha incorreta." };
+    return { ok: false, message: "Código incorreto." };
   } catch {
     return { ok: false, message: "Não foi possível entrar. Tente de novo." };
   }

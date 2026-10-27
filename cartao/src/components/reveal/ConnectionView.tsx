@@ -4,8 +4,7 @@ import type { BusinessCardConfig } from "../../config/business-card.ts";
 import { newWindowLabel } from "../../lib/a11y.ts";
 import type { ActionId, CardAction } from "../../lib/actions.ts";
 import { buildEmailComposeUrl, buildWhatsAppUrl, isHttpUrl, linkedinHandle, linkedinProfileUrl } from "../../lib/contact.ts";
-import { easeOut, usePrefersReducedMotion } from "../../lib/motion.ts";
-import { ActionButton } from "../ActionButton.tsx";
+import { hoverLift, press, rise, usePrefersReducedMotion } from "../../lib/motion.ts";
 import { ChannelMark, type ChannelId } from "../ChannelMark.tsx";
 
 type ConnectionViewProps = {
@@ -33,6 +32,23 @@ const barClass: Record<ChannelId, string> = {
   website: "bg-accent",
 };
 
+const actionClass: Record<ChannelId, string> = {
+  whatsapp: "btn btn-whatsapp mt-4",
+  linkedin: "btn btn-linkedin mt-4",
+  email: "btn btn-ink mt-4",
+  portfolio: "btn btn-accent mt-4",
+  website: "btn btn-save mt-4",
+};
+
+const extraClass: Partial<Record<ActionId, string>> = {
+  "save-contact": "btn btn-whatsapp",
+  share: "btn btn-linkedin",
+  "download-qr": "btn btn-save",
+  schedule: "btn btn-accent",
+  "resume-view": "btn btn-ink",
+  "resume-download": "btn btn-cream",
+};
+
 function siteLabel(url: string): string {
   try {
     const parsed = new URL(url);
@@ -47,10 +63,12 @@ function ChannelButton({
   link,
   active,
   onSelect,
+  reduced,
 }: {
   link: StageLink;
   active: boolean;
   onSelect: (id: ChannelId) => void;
+  reduced: boolean;
 }) {
   const className = "focus-ring flex w-full flex-col items-center gap-2 rounded-md px-1 py-2";
   const body = (
@@ -62,23 +80,33 @@ function ChannelButton({
 
   if (link.id === "linkedin") {
     return (
-      <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={newWindowLabel(link.label, true)} className={className}>
+      <motion.a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={newWindowLabel(link.label, true)}
+        className={className}
+        whileHover={reduced ? undefined : hoverLift}
+        whileTap={reduced ? undefined : press}
+      >
         {body}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button
+    <motion.button
       type="button"
       aria-label={link.label}
       aria-pressed={active}
       aria-controls="contato-detalhe"
       className={className}
       onClick={() => onSelect(link.id)}
+      whileHover={reduced ? undefined : hoverLift}
+      whileTap={reduced ? undefined : press}
     >
       {body}
-    </button>
+    </motion.button>
   );
 }
 
@@ -155,48 +183,44 @@ export function ConnectionView({ card, extras, onAction }: ConnectionViewProps) 
   }
 
   const active = links.find((link) => link.id === activeId) ?? null;
+  const talk = links.filter((link) => link.id === "whatsapp" || link.id === "linkedin" || link.id === "email");
+  const work = links.filter((link) => link.id === "portfolio" || link.id === "website");
 
   return (
-    <motion.div
-      className="mx-auto flex w-full max-w-md flex-col px-5 pt-5 pb-4 text-cream"
-      initial={reduced ? false : { opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: reduced ? 0 : 0.42, ease: easeOut }}
-    >
-      <p className="text-[1.1875rem] font-medium tracking-[0.12em] text-cream uppercase">Contato</p>
-      <h1
+    <div className="mx-auto flex w-full max-w-md flex-col px-5 pt-5 pb-4 text-cream lg:max-w-3xl lg:px-10 lg:pt-8">
+      <motion.p {...rise(reduced)} className="text-[1.1875rem] font-medium tracking-[0.12em] text-cream uppercase">
+        Contato
+      </motion.p>
+      <motion.h1
         id="titulo-pagina"
         tabIndex={-1}
-        className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-cream outline-none focus:outline-none focus-visible:outline-none"
+        className="mt-2 text-[clamp(1.85rem,4vw,2.5rem)] font-light tracking-[-0.04em] text-cream outline-none focus:outline-none focus-visible:outline-none"
+        {...rise(reduced, 0.06)}
       >
         Fale com {card.firstName}
-      </h1>
+      </motion.h1>
 
-      <div id="contato-direto" className="mt-5">
+      <motion.div id="contato-direto" className="mt-5" {...rise(reduced, 0.1)}>
         <p className="sr-only">Escolha um canal de contato</p>
         <div className="glass rounded-lg px-3 py-4">
           <p className="text-center text-xs font-medium tracking-[0.18em] text-muted uppercase">Falar</p>
           <ul className="mt-3 grid grid-cols-3 gap-2">
-            {links
-              .filter((link) => link.id === "whatsapp" || link.id === "linkedin" || link.id === "email")
-              .map((link) => (
-                <li key={link.id}>
-                  <ChannelButton link={link} active={activeId === link.id} onSelect={setActiveId} />
-                </li>
-              ))}
+            {talk.map((link) => (
+              <li key={link.id}>
+                <ChannelButton link={link} active={activeId === link.id} onSelect={setActiveId} reduced={reduced} />
+              </li>
+            ))}
           </ul>
           <p className="mt-4 text-center text-xs font-medium tracking-[0.18em] text-muted uppercase">Trabalho</p>
-          <ul className="mt-3 grid grid-cols-2 gap-2">
-            {links
-              .filter((link) => link.id === "portfolio" || link.id === "website")
-              .map((link) => (
-                <li key={link.id}>
-                  <ChannelButton link={link} active={activeId === link.id} onSelect={setActiveId} />
-                </li>
-              ))}
+          <ul className="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-2">
+            {work.map((link) => (
+              <li key={link.id}>
+                <ChannelButton link={link} active={activeId === link.id} onSelect={setActiveId} reduced={reduced} />
+              </li>
+            ))}
           </ul>
         </div>
-      </div>
+      </motion.div>
 
       <div id="contato-detalhe" className="mt-4 min-h-12">
         <AnimatePresence mode="wait" initial={false}>
@@ -205,39 +229,61 @@ export function ConnectionView({ card, extras, onAction }: ConnectionViewProps) 
               key={active.id}
               href={active.href}
               className="glass focus-ring flex w-full flex-col overflow-hidden rounded-lg text-center"
-              initial={reduced ? false : { opacity: 0, y: 16, scale: 0.94 }}
+              initial={reduced ? false : { opacity: 0, y: 18, scale: 0.94 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduced ? { opacity: 1 } : { opacity: 0, y: -8 }}
-              transition={{ duration: reduced ? 0 : 0.36, ease: easeOut }}
               aria-label={newWindowLabel(`${active.action}: ${active.label} ${active.detail}`, active.external)}
               {...(active.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               <span className={`block h-1.5 ${barClass[active.id]}`} aria-hidden="true" />
               <span className="flex flex-col items-center px-5 py-4">
-                <span className="text-sm font-semibold text-ink">{active.label}</span>
-                <span className="mt-2 text-base font-semibold break-words text-ink">{active.detail}</span>
+                <span className="text-sm font-medium text-ink">{active.label}</span>
+                <span className="mt-2 text-base font-normal break-words text-ink">{active.detail}</span>
                 <span className="mt-2 text-sm leading-relaxed text-muted">{active.note}</span>
-                <span className="cta-on-cream mt-4 inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold">
+                <span className={actionClass[active.id]}>
                   {active.action}
                   {active.external ? <span className="sr-only">, abre em nova aba</span> : null}
                 </span>
               </span>
             </motion.a>
           ) : (
-            <p className="text-center text-[1.1875rem] font-medium leading-snug text-cream">Toque em um ícone para ver o contato.</p>
+            <p className="text-center text-[1.1875rem] leading-snug font-medium text-cream">Toque em um ícone para ver o contato.</p>
           )}
         </AnimatePresence>
       </div>
 
       {extras.length > 0 ? (
-        <ul className="mt-5 space-y-2.5" aria-label="Ações do cartão">
+        <ul className="mt-5 grid gap-2 sm:grid-cols-3" aria-label="Ações do cartão">
           {extras.map((action) => (
             <li key={action.id}>
-              <ActionButton action={action} tone="dark" onActivate={() => onAction(action.id)} />
+              {action.href ? (
+                <motion.a
+                  className={extraClass[action.id] ?? "btn btn-cream"}
+                  href={action.href}
+                  aria-label={newWindowLabel(`${action.label}. ${action.description}`, action.external)}
+                  {...(action.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(action.download ? { download: action.download } : {})}
+                  whileHover={reduced ? undefined : hoverLift}
+                  whileTap={reduced ? undefined : press}
+                >
+                  {action.label}
+                </motion.a>
+              ) : (
+                <motion.button
+                  type="button"
+                  className={extraClass[action.id] ?? "btn btn-cream"}
+                  onClick={() => onAction(action.id)}
+                  aria-label={`${action.label}. ${action.description}`}
+                  whileHover={reduced ? undefined : hoverLift}
+                  whileTap={reduced ? undefined : press}
+                >
+                  {action.label}
+                </motion.button>
+              )}
             </li>
           ))}
         </ul>
       ) : null}
-    </motion.div>
+    </div>
   );
 }
