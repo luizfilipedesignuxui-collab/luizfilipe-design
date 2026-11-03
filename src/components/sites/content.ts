@@ -22,7 +22,8 @@ export type Origem =
   | "sobre"
   | "preco"
   | "final"
-  | "flutuante";
+  | "flutuante"
+  | "pronto";
 
 declare global {
   interface Window {
