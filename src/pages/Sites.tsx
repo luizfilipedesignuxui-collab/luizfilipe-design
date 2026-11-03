@@ -6,6 +6,7 @@ import SitesHeader from "@/components/sites/SitesHeader";
 import SitesHero from "@/components/sites/SitesHero";
 import SitesQuiz from "@/components/sites/SitesQuiz";
 import FloatingWhatsApp from "@/components/sites/FloatingWhatsApp";
+import { SitesProntosSection } from "@/components/sites/SitesProntos";
 import {
   AboutLuizSection,
   FaqSection,
@@ -45,7 +46,7 @@ const useLandingMeta = () => {
 
 /**
  * Landing page de serviços: um único objetivo, levar o visitante ao WhatsApp.
- * Hook → Sobre → Nichos → Serviços → Prova → Quiz → Método → Preço → FAQ → CTA
+ * Hook → Sobre → Nichos → Serviços → Prova → Sites prontos → Quiz → Método → Preço → FAQ → CTA
  */
 const Sites = () => {
   useLandingMeta();
@@ -63,6 +64,7 @@ const Sites = () => {
         <NichesMarquee />
         <ServicesSection />
         <ProjectsShowcase />
+        <SitesProntosSection />
         <SitesQuiz />
         <HowItWorksSection />
         <PricingSection />
