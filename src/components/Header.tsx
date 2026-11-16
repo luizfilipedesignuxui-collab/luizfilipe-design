@@ -24,7 +24,8 @@ const focusRing =
 type NavItem = { label: string; href: string; icon: LucideIcon };
 type NavGroup = { id: string; label: string; icon: LucideIcon; items: NavItem[] };
 
-const TAB_FILL = "rgba(255,255,255,0.72)";
+// Themed cases (e.g. StarSense) override --header-tab-fill.
+const TAB_FILL = "var(--header-tab-fill, rgba(255,255,255,0.72))";
 
 const TabCurve = ({ side }: { side: "left" | "right" }) => (
   <svg
@@ -34,7 +35,7 @@ const TabCurve = ({ side }: { side: "left" | "right" }) => (
     aria-hidden="true"
     style={side === "right" ? { transform: "scaleX(-1)" } : undefined}
   >
-    <path d="M0 0 C 22 0, 18 56, 44 56 L 44 0 Z" fill={TAB_FILL} />
+    <path d="M0 0 C 22 0, 18 56, 44 56 L 44 0 Z" style={{ fill: TAB_FILL }} />
   </svg>
 );
 

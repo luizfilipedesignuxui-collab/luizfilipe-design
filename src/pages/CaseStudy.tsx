@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -8,6 +8,9 @@ import {
   Workflow,
   TrendingUp,
   ImageIcon,
+  Presentation,
+  Globe,
+  ArrowUpRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -18,6 +21,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CaseMetricsBlock from "@/components/CaseMetricsBlock";
 import CaseBeforeAfter from "@/components/CaseBeforeAfter";
+import { projectThemes } from "@/data/projects";
+import StarSenseIntro from "@/components/StarSenseIntro";
+import BronzeMedal from "@/components/BronzeMedal";
+
+// Prototype (presentation mode): opens straight into the presentation, no login needed.
+const STARSENSE_FIGMA_URL =
+  "https://www.figma.com/proto/7Pfv362uuKw7kn4atilVFh/StarSense-%E2%80%93-Telas-do-projeto?node-id=6-26&starting-point-node-id=6-26&scaling=scale-down&content-scaling=fixed&hide-ui=1";
+const STARSENSE_LANDING_URL = "https://starsense.techarea.com.br";
 
 /** Keep problem to one or two sentences (case matador). */
 function toProblem(text: string): string {
@@ -31,11 +42,22 @@ const MAX_VISUALS = 4;
 
 const CaseStudy = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  // The award medal waits for the StarSense opening to finish before it drops in.
+  const [introDone, setIntroDone] = useState(false);
   const { slug } = useParams<{ slug: string }>();
   const { projects: allProjects } = usePublishedProjects();
   const project = allProjects.find((p) => p.slug === slug);
   const { t, language } = useLanguage();
   const { loc } = useProjectLocale();
+  const themeClass = slug ? projectThemes[slug] : undefined;
+
+  // Some cases get their own color theme on the whole screen (header, footer, dialogs included).
+  useEffect(() => {
+    if (!themeClass) return;
+    const root = document.documentElement;
+    root.classList.add(themeClass);
+    return () => root.classList.remove(themeClass);
+  }, [themeClass]);
 
   if (!project) {
     return (
@@ -63,6 +85,7 @@ const CaseStudy = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {project.slug === "starsense" && <StarSenseIntro key={project.slug} onDone={() => setIntroDone(true)} />}
       <Header />
       <main className="pt-24">
         <section className="container mx-auto px-6 py-12">
@@ -71,6 +94,55 @@ const CaseStudy = () => {
               <ArrowLeft className="mr-2 w-4 h-4" /> {t("case.back")}
             </Link>
           </Button>
+
+        {project.slug === "starsense" && (
+          <div className="max-w-4xl mb-10">
+            {/* Award highlight: bronze medal, gradient hairline border, StarSense starfield */}
+            <div className="relative rounded-[28px] p-px bg-gradient-to-br from-[#FDBA74]/80 via-[#1E2C56] to-[#5CC8FF]/70 shadow-[0_30px_80px_-40px_rgba(251,146,60,0.7)]">
+              <div className="award-card relative overflow-hidden rounded-[27px] px-6 py-8 sm:px-10 sm:py-9">
+                <span
+                  className="pointer-events-none select-none absolute -right-4 -bottom-10 font-display text-[10rem] sm:text-[13rem] font-extrabold leading-none text-white/[0.04]"
+                  aria-hidden
+                >
+                  03
+                </span>
+
+                <div className="relative flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+                  <BronzeMedal play={introDone} className="w-36 sm:w-44 shrink-0 mx-auto sm:mx-0 -mt-4 sm:-mt-6 drop-shadow-[0_18px_30px_rgba(251,146,60,0.3)]" />
+
+                  <div className="min-w-0 flex-1 text-center sm:text-left">
+                    <h3 className="font-display text-5xl sm:text-6xl font-extrabold leading-[0.9] bg-gradient-to-r from-[#FFE7C7] via-[#FDBA74] to-[#FB923C] bg-clip-text text-transparent">
+                      {language === "en" ? "3rd place" : "3º lugar"}
+                    </h3>
+                    <p className="mt-3 font-display text-lg font-bold text-foreground">
+                      NASA Space Apps Challenge <span className="text-[#5CC8FF]">· Goiânia</span>
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground max-w-md mx-auto sm:mx-0">
+                      {language === "en"
+                        ? "Challenge 05: health monitoring software for astronauts on space missions."
+                        : "Desafio 05: software de monitoramento de saúde para astronautas em missões espaciais."}
+                    </p>
+                  </div>
+                </div>
+
+                <dl className="relative mt-8 grid grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+                  {(language === "en"
+                    ? [["48h", "hackathon"], ["6", "people on the team"], ["1", "MVP delivered"]]
+                    : [["48h", "de hackathon"], ["6", "pessoas no time"], ["1", "MVP entregue"]]
+                  ).map(([value, label]) => (
+                    <div key={label} className="px-3 py-4 text-center">
+                      <dt className="sr-only">{label}</dt>
+                      <dd className="font-display text-2xl sm:text-3xl font-extrabold text-[#5CC8FF] leading-none">{value}</dd>
+                      <dd className="mt-1.5 text-[0.7rem] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        {label}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </div>
+        )}
 
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
@@ -85,7 +157,30 @@ const CaseStudy = () => {
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-extrabold text-foreground mb-4">{l.titulo}</h1>
             <p className="text-xl text-muted-foreground max-w-2xl">{l.descricao}</p>
-            {project.link_projeto && (
+            {project.slug === "starsense" ? (
+              <div className="flex flex-wrap gap-3 mt-5">
+                <a
+                  href={STARSENSE_FIGMA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary-hover hover:text-white transition-colors"
+                >
+                  <Presentation className="w-4 h-4" aria-hidden />
+                  {language === "en" ? "View Figma presentation" : "Ver apresentação no Figma"}
+                  <ArrowUpRight className="w-4 h-4" aria-hidden />
+                </a>
+                <a
+                  href={STARSENSE_LANDING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/60 text-primary font-semibold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  <Globe className="w-4 h-4" aria-hidden />
+                  {language === "en" ? "View landing page" : "Ver landing page"}
+                  <ArrowUpRight className="w-4 h-4" aria-hidden />
+                </a>
+              </div>
+            ) : project.link_projeto && (
               <a
                 href={project.link_projeto}
                 target="_blank"

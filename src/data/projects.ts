@@ -69,8 +69,49 @@ import curioSite from "@/assets/curio-mulher/aplicacoes-site.webp";
 import curioRedesSociais from "@/assets/curio-mulher/aplicacoes-redes-sociais.webp";
 import labYesAntes from "@/assets/lab-yes/fale-conosco-antes.webp";
 import labYesDepois from "@/assets/lab-yes/fale-conosco-depois.webp";
+import starsenseCover from "@/assets/starsense/cover.jpg";
+import starsenseMonitoramento from "@/assets/starsense/monitoramento.jpg";
+import starsenseDetalhe from "@/assets/starsense/detalhe.jpg";
+import starsenseAlertas from "@/assets/starsense/alertas.jpg";
+import starsenseCheckin from "@/assets/starsense/checkin.jpg";
+
+/** Slugs whose case page uses the project's own color theme (see index.css). */
+export const projectThemes: Record<string, string> = {
+ starsense: "theme-starsense",
+};
 
 export const projects: Project[] = [
+ {
+ id: "14",
+ slug: "starsense",
+ titulo: "StarSense: Saúde de Astronautas no NASA Space Apps",
+ descricao: "3º lugar no NASA Space Apps Challenge Goiânia 2026. Em 48 horas, nosso time de seis pessoas criou o StarSense: um painel que monitora a saúde da tripulação sem nenhum sensor no corpo, usando o sinal Wi-Fi da própria nave. Atuei como UX/UI e Product Designer, do discovery ao protótipo final.",
+ imagem_capa: starsenseCover,
+ categoria: "Product Design",
+ ferramentas: ["Figma", "Design System", "WCAG", "APIs NASA", "ESP32"],
+ galeria_de_imagens: [starsenseMonitoramento, starsenseDetalhe, starsenseAlertas, starsenseCheckin],
+ contexto: "Como cuidar da saúde de quem está fora da Terra? O Desafio 05 da NASA pedia um software de monitoramento de saúde para astronautas. Hoje, vestíveis como o Astroskin ficam presos à pele por horas, a bateria dura até 48 horas por conjunto e, em missões longas, cada grama, watt e minuto contam.\n\nSegundo a NASA, astronautas podem perder de 1% a 1,5% da densidade óssea por mês, então acompanhar a tripulação de perto não é opcional.",
+ objetivo: "Monitorar a saúde da tripulação sem nada no corpo. Com Wi-Fi Sensing, o StarSense usa o sinal do próprio ambiente como sensor: um ESP32 lê as variações que o corpo causa no Wi-Fi, uma IA local interpreta movimento e respiração e o painel transforma esses dados em alertas e relatórios para a equipe decidir rápido.",
+ processo: {
+ research: "Começamos pelo desafio da NASA e pelos limites reais de uma missão: vestíveis desconfortáveis, bateria curta e recursos escassos. Modelei os dados de saúde, da missão e do clima espacial com fontes abertas da NASA (OSDR e DONKI) e mapeei quem usa o painel: uma equipe que precisa decidir em pouco tempo, muitas vezes com pouca luz.",
+ wireframe: "Desenhei a arquitetura da informação em quatro áreas: Visão geral, Monitoramento, Tripulação e Relatórios. A visão geral abre com o que precisa de atenção (alertas aguardando revisão humana), seguida das seis áreas de saúde monitoradas: cardiovascular, muscular e ósseo, ocular e neurológico, radiação e ambiente, inteligência preventiva e saúde mental.",
+ ui_design: "Criei a identidade: uma estrela de 4 pontas com uma órbita ao redor, \"SENSE\" em ciano e tipografia Michroma + Sora. A paleta tem tokens no Figma e contraste validado pela WCAG, e cada cor tem uma função: Azul espaço (#070B1A) de fundo para cabines com pouca luz, Azul órbita (#2F6BFF) nos destaques, Ciano sinal (#5CC8FF) para ação e dados importantes, Laranja atenção (#FB923C) só para o que precisa de revisão e Verde status (#34D399) para o que está operacional. UI limpa, alvos de toque grandes para tablet e nenhum diagnóstico automático: a decisão final é sempre da equipe.",
+ },
+ resultado: "Terceiro lugar no NASA Space Apps Challenge Goiânia 2026. Entregamos em 48 horas um MVP com painel de visão geral da tripulação, monitoramento de seis áreas de saúde, alertas com revisão humana obrigatória, relatórios da missão e dados abertos da NASA, além de protótipo de hardware com ESP32, landing page e pitch. Próximos passos: modelos preditivos treinados com mais dados, app para uso a bordo, validação com especialistas em medicina aeroespacial e uso na Terra, em saúde de áreas remotas.",
+ tags: ["NASA Space Apps", "🏆 3º lugar", "Hackathon", "Dashboard", "Acessibilidade WCAG"],
+ link_projeto: "https://starsense.techarea.com.br",
+ titulo_en: "StarSense: Astronaut Health at NASA Space Apps",
+ descricao_en: "3rd place at NASA Space Apps Challenge Goiânia 2026. In 48 hours, our six-person team built StarSense: a dashboard that monitors crew health with no sensors on the body, using the spacecraft's own Wi-Fi signal. I worked as UX/UI and Product Designer, from discovery to the final prototype.",
+ categoria_en: "Product Design",
+ contexto_en: "How do you care for the health of people off Earth? NASA's Challenge 05 asked for health monitoring software for astronauts. Today, wearables like Astroskin stay strapped to the skin for hours, batteries last up to 48 hours per set and, on long missions, every gram, watt and minute counts.\n\nAccording to NASA, astronauts can lose 1% to 1.5% of bone density per month, so close crew monitoring is not optional.",
+ objetivo_en: "Monitor crew health with nothing on the body. With Wi-Fi Sensing, StarSense uses the environment's own signal as a sensor: an ESP32 reads the variations the body causes in Wi-Fi, a local AI interprets movement and breathing, and the dashboard turns that data into alerts and reports so the team can decide fast.",
+ resultado_en: "Third place at NASA Space Apps Challenge Goiânia 2026. In 48 hours we delivered an MVP with a crew overview dashboard, monitoring of six health areas, alerts with mandatory human review, mission reports and NASA open data, plus an ESP32 hardware prototype, landing page and pitch. Next steps: predictive models trained on more data, an onboard app for the crew, validation with aerospace medicine specialists and use on Earth, for health in remote areas.",
+ processo_en: {
+ research: "We started from NASA's challenge and the real limits of a mission: uncomfortable wearables, short battery life and scarce resources. I modeled health, mission and space weather data using NASA open sources (OSDR and DONKI) and mapped who uses the dashboard: a team that must decide quickly, often in low light.",
+ wireframe: "I designed the information architecture in four areas: Overview, Monitoring, Crew and Reports. The overview opens with what needs attention (alerts awaiting human review), followed by the six monitored health areas: cardiovascular, muscle and bone, ocular and neurological, radiation and environment, preventive intelligence and mental health.",
+ ui_design: "I created the identity: a 4-point star with an orbit around it, \"SENSE\" in cyan and Michroma + Sora typography. The palette has Figma tokens and WCAG-validated contrast, and each color has a job: Space blue (#070B1A) as the background for low-light cabins, Orbit blue (#2F6BFF) for highlights, Signal cyan (#5CC8FF) for actions and key data, Attention orange (#FB923C) only for what needs review and Status green (#34D399) for what is operational. Clean UI, large touch targets for tablets and no automatic diagnosis: the final call is always the team's.",
+ },
+ },
  {
  id: "12",
  slug: "lab-yes-fale-conosco",
