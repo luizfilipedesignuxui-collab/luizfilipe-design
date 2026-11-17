@@ -18,12 +18,25 @@ const INTRO_MS = 2900;
 const StarSenseIntro = ({ onDone }: { onDone?: () => void }) => {
   const reduce = useReducedMotion();
   const [visible, setVisible] = useState(true);
+  const [soundHint, setSoundHint] = useState(false);
+
+  // If the browser blocked the soundtrack, invite the click that starts it.
+  useEffect(() => {
+    const onBlocked = () => setSoundHint(true);
+    const onPlaying = () => setSoundHint(false);
+    window.addEventListener("starsense-audio-blocked", onBlocked);
+    window.addEventListener("starsense-audio-playing", onPlaying);
+    return () => {
+      window.removeEventListener("starsense-audio-blocked", onBlocked);
+      window.removeEventListener("starsense-audio-playing", onPlaying);
+    };
+  }, []);
 
   useEffect(() => {
     if (!visible) return;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const timer = window.setTimeout(() => setVisible(false), reduce ? 900 : INTRO_MS);
+    const timer = window.setTimeout(() => setVisible(false), soundHint ? 6500 : reduce ? 900 : INTRO_MS);
     const onKey = (e: KeyboardEvent) => {
       if (["Escape", "Enter", " "].includes(e.key)) setVisible(false);
     };
@@ -33,7 +46,7 @@ const StarSenseIntro = ({ onDone }: { onDone?: () => void }) => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
     };
-  }, [visible, reduce]);
+  }, [visible, reduce, soundHint]);
 
   const letters = "STARSENSE".split("");
 
@@ -140,6 +153,17 @@ const StarSenseIntro = ({ onDone }: { onDone?: () => void }) => {
             >
               Invisible signals. Visible health.
             </motion.p>
+
+            {soundHint && (
+              <motion.p
+                className="mt-2 flex items-center gap-2 text-[0.6rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[#5CC8FF]"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: [0, 1, 0.55, 1], y: 0 }}
+                transition={{ duration: 1.6, delay: reduce ? 0 : 1.9 }}
+              >
+                <span aria-hidden="true">♪</span> Clique para entrar com som
+              </motion.p>
+            )}
           </motion.div>
         </motion.div>
       )}

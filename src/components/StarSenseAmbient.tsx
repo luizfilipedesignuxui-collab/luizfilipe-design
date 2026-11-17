@@ -29,6 +29,7 @@ const StarSenseAmbient = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [available, setAvailable] = useState(true);
   const [playing, setPlaying] = useState(false);
+  const [blocked, setBlocked] = useState(false);
   const [muted, setMuted] = useState(() => {
     try {
       return localStorage.getItem("starsense-muted") === "1";
@@ -55,15 +56,19 @@ const StarSenseAmbient = () => {
         .play()
         .then(() => {
           setPlaying(true);
+          setBlocked(false);
+          window.dispatchEvent(new Event("starsense-audio-playing"));
           fade(audio, TARGET_VOLUME, FADE_MS);
           removeGestures();
         })
         .catch(() => {
-          /* still blocked: wait for a user gesture */
+          // Browser blocked autoplay: wait for the first click/tap/key.
+          setBlocked(true);
+          window.dispatchEvent(new Event("starsense-audio-blocked"));
         });
     };
 
-    const events = ["pointerdown", "keydown", "touchstart"] as const;
+    const events = ["pointerdown", "mousedown", "click", "keydown", "touchstart", "touchend"] as const;
     const removeGestures = () => events.forEach((e) => window.removeEventListener(e, start));
     events.forEach((e) => window.addEventListener(e, start));
     start();
@@ -131,6 +136,14 @@ const StarSenseAmbient = () => {
           {label}
         </span>
       </button>
+      {blocked && !muted && !playing && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none fixed bottom-[1.6rem] left-[4.25rem] z-[90] animate-pulse whitespace-nowrap text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[#A8C8FF]/80"
+        >
+          Clique na página para ouvir
+        </span>
+      )}
     </>
   );
 };
