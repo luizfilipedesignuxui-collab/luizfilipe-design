@@ -23,6 +23,7 @@ import CaseMetricsBlock from "@/components/CaseMetricsBlock";
 import CaseBeforeAfter from "@/components/CaseBeforeAfter";
 import { projectThemes } from "@/data/projects";
 import StarSenseIntro from "@/components/StarSenseIntro";
+import StarSenseAmbient from "@/components/StarSenseAmbient";
 import BronzeMedal from "@/components/BronzeMedal";
 
 // Prototype (presentation mode): opens straight into the presentation, no login needed.
@@ -86,6 +87,7 @@ const CaseStudy = () => {
   return (
     <div className="min-h-screen bg-background">
       {project.slug === "starsense" && <StarSenseIntro key={project.slug} onDone={() => setIntroDone(true)} />}
+      {project.slug === "starsense" && <StarSenseAmbient key={`${project.slug}-audio`} />}
       <Header />
       <main className="pt-24">
         <section className="container mx-auto px-6 py-12">
